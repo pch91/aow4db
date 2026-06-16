@@ -19,18 +19,12 @@
         <script>
            
             function HandlePage() {
-                if(showBetaTooltip.checked){
+              
                        let unitarray =  GetCultureUnitsOf("Reaver", "Federate");
                   let unitarray2 =  GetCultureUnitsOf("Reaver", "Imperial");
                 SetButtonsAndDivs(unitarray, "buttonHolder1", "unit", "dataHolder1", "Federate");
                 SetButtonsAndDivs(unitarray2, "buttonHolder2", "unit", "dataHolder2", "Imperial");
-                }else{
-                       const unitarray = GetCultureUnitsOf("Reaver");
-                SetButtonsAndDivs(unitarray, undefined, "unit");
-                }
-                
-
-                
+               
              
                 SetLevelUpStuff();
             }
@@ -57,7 +51,7 @@
         <button onclick="showSubDiv(event,'Federate')" class="subscultureButton"><img src=/aow4db/Icons/Text/federate.png width="50px">
             <span class="subCultureName" id="subCultureNameFederate">Federate</span>
         </button>
-        <button onclick="showSubDiv(event,'Imperial')" class="subscultureButton"><img src=/aow4db/Icons/Text/Imperial.png width="50px">
+        <button onclick="showSubDiv(event,'Imperial')" class="subscultureButton"><img src=/aow4db/Icons/Text/imperial.png width="50px">
             <span class="subCultureName" id="subCultureNameImperial">Imperial</span>
         </button>
       
