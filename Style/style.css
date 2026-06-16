@@ -1973,6 +1973,18 @@ span.number-highlight {
     flex-direction: row;
 }
 
+/* Base affinity number — small, greenish-grey, semi-transparent, left of the white number */
+#currentAffinity .baseAffinity {
+    font-size: 10px;
+    color: rgba(255, 208, 134, 0.5);
+    line-height: 1;
+    pointer-events: none;
+    margin-right: 1px;
+    margin-left: 3px;
+    top: 3px;
+    position: relative;
+}
+
 /* ========== RESPONSIVE MOBILE (max-width: 768px) ========== */
 @media screen and (max-width: 768px) {
 
@@ -2236,7 +2248,7 @@ span.number-highlight {
     /* ---- Tooltip → forced bottom-anchored (overrides JS inline) ---- */
     .tooltiptextnew {
         position: fixed !important;
-        top: auto !important;
+        top: 10px !important;
         left: 2vw !important;
         right: 2vw !important;
         width: auto !important;

@@ -41,10 +41,8 @@ window.TomeRestriction = (function () {
             baseAff      = null;
             if (el) el.style.display = "none";
         } else if (!distribution) {
-            if (el) {
-                el.style.display = "block";
-                el.innerHTML = _promptHtml();
-            }
+            if (el) el.style.display = "block";
+            onRandomize();  // Auto-randomize immediately instead of showing prompt
         }
     }
 
@@ -191,35 +189,108 @@ window.TomeRestriction = (function () {
      * Hybrid T5 tomes that contain the primary element also qualify.
      * If multiple elements are tied for highest, one is chosen at random.
      */
+    /**
+     * Counts the number of distinct affinity elements in a tome's affinities string.
+     * e.g. "1 <empirearcana>… 1 <empirechaos>…" → 2
+     */
+    function _countDistinctAffinities(tome) {
+        if (!tome || !tome.affinities) return 0;
+        var contrib = _parseTomeContrib(tome.affinities);
+        return Object.keys(contrib).filter(function (k) { return contrib[k] > 0; }).length;
+    }
+
+    /**
+     * Returns true if the player has every possible affinity element with at least 1 point.
+     * Checks for the standard 6: empirearcana, empirechaos, empirenature,
+     * empirematter, empireorder, empireshadow.
+     */
+    function _hasAllAffinities(affinityStr) {
+        var map = _parseAffinityTotal(affinityStr);
+        var required = ["empirearcana","empirechaos","empirenature","empirematter","empireorder","empireshadow"];
+        for (var i = 0; i < required.length; i++) {
+            if (!map[required[i]] || map[required[i]] < 1) return false;
+        }
+        return true;
+    }
+
+    /**
+     * Returns true if the player has at least 1 point in every affinity element
+     * that this tome contributes to.  e.g. a Chaos+Shadow hybrid tome requires
+     * the player to have both Chaos ≥1 and Shadow ≥1.
+     */
+    function _playerHasAllTomeAffinities(tome, affinityStr) {
+        if (!tome || !tome.affinities) return true;
+        var playerMap = _parseAffinityTotal(affinityStr);
+        var contrib   = _parseTomeContrib(tome.affinities);
+        var tomeElts  = Object.keys(contrib).filter(function (k) { return contrib[k] > 0; });
+        for (var i = 0; i < tomeElts.length; i++) {
+            if (!playerMap[tomeElts[i]] || playerMap[tomeElts[i]] < 1) return false;
+        }
+        return true;
+    }
+
     function _selectTier5Tome() {
-        // Use the captured base affinity map (set in onRandomize) for T5 selection.
-        // Fall back to _computeBaseAffinities if called before onRandomize.
-        var affStr      = (typeof currentAffinityTotal !== "undefined") ? currentAffinityTotal : _computeBaseAffinities();
+        // Base affinity = culture + societies + first tome + subtype (same as green number)
+        var affStr      = _computeBaseAffinities();
         var topElements = _getTopAffinityElements(affStr);
 
-        // Candidates: T5 tomes (excluding Cosmos) that reference a top-affinity element
-        var pool = (typeof jsonTomes !== "undefined" ? jsonTomes : []).filter(function (t) {
-            if (t.tier !== 5)                  return false;
-            if (t.id === "tome_of_the_cosmos")  return false;
-            if (!t.affinities)                  return false;
-            return topElements.some(function (el) { return t.affinities.indexOf(el) !== -1; });
+        // All T5 tomes that have affinities (no special exclusions)
+        var allT5 = (typeof jsonTomes !== "undefined" ? jsonTomes : []).filter(function (t) {
+            return t.tier === 5 && t.affinities;
         });
 
-        // Fallback: any T5 (except Cosmos)
-        if (!pool.length) {
-            pool = (typeof jsonTomes !== "undefined" ? jsonTomes : []).filter(function (t) {
-                return t.tier === 5 && t.id !== "tome_of_the_cosmos";
-            });
+        if (!allT5.length) return null;
+
+        // Separate into: all-affinity (≥6 elements), other-hybrid (2-5), mono (1)
+        var allAffTomes   = [];  // tomes with all 6 affinity elements
+        var hybridTomes   = [];  // tomes with 2-5 affinity elements
+        var monoTomes     = [];  // tomes with a single affinity element
+
+        for (var i = 0; i < allT5.length; i++) {
+            var cnt = _countDistinctAffinities(allT5[i]);
+            if (cnt >= 6)       allAffTomes.push(allT5[i]);
+            else if (cnt >= 2)  hybridTomes.push(allT5[i]);
+            else                monoTomes.push(allT5[i]);
         }
-        if (!pool.length) return null;
+
+        // ── Rule: if player has ALL 6 affinities → always the all-affinity tome ──
+        if (_hasAllAffinities(affStr) && allAffTomes.length > 0) {
+            return allAffTomes[Math.floor(Math.random() * allAffTomes.length)];
+        }
+
+        // ── Other hybrid T5 tomes (50% chance) ──────────────────────────
+        // Eligible if: (a) contains the player's HIGHEST base affinity,
+        // (b) player has ≥1 base point in ALL of the tome's affinity elements.
+        var hybridPool = hybridTomes.filter(function (t) {
+            var matchesTop = topElements.some(function (el) { return t.affinities.indexOf(el) !== -1; });
+            return matchesTop && _playerHasAllTomeAffinities(t, affStr);
+        });
+        if (hybridPool.length > 0 && Math.random() < 0.50) {
+            return hybridPool[Math.floor(Math.random() * hybridPool.length)];
+        }
+
+        // ── Default: mono tomes matching the HIGHEST base affinity ───────
+        var monoPool = monoTomes.filter(function (t) {
+            return topElements.some(function (el) { return t.affinities.indexOf(el) !== -1; });
+        });
+        if (!monoPool.length) monoPool = monoTomes;
+        if (monoPool.length > 0) {
+            return monoPool[Math.floor(Math.random() * monoPool.length)];
+        }
+
+        // ── Ultimate fallback: any T5 (top-affinity first) ───────────────
+        var pool = allT5.filter(function (t) {
+            return topElements.some(function (el) { return t.affinities.indexOf(el) !== -1; });
+        });
+        if (!pool.length) pool = allT5;
         return pool[Math.floor(Math.random() * pool.length)];
     }
 
     // ── Affinity Helpers ──────────────────────────────────────────────────────
 
     /**
-     * Returns the affinity total string computed from culture/societies/subtype only —
-     * EXCLUDING tome contributions and extra affinity points.
+     * Returns the affinity total from culture + societies + subtype + FIRST TOME only —
+     * same as the "green number" (base affinity) shown in the UI.  No extras, no later tomes.
      */
     function _computeBaseAffinities() {
         // Temporarily zero out the extra-affinity globals defined in Faction.js
@@ -227,8 +298,12 @@ window.TomeRestriction = (function () {
             sM = extraMaterium, sSh = extraShadow, sA = extraAstral;
         extraOrder = extraChaos = extraNature = extraMaterium = extraShadow = extraAstral = 0;
 
+        // Include only the first tome (the one from the random draw), like the green number
+        var firstTome = (typeof currentTomeList !== "undefined" && currentTomeList.length > 0)
+            ? [currentTomeList[0]] : [];
+
         var r = GetAffinityTotalFromList(
-            GetCurrentChoiceList(), [],
+            GetCurrentChoiceList(), firstTome,
             currentSubType, currentSubCulture,
             currentSubSociety1, currentSubSociety2
         );

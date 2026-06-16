@@ -97,7 +97,6 @@ const extraTomesForTheorycrafting = [];
 function isTheorycrafting(entry) {
     if (!entry) return false;
     if (entry.description === "For theorycrafting." || entry.gameplay_description === "For theorycrafting") return true;
-    if (entry.DLC && entry.DLC.trim() === "SECRETSOFTHEARCHMAGES") return true;
     return false;
 }
 
@@ -945,13 +944,78 @@ function ClearTomePath() {
 
     currentTomeList = [];
     currentTomeList.push(currentTome);
-    selectTomePath();
+
+    // Show a "Randomize Tomes" button instead of just the starting tome
+    var randomizeBtn = document.createElement("div");
+    randomizeBtn.className = "tome-add-slot";
+    randomizeBtn.style = "background-color:#1d3a2c;color:#90ee90;font-weight:bold;cursor:pointer;font-size:24px;";
+    randomizeBtn.innerHTML = "&#x1F3B2;";
+    randomizeBtn.title = "Randomize Tomes";
+    randomizeBtn.addEventListener("click", function (event) {
+        event.stopPropagation();
+        RandomizeTomePath();
+    });
+    originButton.appendChild(randomizeBtn);
 
     RecalculateStats(false);
-    // swap current known origin
-    // draw all tomes
-
     toggleOriginButtons();
+    if (window.TomeRestriction && window.TomeRestriction.isEnabled()) TomeRestriction.updateDisplay();
+}
+
+/** Randomly fill the tome path with valid tomes based on affinity requirements. */
+function RandomizeTomePath() {
+    // Keep only the starting tome (index 0)
+    var startTome = currentTomeList[0];
+    currentTomeList = [startTome];
+
+    // If Tome Restriction is active, use its existing distribution (do NOT regenerate)
+    var trActive = window.TomeRestriction && window.TomeRestriction.isEnabled();
+
+    // With TR: slots 0-7 random, slot 8 = locked T5.  Without TR: all 9 random, last = T5.
+    var randomSlots = trActive ? 7 : 8;  // number of intermediate slots to fill randomly
+    var maxAttempts = 500;
+
+    // ── Fill intermediate slots randomly ──────────────────────────────
+    for (var slot = 0; slot < randomSlots && maxAttempts > 0; slot++) {
+        maxAttempts--;
+        var slotIndex = currentTomeList.length - 1;
+        var isLastSlot = !trActive && (slot === randomSlots - 1);  // last slot without TR must be T5
+
+        var nextTomes = GetNextSetOfTomes(currentTomeList.length);
+
+        // Deduplicate: exclude tomes already in the path
+        nextTomes = nextTomes.filter(function (t) { return !isInArray(currentTomeList, t); });
+
+        // Apply Tome Restriction filter if active
+        if (trActive) {
+            var savedInsertion = tomeInsertionIndex;
+            tomeInsertionIndex = slotIndex;
+            nextTomes = window.TomeRestriction.filterTomes(nextTomes, tomeInsertionIndex);
+            tomeInsertionIndex = savedInsertion;
+        }
+
+        // Last slot without TR: only T5 tomes
+        if (isLastSlot) {
+            nextTomes = nextTomes.filter(function (t) { return t.tier === 5; });
+        }
+
+        if (nextTomes.length === 0) break;
+        var pick = nextTomes[Math.floor(Math.random() * nextTomes.length)];
+        currentTomeList.push(pick);
+    }
+
+    // ── Final slot with TR: always the locked T5 ──────────────────────
+    if (trActive && currentTomeList.length === 8) {
+        var lockedT5 = window.TomeRestriction.getTier5();
+        if (lockedT5) {
+            currentTomeList.push(lockedT5);
+        }
+    }
+
+    selectTomePath(undefined, false);
+    RecalculateStats(false);
+    toggleOriginButtons();
+    if (window.TomeRestriction && window.TomeRestriction.isEnabled()) TomeRestriction.updateDisplay();
 }
 
 function SetTomePathInfo(button, origin) {
@@ -1437,14 +1501,25 @@ function GetAffinityTotalFromList(list, tomeList, subType, subCulture, subSociet
 
 // Converts the raw affinity string (from GetAffinityTotalFromList) to the Big-tag HTML
 // format used by the #currentAffinity display element and checkEmpireOfCosmos().
-function affinityToDisplayHtml(affinityStr) {
+function affinityToDisplayHtml(affinityStr, baseStr) {
+    // Parse the base affinity into a { tag: count } map (optional)
+    var baseMap = null;
+    if (baseStr) {
+        baseMap = {};
+        var bre = /<(\w+)><\/\1>\s*(\d+)/g, bm;
+        while ((bm = bre.exec(baseStr)) !== null) {
+            baseMap[bm[1]] = parseInt(bm[2], 10);
+        }
+    }
+
     var out = "";
     var re = /<(\w+)><\/\1>\s*(\d+)/g;
     var m;
     while ((m = re.exec(affinityStr)) !== null) {
         var tag = m[1];
         var num = m[2];
-        out += '<div><span>' + num + '</span><' + tag + 'Big></' + tag + 'Big></div>';
+        var baseNum = (baseMap && baseMap[tag] !== undefined) ? baseMap[tag] : 0;
+        out += '<div><span class="baseAffinity">' + baseNum + '</span><span>' + num + '</span><' + tag + 'Big></' + tag + 'Big></div>';
     }
     return out;
 }
@@ -1478,7 +1553,22 @@ function RecalculateStats(fromload) {
     const affinitySummary = document.getElementById("currentAffinity");
 
     currentAffinityTotal = result;
-    affinitySummary.innerHTML = affinityToDisplayHtml(result);
+
+    // Compute base affinity (same as total but WITHOUT extra points and only first tome)
+    var savedExtras = [extraOrder, extraChaos, extraNature, extraMaterium, extraShadow, extraAstral];
+    extraOrder = extraChaos = extraNature = extraMaterium = extraShadow = extraAstral = 0;
+    var baseResult = GetAffinityTotalFromList(
+        list,
+        currentTomeList.length > 0 ? [currentTomeList[0]] : [],
+        currentSubType,
+        currentSubCulture,
+        currentSubSociety1,
+        currentSubSociety2
+    );
+    extraOrder = savedExtras[0]; extraChaos = savedExtras[1]; extraNature = savedExtras[2];
+    extraMaterium = savedExtras[3]; extraShadow = savedExtras[4]; extraAstral = savedExtras[5];
+
+    affinitySummary.innerHTML = affinityToDisplayHtml(result, baseResult);
 
     CollectAllPartsForOverview(fromload);
 }
