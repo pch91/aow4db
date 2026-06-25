@@ -60273,10 +60273,10 @@
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SKILL3",
-    "description": "La race cible est inprégnée des forces infernales de la gloutonnerie et obtient :<bulletlist><bullet>En tuant une unité ennemie non<hyperlink>Combat summon</hyperlink>, gagne un cumul permanent de <hyperlink>Gorged</hyperlink>, qui :<bulletlist></bullet><bullet>à 5 cumuls, devient un cumul permanent de <hyperlink>Demonic satiation</hyperlink>.</bullet><bullet>Ne peut être obtenu quand <hyperlink>Demonic satiation</hyperlink> est à 10 cumuls.</bullet></bulletlist><bullet></bullet>En pillant une province, guérit 25 % de ses <hyperlink><hp></hp> Point de vie</hyperlink> maximum.[/bulletlist]",
+    "description": "La race cible est inprégnée des forces infernales de la gloutonnerie et obtient :<bulletlist><bullet>En tuant une unité ennemie non<hyperlink>Combat summon</hyperlink>, gagne un cumul permanent de <hyperlink>Gorged</hyperlink>, qui :<bulletlist></bullet><bullet>à 10 cumuls, devient un cumul permanent de <hyperlink>Demonic satiation</hyperlink>.</bullet><bullet>Ne peut être obtenu quand <hyperlink>Demonic satiation</hyperlink> est à 10 cumuls.</bullet></bulletlist><bullet></bullet>En pillant une province, guérit 25 % de ses <hyperlink><hp></hp> Point de vie</hyperlink> maximum.[/bulletlist]",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "name": "Faim démoniaque",
-    "prop_description": "<bulletlist><bullet>En tuant une unité ennemie non<hyperlink>Combat summon</hyperlink>, gagne un cumul permanent de <hyperlink>Gorged</hyperlink>, qui :<bulletlist></bullet><bullet>à 5 cumuls, devient un cumul permanent de <hyperlink>Demonic satiation</hyperlink>.</bullet><bullet>Ne peut être obtenu quand <hyperlink>Demonic satiation</hyperlink> est à 10 cumuls.</bullet></bulletlist><bullet></bullet>En pillant une province, guérit 25 % de ses <hyperlink><hp></hp> Point de vie</hyperlink> maximum.[/bulletlist]"
+    "prop_description": "<bulletlist><bullet>En tuant une unité ennemie non<hyperlink>Combat summon</hyperlink>, gagne un cumul permanent de <hyperlink>Gorged</hyperlink>, qui :<bulletlist></bullet><bullet>à 10 cumuls, devient un cumul permanent de <hyperlink>Demonic satiation</hyperlink>.</bullet><bullet>Ne peut être obtenu quand <hyperlink>Demonic satiation</hyperlink> est à 10 cumuls.</bullet></bulletlist><bullet></bullet>En pillant une province, guérit 25 % de ses <hyperlink><hp></hp> Point de vie</hyperlink> maximum.[/bulletlist]"
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SKILL4",
@@ -60292,7 +60292,7 @@
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SPI",
-    "description": "<bulletlist><bullet>10 % de <food></food> <hyperlink>Nourriture</hyperlink> sont convertis en <mana></mana> <hyperlink>Mana</hyperlink>.</bullet><bullet>Lorsque vous remportez un combat, cette ville gagne 50 <food></food> <hyperlink>Nourriture</hyperlink>.</bullet><bullet>Compte comme une <farm></farm> <hyperlink>Ferme</hyperlink>.</bullet></bulletlist>",
+    "description": "<bulletlist><bullet>10 % de <food></food> <hyperlink>Nourriture</hyperlink> sont convertis en <mana></mana> <hyperlink>Mana</hyperlink>.</bullet><bullet>Lorsque vous remportez un combat, cette ville gagne 25 <food></food> <hyperlink>Nourriture</hyperlink>.</bullet><bullet>Compte comme une <farm></farm> <hyperlink>Ferme</hyperlink>.</bullet></bulletlist>",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "name": "<farm></farm> Gouffre affamé"
   },
@@ -106515,7 +106515,7 @@
   },
   {
     "id": "TOME_ASTRAL_CONVERGENCE@SKILL3",
-    "description": "<bulletlist><bullet>Au début du combat, vous obtenez 50.</bullet><bullet>Pendant le combat, toutes les <hyperlink>Unité</hyperlink> ennemies subissent -1 <resistance></resistance> <hyperlink>Résistance</hyperlink>.</bullet></bulletlist>",
+    "description": "<bulletlist><bullet>Au début du combat, vous obtenez 50.</bullet><bullet>Pendant le combat, toutes les <hyperlink>Unité</hyperlink> ennemies subissent -1.</bullet></bulletlist>",
     "name": "Accumulation arcanique"
   },
   {

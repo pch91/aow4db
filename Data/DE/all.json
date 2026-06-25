@@ -60324,10 +60324,10 @@
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SKILL3",
-    "description": "Das Zielvolk wird von den höllischen Kräften der Gefräßigkeit erfüllt und erhält die folgenden Effekte:<bulletlist><bullet>Das Töten einer feindlichen Einheit, die kein <hyperlink>Combat summon</hyperlink> ist, gewährt einen dauerhaften Stapel von <hyperlink>Gorged</hyperlink>:<bulletlist></bullet><bullet>Wird bei 5 Stapeln in einen dauerhaften Stapel von <hyperlink>Demonic satiation</hyperlink> umgewandelt.</bullet><bullet>Kann nicht erhalten werden, wenn <hyperlink>Demonic satiation</hyperlink> bereits 10 Stapel hat.</bullet></bulletlist><bullet></bullet>Das Plündern von Provinzen heilt 25 % der maximalen <hyperlink><hp></hp> Trefferpunkt</hyperlink>.[/bulletlist]",
+    "description": "Das Zielvolk wird von den höllischen Kräften der Gefräßigkeit erfüllt und erhält die folgenden Effekte:<bulletlist><bullet>Das Töten einer feindlichen Einheit, die kein <hyperlink>Combat summon</hyperlink> ist, gewährt einen dauerhaften Stapel von <hyperlink>Gorged</hyperlink>:<bulletlist></bullet><bullet>Wird bei 10 Stapeln in einen dauerhaften Stapel von <hyperlink>Demonic satiation</hyperlink> umgewandelt.</bullet><bullet>Kann nicht erhalten werden, wenn <hyperlink>Demonic satiation</hyperlink> bereits 10 Stapel hat.</bullet></bulletlist><bullet></bullet>Das Plündern von Provinzen heilt 25 % der maximalen <hyperlink><hp></hp> Trefferpunkt</hyperlink>.[/bulletlist]",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "name": "dämonischer Hungerc",
-    "prop_description": "<bulletlist><bullet>Das Töten einer feindlichen Einheit, die kein <hyperlink>Combat summon</hyperlink> ist, gewährt einen dauerhaften Stapel von <hyperlink>Gorged</hyperlink>:<bulletlist></bullet><bullet>Wird bei 5 Stapeln in einen dauerhaften Stapel von <hyperlink>Demonic satiation</hyperlink> umgewandelt.</bullet><bullet>Kann nicht erhalten werden, wenn <hyperlink>Demonic satiation</hyperlink> bereits 10 Stapel hat.</bullet></bulletlist><bullet></bullet>Das Plündern von Provinzen heilt 25 % der maximalen <hyperlink><hp></hp> Trefferpunkt</hyperlink>.[/bulletlist]"
+    "prop_description": "<bulletlist><bullet>Das Töten einer feindlichen Einheit, die kein <hyperlink>Combat summon</hyperlink> ist, gewährt einen dauerhaften Stapel von <hyperlink>Gorged</hyperlink>:<bulletlist></bullet><bullet>Wird bei 10 Stapeln in einen dauerhaften Stapel von <hyperlink>Demonic satiation</hyperlink> umgewandelt.</bullet><bullet>Kann nicht erhalten werden, wenn <hyperlink>Demonic satiation</hyperlink> bereits 10 Stapel hat.</bullet></bulletlist><bullet></bullet>Das Plündern von Provinzen heilt 25 % der maximalen <hyperlink><hp></hp> Trefferpunkt</hyperlink>.[/bulletlist]"
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SKILL4",
@@ -60343,7 +60343,7 @@
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SPI",
-    "description": "<bulletlist><bullet>10 % der <<gen:<food></food> <hyperlink>Nahrung</hyperlink>>> wird in <mana></mana> <hyperlink>Mana</hyperlink> umgewandelt.</bullet><bullet>Diese Stadt erhält nach einem siegreichen Kampf 50 <food></food> <hyperlink>Nahrung</hyperlink>.</bullet><bullet>Zählt als <farm></farm> <hyperlink>Farm</hyperlink>.</bullet></bulletlist>",
+    "description": "<bulletlist><bullet>10 % der <<gen:<food></food> <hyperlink>Nahrung</hyperlink>>> wird in <mana></mana> <hyperlink>Mana</hyperlink> umgewandelt.</bullet><bullet>Diese Stadt erhält nach einem siegreichen Kampf 25 <food></food> <hyperlink>Nahrung</hyperlink>.</bullet><bullet>Zählt als <farm></farm> <hyperlink>Farm</hyperlink>.</bullet></bulletlist>",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "name": "<farm></farm> hungernder Schlundc"
   },
@@ -106578,7 +106578,7 @@
   },
   {
     "id": "TOME_ASTRAL_CONVERGENCE@SKILL3",
-    "description": "<bulletlist><bullet>Gewährt zu Beginn des Kampfes 50.</bullet><bullet>Während des Kampfes erleiden alle feindlichen <hyperlink>Einheit</hyperlink> -1 <resistance></resistance> <hyperlink>Widerstand</hyperlink>.</bullet></bulletlist>",
+    "description": "<bulletlist><bullet>Gewährt zu Beginn des Kampfes 50.</bullet><bullet>Während des Kampfes erleiden alle feindlichen <hyperlink>Einheit</hyperlink> -1.</bullet></bulletlist>",
     "name": "arkane Anhäufungc"
   },
   {

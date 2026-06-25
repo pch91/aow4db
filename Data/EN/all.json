@@ -54770,7 +54770,7 @@
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@LORDS@DISCIPLE_SUMMER_RACE",
-    "bio": "Kana and Grump were once two chieftains of the Blood Clan, distant, degenerate descendants of <hyperlink>Myrrida's</hyperlink>mighty[hyperlink,GLOBAL.GiantKingLoreConcept]Giant Kings[/hyperlink]. In a feud, the two rival tribes fought each other to extinction. Only Grump survived; he devoured the body of Kana and grafted her head onto himself in the delirium of battle. Thus, they became one, the Twineater. <br><br>Lured to <hyperlink>Duatha</hyperlink>, Kana-Grump became the Disciple of Ventrogh in the Circle of Witherbloom, leading the Voracious Vermin. Those known to be the most ravenous inhabitants of the realm, insatiable creatures willing to devour even themselves under the orders of their gluttonous master. The rodent pest have eagerly taken up the task of hunting rebels beneath Duatha's surface. A place they call, in hungry whispers, Marrow Downs.",
+    "bio": "Kana and Grump were once two chieftains of the Blood Clan, distant, degenerate descendants of <hyperlink>Myrrida's</hyperlink> mighty [hyperlink,GLOBAL.GiantKingLoreConcept]Giant Kings[/hyperlink]. In a feud, the two rival tribes fought each other to extinction. Only Grump survived; he devoured the body of Kana and grafted her head onto himself in the delirium of battle. Thus, they became one, the Twineater. <br><br>Lured to <hyperlink>Duatha</hyperlink>, Kana-Grump became the Disciple of Ventrogh in the Circle of Witherbloom, leading the Voracious Vermin. Those known to be the most ravenous inhabitants of the realm, insatiable creatures willing to devour even themselves under the orders of their gluttonous master. The rodent pest have eagerly taken up the task of hunting rebels beneath Duatha's surface. A place they call, in hungry whispers, Marrow Downs.",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "name": "Voracious Vermin"
   },
@@ -55051,7 +55051,7 @@
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@MEGAWONDERS_STRATEGIC@LEVIATHAN_PART_01",
-    "description": "<hyperlink>Province</hyperlink> adjacent to this Landmark gain:<bulletlist><bullet>-20 <happiness></happiness> <hyperlink>City Stability</hyperlink> and +10 <knowledge></knowledge> <hyperlink>Knowledge</hyperlink>.</bullet><bullet>The 2 <casttactical></casttactical> <hyperlink>Combat Enchantment</hyperlink>.</bullet></bulletlist><br>A <hyperlink>City</hyperlink> with 3 <hyperlink>Province</hyperlink> adjacent to this Landmark gains:<bulletlist><bullet><eventColor>{IntKnowledgeBonus2}</eventColor> <knowledge></knowledge> <hyperlink>Knowledge</hyperlink></bullet><bullet>Allows recruitment of <hyperlink>Astral wisp unit</hyperlink>, <hyperlink>Astral serpent unit</hyperlink>, and <hyperlink>Astral siphoner unit</hyperlink>.</bullet><bullet>On new round this Landmark is bound, putting it in a dormant state where its other adjacency effects are disabled.</bullet></bulletlist>",
+    "description": "<hyperlink>Province</hyperlink> adjacent to this Landmark gain:<bulletlist><bullet>-20 <happiness></happiness> <hyperlink>City Stability</hyperlink> and +10 <knowledge></knowledge> <hyperlink>Knowledge</hyperlink>.</bullet><bullet>The 2 <casttactical></casttactical> <hyperlink>Combat Enchantment</hyperlink>.</bullet></bulletlist><br>A <hyperlink>City</hyperlink> with 3 <hyperlink>Province</hyperlink> adjacent to this Landmark gains:<bulletlist><bullet><eventColor>{IntKnowledgeBonus2}</eventColor> <knowledge></knowledge> <hyperlink>Knowledge</hyperlink></bullet><bullet>Allows recruitment of <hyperlink>Astral wisp unit</hyperlink>, <hyperlink>Astral serpent unit</hyperlink>, and <hyperlink>Astral siphoner unit</hyperlink>.</bullet><bullet>On new turn this Landmark is bound, putting it in a dormant state where its other adjacency effects are disabled.</bullet></bulletlist>",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "name": "Leviathan Eyes"
   },
@@ -56707,7 +56707,7 @@
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@STORY_EVENT@1224_1874",
-    "body_footer": "The guardians of the isle remain vigilant, ensuring the structure does not fall into the wrong hands. If <eventColor>{eventHero}</eventColor> wishes to claim it, <<p:EventHero>> will have to defeat them.",
+    "body_footer": "The guardians of the isle remain vigilant, ensuring the structure does not fall into the wrong hands. If <eventColor>{EventHero}</eventColor> wishes to claim it, <<p:EventHero>> will have to defeat them.",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "body_header": "This Arcanum has been stripped of most of its value; its knowledge stolen, its resources plundered.",
     "body_lore": "Several figures still stand guard over the structure, among them an <eventColor>{EventUnit}</eventColor>. Healed scars and bruises cover the bodies of the guardians, who seem to have only just recovered from a recent defeat—perhaps at the hands of those who looted this place. Whatever their condition, they rise before <eventColor>{EventHero}</eventColor>, determined to protect the Arcanum.",
@@ -57697,7 +57697,7 @@
     "body_footer": "<hyperlink><eventColor>{Balorboss}</eventColor></hyperlink> erupts in a laughter that rocks the cavern floor, \"Bwahaha! If you want the <eventColor>{EventStructure}</eventColor>, then sell me your damned soul for it, fool. Me; <eventColor>{Balorboss}</eventColor>, Overlord of Overlords!\"",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "body_header": "\"Oh, crud! You? Stand against me? Me, <hyperlink><eventColor>{Balorboss}</eventColor></hyperlink>? Get out of here! Go on, shoo!\" bellows the <hyperlink>Demon Overlord</hyperlink>. \"Hold now, you are actually serious? You stand... against—ME?!\"",
-    "body_lore": "\"Bwahahaha! You got guts, kiddo!\" grunts <hyperlink><eventColor>{Balorboss}</eventColor></hyperlink>. \"I like guts in my flesh-bound minions. What say you, we make a little deal, eh? You sell me your wretched soul, and in return I shall grant you this <eventColor>{EventStructure}</eventColor> and the awesome Power of Balors! Which is mine to command! Me! For I am <eventColor>{Balorboss}</eventColor>, Demon Overlord of Overlords upon <hyperlink>Obbadoth</hyperlink>, and Chiefest of all Evils!\"",
+    "body_lore": "\"Bwahahaha! You got guts, kiddo!\" grunts <hyperlink><eventColor>{Balorboss}</eventColor></hyperlink>. \"I like guts in my flesh-bound minions. What say you, we make a little deal, eh? You sell me your wretched soul, and in return I shall grant you <eventColor>{EventStructure}</eventColor> and the awesome Power of Balors! Which is mine to command! Me! For I am <eventColor>{Balorboss}</eventColor>, Demon Overlord of Overlords upon <hyperlink>Obbadoth</hyperlink>, and Chiefest of all Evils!\"",
     "button_0": "\"<eventColor>{Balorboss}</eventColor>, my Infernal Master! At last, I have found you!\" <evilact></evilact>",
     "button_4": "\"I do not fear you! This city shall be mine.\"",
     "button_5": "Call upon your Sworn Brother, <eventColor>{Ysariel.FirstName}</eventColor> to aid you.",
@@ -58114,7 +58114,7 @@
     "body_footer": "At the unnatural titter of birds, <eventColor>{EventPlayer}</eventColor> is rapidly overgrown and consumed by <hyperlink>Ilandra's</hyperlink> weeds. Leaving nothing behind, but a rich composted heap.",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "body_header": "A shocked tear erupts from <<g:eyes,<eventColor>{EventPlayer.FirstName}</eventColor>>> as a single green sprout emerges from <<o:EventPlayer>> snout.",
-    "body_lore": "\"No, no, no,\" growls <eventColor>{EventPlayer.FirstName}</eventColor> as <<P:EventPlayer>> plucks the sprout away. But in an eyeblink, a dozen more pop from <<o:EventPlayer>> skin. <eventColor>{EventPlayer.FirstName}</eventColor> madly claws and tears as many sprouts off <<o:EventPlayer>> body as possible. But it is no good, for every sprout removed, a dozen more emerge, growing twice as fast as the previous.",
+    "body_lore": "\"No, no, no,\" growls <eventColor>{EventPlayer.FirstName}</eventColor> as <<p:EventPlayer>> plucks the sprout away. But in an eyeblink, a dozen more pop from <<o:EventPlayer>> skin. <eventColor>{EventPlayer.FirstName}</eventColor> madly claws and tears as many sprouts off <<o:EventPlayer>> body as possible. But it is no good, for every sprout removed, a dozen more emerge, growing twice as fast as the previous.",
     "button_0": "Take the magic compost to grow your crops. <food></food>",
     "button_1": "Erect a monument of victory on this spot. <influence></influence>",
     "button_2": "Meditate on this spot and feel its vital nutrients. <nature></nature>",
@@ -58128,24 +58128,24 @@
     "body_lore": "\"No, my <hyperlink>Duathadae Lord</hyperlink>,\" screeches <eventColor>{EventPlayer.FirstName}</eventColor> as <<o:EventPlayer>> feathers slowly drop off, one by one. \"Not me, do not devour me! Have I not fed your desires for many years? Do I not deserve another chance?\" As feather after feather drops, <eventColor>{EventPlayer.FirstName}</eventColor> realizes no one is listening and bolts off in fear.",
     "button_0": "Adopt this feather as a quill for your study. <knowledge></knowledge>",
     "button_1": "Grind this feather into a potent concoction. <mana></mana>",
-    "button_2": "Absorb this feather into the greater Astral aura. <astral></astral>",
+    "button_2": "Absorb this feather into the greater Astral aura. <arcana></arcana>",
     "title": "<<ge:End,EventPlayer.FirstName>>"
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@STORY_EVENT@1252_1187",
-    "body_footer": "Footer",
+    "body_footer": "Thus, a thick mist pours out from the <eventColor>{EventStructure}</eventColor> that drowns all the realm and any <hyperlink>Pellari</hyperlink> scrambling in panic before its swelling tide.",
     "DLC": "SECRETSOFTHEARCHMAGES",
-    "body_header": "Header",
-    "body_lore": "Lore",
-    "button_0": "Oh no!",
-    "title": "WIP Ham Defeated Event"
+    "body_header": "\"<eventColor>{PlayerLeader.FirstName}</eventColor>,\" the fading voice of <eventColor>{EventPlayer.FirstName}</eventColor> calls out to you, \"I fear... my fortune has run out.\"",
+    "body_lore": "Then, with a silent gasp, <<G:spirit,<eventColor>{EventPlayer.FirstName}</eventColor>>> appears dragged before the <eventColor>{EventStructure}</eventColor> and the eager attention of all the <hyperlink>Duathadae</hyperlink> are drawn upon <<P:EventPlayer>>. \"Useful\"  chime the four voices in chorus, as <<G:power,<eventColor>{EventPlayer.FirstName}</eventColor>>> is suddenly siphoned off <<o:EventPlayer>> helpless spirit with great intensity. \"F... flee!\" chockes <eventColor>{EventPlayer.FirstName}</eventColor>.",
+    "button_0": "\"The mission is lost...\"",
+    "title": "Mist-Drowned Fortune"
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@STORY_EVENT@1252_1206",
     "body_footer": "As mists faded and clouds parted before the shimmering sun, a bright rainbow graced down upon the <eventColor>{EventStructure}</eventColor>. Thus, Pellari rejoiced; the Burrow Downs were saved, at last.",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "body_header": "In this way, the fearful <hyperlink>Duathadae</hyperlink> were warded off and <eventColor>{EventPlayer}</eventColor> emerged before the reclaimed <eventColor>{EventStructure}</eventColor>.",
-    "body_lore": "All around the <eventColor>{EventStructure}</eventColor>, <hyperlink>Pellari</hyperlink> and Fey alike raised songs of hope and warding as <eventColor>{EventPlayer.FirstName}</eventColor> scaled its steps. At its summit, <<p:EventPlayer>> emerged alongside <eventColor>{FeyGuideName}</eventColor> to channel <hyperlink>Duatha's dreaming spirit</hyperlink> through the gifts of the <hyperlink>Geassadae</hyperlink> to slowly unravel the realm's afflicted nightmare. Powerless against these mounting forces, the<hyperlink>Duathadae's servants</hyperlink> dissipated like mists before the sun.",
+    "body_lore": "All around the <eventColor>{EventStructure}</eventColor>, <hyperlink>Pellari</hyperlink> and Fey alike raised songs of hope and warding as <eventColor>{EventPlayer.FirstName}</eventColor> scaled its steps. At its summit, <<p:EventPlayer>> emerged alongside <eventColor>{FeyGuideName}</eventColor> to channel <hyperlink>Duatha's dreaming spirit</hyperlink> through the gifts of the <hyperlink>Geassadae</hyperlink> to slowly unravel the realm's afflicted nightmare. Powerless against these mounting forces, the <hyperlink>Duathadae's servants</hyperlink> dissipated like mists before the sun.",
     "button_0": "Rejoice!",
     "title": "All The Colors of Hope"
   },
@@ -60273,10 +60273,10 @@
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SKILL3",
-    "description": "Target race is charged with infernal forces of gluttony, gaining:<bulletlist><bullet>When killing a non-<hyperlink>Combat summon</hyperlink> enemy unit, gain a permanent stack of <hyperlink>Gorged</hyperlink> which:<bulletlist></bullet><bullet>At 5 stacks turns into a permanent stack of <hyperlink>Demonic satiation</hyperlink>.</bullet><bullet>Cannot be gained when <hyperlink>Demonic satiation</hyperlink> is at 10 stacks.</bullet></bulletlist><bullet></bullet>When pillaging a province, heal for 25% of their maximum <hyperlink>{<hp></hp>}</hyperlink>.[/bulletlist]",
+    "description": "Target race is charged with infernal forces of gluttony, gaining:<bulletlist><bullet>When killing a non-<hyperlink>Combat summon</hyperlink> enemy unit, gain a permanent stack of <hyperlink>Gorged</hyperlink> which:<bulletlist></bullet><bullet>At 10 stacks turns into a permanent stack of <hyperlink>Demonic satiation</hyperlink>.</bullet><bullet>Cannot be gained when <hyperlink>Demonic satiation</hyperlink> is at 10 stacks.</bullet></bulletlist><bullet></bullet>When pillaging a province, heal for 25% of their maximum <hyperlink>{<hp></hp>}</hyperlink>.[/bulletlist]",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "name": "Demonic Hunger",
-    "prop_description": "<bulletlist><bullet>When killing a non-<hyperlink>Combat summon</hyperlink> enemy unit, gain a permanent stack of <hyperlink>Gorged</hyperlink> which:<bulletlist></bullet><bullet>At 5 stacks turns into a permanent stack of <hyperlink>Demonic satiation</hyperlink>.</bullet><bullet>Cannot be gained when <hyperlink>Demonic satiation</hyperlink> is at 10 stacks.</bullet></bulletlist><bullet></bullet>When pillaging a province, heal for 25% of their maximum <hyperlink>{<hp></hp>}</hyperlink>.[/bulletlist]"
+    "prop_description": "<bulletlist><bullet>When killing a non-<hyperlink>Combat summon</hyperlink> enemy unit, gain a permanent stack of <hyperlink>Gorged</hyperlink> which:<bulletlist></bullet><bullet>At 10 stacks turns into a permanent stack of <hyperlink>Demonic satiation</hyperlink>.</bullet><bullet>Cannot be gained when <hyperlink>Demonic satiation</hyperlink> is at 10 stacks.</bullet></bulletlist><bullet></bullet>When pillaging a province, heal for 25% of their maximum <hyperlink>{<hp></hp>}</hyperlink>.[/bulletlist]"
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SKILL4",
@@ -60292,7 +60292,7 @@
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SPI",
-    "description": "<bulletlist><bullet>10% of <food></food> <hyperlink>Food</hyperlink> is converted to <mana></mana> <hyperlink>Mana</hyperlink>.</bullet><bullet>When victorious in battle, this city gains 50 <food></food> <hyperlink>Food</hyperlink>.</bullet><bullet>Counts as a <farm></farm> <hyperlink>Farm</hyperlink>.</bullet></bulletlist>",
+    "description": "<bulletlist><bullet>10% of <food></food> <hyperlink>Food</hyperlink> is converted to <mana></mana> <hyperlink>Mana</hyperlink>.</bullet><bullet>When victorious in battle, this city gains 25 <food></food> <hyperlink>Food</hyperlink>.</bullet><bullet>Counts as a <farm></farm> <hyperlink>Farm</hyperlink>.</bullet></bulletlist>",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "name": "<farm></farm> Hungering Maw"
   },
@@ -106515,7 +106515,7 @@
   },
   {
     "id": "TOME_ASTRAL_CONVERGENCE@SKILL3",
-    "description": "<bulletlist><bullet>At the start of combat, gain 50.</bullet><bullet>During combat, all enemy <hyperlink>Unit</hyperlink> suffer -1 <resistance></resistance> <hyperlink>Resistance</hyperlink>.</bullet></bulletlist>",
+    "description": "<bulletlist><bullet>At the start of combat, gain 50 <optactical></optactical> <hyperlink>Combat Casting Point</hyperlink>.</bullet><bullet>During combat, all enemy <hyperlink>Unit</hyperlink> suffer -1 <resistance></resistance> <hyperlink>Resistance</hyperlink>.</bullet></bulletlist>",
     "name": "Arcane Accumulation"
   },
   {
