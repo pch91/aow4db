@@ -54792,7 +54792,7 @@
     "id": "DLC@SECRETSOFTHEARCHMAGES@LORDS@DADAYO",
     "name": "DaDa Yuah<eventColor>{1}</eventColor>x<eventColor>{2}</eventColor>",
     "DLC": "SECRETSOFTHEARCHMAGES",
-    "secondname": "„Słuchaj uważnie, <<PlayerLeader.FirstName<eventColor>{mój Książę Balorów/moja Księżna Balorów}</eventColor>>>,” grzmi głos, przenikając całe twoje ciało, „twój okres próbny dobiegł końca! Żądam ofiary i pragnę nikczemnego aktu zła <evilact></evilact>, dokonanego przede mną, natychmiast. Staw się więc przede mną – osobiście! Nie przyjmuję posłańców, rozumiesz? Do mnie, <<PlayerLeader.FirstName<eventColor>{mój/moja}</eventColor>>> sługo! Bła, ha, ha, ha!”",
+    "secondname": "Demoniczna Księżniczka Wyniszczenia",
     "title": "Alfa"
   },
   {
@@ -60407,10 +60407,10 @@
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SKILL3",
-    "description": "Wybrana rasa jest dotknięta piekielnymi siłami obżarstwa, otrzymując:<bulletlist><bullet>Po zabiciu jednostki wroga niebędącej <<ins:c:<hyperlink>Combat summon</hyperlink>>>, zyskaj trwałą kumulację <<gen:c:<hyperlink>Gorged</hyperlink>>>, która:<bulletlist></bullet><bullet>Przy 5 kumulacjach przemienia się w trwałą kumulację <<gen:c:<hyperlink>Demonic satiation</hyperlink>>>.</bullet><bullet>Nie można zyskać, gdy <<c:<hyperlink>Demonic satiation</hyperlink>>> ma 10 kum.</bullet></bulletlist><bullet></bullet>Plądrując prowincję, wylecz 25% maks. <hyperlink>pkt. zdrowia</hyperlink>.[/bulletlist]",
+    "description": "Wybrana rasa jest dotknięta piekielnymi siłami obżarstwa, otrzymując:<bulletlist><bullet>Po zabiciu jednostki wroga niebędącej <<ins:c:<hyperlink>Combat summon</hyperlink>>>, zyskaj trwałą kumulację <<gen:c:<hyperlink>Gorged</hyperlink>>>, która:<bulletlist></bullet><bullet>Przy 10 kumulacjach przemienia się w trwałą kumulację <<gen:c:<hyperlink>Demonic satiation</hyperlink>>>.</bullet><bullet>Nie można zyskać, gdy <<c:<hyperlink>Demonic satiation</hyperlink>>> ma 10 kum.</bullet></bulletlist><bullet></bullet>Plądrując prowincję, wylecz 25% maks. <hyperlink>pkt. zdrowia</hyperlink>.[/bulletlist]",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "name": "Demoniczny głóda<eventColor>{1}</eventColor>mn<eventColor>{2}</eventColor>",
-    "prop_description": "<bulletlist><bullet>Po zabiciu jednostki wroga niebędącej <<ins:c:<hyperlink>Combat summon</hyperlink>>>, zyskaj trwałą kumulację <<gen:c:<hyperlink>Gorged</hyperlink>>>, która:<bulletlist></bullet><bullet>Przy 5 kumulacjach przemienia się w trwałą kumulację <<gen:c:<hyperlink>Demonic satiation</hyperlink>>>.</bullet><bullet>Nie można zyskać, gdy <<c:<hyperlink>Demonic satiation</hyperlink>>> ma 10 kum.</bullet></bulletlist><bullet></bullet>Plądrując prowincję, wylecz 25% maks. <hyperlink>pkt. zdrowia</hyperlink>.[/bulletlist]"
+    "prop_description": "<bulletlist><bullet>Po zabiciu jednostki wroga niebędącej <<ins:c:<hyperlink>Combat summon</hyperlink>>>, zyskaj trwałą kumulację <<gen:c:<hyperlink>Gorged</hyperlink>>>, która:<bulletlist></bullet><bullet>Przy 10 kumulacjach przemienia się w trwałą kumulację <<gen:c:<hyperlink>Demonic satiation</hyperlink>>>.</bullet><bullet>Nie można zyskać, gdy <<c:<hyperlink>Demonic satiation</hyperlink>>> ma 10 kum.</bullet></bulletlist><bullet></bullet>Plądrując prowincję, wylecz 25% maks. <hyperlink>pkt. zdrowia</hyperlink>.[/bulletlist]"
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SKILL4",
@@ -60426,7 +60426,7 @@
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SPI",
-    "description": "<bulletlist><bullet>10% <<gen:c:<food></food> <hyperlink>Żywnośćn</hyperlink>>> zostaje przekonwertowane na <<acc:c:<mana></mana> <hyperlink>Manan</hyperlink>>>.</bullet><bullet>W przypadku zwycięstwa w bitwie to miasto otrzymuje 50 jedn. <<gen:c:<food></food> <hyperlink>Żywnośćn</hyperlink>>>.</bullet><bullet>Liczy się jako <<c:<farm></farm> <hyperlink>Gospodarstwo</hyperlink>>>.</bullet></bulletlist>",
+    "description": "<bulletlist><bullet>10% <<gen:c:<food></food> <hyperlink>Żywnośćn</hyperlink>>> zostaje przekonwertowane na <<acc:c:<mana></mana> <hyperlink>Manan</hyperlink>>>.</bullet><bullet>W przypadku zwycięstwa w bitwie to miasto otrzymuje 25 jedn. <<gen:c:<food></food> <hyperlink>Żywnośćn</hyperlink>>>.</bullet><bullet>Liczy się jako <<c:<farm></farm> <hyperlink>Gospodarstwo</hyperlink>>>.</bullet></bulletlist>",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "name": "<farm></farm> Nienasycona paszczaa<eventColor>{1}</eventColor>fn<eventColor>{2}</eventColor>"
   },
@@ -106703,7 +106703,7 @@
   },
   {
     "id": "TOME_ASTRAL_CONVERGENCE@SKILL3",
-    "description": "<bulletlist><bullet>Na początku walki zyskaj <<acc:c:50>>.</bullet><bullet>Podczas walki wszystkie wrogie <<c:m:<hyperlink>Jednostkan</hyperlink>>> otrzymują <<acc:c:-1 <resistance></resistance> <hyperlink>Odpornośćn</hyperlink>>>.</bullet></bulletlist>",
+    "description": "<bulletlist><bullet>Na początku walki zyskaj <<acc:c:50>>.</bullet><bullet>Podczas walki wszystkie wrogie <<c:m:<hyperlink>Jednostkan</hyperlink>>> otrzymują <<acc:c:-1>>.</bullet></bulletlist>",
     "name": "Tajemna akumulacja<eventColor>{1}</eventColor>n<eventColor>{2}</eventColor>"
   },
   {

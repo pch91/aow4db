@@ -60273,10 +60273,10 @@
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SKILL3",
-    "description": "指定种族被注入暴食的地狱力量，获得：<bulletlist><bullet>击杀非<hyperlink>Combat summon</hyperlink>敌方单位时，获得一层永久性的<hyperlink>Gorged</hyperlink>，该效果：<bulletlist></bullet><bullet>叠加至5层时转化为一层永久性的<hyperlink>Demonic satiation</hyperlink></bullet><bullet>当<hyperlink>Demonic satiation</hyperlink>已达10层时无法获得</bullet></bulletlist><bullet></bullet>掠夺行省时，治疗其最大<hyperlink>{<hp></hp>}</hyperlink>的25%[/bulletlist]",
+    "description": "指定种族被注入暴食的地狱力量，获得：<bulletlist><bullet>击杀非<hyperlink>Combat summon</hyperlink>敌方单位时，获得一层永久性的<hyperlink>Gorged</hyperlink>，该效果：<bulletlist></bullet><bullet>叠加至10层时转化为一层永久性的<hyperlink>Demonic satiation</hyperlink></bullet><bullet>当<hyperlink>Demonic satiation</hyperlink>已达10层时无法获得</bullet></bulletlist><bullet></bullet>掠夺行省时，治疗其最大<hyperlink>{<hp></hp>}</hyperlink>的25%[/bulletlist]",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "name": "恶魔饥饿",
-    "prop_description": "<bulletlist><bullet>击杀非<hyperlink>Combat summon</hyperlink>敌方单位时，获得一层永久性的<hyperlink>Gorged</hyperlink>，该效果：<bulletlist></bullet><bullet>叠加至5层时转化为一层永久性的<hyperlink>Demonic satiation</hyperlink></bullet><bullet>当<hyperlink>Demonic satiation</hyperlink>已达10层时无法获得</bullet></bulletlist><bullet></bullet>掠夺行省时，治疗其最大<hyperlink>{<hp></hp>}</hyperlink>的25%[/bulletlist]"
+    "prop_description": "<bulletlist><bullet>击杀非<hyperlink>Combat summon</hyperlink>敌方单位时，获得一层永久性的<hyperlink>Gorged</hyperlink>，该效果：<bulletlist></bullet><bullet>叠加至10层时转化为一层永久性的<hyperlink>Demonic satiation</hyperlink></bullet><bullet>当<hyperlink>Demonic satiation</hyperlink>已达10层时无法获得</bullet></bulletlist><bullet></bullet>掠夺行省时，治疗其最大<hyperlink>{<hp></hp>}</hyperlink>的25%[/bulletlist]"
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SKILL4",
@@ -60292,7 +60292,7 @@
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SPI",
-    "description": "<bulletlist><bullet>10%的<food></food> <hyperlink>食物</hyperlink>转化为<mana></mana> <hyperlink>魔力</hyperlink></bullet><bullet>在战斗中获胜时，此城邦获得50点<food></food> <hyperlink>食物</hyperlink></bullet><bullet>视为一座<farm></farm> <hyperlink>农场</hyperlink></bullet></bulletlist>",
+    "description": "<bulletlist><bullet>10%的<food></food> <hyperlink>食物</hyperlink>转化为<mana></mana> <hyperlink>魔力</hyperlink></bullet><bullet>在战斗中获胜时，此城邦获得25点<food></food> <hyperlink>食物</hyperlink></bullet><bullet>视为一座<farm></farm> <hyperlink>农场</hyperlink></bullet></bulletlist>",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "name": "<farm></farm> 饥饿之喉"
   },
@@ -106515,7 +106515,7 @@
   },
   {
     "id": "TOME_ASTRAL_CONVERGENCE@SKILL3",
-    "description": "<bulletlist><bullet>战斗开始时获得50</bullet><bullet>在战斗中，所有敌方<hyperlink>单位</hyperlink>遭受-1 <resistance></resistance> <hyperlink>抗性</hyperlink></bullet></bulletlist>",
+    "description": "<bulletlist><bullet>战斗开始时获得50</bullet><bullet>在战斗中，所有敌方<hyperlink>单位</hyperlink>遭受-1</bullet></bulletlist>",
     "name": "奥术积聚"
   },
   {

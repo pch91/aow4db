@@ -60273,10 +60273,10 @@
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SKILL3",
-    "description": "Una gula infernal atenaza a la raza objetivo:<bulletlist><bullet>Al matar a una unidad enemiga que no sea de <hyperlink>Combat summon</hyperlink>, obtiene una acumulación permanente de <hyperlink>Gorged</hyperlink>, por lo que:<bulletlist></bullet><bullet>Al conseguir 5 acumulaciones, obtiene una acumulación permanente de <hyperlink>Demonic satiation</hyperlink>.</bullet><bullet>No se puede obtener con 10 acumulaciones de <hyperlink>Demonic satiation</hyperlink>.</bullet></bulletlist><bullet></bullet>Al saquear una provincia, recupera un 25 % de sus <hyperlink><hp></hp> Punto de salud</hyperlink> máximos.[/bulletlist]",
+    "description": "Una gula infernal atenaza a la raza objetivo:<bulletlist><bullet>Al matar a una unidad enemiga que no sea de <hyperlink>Combat summon</hyperlink>, obtiene una acumulación permanente de <hyperlink>Gorged</hyperlink>, por lo que:<bulletlist></bullet><bullet>Al conseguir 10 acumulaciones, obtiene una acumulación permanente de <hyperlink>Demonic satiation</hyperlink>.</bullet><bullet>No se puede obtener con 10 acumulaciones de <hyperlink>Demonic satiation</hyperlink>.</bullet></bulletlist><bullet></bullet>Al saquear una provincia, recupera un 25 % de sus <hyperlink><hp></hp> Punto de salud</hyperlink> máximos.[/bulletlist]",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "name": "Hambre demoníaca",
-    "prop_description": "<bulletlist><bullet>Al matar a una unidad enemiga que no sea de <hyperlink>Combat summon</hyperlink>, obtiene una acumulación permanente de <hyperlink>Gorged</hyperlink>, por lo que:<bulletlist></bullet><bullet>Al conseguir 5 acumulaciones, obtiene una acumulación permanente de <hyperlink>Demonic satiation</hyperlink>.</bullet><bullet>No se puede obtener con 10 acumulaciones de <hyperlink>Demonic satiation</hyperlink>.</bullet></bulletlist><bullet></bullet>Al saquear una provincia, recupera un 25 % de sus <hyperlink><hp></hp> Punto de salud</hyperlink> máximos.[/bulletlist]"
+    "prop_description": "<bulletlist><bullet>Al matar a una unidad enemiga que no sea de <hyperlink>Combat summon</hyperlink>, obtiene una acumulación permanente de <hyperlink>Gorged</hyperlink>, por lo que:<bulletlist></bullet><bullet>Al conseguir 10 acumulaciones, obtiene una acumulación permanente de <hyperlink>Demonic satiation</hyperlink>.</bullet><bullet>No se puede obtener con 10 acumulaciones de <hyperlink>Demonic satiation</hyperlink>.</bullet></bulletlist><bullet></bullet>Al saquear una provincia, recupera un 25 % de sus <hyperlink><hp></hp> Punto de salud</hyperlink> máximos.[/bulletlist]"
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SKILL4",
@@ -60292,7 +60292,7 @@
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SPI",
-    "description": "<bulletlist><bullet>Se convierte un 10 % de <food></food> <hyperlink>Comida</hyperlink> en <mana></mana> <hyperlink>Maná</hyperlink>.</bullet><bullet>Al ganar un combate, esta ciudad obtiene 50 de <food></food> <hyperlink>Comida</hyperlink>.</bullet><bullet>Cuenta como una <farm></farm> <hyperlink>Granja</hyperlink>.</bullet></bulletlist>",
+    "description": "<bulletlist><bullet>Se convierte un 10 % de <food></food> <hyperlink>Comida</hyperlink> en <mana></mana> <hyperlink>Maná</hyperlink>.</bullet><bullet>Al ganar un combate, esta ciudad obtiene 25 de <food></food> <hyperlink>Comida</hyperlink>.</bullet><bullet>Cuenta como una <farm></farm> <hyperlink>Granja</hyperlink>.</bullet></bulletlist>",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "name": "<farm></farm> Fauces voracesf"
   },
@@ -106515,7 +106515,7 @@
   },
   {
     "id": "TOME_ASTRAL_CONVERGENCE@SKILL3",
-    "description": "<bulletlist><bullet>Al inicio del combate, obtienes 50.</bullet><bullet>Durante el combate, todas las <hyperlink>Unidad</hyperlink> enemigas sufren -1 <resistance></resistance> <hyperlink>Resistencia</hyperlink>.</bullet></bulletlist>",
+    "description": "<bulletlist><bullet>Al inicio del combate, obtienes 50.</bullet><bullet>Durante el combate, todas las <hyperlink>Unidad</hyperlink> enemigas sufren -1.</bullet></bulletlist>",
     "name": "Acumulación arcana"
   },
   {

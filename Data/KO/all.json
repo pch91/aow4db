@@ -60273,10 +60273,10 @@
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SKILL3",
-    "description": "대상 종족은 지옥의 탐식이 지닌 힘에 휩싸여 다음을 획득:<bulletlist><bullet>비 <hyperlink>Combat summon</hyperlink> 적 유닛 처치 시, 영구적으로 <hyperlink>Gorged</hyperlink> 중첩 획득:<bulletlist></bullet><bullet>중첩이 5개에 도달할 경우, 영구적인 <hyperlink>Demonic satiation</hyperlink> 중첩 1개로 변경</bullet><bullet><hyperlink>Demonic satiation</hyperlink> 중첩이 10개일 경우 획득 불가</bullet></bulletlist><bullet></bullet>구획 약탈 시 최대 <hyperlink><hp></hp> 체력</hyperlink>의 25%만큼 회복[/bulletlist]",
+    "description": "대상 종족은 지옥의 탐식이 지닌 힘에 휩싸여 다음을 획득:<bulletlist><bullet>비 <hyperlink>Combat summon</hyperlink> 적 유닛 처치 시, 영구적으로 <hyperlink>Gorged</hyperlink> 중첩 획득:<bulletlist></bullet><bullet>중첩이 10개에 도달할 경우, 영구적인 <hyperlink>Demonic satiation</hyperlink> 중첩 1개로 변경</bullet><bullet><hyperlink>Demonic satiation</hyperlink> 중첩이 10개일 경우 획득 불가</bullet></bulletlist><bullet></bullet>구획 약탈 시 최대 <hyperlink><hp></hp> 체력</hyperlink>의 25%만큼 회복[/bulletlist]",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "name": "악마의 허기",
-    "prop_description": "<bulletlist><bullet>비 <hyperlink>Combat summon</hyperlink> 적 유닛 처치 시, 영구적으로 <hyperlink>Gorged</hyperlink> 중첩 획득:<bulletlist></bullet><bullet>중첩이 5개에 도달할 경우, 영구적인 <hyperlink>Demonic satiation</hyperlink> 중첩 1개로 변경</bullet><bullet><hyperlink>Demonic satiation</hyperlink> 중첩이 10개일 경우 획득 불가</bullet></bulletlist><bullet></bullet>구획 약탈 시 최대 <hyperlink><hp></hp> 체력</hyperlink>의 25%만큼 회복[/bulletlist]"
+    "prop_description": "<bulletlist><bullet>비 <hyperlink>Combat summon</hyperlink> 적 유닛 처치 시, 영구적으로 <hyperlink>Gorged</hyperlink> 중첩 획득:<bulletlist></bullet><bullet>중첩이 10개에 도달할 경우, 영구적인 <hyperlink>Demonic satiation</hyperlink> 중첩 1개로 변경</bullet><bullet><hyperlink>Demonic satiation</hyperlink> 중첩이 10개일 경우 획득 불가</bullet></bulletlist><bullet></bullet>구획 약탈 시 최대 <hyperlink><hp></hp> 체력</hyperlink>의 25%만큼 회복[/bulletlist]"
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SKILL4",
@@ -60292,7 +60292,7 @@
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SPI",
-    "description": "<bulletlist><bullet><food></food> <hyperlink>식량</hyperlink>의 10%을 <mana></mana> <hyperlink>마나</hyperlink>로 변환</bullet><bullet>전투 승리 시, 해당 도시가 <food></food> <hyperlink>식량</hyperlink> 50 획득</bullet><bullet><farm></farm> <hyperlink>농장</hyperlink>으로 간주</bullet></bulletlist>",
+    "description": "<bulletlist><bullet><food></food> <hyperlink>식량</hyperlink>의 10%을 <mana></mana> <hyperlink>마나</hyperlink>로 변환</bullet><bullet>전투 승리 시, 해당 도시가 <food></food> <hyperlink>식량</hyperlink> 25 획득</bullet><bullet><farm></farm> <hyperlink>농장</hyperlink>으로 간주</bullet></bulletlist>",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "name": "<farm></farm> 굶주린 식도"
   },
@@ -106515,7 +106515,7 @@
   },
   {
     "id": "TOME_ASTRAL_CONVERGENCE@SKILL3",
-    "description": "<bulletlist><bullet>전투 시작 시 50을 획득합니다.</bullet><bullet>전투 중 모든 적 <hyperlink>유닛</hyperlink>이 -1 <resistance></resistance> <hyperlink>저항력</hyperlink>를 받습니다.</bullet></bulletlist>",
+    "description": "<bulletlist><bullet>전투 시작 시 50을 획득합니다.</bullet><bullet>전투 중 모든 적 <hyperlink>유닛</hyperlink>이 -1를 받습니다.</bullet></bulletlist>",
     "name": "비전 응집"
   },
   {

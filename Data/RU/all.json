@@ -60573,10 +60573,10 @@
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SKILL3",
-    "description": "Выбранный народ предаётся безмерному чревоугодию и получает следующие особенности:<bulletlist><bullet>при убийстве врагов (кроме <<gen,cm:<hyperlink>Combat summon</hyperlink>>>) воины получают один бессрочный уровень эффекта «<hyperlink>Gorged</hyperlink>»:<bulletlist></bullet><bullet>по достижении 5 ур. этого эффекта он полностью снимается, и вместо него воины получают один бессрочный уровень эффекта «<hyperlink>Demonic satiation</hyperlink>»;</bullet><bullet>этот эффект невозможно получить, если у воина уже есть 10 ур. эффекта «<hyperlink>Demonic satiation</hyperlink>».</bullet></bulletlist><bullet></bullet>При грабеже провинций воины восстанавливают 25% от своего максимального запаса <<gen,c:<hp></hp> <hyperlink>Здоровье</hyperlink>>>.[/bulletlist]",
+    "description": "Выбранный народ предаётся безмерному чревоугодию и получает следующие особенности:<bulletlist><bullet>при убийстве врагов (кроме <<gen,cm:<hyperlink>Combat summon</hyperlink>>>) воины получают один бессрочный уровень эффекта «<hyperlink>Gorged</hyperlink>»:<bulletlist></bullet><bullet>по достижении 10 ур. этого эффекта он полностью снимается, и вместо него воины получают один бессрочный уровень эффекта «<hyperlink>Demonic satiation</hyperlink>»;</bullet><bullet>этот эффект невозможно получить, если у воина уже есть 10 ур. эффекта «<hyperlink>Demonic satiation</hyperlink>».</bullet></bulletlist><bullet></bullet>При грабеже провинций воины восстанавливают 25% от своего максимального запаса <<gen,c:<hp></hp> <hyperlink>Здоровье</hyperlink>>>.[/bulletlist]",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "name": "Дьявольский голод",
-    "prop_description": "<bulletlist><bullet>При убийстве врагов (кроме <<gen,cm:<hyperlink>Combat summon</hyperlink>>>) воины получают один бессрочный уровень эффекта «<hyperlink>Gorged</hyperlink>»:<bulletlist></bullet><bullet>по достижении 5 ур. этого эффекта он полностью снимается, и вместо него воины получают один бессрочный уровень эффекта «<hyperlink>Demonic satiation</hyperlink>»;</bullet><bullet>этот эффект невозможно получить, если у воина уже есть 10 ур. эффекта «<hyperlink>Demonic satiation</hyperlink>».</bullet></bulletlist><bullet></bullet>При грабеже провинций воины восстанавливают 25% от своего максимального запаса <<gen,c:<hp></hp> <hyperlink>Здоровье</hyperlink>>>.[/bulletlist]"
+    "prop_description": "<bulletlist><bullet>При убийстве врагов (кроме <<gen,cm:<hyperlink>Combat summon</hyperlink>>>) воины получают один бессрочный уровень эффекта «<hyperlink>Gorged</hyperlink>»:<bulletlist></bullet><bullet>по достижении 10 ур. этого эффекта он полностью снимается, и вместо него воины получают один бессрочный уровень эффекта «<hyperlink>Demonic satiation</hyperlink>»;</bullet><bullet>этот эффект невозможно получить, если у воина уже есть 10 ур. эффекта «<hyperlink>Demonic satiation</hyperlink>».</bullet></bulletlist><bullet></bullet>При грабеже провинций воины восстанавливают 25% от своего максимального запаса <<gen,c:<hp></hp> <hyperlink>Здоровье</hyperlink>>>.[/bulletlist]"
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SKILL4",
@@ -60592,7 +60592,7 @@
   },
   {
     "id": "DLC@SECRETSOFTHEARCHMAGES@TOME_GLUTTONY@SPI",
-    "description": "<bulletlist><bullet>преобразует 10% дохода <<gen,c:<food></food> <hyperlink>Пища</hyperlink>>> в <<acc,c:<mana></mana> <hyperlink>Мана</hyperlink>>>;</bullet><bullet>при победе в бою этот город получает 50 ед. <<gen,c:<food></food> <hyperlink>Пища</hyperlink>>>;</bullet><bullet>выполняет функции <<gen,c:<farm></farm> <hyperlink>Ферма</hyperlink>>>.</bullet></bulletlist>",
+    "description": "<bulletlist><bullet>преобразует 10% дохода <<gen,c:<food></food> <hyperlink>Пища</hyperlink>>> в <<acc,c:<mana></mana> <hyperlink>Мана</hyperlink>>>;</bullet><bullet>при победе в бою этот город получает 25 ед. <<gen,c:<food></food> <hyperlink>Пища</hyperlink>>>;</bullet><bullet>выполняет функции <<gen,c:<farm></farm> <hyperlink>Ферма</hyperlink>>>.</bullet></bulletlist>",
     "DLC": "SECRETSOFTHEARCHMAGES",
     "name": "<farm></farm> Ненасытная пастьa<eventColor>{1}</eventColor>n<eventColor>{2}</eventColor>"
   },
@@ -106931,7 +106931,7 @@
   },
   {
     "id": "TOME_ASTRAL_CONVERGENCE@SKILL3",
-    "description": "<bulletlist><bullet>В начале боя даёт 50;</bullet><bullet>в бою все вражеские <<cm:<hyperlink>Воинl</hyperlink>>> теряют -1 <resistance></resistance> <hyperlink>Сопротивление</hyperlink>.</bullet></bulletlist>",
+    "description": "<bulletlist><bullet>В начале боя даёт 50;</bullet><bullet>в бою все вражеские <<cm:<hyperlink>Воинl</hyperlink>>> теряют -1.</bullet></bulletlist>",
     "name": "Накопление магии"
   },
   {
