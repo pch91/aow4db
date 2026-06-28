@@ -40,9 +40,10 @@ window.TomeRestriction = (function () {
             lockedTier5  = null;
             baseAff      = null;
             if (el) el.style.display = "none";
+            if (typeof hidePageLoading === "function") hidePageLoading();
         } else if (!distribution) {
             if (el) el.style.display = "block";
-            onRandomize();  // Auto-randomize immediately instead of showing prompt
+            onRandomize();
         }
     }
 
@@ -173,6 +174,7 @@ window.TomeRestriction = (function () {
         }
         el.style.display = "block";
         el.innerHTML = _buildDisplayHtml();
+        if (typeof hidePageLoading === "function") hidePageLoading();
 
         // Signal that loading/updating is complete (used by FactionCreator overlay)
         if (typeof hidePageLoading === "function") hidePageLoading();

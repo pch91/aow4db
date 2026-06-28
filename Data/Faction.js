@@ -1,5 +1,6 @@
 searchParams = new URLSearchParams(window.location.search);
 searchKeyword = searchParams.get("u");
+_deferDepth = 0; // >0 when inside a deferred work chain — functions run sync instead of deferring again
 
 var ListOfSubcultureHolders = ["Architect", "Primal", "Mystic", "Oathsworn", "Feudal", "Dark", "Nomad", "Reaver"];
 var ListOfSubsocietyHolders = ["Vision of Promise", "Vision of Ruin", "Vision of Destiny"];
@@ -339,7 +340,7 @@ function getPoints() {
 // Function to toggle the origin selection buttons
 function toggleOriginButtons() {
     var selectionsHolder = document.getElementById("selectionsHolder");
-    selectionsHolder.setAttribute("style", "display:none");
+    selectionsHolder.style.display = "none";
     var originWrapper = document.getElementById("originWrapperOptions");
     originWrapper.innerHTML = "";
     // originWrapper.setAttribute("style", "display:none");
@@ -349,6 +350,17 @@ function toggleOriginButtons() {
 
 // Function to handle the selection of an origin
 function selectOrigin(origin, type) {
+    if (_deferDepth === 0) {
+        _deferDepth = 1;
+        showPageLoading("Loading…");
+        setTimeout(function () {
+            selectOrigin(origin, type);
+            _deferDepth = 0;
+            if (typeof hidePageLoading === 'function') hidePageLoading();
+        }, 25);
+        return;
+    }
+    // ── body runs synchronously when _deferDepth > 0 ──
     TurnOffTooltip();
     var originButton = document.getElementById("originButton" + type);
     if (type != "FormTrait") {
@@ -651,6 +663,19 @@ function SetSkillPathOptions(evt) {
 }*/
 
 function SetTomePathOptions(evt) {
+    if (_deferDepth === 0) {
+        var _mx = evt.clientX, _my = evt.clientY;
+        _deferDepth = 1;
+        showPageLoading("Loading…");
+        setTimeout(function () {
+            var _fake = { clientX: _mx, clientY: _my, target: evt.target };
+            SetTomePathOptions(_fake);
+            _deferDepth = 0;
+            if (typeof hidePageLoading === 'function') hidePageLoading();
+        }, 25);
+        return;
+    }
+    // ── body runs synchronously when _deferDepth > 0 ──
     const rect = evt.target.getBoundingClientRect();
     var selectionsHolder = document.getElementById("selectionsHolder");
 
@@ -723,6 +748,17 @@ function SetTomePathOptions(evt) {
 
 // Function to handle the selection of an origin
 function selectTomePath(origin, fromLoad) {
+    if (_deferDepth === 0) {
+        _deferDepth = 1;
+        showPageLoading("Loading…");
+        setTimeout(function () {
+            selectTomePath(origin, fromLoad);
+            _deferDepth = 0;
+            if (typeof hidePageLoading === 'function') hidePageLoading();
+        }, 25);
+        return;
+    }
+    // ── body runs synchronously when _deferDepth > 0 ──
     TurnOffTooltip();
     var originButton = document.getElementById("tomePathButton");
     originButton.textContent = "";
@@ -984,6 +1020,17 @@ function ClearTomePath() {
 
 /** Randomly fill the tome path with valid tomes based on affinity requirements. */
 function RandomizeTomePath() {
+    if (_deferDepth === 0) {
+        _deferDepth = 1;
+        showPageLoading("Loading…");
+        setTimeout(function () {
+            RandomizeTomePath();
+            _deferDepth = 0;
+            if (typeof hidePageLoading === 'function') hidePageLoading();
+        }, 25);
+        return;
+    }
+    // ── body runs synchronously when _deferDepth > 0 ──
     // Keep only the starting tome (index 0)
     var startTome = currentTomeList[0];
     currentTomeList = [startTome];
@@ -1152,6 +1199,19 @@ function SetSkillPathInfo(button, origin) {
 }
 
 function SetupButtons(evt, type) {
+    if (_deferDepth === 0) {
+        var _cx = evt.clientX, _cy = evt.clientY;
+        _deferDepth = 1;
+        showPageLoading("Loading…");
+        setTimeout(function () {
+            var _fake = { clientX: _cx, clientY: _cy, target: evt.target };
+            SetupButtons(_fake, type);
+            _deferDepth = 0;
+            if (typeof hidePageLoading === 'function') hidePageLoading();
+        }, 25);
+        return;
+    }
+    // ── body runs synchronously when _deferDepth > 0 ──
     // const rect = evt.target.getBoundingClientRect();
     var selectionsHolder = document.getElementById("selectionsHolder");
 
