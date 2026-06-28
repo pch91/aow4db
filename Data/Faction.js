@@ -54,6 +54,8 @@ var currentSignatureSkills = [];
 // Tracks which tome index was clicked to open the add-tome popup, so the new tome
 // is inserted right after it instead of appended to the end. -1 means append (used during load).
 var tomeInsertionIndex = -1;
+var isReplacingTome = false;  // true when clicking an existing tome (replaces), false for + button (inserts after)
+var lastModifiedTomeIndex = -1; // index of the last added/replaced tome (for green border)
 
 function AddExtra(type, add) {
     if (type === "order") {
@@ -666,9 +668,13 @@ function SetTomePathOptions(evt) {
     originWrapper.innerHTML = "";
 
     // Get tomes valid at the insertion point, excluding any already in the full path.
-    var fullTomeList = currentTomeList;
-    var list = GetNextSetOfTomes(tomeInsertionIndex + 1).filter((t) => !isInArray(fullTomeList, t));
-    if (window.TomeRestriction && TomeRestriction.isEnabled()) list = TomeRestriction.filterTomes(list, tomeInsertionIndex);
+    // When replacing, exclude the clicked tome so it can be re-selected.
+    var fullTomeList = isReplacingTome
+        ? currentTomeList.filter(function (_, idx) { return idx !== tomeInsertionIndex; })
+        : currentTomeList;
+    var lookupPos = isReplacingTome ? tomeInsertionIndex : tomeInsertionIndex + 1;
+    var list = GetNextSetOfTomes(lookupPos).filter((t) => !isInArray(fullTomeList, t));
+    if (window.TomeRestriction && TomeRestriction.isEnabled()) list = TomeRestriction.filterTomes(list, tomeInsertionIndex, isReplacingTome);
 
     // List of origin options
 
@@ -723,25 +729,37 @@ function selectTomePath(origin, fromLoad) {
 
     if (origin != undefined) {
         currentTomeList.push(origin);
-        // If a tome was clicked to open the popup, insert after it instead
+        // Replace if clicking an existing tome; insert after if clicking +
         if (tomeInsertionIndex >= 0) {
             currentTomeList.pop();
-            currentTomeList.splice(tomeInsertionIndex + 1, 0, origin);
+            if (isReplacingTome) {
+                currentTomeList[tomeInsertionIndex] = origin;   // replace
+                lastModifiedTomeIndex = tomeInsertionIndex;
+            } else {
+                currentTomeList.splice(tomeInsertionIndex + 1, 0, origin); // insert after
+                lastModifiedTomeIndex = tomeInsertionIndex + 1;
+            }
+        } else {
+            lastModifiedTomeIndex = currentTomeList.length - 1; // appended at end
         }
         tomeInsertionIndex = -1;
+        isReplacingTome = false;
     }
 
     var invalidIndices = GetInvalidTomeIndices();
 
     for (var i = 0; i < currentTomeList.length; i++) {
-        SetTomePathInfoSmall(originButton, currentTomeList[i], i, invalidIndices.has(i));
+        var isModified = (i === lastModifiedTomeIndex) && !invalidIndices.has(i);
+        SetTomePathInfoSmall(originButton, currentTomeList[i], i, invalidIndices.has(i), isModified);
     }
+    lastModifiedTomeIndex = -1; // reset after drawing
 
     var addSlot = document.createElement("div");
     addSlot.className = "tome-add-slot";
     addSlot.innerHTML = "<img src='/aow4db/Icons/Interface/addsymbol.png' height='20px' />";
     addSlot.addEventListener("click", function (event) {
         tomeInsertionIndex = currentTomeList.length - 1;
+        isReplacingTome = false;
         SetTomePathOptions(event);
     });
     originButton.appendChild(addSlot);
@@ -802,7 +820,7 @@ function SetSkillPathInfoSmall(buttonHolder, origin) {
 
     addTooltipListeners(image, spa);
 }
-function SetTomePathInfoSmall(buttonHolder, origin, index, isInvalid) {
+function SetTomePathInfoSmall(buttonHolder, origin, index, isInvalid, isModified) {
     const image = document.createElement("img");
     image.setAttribute("width", "60");
     image.setAttribute("height", "60");
@@ -907,9 +925,11 @@ function SetTomePathInfoSmall(buttonHolder, origin, index, isInvalid) {
 
     newDivButton.className = "tome-button-small";
     if (isInvalid) newDivButton.classList.add("tome-invalid");
+    if (isModified) newDivButton.classList.add("tome-modified");
 
     newDivButton.addEventListener("click", (event) => {
         tomeInsertionIndex = index;
+        isReplacingTome = true;
         SetTomePathOptions(event);
     });
 
@@ -3175,6 +3195,36 @@ function GetInvalidTomeIndices() {
             invalid.add(i);
         }
     }
+
+    // ── Tome Restriction: quota violations ────────────────────────────
+    if (window.TomeRestriction && window.TomeRestriction.isEnabled()) {
+        var dist = window.TomeRestriction.getDistribution();
+        if (dist) {
+            // count tomes per tier
+            var counts = {1:0, 2:0, 3:0, 4:0, 5:0};
+            for (var t = 0; t < currentTomeList.length; t++) {
+                var tier = currentTomeList[t].tier;
+                if (counts[tier] !== undefined) counts[tier]++;
+            }
+            // mark EXCESS tomes (last ones of over-quota tiers)
+            for (var tier2 = 1; tier2 <= 5; tier2++) {
+                var quota = dist[tier2] || 0;
+                if (counts[tier2] > quota) {
+                    var excess = counts[tier2] - quota;
+                    // mark the last `excess` tomes of this tier
+                    var found = 0;
+                    for (var u = currentTomeList.length - 1; u >= 0; u--) {
+                        if (currentTomeList[u].tier === tier2) {
+                            invalid.add(u);
+                            found++;
+                            if (found >= excess) break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     return invalid;
 }
 

@@ -2329,7 +2329,7 @@ span.number-highlight {
         position: fixed;
         z-index: 100;
         top: 5px;
-        margin-right: 45px;
+        margin-right: 60px;
         width: -webkit-fill-available;
     }
 

@@ -50,12 +50,7 @@ window.TomeRestriction = (function () {
     function onRandomize() {
         if (!isEnabled()) return;
         distribution = _generateDistribution();
-        // Capture the FULL affinity total visible to the user at randomize time
-        // (culture + societies + starting tome + extra points).
-        // This is what defines the affinity ordering that must be preserved.
-        baseAff = _parseAffinityTotal(
-            typeof currentAffinityTotal !== "undefined" ? currentAffinityTotal : _computeBaseAffinities()
-        );
+        baseAff = _parseAffinityTotal(_computeBaseAffinities());
         lockedTier5  = _selectTier5Tome();
         updateDisplay();
     }
@@ -63,28 +58,52 @@ window.TomeRestriction = (function () {
     /**
      * Filters the tome list shown in the picker popup.
      * Called by SetTomePathOptions (hook #1).
-     * @param {Array}  list           - tomes from GetNextSetOfTomes, duplicates already removed
-     * @param {number} insertionIndex - current tomeInsertionIndex from Faction.js
+     * @param {Array}   list           - tomes from GetNextSetOfTomes
+     * @param {number}  insertionIndex - current tomeInsertionIndex from Faction.js
+     * @param {boolean} isReplacement  - true if replacing an existing tome
      */
-    function filterTomes(list, insertionIndex) {
+    function filterTomes(list, insertionIndex, isReplacement) {
         if (!distribution) return list;
 
-        // Position of the new tome in the final list (0-based)
+        // Position in the final list (0-based).
+        // New tome:     insertPos = insertionIndex + 1  (slot after last tome)
+        // Replacement:  insertPos = insertionIndex      (same slot, affinity from before it)
         var insertPos = (insertionIndex === undefined || insertionIndex < 0)
             ? currentTomeList.length
-            : insertionIndex + 1;
+            : isReplacement ? insertionIndex : insertionIndex + 1;
 
-        // ── Final slot (#9): only the locked T5 tome ─────────────────────────
+        // ── Final slot (#9): locked T5 or fallback ──────────────────────────
         if (insertPos === 8) {
-            return lockedTier5
-                ? [lockedTier5]
-                : list.filter(function (t) { return t.tier === 5; });
+            if (!lockedTier5) {
+                return list.filter(function (t) { return t.tier === 5; });
+            }
+            // Locked T5 is available → use it
+            if (isInArray(list, lockedTier5)) {
+                return [lockedTier5];
+            }
+            // Requirements not met for locked T5 → fallback:
+            // ANY tier, ignoring quotas, but MUST share affinity with the locked T5
+            var t5AffElts = _getTomeAffinityElements(lockedTier5);
+            var fallback = [];
+            for (var fi = 0; fi < list.length; fi++) {
+                var t = list[fi];
+                var tElts = _getTomeAffinityElements(t);
+                if (tElts.length === 0) continue;
+                if (tElts.some(function (e) { return t5AffElts.indexOf(e) !== -1; })) {
+                    fallback.push(t);
+                }
+            }
+            return fallback.length > 0 ? fallback : [lockedTier5];
         }
 
         // ── Check if T5 is already selected ────────────────────────────────────
         var tier5Selected = isTier5Selected();
 
-        var currentCounts  = _getTierCounts(currentTomeList);
+        // When replacing, exclude the replaced tome from tier counts
+        var tomesForCount = isReplacement
+            ? currentTomeList.filter(function (_, idx) { return idx !== insertionIndex; })
+            : currentTomeList;
+        var currentCounts  = _getTierCounts(tomesForCount);
         var affAtInsertion = _getAffinityAtIndex(insertPos);
         var playerElements = _getPlayerElements(affAtInsertion);
 
@@ -195,8 +214,9 @@ window.TomeRestriction = (function () {
      */
     function _countDistinctAffinities(tome) {
         if (!tome || !tome.affinities) return 0;
-        var contrib = _parseTomeContrib(tome.affinities);
-        return Object.keys(contrib).filter(function (k) { return contrib[k] > 0; }).length;
+        var c = _parseTomeContrib(tome.affinities), keys = Object.keys(c), n = 0;
+        for (var i = 0; i < keys.length; i++) { if (c[keys[i]] > 0) n++; }
+        return n;
     }
 
     /**
@@ -254,36 +274,22 @@ window.TomeRestriction = (function () {
         }
 
         // ── Rule: if player has ALL 6 affinities → always the all-affinity tome ──
-        if (_hasAllAffinities(affStr) && allAffTomes.length > 0) {
-            return allAffTomes[Math.floor(Math.random() * allAffTomes.length)];
-        }
+        if (_hasAllAffinities(affStr) && allAffTomes.length > 0) return _pick(allAffTomes);
 
         // ── Other hybrid T5 tomes (50% chance) ──────────────────────────
-        // Eligible if: (a) contains the player's HIGHEST base affinity,
-        // (b) player has ≥1 base point in ALL of the tome's affinity elements.
         var hybridPool = hybridTomes.filter(function (t) {
-            var matchesTop = topElements.some(function (el) { return t.affinities.indexOf(el) !== -1; });
-            return matchesTop && _playerHasAllTomeAffinities(t, affStr);
+            return _tomeHasAnyElement(t, topElements) && _playerHasAllTomeAffinities(t, affStr);
         });
-        if (hybridPool.length > 0 && Math.random() < 0.50) {
-            return hybridPool[Math.floor(Math.random() * hybridPool.length)];
-        }
+        if (hybridPool.length > 0 && Math.random() < 0.50) return _pick(hybridPool);
 
         // ── Default: mono tomes matching the HIGHEST base affinity ───────
-        var monoPool = monoTomes.filter(function (t) {
-            return topElements.some(function (el) { return t.affinities.indexOf(el) !== -1; });
-        });
+        var monoPool = monoTomes.filter(function (t) { return _tomeHasAnyElement(t, topElements); });
         if (!monoPool.length) monoPool = monoTomes;
-        if (monoPool.length > 0) {
-            return monoPool[Math.floor(Math.random() * monoPool.length)];
-        }
+        if (monoPool.length > 0) return _pick(monoPool);
 
         // ── Ultimate fallback: any T5 (top-affinity first) ───────────────
-        var pool = allT5.filter(function (t) {
-            return topElements.some(function (el) { return t.affinities.indexOf(el) !== -1; });
-        });
-        if (!pool.length) pool = allT5;
-        return pool[Math.floor(Math.random() * pool.length)];
+        var pool = allT5.filter(function (t) { return _tomeHasAnyElement(t, topElements); });
+        return _pick(pool.length > 0 ? pool : allT5);
     }
 
     // ── Affinity Helpers ──────────────────────────────────────────────────────
@@ -350,32 +356,47 @@ window.TomeRestriction = (function () {
         return map;
     }
 
+    /** Affinity element tags of a tome (e.g. ["empirearcana"]). */
+    function _getTomeAffinityElements(tome) {
+        if (!tome || !tome.affinities) return [];
+        var c = _parseTomeContrib(tome.affinities), keys = Object.keys(c), out = [];
+        for (var i = 0; i < keys.length; i++) { if (c[keys[i]] > 0) out.push(keys[i]); }
+        return out;
+    }
+
+    /** Returns the mono element of the T5 if it's mono, null otherwise. */
+    function _getT5MonoElement() {
+        if (!lockedTier5 || !lockedTier5.affinities) return null;
+        var elts = _getTomeAffinityElements(lockedTier5);
+        return elts.length === 1 ? elts[0] : null;
+    }
+
     /** Returns all affinity element tags whose count is > 0. */
     function _getPlayerElements(affinityStr) {
-        var map = _parseAffinityTotal(affinityStr);
-        return Object.keys(map).filter(function (k) { return map[k] > 0; });
+        var map = _parseAffinityTotal(affinityStr), keys = Object.keys(map), out = [];
+        for (var i = 0; i < keys.length; i++) { if (map[keys[i]] > 0) out.push(keys[i]); }
+        return out;
     }
 
-    /** Returns the element tag(s) with the highest count (for T5 selection). */
+    /** Returns the element tag(s) with the highest count. */
     function _getTopAffinityElements(affinityStr) {
-        var map  = _parseAffinityTotal(affinityStr);
-        var keys = Object.keys(map);
+        var map = _parseAffinityTotal(affinityStr), keys = Object.keys(map);
         if (!keys.length) return [];
-        var max = Math.max.apply(null, keys.map(function (k) { return map[k]; }));
-        return keys.filter(function (k) { return map[k] === max; });
+        var max = map[keys[0]], i;
+        for (i = 1; i < keys.length; i++) { if (map[keys[i]] > max) max = map[keys[i]]; }
+        var out = [];
+        for (i = 0; i < keys.length; i++) { if (map[keys[i]] === max) out.push(keys[i]); }
+        return out;
     }
 
-    /**
-     * Returns true if AT LEAST ONE affinity element of the tome is present
-     * in the player's current element set (playerElements).
-     * A hybrid tome (e.g. Chaos+Shadow) shows for any player who has Chaos.
-     */
+    /** Does at least ONE of the tome's elements exist in the player's set? */
     function _tomeElementsMatchPlayer(tome, playerElements) {
         if (!tome.affinities) return true;
-        var contrib  = _parseTomeContrib(tome.affinities);
-        var tomeElts = Object.keys(contrib).filter(function (k) { return contrib[k] > 0; });
-        if (!tomeElts.length) return true;
-        return tomeElts.some(function (el) { return playerElements.indexOf(el) !== -1; });
+        var c = _parseTomeContrib(tome.affinities), keys = Object.keys(c);
+        for (var i = 0; i < keys.length; i++) {
+            if (c[keys[i]] > 0 && playerElements.indexOf(keys[i]) !== -1) return true;
+        }
+        return keys.length === 0;
     }
 
     /**
@@ -394,12 +415,9 @@ window.TomeRestriction = (function () {
         if (!tome.affinities) return false;
         var cur     = _parseAffinityTotal(currentAffinityStr);
         var contrib = _parseTomeContrib(tome.affinities);
-
-        // Build hypothetical post-tome totals (include any brand-new element tags)
-        var nxt = {}, allKeys = Object.keys(cur).concat(Object.keys(contrib)), i, j, k, a, b;
-        for (i = 0; i < allKeys.length; i++) { k = allKeys[i]; if (!nxt[k]) nxt[k] = 0; }
-        for (k in cur)     { nxt[k] = (nxt[k] || 0) + cur[k]; }
-        for (k in contrib) { nxt[k] = (nxt[k] || 0) + contrib[k]; }
+        var nxt     = _buildNextTotals(cur, contrib);
+        var t5Mono  = _getT5MonoElement();
+        var i, j, a, b;
 
         // 1. Base constraint: baseAff[a] > baseAff[b]  →  nxt[a] >= nxt[b]
         if (baseAff) {
@@ -408,6 +426,9 @@ window.TomeRestriction = (function () {
                 for (j = 0; j < bKeys.length; j++) {
                     if (i === j) continue;
                     a = bKeys[i]; b = bKeys[j];
+                    // If the "lower" element is the T5 mono, skip —
+                    // the T5's element can freely surpass others in base order.
+                    if (t5Mono && b === t5Mono) continue;
                     if ((baseAff[a] || 0) > (baseAff[b] || 0) &&
                         (nxt[a]    || 0) <  (nxt[b]    || 0)) return true;
                 }
@@ -420,26 +441,43 @@ window.TomeRestriction = (function () {
             for (j = 0; j < cKeys.length; j++) {
                 if (i === j) continue;
                 a = cKeys[i]; b = cKeys[j];
+                // T5 mono can freely surpass others in running order too
+                if (t5Mono && b === t5Mono) continue;
                 if (cur[a] > cur[b] && (nxt[a] || 0) < (nxt[b] || 0)) return true;
             }
         }
+
+        // 3. T5 mono absolute protection: no element can surpass the T5's element
+        if (t5Mono) {
+            var t5Val = nxt[t5Mono] || 0;
+            for (i = 0; i < cKeys.length; i++) {
+                var other = cKeys[i];
+                if (other === t5Mono) continue;
+                if ((nxt[other] || 0) > t5Val) return true;
+            }
+        }
+
         return false;
+    }
+
+    /** Merge cur + contrib into hypothetical post-tome totals. */
+    function _buildNextTotals(cur, contrib) {
+        var nxt = {}, keys = Object.keys(cur), i, k;
+        for (i = 0; i < keys.length; i++) { nxt[keys[i]] = cur[keys[i]]; }
+        keys = Object.keys(contrib);
+        for (i = 0; i < keys.length; i++) { k = keys[i]; nxt[k] = (nxt[k] || 0) + contrib[k]; }
+        return nxt;
     }
 
     // ── Tier Count Helpers ────────────────────────────────────────────────────
 
     function _getTierCounts(list) {
-        var c = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 }, i, t;
-        for (i = 0; i < list.length; i++) { t = list[i].tier; if (c[t] !== undefined) c[t]++; }
+        var c = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+        for (var i = 0; i < list.length; i++) { var t = list[i].tier; if (c[t] !== undefined) c[t]++; }
         return c;
     }
 
     // ── Display HTML ──────────────────────────────────────────────────────────
-
-    function _promptHtml() {
-        return '<span style="color:#d7c297;font-family:\'Decorative\';font-size:12px;">' +
-               '&#9854; Click <b>Randomise</b> to generate your tome path restrictions.</span>';
-    }
 
     function _buildDisplayHtml() {
         var counts  = _getTierCounts(currentTomeList);
@@ -490,21 +528,27 @@ window.TomeRestriction = (function () {
 
     // ── Utilities ─────────────────────────────────────────────────────────────
 
-    /** Returns a random integer in [min, max] inclusive. */
-    function _rand(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+    /** Random element from array. */
+    function _pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+    function _rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+
+    /** True if tome.affinities contains at least one element from the list. */
+    function _tomeHasAnyElement(tome, elements) {
+        for (var i = 0; i < elements.length; i++) {
+            if (tome.affinities.indexOf(elements[i]) !== -1) return true;
+        }
+        return false;
     }
 
     /** Returns true if the tome has 2+ distinct affinity tags (hybrid). */
     function _isHybridTome(tome) {
         if (!tome || !tome.affinities) return false;
         var tags = tome.affinities.match(/<(\w+)><\/\1>/g);
-        if (!tags) return false;
-        var seen = {}, distinct = 0;
-        for (var i = 0; i < tags.length; i++) {
-            if (!seen[tags[i]]) { seen[tags[i]] = true; distinct++; }
-        }
-        return distinct >= 2;
+        if (!tags || tags.length < 2) return false;
+        var seen = {};
+        for (var i = 0; i < tags.length; i++) { seen[tags[i]] = true; }
+        return Object.keys(seen).length >= 2;
     }
 
     /** Returns true if the player has at least 1 point in EVERY affinity of the hybrid tome. */
@@ -512,13 +556,11 @@ window.TomeRestriction = (function () {
         if (!tome || !tome.affinities) return true;
         var tags = tome.affinities.match(/<(\w+)><\/\1>/g);
         if (!tags) return true;
-        var seen = {}, distinct = [];
-        for (var i = 0; i < tags.length; i++) {
-            if (!seen[tags[i]]) { seen[tags[i]] = true; distinct.push(tags[i]); }
-        }
+        var seen = {};
+        for (var i = 0; i < tags.length; i++) { seen[tags[i]] = true; }
+        var distinct = Object.keys(seen);
         for (var j = 0; j < distinct.length; j++) {
-            var re = new RegExp(distinct[j] + '\\s*(\\d+)');
-            var m = affinityStr.match(re);
+            var m = affinityStr.match(new RegExp(distinct[j] + '\\s*(\\d+)'));
             if (!m || parseInt(m[1]) < 1) return false;
         }
         return true;
@@ -582,10 +624,8 @@ window.TomeRestriction = (function () {
             }
         }
 
-        // Capture base affinities from current state
-        baseAff = _parseAffinityTotal(
-            typeof currentAffinityTotal !== "undefined" ? currentAffinityTotal : _computeBaseAffinities()
-        );
+        // Capture base affinities from current state (culture+societies only)
+        baseAff = _parseAffinityTotal(_computeBaseAffinities());
 
         var el = document.getElementById("tomeRestrictionDisplay");
         if (el) el.style.display = "block";

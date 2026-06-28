@@ -18,6 +18,7 @@
         <link rel="stylesheet" type="text/css" href="/aow4db/Style/icons.css" />
         <meta charset="UTF-8" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
          <script src="/aow4db/Data/Init.js"></script>
         <script src="/aow4db/Data/TomeRestriction.js"></script>
 
@@ -272,7 +273,7 @@
                 color: white;
                 display: inline-block;
                 position: absolute;
-                border-width: 10px;
+                border-width: 6px;
                 border-style: solid;
                 border-image: url(/aow4db/Icons/9slicetooltip.png);
                 border-image-slice: 10 10 10 10;
@@ -291,7 +292,7 @@
                 font-size: 13px;
                 color: #bbcdf6;
                 text-align: left;
-                border-width: 10px;
+                border-width: 6px;
                 border-style: solid;
                 border-image: url(/aow4db/Icons/9slicetooltip.png);
                 border-image-slice: 10 10 10 10;
@@ -424,6 +425,10 @@
                 outline: 2px solid #e05252;
                 outline-offset: 3px;
             }
+            .tome-modified {
+                outline: 2px solid #4caf50;
+                outline-offset: 3px;
+            }
             .tome-add-slot {
                 display: inline-flex;
                 align-items: center;
@@ -442,6 +447,136 @@
             .tome-add-slot:hover {
                 border-color: #d7c297;
                 color: #d7c297;
+            }
+
+            /* PrintScreen Modal */
+            #printModal {
+                display: none;
+                position: fixed;
+                z-index: 9999;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+            }
+            #printModal .modal-content {
+                background-image: url(/aow4db/Icons/tooltipBG.png);
+                border-width: 6px;
+                border-style: solid;
+                border-image: url(/aow4db/Icons/9slicetooltip.png);
+                border-image-slice: 10 10 10 10;
+                padding: 24px;
+                width: 360px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                color: #fff;
+                font-family: "Regular", sans-serif;
+            }
+            #printModal .modal-content h3 {
+                font-family: "Decorative";
+                color: burlywood;
+                margin-top: 0;
+                font-size: 18px;
+            }
+            #printModal .modal-content p {
+                margin: 8px 0 20px 0;
+                font-size: 13px;
+                color: #bbb;
+            }
+            #printModal .preview-img {
+                max-width: 280px;
+                max-height: 180px;
+                border: 1px solid #444;
+                margin-bottom: 16px;
+                border-radius: 4px;
+            }
+            #printModal .modal-buttons {
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            #printModal .modal-btn {
+                padding: 10px 20px;
+                border: 1px solid burlywood;
+                background: transparent;
+                color: burlywood;
+                font-family: "Regular", sans-serif;
+                font-size: 14px;
+                cursor: pointer;
+                border-radius: 4px;
+                transition: background 0.2s, color 0.2s;
+            }
+            #printModal .modal-btn:hover {
+                background: burlywood;
+                color: #111;
+            }
+            #printModal .modal-btn.primary {
+                background: burlywood;
+                color: #111;
+            }
+            #printModal .modal-btn.primary:hover {
+                background: #d4b87a;
+            }
+            #printModal .modal-btn.cancel {
+                border-color: #666;
+                color: #888;
+            }
+            #printModal .modal-btn.cancel:hover {
+                background: #444;
+                color: #fff;
+            }
+            #printScreenButton {
+                margin-left: 0;
+            }
+
+            /* ─── Mobile icon-only action buttons (save space) ─── */
+            .action-icon-btn {
+                display: none;
+                width: 30px !important;
+                height: 30px !important;
+                min-width: 30px;
+                padding: 2px !important;
+                font-size: 0 !important;
+            }
+            .action-icon-btn svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            /* bordas mais finas que o style.css global (10px → 6px) */
+            #capture .inputfield {
+                border-width: 6px;
+            }
+
+            /* ─── Mobile: icon-only action buttons ─── */
+            @media (max-width: 768px) {
+                .action-icon-btn {
+                    display: flex !important;
+                    align-items: center;
+                    justify-content: center;
+                }
+                #printScreenButton {
+                    width: 30px !important;
+                    height: 30px !important;
+                    min-width: 30px;
+                    padding: 2px !important;
+                    font-size: 0 !important;
+                    display: flex !important;
+                    align-items: center;
+                    justify-content: center;
+                }
+                #printScreenButton::after {
+                    content: "";
+                    display: inline-block;
+                    width: 18px;
+                    height: 18px;
+                    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'/%3E%3Ccircle cx='12' cy='13' r='4'/%3E%3C/svg%3E") center/contain no-repeat;
+                }
             }
         </style>
 
@@ -482,14 +617,17 @@
             <div></div>
             <div id="note"></div>
             <div id="shareSection">
-            <button class="button-random" onclick="GetQuickLink()">Make Share Link</button>
+            <button class="button-random" id="genCopyBtn" onclick="generateAndCopyLink()">Generate &amp; Copy Link</button>
 
             <input type="text" value="" class="inputfield" id="shareLink" style="width: 600px" />
 
-            <button class="button-random" id="copyButton" onclick="myFunction()">Copy</button><br />
             </div>
-            <div style="display: flex; flex-direction: row; justify-content: space-around">
-                <button class="button-random" onclick="SetRandomStart(true)">Randomise</button><br />
+            <div style="display: flex; flex-direction: row; justify-content: space-around; align-items: center; gap: 8px;" id="actionRow">
+                <button class="button-random" onclick="SetRandomStart(true)">Randomise</button>
+                <button class="button-random action-icon-btn" id="mobileCopyLinkBtn" onclick="generateAndCopyLink()" title="Copy Link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                </button>
+                <button class="button-random" id="printScreenButton" onclick="printScreen()">PrintScreen</button>
                 <button class="button-overview" style="left: 200px" id="toggleButton">▶ Show Overview</button>
             </div>
         </div>
@@ -893,19 +1031,19 @@
                 range.insertNode(span);
                 range.collapse(false);
             }
-            function myFunction() {
-                // Get the text field
+            /**
+             * Generate share link AND copy to clipboard in one click.
+             */
+            function generateAndCopyLink() {
+                GetQuickLink();
                 var copyText = document.getElementById("shareLink");
-
-                // Select the text field
                 copyText.select();
-                copyText.setSelectionRange(0, 99999); // For mobile devices
-
-                // Copy the text inside the text field
-                navigator.clipboard.writeText(copyText.value);
-
-                // Alert the copied text
-                // alert("Copied the text: " + copyText.value);
+                copyText.setSelectionRange(0, 99999);
+                navigator.clipboard.writeText(copyText.value).then(function () {
+                    showToast("Link copied! (Ctrl+V to share)");
+                }).catch(function () {
+                    showToast("Link generated. Select & copy manually.");
+                });
             }
 
             document.getElementById("toggleButton").addEventListener("click", function (event) {
@@ -1119,6 +1257,230 @@
                 observer.observe(trigger);
             }
         });
+
+        // ─── PrintScreen ───────────────────────────────────────────────
+        let capturedDataUrl = null;
+
+        /**
+         * html2canvas não renderiza `content: url(...)` no CSS.
+         * Esta função percorre o clone e substitui esses elementos por
+         * <img> reais, copiando TODOS os estilos computados relevantes
+         * para que o resultado seja visualmente idêntico ao HTML.
+         */
+        function fixContentUrlElements(clone) {
+            // propriedades que devem ser copiadas do computed style
+            // (apenas longhands, sem shorthands, para evitar conflitos)
+            var LAYOUT_PROPS = [
+                "display", "position", "top", "right", "bottom", "left",
+                "width", "height", "maxWidth", "maxHeight", "minWidth", "minHeight",
+                "marginTop", "marginRight", "marginBottom", "marginLeft",
+                "paddingTop", "paddingRight", "paddingBottom", "paddingLeft",
+                "verticalAlign", "float",
+                "objectFit", "objectPosition",
+                "transform", "transformOrigin",
+                "opacity", "filter",
+                "borderTopWidth", "borderRightWidth", "borderBottomWidth", "borderLeftWidth",
+                "borderTopLeftRadius", "borderTopRightRadius",
+                "borderBottomLeftRadius", "borderBottomRightRadius",
+                "boxSizing", "zoom"
+            ];
+
+            var all = clone.querySelectorAll("*");
+            // NodeList é estática? Não em cloneNode — é live. Coleta primeiro.
+            var toReplace = [];
+            for (var i = 0; i < all.length; i++) {
+                var el = all[i];
+                var style = window.getComputedStyle(el);
+                var content = style.content;
+                if (!content || content === "none" || content === "normal") continue;
+                var m = content.match(/url\(["']?([^"')]+)["']?\)/);
+                if (!m) continue;
+                toReplace.push({ el: el, url: m[1] });
+            }
+
+            for (var j = 0; j < toReplace.length; j++) {
+                var item = toReplace[j];
+                var el = item.el;
+                var url = item.url;
+                var style = window.getComputedStyle(el);
+
+                var img = document.createElement("img");
+                img.src = url;
+
+                // copia estilo inline original (se houver algo)
+                if (el.style && el.style.cssText) {
+                    img.style.cssText = el.style.cssText;
+                }
+
+                // copia propriedades computadas de layout
+                for (var k = 0; k < LAYOUT_PROPS.length; k++) {
+                    var prop = LAYOUT_PROPS[k];
+                    var val = style.getPropertyValue(prop);
+                    if (val && val !== "auto" && val !== "normal") {
+                        img.style.setProperty(prop, val);
+                    }
+                }
+
+                // Garante que o display não seja o default do <img> (inline-block)
+                // se o original era inline
+                if (!img.style.display || img.style.display === "inline-block") {
+                    var compDisplay = style.getPropertyValue("display");
+                    if (compDisplay && compDisplay !== "inline-block") {
+                        img.style.setProperty("display", compDisplay);
+                    }
+                }
+
+                // preserva classe/id
+                if (el.className) img.className = el.className;
+                if (el.id) img.id = el.id;
+
+                el.replaceWith(img);
+            }
+        }
+
+        async function printScreen() {
+            const captureEl = document.getElementById("capture");
+            if (!captureEl) {
+                alert("Faction creator element not found.");
+                return;
+            }
+
+            try {
+                // clone off-screen so we don't flash the visible DOM
+                const clone = captureEl.cloneNode(true);
+                clone.style.position = "fixed";
+                clone.style.left = "-9999px";
+                clone.style.top = "0";
+                clone.style.zIndex = "-1";
+                clone.style.pointerEvents = "none";
+                document.body.appendChild(clone);
+
+                // fix CSS content:url() elements in the clone
+                fixContentUrlElements(clone);
+
+                // afina bordas no clone para o screenshot (border-image fica
+                // pesado demais no html2canvas com border-width > 4px)
+                var containers = clone.querySelectorAll(".container");
+                for (var ci = 0; ci < containers.length; ci++) {
+                    containers[ci].style.borderWidth = "4px";
+                }
+                var inputs = clone.querySelectorAll(".inputfield");
+                for (var ii = 0; ii < inputs.length; ii++) {
+                    inputs[ii].style.borderWidth = "4px";
+                }
+
+                const canvas = await html2canvas(clone, {
+                    backgroundColor: null,   // transparent – sem fundo cinza
+                    scale: 2,
+                    useCORS: true,
+                    allowTaint: true
+                });
+
+                // remove clone
+                document.body.removeChild(clone);
+
+                capturedDataUrl = canvas.toDataURL("image/png");
+                showPrintModal(capturedDataUrl);
+            } catch (err) {
+                console.error("PrintScreen failed:", err);
+                alert("Failed to capture screenshot.");
+                // limpa clone residual se existir
+                const clones = document.querySelectorAll('[style*="left: -9999px"]');
+                clones.forEach(c => { if (c.tagName === "DIV") c.remove(); });
+            }
+        }
+
+        function showPrintModal(dataUrl) {
+            // remove old modal if any
+            const old = document.getElementById("printModal");
+            if (old) old.remove();
+
+            const modal = document.createElement("div");
+            modal.id = "printModal";
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <h3>Screenshot Ready</h3>
+                    <img class="preview-img" src="${dataUrl}" alt="Preview" />
+                    <p>What do you want to do with this image?</p>
+                    <div class="modal-buttons">
+                        <button class="modal-btn primary" id="btnCopyImage">📋 Copy to Clipboard</button>
+                        <button class="modal-btn" id="btnDownloadImage">💾 Download PNG</button>
+                        <button class="modal-btn cancel" id="btnCancelModal">Cancel</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            modal.style.display = "block";
+
+            // Close on background click
+            modal.addEventListener("click", function (e) {
+                if (e.target === modal) closePrintModal();
+            });
+
+            // Cancel
+            modal.querySelector("#btnCancelModal").addEventListener("click", closePrintModal);
+
+            // Download
+            modal.querySelector("#btnDownloadImage").addEventListener("click", function () {
+                downloadImage(capturedDataUrl);
+                closePrintModal();
+            });
+
+            // Copy to clipboard
+            modal.querySelector("#btnCopyImage").addEventListener("click", async function () {
+                await copyImageToClipboard(capturedDataUrl);
+                closePrintModal();
+            });
+        }
+
+        function closePrintModal() {
+            const modal = document.getElementById("printModal");
+            if (modal) modal.remove();
+        }
+
+        function downloadImage(dataUrl) {
+            const link = document.createElement("a");
+            link.download = "faction-creator-" + Date.now() + ".png";
+            link.href = dataUrl;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        async function copyImageToClipboard(dataUrl) {
+            try {
+                const res = await fetch(dataUrl);
+                const blob = await res.blob();
+                await navigator.clipboard.write([
+                    new ClipboardItem({ "image/png": blob })
+                ]);
+                // brief feedback (non-blocking alert)
+                showToast("Image copied to clipboard! (Ctrl+V to paste)");
+            } catch (err) {
+                console.error("Clipboard copy failed:", err);
+                // fallback: open in new tab where user can right-click → copy
+                const win = window.open("");
+                win.document.write(`<img src="${dataUrl}" style="max-width:100%"/><p style="color:#fff;font-family:sans-serif">Right-click the image and choose "Copy image", then paste with Ctrl+V.</p>`);
+                win.document.title = "Screenshot - Right-click to copy";
+            }
+        }
+
+        function showToast(msg) {
+            const toast = document.createElement("div");
+            toast.textContent = msg;
+            toast.style.cssText = `
+                position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+                background: #2e7d32; color: #fff; padding: 12px 24px;
+                border-radius: 6px; font-family: "Regular", sans-serif;
+                font-size: 14px; z-index: 99999; pointer-events: none;
+                transition: opacity 0.4s; opacity: 1;
+            `;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = "0";
+                setTimeout(() => toast.remove(), 400);
+            }, 2500);
+        }
         </script>
     </body>
 </html>
