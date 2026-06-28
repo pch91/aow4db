@@ -173,6 +173,9 @@ window.TomeRestriction = (function () {
         }
         el.style.display = "block";
         el.innerHTML = _buildDisplayHtml();
+
+        // Signal that loading/updating is complete (used by FactionCreator overlay)
+        if (typeof hidePageLoading === "function") hidePageLoading();
     }
 
     // ── Distribution Generation ───────────────────────────────────────────────
