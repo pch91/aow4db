@@ -236,12 +236,13 @@
 
             .wrappers {
                 position: relative;
-
                 display: grid;
                 grid-template-columns: repeat(7, 2fr);
-                overflow-y: auto;
-                max-height: 300px;
+                max-width: 100%;
+                max-height: calc(min(70vh, 520px) - 36px);
                 height: fit-content;
+                overflow: auto;
+                box-sizing: border-box;
             }
 
             .subSubDiv {
@@ -267,17 +268,20 @@
 
             .selections {
                 width: fit-content;
-
-                height: fit-content;
-                max-height: 300px;
+                max-width: calc(100vw - 16px);
+                height: auto;
+                max-height: min(70vh, 520px);
                 color: white;
                 display: inline-block;
                 position: absolute;
+                z-index: 1000;
                 border-width: 6px;
                 border-style: solid;
                 border-image: url(/aow4db/Icons/9slicetooltip.png);
                 border-image-slice: 10 10 10 10;
                 background-color: black;
+                overflow: hidden;
+                box-sizing: border-box;
             }
 
             .container {

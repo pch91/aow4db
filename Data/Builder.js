@@ -62,9 +62,15 @@ function extractHyperlinks(text) {
     return { text, links };
 }
 
+function RemoveHyperLinks(text) {
+    if (!text) return text;
+    return text.replace(/\[hyperlink,[^\]]+\]([\s\S]*?)\[\/hyperlink\]/g, "$1");
+}
+
 // main function
 function AddTagIconsForStatusEffects(text) {
     if (!text) return text;
+    text = RemoveHyperLinks(text);
     text = cleanTranslation(text);
     if (!abilityTagCache) buildAbilityTagCache();
 

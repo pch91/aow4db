@@ -325,7 +325,10 @@ EMPIRESANDASHES,
 ARCHONPROPHECY,
 COSMICWANDERER,
 THRONESOFBLOOD,
-RISEFROMRUIN,SECRETSOFTHEARCHMAGES {
+RISEFROMRUIN,
+SECRETSOFTHEARCHMAGES,
+WITCHOFTHEWAVES,
+THESILVERSEAS {
     max-width: 20px;
     top: 7px;
     position: relative;
@@ -364,6 +367,12 @@ THRONESOFBLOOD {
 }
 RISEFROMRUIN {
     content: url(/aow4db/Icons/Text/RiseFromRuin.png);
+}
+WITCHOFTHEWAVES {
+    content: url(/aow4db/Icons/Text/singer_of_storms.png);
+}
+THESILVERSEAS {
+    content: url(/aow4db/Icons/Text/the_silver_seas.png);
 }
 
 ELDRITCHREALMS {

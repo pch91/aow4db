@@ -1418,32 +1418,28 @@ function SetupButtons(evt, type) {
         }
     }
 
-    if (type == "FormTrait") {
-        selectionsHolder.style.display = "block";
-        selectionsHolder.style.left = "254px";
-        selectionsHolder.style.top = "431px";
-    } else {
-        var normalizedPos = getNormalizedPosition(evt);
+    const mouseX = evt.clientX;
+    const mouseY = evt.clientY;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    const viewportMargin = 8;
 
-        const mouseX = evt.clientX;
-        const mouseY = evt.clientY;
+    selectionsHolder.style.display = "block";
 
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-        selectionsHolder.style.display = "block";
+    const selectionRect = selectionsHolder.getBoundingClientRect();
+    const maxLeft = Math.max(
+        scrollLeft + viewportMargin,
+        scrollLeft + window.innerWidth - selectionRect.width - viewportMargin
+    );
+    const maxTop = Math.max(
+        scrollTop + viewportMargin,
+        scrollTop + window.innerHeight - selectionRect.height - viewportMargin
+    );
 
-        if (normalizedPos.x + getNormalizedWidth(selectionsHolder) > 0.95) {
-            selectionsHolder.style.left = mouseX - selectionsHolder.getBoundingClientRect().width + scrollLeft + "px";
-        } else {
-            selectionsHolder.style.left = mouseX + scrollLeft + "px";
-        }
-
-        if (normalizedPos.y + getNormalizedHeight(selectionsHolder) > 0.95) {
-            selectionsHolder.style.top = mouseY - selectionsHolder.getBoundingClientRect().height + scrollTop + "px";
-        } else {
-            selectionsHolder.style.top = mouseY + scrollTop + "px";
-        }
-    }
+    selectionsHolder.style.left =
+        Math.min(Math.max(mouseX + scrollLeft, scrollLeft + viewportMargin), maxLeft) + "px";
+    selectionsHolder.style.top =
+        Math.min(Math.max(mouseY + scrollTop, scrollTop + viewportMargin), maxTop) + "px";
 }
 
 function GetCurrentChoiceList() {
@@ -1745,6 +1741,13 @@ function createImage(type, origin) {
         image.setAttribute("src", src);
         image.setAttribute("width", width);
         image.setAttribute("height", height);
+        image.addEventListener(
+            "error",
+            () => {
+                image.src = errorImage;
+            },
+            { once: true }
+        );
     };
 
     switch (type) {
@@ -1843,7 +1846,7 @@ function findOriginLocName(origin, type) {
         case "Loadout":
             break;
     }
-    return newOrigin;
+    return RemoveHyperLinks(newOrigin);
 }
 function createButtonText(origin, type) {
     const span = document.createElement("span");
