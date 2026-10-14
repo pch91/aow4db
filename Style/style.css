@@ -2,6 +2,15 @@ html {
     background-color: #040605;
 }
 
+/* Hamburger hidden by default (desktop), shown in mobile media query */
+#hamburgerBtn { display: none; }
+
+/* Slide-up animation for mobile bottom sheets */
+@keyframes slideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+}
+
 .highlight {
     color: blue;
     text-decoration: underline;
@@ -1364,6 +1373,20 @@ hr {
     border-image-slice: 10 10 10 10;
 }
 
+/* Fix Hide Overview button offset */
+#toggleButton {
+    left: auto !important;
+    vertical-align: middle;
+}
+
+/* Align topbar buttons consistently */
+.topbar select,
+.topbar .donate {
+    vertical-align: middle;
+}
+.topbar{
+    margin: 30px;
+}
 .button-event {
    
     background-color: #35260d;
@@ -1947,181 +1970,423 @@ span.number-highlight {
   background-color: transparent;
 }
 
-
-.menu-toggle {
-    display: none; /* hidden on desktop */
+#currentAffinity {
+    position: initial;
+    display: flex;
+    flex-direction: row;
 }
 
- .selections-backdrop {
+/* Base affinity number — small, greenish-grey, semi-transparent, left of the white number */
+#currentAffinity .baseAffinity {
+    font-size: 10px;
+    color: rgba(255, 208, 134, 0.5);
+    line-height: 1;
+    pointer-events: none;
+    margin-right: 1px;
+    margin-left: 3px;
+    top: 3px;
+    position: relative;
+}
+
+/* ========== RESPONSIVE MOBILE (max-width: 768px) ========== */
+@media screen and (max-width: 768px) {
+
+    body { overflow-x: hidden; }
+
+    .hero-text {
+        zoom: 0.8;
+        top: 55px;
+        max-width: 120vw !important;
+    }
+    .current-version {
+        top: 181px !important;
+        font-size: 11px;
+        margin: 6px;
+    }
+
+    /* ---- Hamburger: fixo no topo direito, sólido ---- */
+    #hamburgerBtn {
         display: block;
         position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.6);
-        z-index: 2;
-    }
-   
-
-@media (max-width: 800px) {
-    
-    .factioncreator {
-        flex-direction: column;   /* stack instead of side-by-side */
-        align-items: center;      /* center each stacked block horizontally */
-        justify-content: flex-start;
-        width: 100%;
-    }
-
-    .factioncreator > * {
-        width: 100%;
-        max-width: 100%;
-    }
-    .menu-toggle {
-        display: block;
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        z-index: 1001;
-        width: 44px;
-        height: 44px;
+        top: 6px;
+        right: 6px;
+        background: #1a1a1a;
+        color: #d7c297;
+        border: 2px solid #d7c297;
         font-size: 24px;
-        background: #111;
-        color: white;
-        border: none;
-        border-radius: 4px;
+        padding: 2px 10px;
         cursor: pointer;
+        z-index: 9999;
+        line-height: 1;
+        border-radius: 4px;
     }
-
-    .menu-backdrop {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.6);
-        z-index: 999;
-    }
-    .menu-backdrop.open {
-        display: block;
-    }
-
-    /* Pull #menu out of .header-img's cramped 150px box entirely */
+    /* Menu drawer: some da direita */
     #menu {
-          padding:10px;
-         padding-top:60px;
-      
+        display: inline-grid;
         position: fixed;
         top: 0;
-        left: -85%;      /* hidden off-screen by default */
-        width: 80%;
-        max-width: 320px;
+        right: -280px;
+        width: 270px;
         height: 100vh;
-        min-width: 0;
-        margin-top: 0;
-        background: black;
         overflow-y: auto;
-        z-index: 1000;
-        transition: left 0.25s ease;
+        background: #0a0a0a;
+        border-left: 2px solid #d7c297;
+        z-index: 9998;
+        transition: right 0.25s ease;
+        padding-top: 15px;
+        box-sizing: border-box;
+        min-width: unset !important;
+        margin-top: 0;
     }
     #menu.open {
-        left: 0;
-        
+        right: 0;
     }
-
     #menu > li {
-        
-        padding: 5px;
-       
         float: none;
         display: block;
         width: 100%;
+        margin-bottom: 2px;
+    }
+    #menu > li > a {
+        line-height: 26px;
+        padding: 4px 8px;
+        font-size: 13px;
     }
     #menu ul.menus {
         position: static;
         width: 100%;
         display: none;
-    }
-    #menu ul.menus.open {
-        display: block;
+        padding-left: 10px;
     }
     #menu ul.menus .submenu {
         position: static;
-        left: auto;
         width: 100%;
+        left: 0;
         display: none;
-        padding-left: 20px;
+        padding-left: 10px;
     }
-    #menu ul.menus .submenu.open {
-        display: block;
-    }
-    
-    #menu ul.menus li,
-    #menu ul.menus .submenu li {
-        float: none; /* the missing override */
-    }
-
-    /* clearfix as a safety net in case anything else floats inside */
-    #menu ul.menus::after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    /* header-img no longer needs to reserve space for the menu on mobile */
-    .header-img {
-        height: 150px;
-        overflow: visible;
-    }
-     #menuExtras .topbar {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-        padding: 12px 0;
-    }
-    #menuExtras .donate {
-        right: 0; /* was right:-152px, meant for the old wide desktop bar */
-        text-align: center;
-    }
-    /* dropdowns rely on :hover, which doesn't exist on touch —
-       just show their contents inline since they're already tucked
-       away behind the hamburger */
-    #menuExtras .dropdown-content {
-        position: static;
+    /* Mobile: only .sub-open toggles submenus (no hover) */
+    #menu .submenu.sub-open,
+    #menu .menus.sub-open {
         display: block !important;
-        box-shadow: none;
-        background: transparent;
-        padding-left: 12px;
     }
+    #menu > li:not(:has(> #menu-builder)) {
+        display: none !important;
+    }
+    div:has(> #shareSection) {
+        width: 100% !important;
+        margin: 5px 0px !important;
+    }
+    #menu a { font-size: 12px; line-height: 22px; padding: 2px 6px; }
+
+    /* ---- Topbar: left-aligned, compact icons ---- */
+    .topbar {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 2px;
+        margin: auto !important;
+        flex-wrap: wrap;
+        display: inline-grid !important;
+        right: 0px !important;
+        position: absolute !important;
+        top: 184px !important;
+    }
+    .topbar > * {
+        font-size: 11px;
+    }
+    .topbar select {
+        font-size: 10px;
+        padding: 1px 2px;
+        max-width: 70px;
+        position: absolute !important;
+    }
+    .topbar .dropdown-title {
+        font-size: 11px;
+    }
+    .topbar>.dropdown{
+        margin-top: 49px;
+        margin-right: 13px;
+    }
+    .topbar .dropdown {
+        position: relative;
+    }
+    .topbar .dropdown-content {
+        position: absolute;
+        top: 100%;
+        right: 0;
+    }
+    .topbar .donate {
+        right: unset !important;
+        position: relative !important;
+        border-width: 3px !important;
+        font-size: 10px;
+        padding: 1px 4px;
+        margin-right: 10px;
+    }
+    .topbar .donate img { width: 14px; }
+
+    /* ---- FactionCreator core ---- */
+    .factioncreator {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .typeHolder { width: 100% !important; max-width: 100vw; }
+    .container {
+        width: 100% !important;
+        max-width: 100vw !important;
+        box-sizing: border-box;
+        padding: 5px;
+    }
+
+    /* ---- Ruler / Race panels ---- */
+    .subDivider { flex-direction: column !important; }
+    .subDivider > div { width: 100% !important; max-width: 100% !important; }
+    .subSubDiv, .subSubDiv2 { width: 100% !important; min-width: unset !important; max-width: 100% !important; }
+    #toggleButton { left: unset !important; }
+
+    /* ---- Extra Affinity: quebra em linha abaixo ---- */
+    #extraAffinity {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 2px;
+    }
+    #extraAffinity > div {
+        height: 34px;
+    }
+    #extraAffinity .AddSubtract img {
+        width: 11px;
+    }
+
+    /* ---- Affinity row: single line, scale down ---- */
+    #currentAffinity {
+        white-space: nowrap !important;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        max-width: 100%;
+        display: flex;
+        transition: all 0.3s ease; /* Transição suave quando mudar de posição */
+        display: flex;
+    }
+    #currentAffinity > span{
+        font-size: 13px !important;
+    }
+    /* Nova classe que o JavaScript vai aplicar quando o elemento sair da tela */
+    #currentAffinity.fixado-direita {
+        flex-direction: column;
+        top: 47px !important;
+        position: fixed;   /* Mantém o elemento visível na tela ao rolar */
+        top: 20px;         /* Distância do topo da tela */
+        right: 20px;       /* Distância da borda direita */
+        z-index: 999;      /* Garante que fique por cima de outros elementos */
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); 
+    }
+
+    /* Force affinity parent to column so Extra sits below */
+    div:has(> #currentAffinity) {
+        flex-direction: column !important;
+        align-items: center !important;
+        position: inherit !important;
+    }
+    #currentAffinity empireorderBig,
+    #currentAffinity empirechaosBig,
+    #currentAffinity empirenatureBig,
+    #currentAffinity empireshadowBig,
+    #currentAffinity empirematterBig,
+    #currentAffinity empirearcanaBig {
+        zoom: 0.7;
+    }
+
+    /* ---- Inputs & share link ---- */
+    .inputfield { width: 100% !important; box-sizing: border-box; }
+    #shareLink { width: 100% !important; max-width: 100vw; }
+
+    /* ---- Tome path grid ---- */
+    #tomePathButton {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+
+    /* ---- Smaller icons ---- */
+    .tome-add-slot {margin: inherit;margin-top: 28px;}
+    .tome-button-small {
+        width: 48px !important;
+        height: 56px !important;
+        margin: inherit;
+    }
+    .tome-button-small img {
+        width: auto;
+    }
+    .playerSigil .shield {
+        width: 50px !important;
+        height: 50px !important;
+    }
+    .playerSigil .symbol {
+        width: 32px !important;
+        height: auto !important;
+        top: 11px;
+        left: 13px;
+    }
+    .tome-add-slot {
+        width: 48px !important;
+        height: 56px !important;
+        font-size: 22px;
+    }
+    button img[src*="CloseX"] {
+        height: 16px !important;
+    }
+    button img[src*="addsymbol"] {
+        height: 16px !important;
+    }
+
+    /* ---- Overview panel ---- */
+    .overview { max-height: none !important; }
+    .overview_list_entry { max-width: 130px; min-width: 130px; font-size: 11px; }
+
+    /* ---- Selection popup → forced bottom-sheet (overrides JS inline) ---- */
+    #selectionsHolder.selections {
+        position: fixed !important;
+        left: 2vw !important;
+        right: 2vw !important;
+        width: auto !important;
+        max-width: 96vw !important;
+        max-height: 70vh !important;
+        bottom: 2vh !important;
+        top: auto !important;
+        overflow-y: auto !important;
+        box-sizing: border-box;
+        animation: slideUp 0.3s ease;
+        z-index: 100;
+    }
+    .selections .wrappers {
+        grid-template-columns: repeat(3, 1fr) !important;
+        max-height: 200px;
+        z-index: 100;
+    }
+
+    /* ---- Tooltip → forced bottom-anchored (overrides JS inline) ---- */
+    .tooltiptextnew {
+        position: fixed !important;
+        top: 10px !important;
+        left: 2vw !important;
+        right: 2vw !important;
+        width: auto !important;
+        max-width: 96vw !important;
+        max-height: 50vh !important;
+        min-width: unset !important;
+        overflow-y: auto !important;
+        box-sizing: border-box;
+        animation: slideUp 0.3s ease;
+    }
+    dialog.tooltiptextnew {
+        margin: 0 !important;
+    }
+
+    /* ---- GENERIC: prevent horizontal overflow on all pages ---- */
+    html, body { overflow-x: hidden; }
+    div, section, article, main, header, footer, nav, form, table {
+        max-width: 100vw !important;
+        box-sizing: border-box;
+    }
+    img, svg, video, canvas, iframe {
+        max-width: 100% !important;
+    }
+    input, textarea, select, .searchbar, .inputfield {
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+    pre, code, .code-block {
+        max-width: 100% !important;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+    table, .table-wrapper {
+        display: block;
+        max-width: 100% !important;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* ---- Generic cards / wide containers ---- */
+    .mod_card, .unit_card, .tome_card, .item_card,
+    .mod_image_holder, .structure_image_holder,
+    .w3-container, .w3-containerBlock, .list_abilityslot {
+        width: auto !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* ---- Images that shouldn't blow up ---- */
+    img[src*="RiseFromRuinLogo"],
+    img[width="442"],
+    img[src*="DragonDawn.png"]:not(.tome-button-small img) {
+        max-width: 90vw !important;
+        height: auto !important;
+    }
+    .collapsible:after,
+    .collapsibleLevelup:after,
+    .collapsibleUnits:after {
+        font-size: 11px;
+    }
+
+    /* ---- Misc ---- */
+    .button-inset { left: 6px; }
+    td, th { min-width: unset; max-width: 100%; }
+    img { max-width: 100%; }
+    .tome_card, .unit_card, .item_card,
+    .mod_image_holder, .structure_image_holder {
+        width: auto !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    div:has(> .button-overview#toggleButton) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        position: fixed;
+        z-index: 100;
+        top: 5px;
+        margin-right: 60px;
+        width: -webkit-fill-available;
+    }
+
 }
 
-@media (hover: none), (max-width: 800px) {
-    #menuExtras .dropdown-content {
-        display: none;           /* closed by default now, not forced open */
-        position: static;
-        box-shadow: none;
-        background: transparent;
-        padding-left: 12px;
+/* ========== EXTRA SMALL (max-width: 400px) ========== */
+@media screen and (max-width: 400px) {
+    #tomePathButton {
+        grid-template-columns: repeat(3, 1fr) !important;
     }
-    #menuExtras .dropdown-content.open {
-        display: block;
+    .selections .wrappers {
+        grid-template-columns: repeat(2, 1fr) !important;
+        max-height: 180px;
+        z-index: 100;
     }
-
-    /* undo the desktop-only inline offset on the language select */
-    #menuExtras label[style] {
-        left: 0 !important;
+    .overview_list_entry { max-width: 100px; min-width: 100px; font-size: 10px; }
+    .tome-button-small { width: 42px !important; height: 50px !important; margin: inherit;}
+    .tome-button-small img { width: auto; }
+    .tome-add-slot {margin: inherit;margin-top: 28px;}
+    .tome-add-slot { width: 42px !important; height: 50px !important; font-size: 20px; }
+    .button-inset { left: 2px; font-size: 11px; }
+    .playerSigil .shield { width: 40px !important; height: 40px !important; }
+    .playerSigil .symbol { width: 26px !important; top: 11px; left: 13vcpx; }
+    #extraAffinityFT {position: relative;display: block;}
+    #extraAffinity > div { height: 28px; }
+    #extraAffinity .AddSubtract img { width: 9px; }
+    .container { font-size: 12px; }
+    div:has(> #currentAffinity) {
+        flex-direction: column !important;
+        align-items: center !important;
+        position: inherit !important;
     }
-    
-     .tooltiptextnew {
-        position: fixed !important;
-       /* left: 0 !important;
-      /*  right: 0 !important;
-        bottom: 0 !important;
-        top: auto !important;*/
-        width: 100% !important;
-        max-width: 100% !important;
-        max-height: 45vh;
-        overflow-y: auto;
-        border-radius: 12px 12px 0 0;
-        box-sizing: border-box;
-        z-index: 1001; /* above the selections popup */
-          /* Smooth out stuttering transitions during zoom */
-    transform-origin: bottom left; 
-    will-change: transform, top, left, width;
+    #currentAffinity {position: inherit;}
+    #currentAffinity empireorderBig,
+    #currentAffinity empirechaosBig,
+    #currentAffinity empirenatureBig,
+    #currentAffinity empireshadowBig,
+    #currentAffinity empirematterBig,
+    #currentAffinity empirearcanaBig {
+        zoom: 1;
     }
 }

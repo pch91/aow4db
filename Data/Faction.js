@@ -1,5 +1,6 @@
 searchParams = new URLSearchParams(window.location.search);
 searchKeyword = searchParams.get("u");
+_deferDepth = 0; // >0 when inside a deferred work chain — functions run sync instead of deferring again
 
 var ListOfSubcultureHolders = [
     "Architect",
@@ -64,6 +65,8 @@ var currentSignatureSkills = [];
 // Tracks which tome index was clicked to open the add-tome popup, so the new tome
 // is inserted right after it instead of appended to the end. -1 means append (used during load).
 var tomeInsertionIndex = -1;
+var isReplacingTome = false;  // true when clicking an existing tome (replaces), false for + button (inserts after)
+var lastModifiedTomeIndex = -1; // index of the last added/replaced tome (for green border)
 
 function AddExtra(type, add) {
     if (type === "order") {
@@ -165,13 +168,48 @@ const extraTomesForTheorycrafting = [
 
 let theorycraftTomesAdded = false;
 
+// ── Beta / Theorycrafting detection ────────────────────────────────────────
+function isTheorycrafting(entry) {
+    if (!entry) return false;
+    if (entry.description === "For theorycrafting." || entry.gameplay_description === "For theorycrafting") return true;
+    return false;
+}
+
+// ── Hybrid tome detection ──────────────────────────────────────────────────
+function isHybridTome(tome) {
+    if (!tome || !tome.affinities) return false;
+    var tags = tome.affinities.match(/<(\w+)><\/\1>/g);
+    if (!tags) return false;
+    var seen = {}, distinct = [];
+    for (var t = 0; t < tags.length; t++) {
+        if (!seen[tags[t]]) { seen[tags[t]] = true; distinct.push(tags[t]); }
+    }
+    return distinct.length >= 2;
+}
+
+function hasAllHybridAffinities(affinityTotal, tome) {
+    if (!tome || !tome.affinities) return true;
+    var tags = tome.affinities.match(/<(\w+)><\/\1>/g);
+    if (!tags) return true;
+    var seen = {}, distinct = [];
+    for (var t = 0; t < tags.length; t++) {
+        if (!seen[tags[t]]) { seen[tags[t]] = true; distinct.push(tags[t]); }
+    }
+    for (var i = 0; i < distinct.length; i++) {
+        var re = new RegExp(distinct[i] + '\\s*(\\d+)');
+        var m = affinityTotal.match(re);
+        if (!m || parseInt(m[1]) < 1) return false;
+    }
+    return true;
+}
+
 function SetRandomStart(overwriteParameter) {
-    document.getElementById("selectionsBackdrop").addEventListener("click", toggleOriginButtons);
-    if (!theorycraftTomesAdded) {
+
+    if (showBetaTooltip && showBetaTooltip.checked) {
         jsonTomes.push(...extraTomesForTheorycrafting);
         jsonTomesLocalized.push(...extraTomesForTheorycrafting);
-        theorycraftTomesAdded = true;
     }
+  
     if (searchKeyword != undefined && !overwriteParameter) {
         // console.log("Found" + searchKeyword);
         RebuildFromParam(searchKeyword);
@@ -231,9 +269,27 @@ function SetRandomStart(overwriteParameter) {
                     currentFormTraitList = [];
                     currentFormTraitList.push(randomEntry);
 
-                    while (getPoints() < 5) {
+                    var maxTraits = 5;
+                    var attempts = 0;
+                    var maxAttempts = 200;
+
+                    while (currentFormTraitList.length < maxTraits && attempts < maxAttempts) {
+                        attempts++;
+                        var remainingSlots = maxTraits - currentFormTraitList.length;
+                        var remainingPoints = 5 - getPoints();
+
+                        // If no points left to spend, stop
+                        if (remainingPoints <= 0) break;
+
+                        // Calculate minimum cost to ensure all remaining slots can be filled
+                        // ceil(remainingPoints / remainingSlots)
+                        var minCost = Math.ceil(remainingPoints / remainingSlots);
+                        var maxCost = remainingPoints;
+
                         randomEntry = GetRandomEntry(listofChoice[j]);
-                        if (getPoints() + randomEntry.point_cost < 6 && !isInArray(currentFormTraitList, randomEntry)) {
+                        var cost = randomEntry.point_cost;
+
+                        if (cost >= minCost && cost <= maxCost && !isInArray(currentFormTraitList, randomEntry)) {
                             if (checkCompatibilityTraits(randomEntry) == true) {
                                 currentFormTraitList.push(randomEntry);
                             }
@@ -307,6 +363,7 @@ function SetRandomStart(overwriteParameter) {
 
         updateSelectedOptions();
         RecalculateStats(false);
+        if (window.TomeRestriction) TomeRestriction.onRandomize();
     }
     //
 }
@@ -358,7 +415,7 @@ function getPoints() {
 function toggleOriginButtons() {
     document.body.style.overflow = "";
     var selectionsHolder = document.getElementById("selectionsHolder");
-    selectionsHolder.classList.remove("open");
+    selectionsHolder.style.display = "none";
     var originWrapper = document.getElementById("originWrapperOptions");
     originWrapper.innerHTML = "";
     var selectionsText = document.getElementById("selections");
@@ -367,6 +424,17 @@ function toggleOriginButtons() {
 
 // Function to handle the selection of an origin
 function selectOrigin(origin, type) {
+    if (_deferDepth === 0) {
+        _deferDepth = 1;
+        showPageLoading("Loading…");
+        setTimeout(function () {
+            selectOrigin(origin, type);
+            _deferDepth = 0;
+            if (typeof hidePageLoading === 'function') hidePageLoading();
+        }, 25);
+        return;
+    }
+    // ── body runs synchronously when _deferDepth > 0 ──
     TurnOffTooltip();
     var originButton = document.getElementById("originButton" + type);
     if (type != "FormTrait") {
@@ -560,6 +628,13 @@ function selectOrigin(origin, type) {
     // set affinity  stats
     RecalculateStats(false);
 
+    // Re-select T5 tome when base affinities change (Culture/Society/Origin/Form)
+    var affinityChangingTypes = ["Culture", "Society1", "Society2", "Origin", "Form"];
+    if (affinityChangingTypes.indexOf(type) !== -1 &&
+        window.TomeRestriction && TomeRestriction.isEnabled() && TomeRestriction.getDistribution()) {
+        TomeRestriction.reSelectTier5();
+    }
+
     //ResetHighlights();
 
     // swap current known origin
@@ -662,6 +737,19 @@ function SetSkillPathOptions(evt) {
 }*/
 
 function SetTomePathOptions(evt) {
+    if (_deferDepth === 0) {
+        var _mx = evt.clientX, _my = evt.clientY;
+        _deferDepth = 1;
+        showPageLoading("Loading…");
+        setTimeout(function () {
+            var _fake = { clientX: _mx, clientY: _my, target: evt.target };
+            SetTomePathOptions(_fake);
+            _deferDepth = 0;
+            if (typeof hidePageLoading === 'function') hidePageLoading();
+        }, 25);
+        return;
+    }
+    // ── body runs synchronously when _deferDepth > 0 ──
     const rect = evt.target.getBoundingClientRect();
     var selectionsHolder = document.getElementById("selectionsHolder");
 
@@ -670,14 +758,34 @@ function SetTomePathOptions(evt) {
     originWrapper.innerHTML = "";
 
     // Get tomes valid at the insertion point, excluding any already in the full path.
-    var fullTomeList = currentTomeList;
-    var list = GetNextSetOfTomes(tomeInsertionIndex + 1).filter((t) => !isInArray(fullTomeList, t));
+    // When replacing, exclude the clicked tome so it can be re-selected.
+    var fullTomeList = isReplacingTome
+        ? currentTomeList.filter(function (_, idx) { return idx !== tomeInsertionIndex; })
+        : currentTomeList;
+    var lookupPos = isReplacingTome ? tomeInsertionIndex : tomeInsertionIndex + 1;
+    var list = GetNextSetOfTomes(lookupPos).filter((t) => !isInArray(fullTomeList, t));
+    if (window.TomeRestriction && TomeRestriction.isEnabled()) list = TomeRestriction.filterTomes(list, tomeInsertionIndex, isReplacingTome);
 
     // List of origin options
 
     // Create origin buttons dynamically from the list
     var selectionsText = document.getElementById("selections");
     selectionsText.textContent = "Select Tomes";
+
+    // ── Remove option: shown when clicking an already-occupied slot ──────
+    if (tomeInsertionIndex >= 0 && tomeInsertionIndex < currentTomeList.length) {
+        var removeBtn = document.createElement("button");
+        removeBtn.className = "list-button";
+        removeBtn.style = "background-color:#552222;color:#ff8888;font-weight:bold;";
+        removeBtn.textContent = "✕ Remove " + romanize(currentTomeList[tomeInsertionIndex].tier) + ": " +
+            currentTomeList[tomeInsertionIndex].name.replace("Tome of the ", "").replace("Tome of ", "");
+        removeBtn.addEventListener("click", function () {
+            RemoveTomeAtIndex(tomeInsertionIndex);
+            toggleOriginButtons();
+        });
+        originWrapper.appendChild(removeBtn);
+    }
+
     for (const origin of list) {
         const originButtonNew = document.createElement("button");
         originButtonNew.className = "list-button";
@@ -697,31 +805,54 @@ function SetTomePathOptions(evt) {
 
 // Function to handle the selection of an origin
 function selectTomePath(origin, fromLoad) {
+    if (_deferDepth === 0) {
+        _deferDepth = 1;
+        showPageLoading("Loading…");
+        setTimeout(function () {
+            selectTomePath(origin, fromLoad);
+            _deferDepth = 0;
+            if (typeof hidePageLoading === 'function') hidePageLoading();
+        }, 25);
+        return;
+    }
+    // ── body runs synchronously when _deferDepth > 0 ──
     TurnOffTooltip();
     var originButton = document.getElementById("tomePathButton");
     originButton.textContent = "";
 
     if (origin != undefined) {
         currentTomeList.push(origin);
-        // If a tome was clicked to open the popup, insert after it instead
+        // Replace if clicking an existing tome; insert after if clicking +
         if (tomeInsertionIndex >= 0) {
             currentTomeList.pop();
-            currentTomeList.splice(tomeInsertionIndex + 1, 0, origin);
+            if (isReplacingTome) {
+                currentTomeList[tomeInsertionIndex] = origin;   // replace
+                lastModifiedTomeIndex = tomeInsertionIndex;
+            } else {
+                currentTomeList.splice(tomeInsertionIndex + 1, 0, origin); // insert after
+                lastModifiedTomeIndex = tomeInsertionIndex + 1;
+            }
+        } else {
+            lastModifiedTomeIndex = currentTomeList.length - 1; // appended at end
         }
         tomeInsertionIndex = -1;
+        isReplacingTome = false;
     }
 
     var invalidIndices = GetInvalidTomeIndices();
 
     for (var i = 0; i < currentTomeList.length; i++) {
-        SetTomePathInfoSmall(originButton, currentTomeList[i], i, invalidIndices.has(i));
+        var isModified = (i === lastModifiedTomeIndex) && !invalidIndices.has(i);
+        SetTomePathInfoSmall(originButton, currentTomeList[i], i, invalidIndices.has(i), isModified);
     }
+    lastModifiedTomeIndex = -1; // reset after drawing
 
     var addSlot = document.createElement("div");
     addSlot.className = "tome-add-slot";
     addSlot.innerHTML = "<img src='/aow4db/Icons/Interface/addsymbol.png' height='20px' />";
     addSlot.addEventListener("click", function (event) {
         tomeInsertionIndex = currentTomeList.length - 1;
+        isReplacingTome = false;
         SetTomePathOptions(event);
     });
     originButton.appendChild(addSlot);
@@ -731,6 +862,7 @@ function selectTomePath(origin, fromLoad) {
     // draw all tomes
 
     toggleOriginButtons();
+    if (window.TomeRestriction && TomeRestriction.isEnabled()) TomeRestriction.updateDisplay();
 }
 
 function SetSkillPathInfoSmall(buttonHolder, origin) {
@@ -781,7 +913,7 @@ function SetSkillPathInfoSmall(buttonHolder, origin) {
 
     addTooltipListeners(image, spa);
 }
-function SetTomePathInfoSmall(buttonHolder, origin, index, isInvalid) {
+function SetTomePathInfoSmall(buttonHolder, origin, index, isInvalid, isModified) {
     const image = document.createElement("img");
     image.setAttribute("width", "60");
     image.setAttribute("height", "60");
@@ -886,9 +1018,11 @@ function SetTomePathInfoSmall(buttonHolder, origin, index, isInvalid) {
 
     newDivButton.className = "tome-button-small";
     if (isInvalid) newDivButton.classList.add("tome-invalid");
+    if (isModified) newDivButton.classList.add("tome-modified");
 
     newDivButton.addEventListener("click", (event) => {
         tomeInsertionIndex = index;
+        isReplacingTome = true;
         SetTomePathOptions(event);
     });
 
@@ -923,13 +1057,89 @@ function ClearTomePath() {
 
     currentTomeList = [];
     currentTomeList.push(currentTome);
-    selectTomePath();
+
+    // Show a "Randomize Tomes" button instead of just the starting tome
+    var randomizeBtn = document.createElement("div");
+    randomizeBtn.className = "tome-add-slot";
+    randomizeBtn.style = "background-color:#1d3a2c;color:#90ee90;font-weight:bold;cursor:pointer;font-size:24px;";
+    randomizeBtn.innerHTML = "&#x1F3B2;";
+    randomizeBtn.title = "Randomize Tomes";
+    randomizeBtn.addEventListener("click", function (event) {
+        event.stopPropagation();
+        RandomizeTomePath();
+    });
+    originButton.appendChild(randomizeBtn);
 
     RecalculateStats(false);
-    // swap current known origin
-    // draw all tomes
-
     toggleOriginButtons();
+    if (window.TomeRestriction && window.TomeRestriction.isEnabled()) TomeRestriction.updateDisplay();
+}
+
+/** Randomly fill the tome path with valid tomes based on affinity requirements. */
+function RandomizeTomePath() {
+    if (_deferDepth === 0) {
+        _deferDepth = 1;
+        showPageLoading("Loading…");
+        setTimeout(function () {
+            RandomizeTomePath();
+            _deferDepth = 0;
+            if (typeof hidePageLoading === 'function') hidePageLoading();
+        }, 25);
+        return;
+    }
+    // ── body runs synchronously when _deferDepth > 0 ──
+    // Keep only the starting tome (index 0)
+    var startTome = currentTomeList[0];
+    currentTomeList = [startTome];
+
+    // If Tome Restriction is active, use its existing distribution (do NOT regenerate)
+    var trActive = window.TomeRestriction && window.TomeRestriction.isEnabled();
+
+    // With TR: slots 0-7 random, slot 8 = locked T5.  Without TR: all 9 random, last = T5.
+    var randomSlots = trActive ? 7 : 8;  // number of intermediate slots to fill randomly
+    var maxAttempts = 500;
+
+    // ── Fill intermediate slots randomly ──────────────────────────────
+    for (var slot = 0; slot < randomSlots && maxAttempts > 0; slot++) {
+        maxAttempts--;
+        var slotIndex = currentTomeList.length - 1;
+        var isLastSlot = !trActive && (slot === randomSlots - 1);  // last slot without TR must be T5
+
+        var nextTomes = GetNextSetOfTomes(currentTomeList.length);
+
+        // Deduplicate: exclude tomes already in the path
+        nextTomes = nextTomes.filter(function (t) { return !isInArray(currentTomeList, t); });
+
+        // Apply Tome Restriction filter if active
+        if (trActive) {
+            var savedInsertion = tomeInsertionIndex;
+            tomeInsertionIndex = slotIndex;
+            nextTomes = window.TomeRestriction.filterTomes(nextTomes, tomeInsertionIndex);
+            tomeInsertionIndex = savedInsertion;
+        }
+
+        // Last slot without TR: only T5 tomes
+        if (isLastSlot) {
+            nextTomes = nextTomes.filter(function (t) { return t.tier === 5; });
+        }
+
+        if (nextTomes.length === 0) break;
+        var pick = nextTomes[Math.floor(Math.random() * nextTomes.length)];
+        currentTomeList.push(pick);
+    }
+
+    // ── Final slot with TR: always the locked T5 ──────────────────────
+    if (trActive && currentTomeList.length === 8) {
+        var lockedT5 = window.TomeRestriction.getTier5();
+        if (lockedT5) {
+            currentTomeList.push(lockedT5);
+        }
+    }
+
+    selectTomePath(undefined, false);
+    RecalculateStats(false);
+    toggleOriginButtons();
+    if (window.TomeRestriction && window.TomeRestriction.isEnabled()) TomeRestriction.updateDisplay();
 }
 
 function SetTomePathInfo(button, origin) {
@@ -1054,6 +1264,19 @@ function SetSkillPathInfo(button, origin) {
 }
 
 function SetupButtons(evt, type) {
+    if (_deferDepth === 0) {
+        var _cx = evt.clientX, _cy = evt.clientY;
+        _deferDepth = 1;
+        showPageLoading("Loading…");
+        setTimeout(function () {
+            var _fake = { clientX: _cx, clientY: _cy, target: evt.target };
+            SetupButtons(_fake, type);
+            _deferDepth = 0;
+            if (typeof hidePageLoading === 'function') hidePageLoading();
+        }, 25);
+        return;
+    }
+    // ── body runs synchronously when _deferDepth > 0 ──
     // const rect = evt.target.getBoundingClientRect();
     var selectionsHolder = document.getElementById("selectionsHolder");
 
@@ -1153,6 +1376,45 @@ function SetupButtons(evt, type) {
     // Create origin buttons dynamically from the list
     var selectionsText = document.getElementById("selections");
     selectionsText.textContent = "Select " + type;
+
+    // ── Clear/deselect option for optional types ────────────────────────
+    var clearableTypes = ["SubType", "SubCulture", "SubSociety1", "SubSociety2", "Ascension", "Ambition"];
+    if (clearableTypes.indexOf(type) !== -1) {
+        var currentVal;
+        switch (type) {
+            case "SubType":     currentVal = currentSubType; break;
+            case "SubCulture":  currentVal = currentSubCulture; break;
+            case "SubSociety1": currentVal = currentSubSociety1; break;
+            case "SubSociety2": currentVal = currentSubSociety2; break;
+            case "Ascension":   currentVal = currentAscension; break;
+            case "Ambition":    currentVal = currentAmbition; break;
+        }
+        if (currentVal && currentVal !== "") {
+            var clearBtn = document.createElement("button");
+            clearBtn.className = "list-button";
+            clearBtn.style = "background-color:#552222;color:#ff8888;font-weight:bold;";
+            clearBtn.textContent = "✕ Remove " + currentVal.name;
+            clearBtn.addEventListener("click", function () {
+                switch (type) {
+                    case "SubType":     currentSubType = ""; break;
+                    case "SubCulture":  currentSubCulture = ""; break;
+                    case "SubSociety1": currentSubSociety1 = ""; break;
+                    case "SubSociety2": currentSubSociety2 = ""; break;
+                    case "Ascension":   currentAscension = ""; break;
+                    case "Ambition":    currentAmbition = ""; break;
+                }
+                // Reset button to "add" state
+                var btn = document.getElementById("originButton" + type);
+                if (btn) {
+                    btn.textContent = "";
+                    btn.innerHTML = "<img src='/aow4db/Icons/Interface/addsymbol.png' height='40px' />";
+                }
+                toggleOriginButtons();
+            });
+            originWrapper.appendChild(clearBtn);
+        }
+    }
+
     for (const origin of list) {
         var originButtonNew = document.createElement("button");
 
@@ -1357,14 +1619,27 @@ function GetAffinityTotalFromList(list, tomeList, subType, subCulture, subSociet
 
 // Converts the raw affinity string (from GetAffinityTotalFromList) to the Big-tag HTML
 // format used by the #currentAffinity display element and checkEmpireOfCosmos().
-function affinityToDisplayHtml(affinityStr) {
-    return affinityStr
-        .replace("<empireshadow></empireshadow> ", "<empireshadowBig></empireshadowBig>")
-        .replace("<empirechaos></empirechaos> ", "<empirechaosBig></empirechaosBig>")
-        .replace("<empirenature></empirenature> ", "<empirenatureBig></empirenatureBig>")
-        .replace("<empirearcana></empirearcana> ", "<empirearcanaBig></empirearcanaBig>")
-        .replace("<empirematter></empirematter> ", "<empirematterBig></empirematterBig>")
-        .replace("<empireorder></empireorder> ", "<empireorderBig></empireorderBig>");
+function affinityToDisplayHtml(affinityStr, baseStr) {
+    // Parse the base affinity into a { tag: count } map (optional)
+    var baseMap = null;
+    if (baseStr) {
+        baseMap = {};
+        var bre = /<(\w+)><\/\1>\s*(\d+)/g, bm;
+        while ((bm = bre.exec(baseStr)) !== null) {
+            baseMap[bm[1]] = parseInt(bm[2], 10);
+        }
+    }
+
+    var out = "";
+    var re = /<(\w+)><\/\1>\s*(\d+)/g;
+    var m;
+    while ((m = re.exec(affinityStr)) !== null) {
+        var tag = m[1];
+        var num = m[2];
+        var baseNum = (baseMap && baseMap[tag] !== undefined) ? baseMap[tag] : 0;
+        out += '<div><span class="baseAffinity">' + baseNum + '</span><span>' + num + '</span><' + tag + 'Big></' + tag + 'Big></div>';
+    }
+    return out;
 }
 
 function RecalculateStats(fromload) {
@@ -1396,7 +1671,22 @@ function RecalculateStats(fromload) {
     const affinitySummary = document.getElementById("currentAffinity");
 
     currentAffinityTotal = result;
-    affinitySummary.innerHTML = affinityToDisplayHtml(result);
+
+    // Compute base affinity (same as total but WITHOUT extra points and only first tome)
+    var savedExtras = [extraOrder, extraChaos, extraNature, extraMaterium, extraShadow, extraAstral];
+    extraOrder = extraChaos = extraNature = extraMaterium = extraShadow = extraAstral = 0;
+    var baseResult = GetAffinityTotalFromList(
+        list,
+        currentTomeList.length > 0 ? [currentTomeList[0]] : [],
+        currentSubType,
+        currentSubCulture,
+        currentSubSociety1,
+        currentSubSociety2
+    );
+    extraOrder = savedExtras[0]; extraChaos = savedExtras[1]; extraNature = savedExtras[2];
+    extraMaterium = savedExtras[3]; extraShadow = savedExtras[4]; extraAstral = savedExtras[5];
+
+    affinitySummary.innerHTML = affinityToDisplayHtml(result, baseResult);
 
     CollectAllPartsForOverview(fromload);
 }
@@ -2087,6 +2377,9 @@ function GetAllStartingTomes() {
 
     for (let i = 0; i < jsonTomes.length; i++) {
         if (jsonTomes[i].tier === 1) {
+            if (!showBetaTooltip || !showBetaTooltip.checked) {
+                if (isTheorycrafting(jsonTomes[i])) continue;
+            }
             listOfAllTier1Tomes.push(jsonTomes[i]);
         }
     }
@@ -2947,6 +3240,11 @@ function GetNextSetOfTomes(pathLength) {
         affinitySummary.innerHTML = savedAffinityHtml;
     }
 
+    // ── Beta filter ──────────────────────────────────────────────────────
+    if (!showBetaTooltip || !showBetaTooltip.checked) {
+        listOfNextTomes = listOfNextTomes.filter(function (t) { return !isTheorycrafting(t); });
+    }
+
     return listOfNextTomes;
 }
 
@@ -2968,7 +3266,7 @@ function hasAtleastThreeCosmos(number) {
     let count = 0;
 
     for (const affinity of affinities) {
-        const regex = new RegExp(`<${affinity}big></${affinity}big>\\s*(\\d+)`);
+        const regex = new RegExp(`<span>(\\d+)</span><${affinity}big></${affinity}big>`);
         const match = html.match(regex);
 
         if (match && parseInt(match[1], 10) >= number) {
@@ -2999,7 +3297,7 @@ function hasAllAffinitiesForEmpireOfCosmos(number) {
 
     // Check if each affinity has a number >= 1 after it
     return affinities.every((affinity) => {
-        const regex = new RegExp(`<${affinity}big></${affinity}big>\\s*(\\d+)`);
+        const regex = new RegExp(`<span>(\\d+)</span><${affinity}big></${affinity}big>`);
         const match = html.match(regex);
         return match && parseInt(match[1], 10) >= number;
     });
@@ -3014,6 +3312,36 @@ function GetInvalidTomeIndices() {
             invalid.add(i);
         }
     }
+
+    // ── Tome Restriction: quota violations ────────────────────────────
+    if (window.TomeRestriction && window.TomeRestriction.isEnabled()) {
+        var dist = window.TomeRestriction.getDistribution();
+        if (dist) {
+            // count tomes per tier
+            var counts = {1:0, 2:0, 3:0, 4:0, 5:0};
+            for (var t = 0; t < currentTomeList.length; t++) {
+                var tier = currentTomeList[t].tier;
+                if (counts[tier] !== undefined) counts[tier]++;
+            }
+            // mark EXCESS tomes (last ones of over-quota tiers)
+            for (var tier2 = 1; tier2 <= 5; tier2++) {
+                var quota = dist[tier2] || 0;
+                if (counts[tier2] > quota) {
+                    var excess = counts[tier2] - quota;
+                    // mark the last `excess` tomes of this tier
+                    var found = 0;
+                    for (var u = currentTomeList.length - 1; u >= 0; u--) {
+                        if (currentTomeList[u].tier === tier2) {
+                            invalid.add(u);
+                            found++;
+                            if (found >= excess) break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     return invalid;
 }
 
@@ -3067,6 +3395,9 @@ function GetAllOrigins() {
 
     for (let i = 0; i < jsonFactionCreation.length; i++) {
         if (jsonFactionCreation[i].type === "Ruler Origin") {
+            if (!showBetaTooltip || !showBetaTooltip.checked) {
+                if (isTheorycrafting(jsonFactionCreation[i])) continue;
+            }
             listOfAllOrigins.push(jsonFactionCreation[i]);
         }
     }
@@ -3079,6 +3410,9 @@ function GetAllCultures() {
 
     for (let i = 0; i < jsonFactionCreation.length; i++) {
         if (jsonFactionCreation[i].type === "Culture") {
+            if (!showBetaTooltip || !showBetaTooltip.checked) {
+                if (isTheorycrafting(jsonFactionCreation[i])) continue;
+            }
             listOfAllOrigins.push(jsonFactionCreation[i]);
         }
     }
@@ -3091,6 +3425,9 @@ function GetAllForms() {
 
     for (let i = 0; i < jsonFactionCreation.length; i++) {
         if (jsonFactionCreation[i].type === "Skin") {
+            if (!showBetaTooltip || !showBetaTooltip.checked) {
+                if (isTheorycrafting(jsonFactionCreation[i])) continue;
+            }
             listOfAllOrigins.push(jsonFactionCreation[i]);
         }
     }
@@ -3103,6 +3440,9 @@ function GetAllFormTraitsList() {
 
     for (let i = 0; i < jsonFactionCreation2.length; i++) {
         if (jsonFactionCreation2[i].type === "form") {
+            if (!showBetaTooltip || !showBetaTooltip.checked) {
+                if (isTheorycrafting(jsonFactionCreation2[i])) continue;
+            }
             listOfAllOrigins.push(jsonFactionCreation2[i]);
         }
     }
@@ -3119,6 +3459,9 @@ function GetAllSocietyTraits() {
         if (jsonFactionCreation2[i].type === "society") {
             if (jsonFactionCreation2[i].enabled === true) {
                 if (jsonFactionCreation2[i].id != "guardians_of_nature__goodact__") {
+                    if (!showBetaTooltip || !showBetaTooltip.checked) {
+                        if (isTheorycrafting(jsonFactionCreation2[i])) continue;
+                    }
                     listOfAllOrigins.push(jsonFactionCreation2[i]);
                 }
             }
@@ -3158,6 +3501,9 @@ function GetAllSubTypes() {
     for (let i = 0; i < jsonFactionCreation.length; i++) {
         if (jsonFactionCreation[i].type === "SubType") {
             if (jsonFactionCreation[i].requirement == currentOrigin.name) {
+                if (!showBetaTooltip || !showBetaTooltip.checked) {
+                    if (isTheorycrafting(jsonFactionCreation[i])) continue;
+                }
                 listOfAllSubTypes.push(jsonFactionCreation[i]);
             }
         }
@@ -3169,11 +3515,12 @@ function GetAllSubTypes() {
 function GetAllSubCultureSetups() {
     var listOfAllSubCultTypes = [];
 
-    // list of subcultures for architect
-
-    for (let i = 0; i < jsonFactionCreation.length; i++) {
+    for (i = 0; i < jsonFactionCreation.length; i++) {
         if (jsonFactionCreation[i].type === "SubCulture") {
             if (jsonFactionCreation[i].requirement == currentCulture.name) {
+                if (!showBetaTooltip || !showBetaTooltip.checked) {
+                    if (isTheorycrafting(jsonFactionCreation[i])) continue;
+                }
                 listOfAllSubCultTypes.push(jsonFactionCreation[i]);
             }
         }
@@ -3187,17 +3534,21 @@ function GetAllSubCultureSetups() {
 function GetAllSubProphecySetups(entry) {
     var listOfAllSubTypes = [];
 
-    // list of subcultures for architect
-
-    for (let i = 0; i < jsonFactionCreation.length; i++) {
+    for (i = 0; i < jsonFactionCreation.length; i++) {
         if (jsonFactionCreation[i].type === "SubSociety") {
             if (entry == 1) {
                 if (jsonFactionCreation[i].requirement == currentSociety1.name) {
+                    if (!showBetaTooltip || !showBetaTooltip.checked) {
+                        if (isTheorycrafting(jsonFactionCreation[i])) continue;
+                    }
                     listOfAllSubTypes.push(jsonFactionCreation[i]);
                 }
             }
             if (entry == 2) {
                 if (jsonFactionCreation[i].requirement == currentSociety2.name) {
+                    if (!showBetaTooltip || !showBetaTooltip.checked) {
+                        if (isTheorycrafting(jsonFactionCreation[i])) continue;
+                    }
                     listOfAllSubTypes.push(jsonFactionCreation[i]);
                 }
             }
@@ -3211,6 +3562,9 @@ function GetAllClasses() {
 
     for (let i = 0; i < jsonFactionCreation.length; i++) {
         if (jsonFactionCreation[i].type === "Class") {
+            if (!showBetaTooltip || !showBetaTooltip.checked) {
+                if (isTheorycrafting(jsonFactionCreation[i])) continue;
+            }
             listofallClasses.push(jsonFactionCreation[i]);
         }
     }
@@ -3705,6 +4059,26 @@ function GenerateQuickLink() {
         code += "," + number;
     }
 
+    // 14 Tome Restriction enabled state (0 or 1)
+    var tomeRestrictionEnabled = (window.TomeRestriction && window.TomeRestriction.isEnabled()) ? "1" : "0";
+    code += "," + tomeRestrictionEnabled;
+
+    // 15 Tome Restriction distribution (n1-n2-n3-n4)
+    if (window.TomeRestriction && window.TomeRestriction.getDistribution()) {
+        var dist = window.TomeRestriction.getDistribution();
+        var distCode = (dist[1] || 0) + "-" + (dist[2] || 0) + "-" + (dist[3] || 0) + "-" + (dist[4] || 0);
+        code += "," + distCode;
+    } else {
+        code += ",";
+    }
+
+    // 16 Tome Restriction locked T5 tome ID
+    if (window.TomeRestriction && window.TomeRestriction.getTier5()) {
+        code += "," + window.TomeRestriction.getTier5().id;
+    } else {
+        code += ",";
+    }
+
     // console.log("hex code: " + code);
 
     return code;
@@ -3719,12 +4093,6 @@ function GetQuickLink() {
 
     // window.history.replaceState({}, 'foo', currenturl + "?u=" + code);
     linkField.value = currenturl + "?u=" + code;
-    // var splitCodes = code.split(":");
-    // for (let index = 0; index < splitCodes.length; index++) {
-    //     console.log("number code: " + hexToDecimal(splitCodes[index]));
-    // }
-
-    reversLookUp(code);
 }
 
 function reversLookUp(code) {
@@ -4022,6 +4390,36 @@ function reversLookUp(code) {
         var originButton = document.getElementById("originButtonAmbition");
         SetButtonInfo(originButton, currentAmbition, "Ambition");
     }
+
+    // 14 = Tome Restriction enabled state + 15 = distribution + 16 = locked T5 ID
+    if (splitcode[14] !== undefined) {
+        var tomeRestrictionState = splitcode[14];
+        var cb = document.getElementById("tomeRestrictionToggle");
+        if (cb) {
+            cb.checked = (tomeRestrictionState === "1");
+            if (window.TomeRestriction) {
+                window.TomeRestriction.onToggle(cb.checked);
+                // If distribution is provided, restore state without re-randomizing
+                if (splitcode[15] !== undefined && splitcode[15] !== "") {
+                    var distParts = splitcode[15].split("-");
+                    if (distParts.length === 4) {
+                        var n1 = parseInt(distParts[0], 10);
+                        var n2 = parseInt(distParts[1], 10);
+                        var n3 = parseInt(distParts[2], 10);
+                        var n4 = parseInt(distParts[3], 10);
+                        var tier5Id = (splitcode[16] !== undefined && splitcode[16] !== "") ? splitcode[16] : null;
+                        if (!isNaN(n1) && !isNaN(n2) && !isNaN(n3) && !isNaN(n4)) {
+                            setTimeout(function() {
+                                if (window.TomeRestriction && window.TomeRestriction.restoreState) {
+                                    window.TomeRestriction.restoreState(n1, n2, n3, n4, tier5Id);
+                                }
+                            }, 100);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 // Function to convert a number to hexadecimal
@@ -4037,7 +4435,7 @@ function hexToDecimal(hex) {
 function RebuildFromParam(code) {
     console.log(code);
     reversLookUp(code);
-    spinner.style.display = "block"; // Show the spinner
+    if (typeof spinner !== "undefined" && spinner) spinner.style.display = "block";
     fetch(
         "https://script.google.com/macros/s/AKfycbz5r36EOFcrtfu2Y3CN8DdgDkJDiq6NHf7Y6JEv1IkngOG4we3F5uFU6o5aYFSnm5M4/exec",
         {
@@ -4055,15 +4453,16 @@ function RebuildFromParam(code) {
             }
         })
         .finally(() => {
-            spinner.style.display = "none"; // Hide spinner after fetch is done
+            if (typeof spinner !== "undefined" && spinner) spinner.style.display = "none";
         });
 
     if (window.location.href.indexOf("&edit") != -1) {
         // save current url for overwriting
-        document.getElementById("oldURL").innerHTML = window.location.href.split("?")[0] + "?u=" + code;
+        var oldUrlEl = document.getElementById("oldURL");
+        if (oldUrlEl) oldUrlEl.innerHTML = window.location.href.split("?")[0] + "?u=" + code;
         // show edit button
         var editButton = document.getElementById("overwriteButton");
-        editButton.style.display = "block";
+        if (editButton) editButton.style.display = "block";
         //   alert("Editing");
     }
 
@@ -4075,17 +4474,19 @@ function RebuildFromParam(code) {
 function FillInBuildDetails(build) {
     console.log(build);
     var nameBuild = document.getElementById("buildName");
-    nameBuild.value = build.BuildName;
+    if (nameBuild) nameBuild.value = build.BuildName;
     var notesBlock = document.getElementById("notesDisplay");
-    console.log(build.Notes);
-    var convertedNotes = convertBracketsToHTML(build.Notes);
-    console.log(convertedNotes);
-    convertedNotes = convertNamesToHTML(convertedNotes);
-    console.log(convertedNotes);
-    notesBlock.innerHTML = convertedNotes;
+    if (notesBlock) {
+        console.log(build.Notes);
+        var convertedNotes = convertBracketsToHTML(build.Notes);
+        console.log(convertedNotes);
+        convertedNotes = convertNamesToHTML(convertedNotes);
+        console.log(convertedNotes);
+        notesBlock.innerHTML = convertedNotes;
+    }
     if (build.Tags != "") {
         const tagArray = new Set(build.Tags.split(",").map((tag) => tag.trim()));
-        updateTagList(tagArray);
+        if (typeof updateTagList === "function") updateTagList(tagArray);
     }
 
     rawNotes = build.Notes;

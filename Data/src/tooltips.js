@@ -14,8 +14,7 @@ function addTooltipListeners(tooltip, span, secondary) {
             hoverDiv2.show();
             hoverDiv2.inert = false;
             if (tooltip != hoverDiv2) {
-                 try { updateHoverDivPosition(event, secondary); } catch(e) {}
-                //updateHoverDivPosition(event, secondary);
+                try { updateHoverDivPosition(event, secondary); } catch(e) {}
             }
             hoverDiv2.close(); // close and reset visiblity
             hoverDiv2.style.visibility = "";
@@ -39,8 +38,7 @@ function addTooltipListeners(tooltip, span, secondary) {
             hoverDiv.show();
             hoverDiv.inert = false;
             if (tooltip != hoverDiv) {
-                    try { updateHoverDivPosition(event, secondary); } catch(e) {}
-              //  updateHoverDivPosition(event, secondary);
+                try { updateHoverDivPosition(event, secondary); } catch(e) {}
             }
             hoverDiv.close();
             hoverDiv.style.visibility = "";
