@@ -2,17 +2,7 @@ searchParams = new URLSearchParams(window.location.search);
 searchKeyword = searchParams.get("u");
 _deferDepth = 0; // >0 when inside a deferred work chain — functions run sync instead of deferring again
 
-var ListOfSubcultureHolders = [
-    "Architect",
-    "Primal",
-    "Mystic",
-    "Oathsworn",
-    "Feudal",
-    "Dark",
-    "Nomad",
-    "Reaver",
-    "Mercantile"
-];
+var ListOfSubcultureHolders = ["Architect", "Primal", "Mystic", "Oathsworn", "Feudal", "Dark", "Nomad", "Reaver"];
 var ListOfSubsocietyHolders = ["Vision of Promise", "Vision of Ruin", "Vision of Destiny"];
 
 var currentOrigin = "";
@@ -104,69 +94,7 @@ function addOrSubtract(extraAffinity, add) {
     return extraAffinity;
 }
 
-const extraTomesForTheorycrafting = [
-    {
-        affinities:
-            "1 <empirenature></empirenature> Empire Nature Affinity, 1 <empirematter></empirematter> Empire Materium Affinity",
-        lore_description: "",
-        gameplay_description: "For theorycrafting.",
-        resid: 143243,
-        id: "tome_of_hydromancy",
-        DLC: "THESILVERSEAS ",
-        lore_author: "",
-        name: "Tome of Hydromancy",
-        tier: 1,
-        icon: "tome_of_hydromancy",
-        skills: [],
-        initial_upgrades: []
-    },
-    {
-        affinities:
-            "1 <empirematter></empirematter> Empire Materium Affinity, 1 <empirechaos></empirechaos> Empire Chaos Affinity",
-        lore_description: "",
-        gameplay_description: "For theorycrafting.",
-        resid: 143244,
-        id: "tome_of_piracy",
-        DLC: "THESILVERSEAS ",
-        lore_author: "",
-        name: "Tome of Piracy",
-        tier: 2,
-        icon: "tome_of_piracy",
-        skills: [],
-        initial_upgrades: []
-    },
-    {
-        affinities:
-            "1 <empirechaos></empirechaos> Empire Chaos Affinity, 1 <empireshadow></empireshadow> Empire Shadow Affinity",
-        lore_description: "",
-        gameplay_description: "For theorycrafting.",
-        resid: 143245,
-        id: "tome_of_the_damned",
-        DLC: "THESILVERSEAS ",
-        lore_author: "",
-        name: "Tome of the Damned",
-        tier: 2,
-        icon: "tome_of_the_damned",
-        skills: [],
-        initial_upgrades: []
-    },
-    {
-        affinities: "2 <empireshadow></empireshadow> Empire Shadow Affinity",
-        lore_description: "",
-        gameplay_description: "For theorycrafting.",
-        resid: 143246,
-        id: "tome_of_eternal_ice",
-        DLC: "THESILVERSEAS ",
-        lore_author: "",
-        name: "Tome of Eternal Ice",
-        tier: 4,
-        icon: "tome_of_eternal_ice",
-        skills: [],
-        initial_upgrades: []
-    }
-];
-
-let theorycraftTomesAdded = false;
+const extraTomesForTheorycrafting = [];
 
 // ── Beta / Theorycrafting detection ────────────────────────────────────────
 function isTheorycrafting(entry) {
@@ -204,12 +132,10 @@ function hasAllHybridAffinities(affinityTotal, tome) {
 }
 
 function SetRandomStart(overwriteParameter) {
-
     if (showBetaTooltip && showBetaTooltip.checked) {
         jsonTomes.push(...extraTomesForTheorycrafting);
         jsonTomesLocalized.push(...extraTomesForTheorycrafting);
     }
-  
     if (searchKeyword != undefined && !overwriteParameter) {
         // console.log("Found" + searchKeyword);
         RebuildFromParam(searchKeyword);
@@ -342,7 +268,7 @@ function SetRandomStart(overwriteParameter) {
 
             var originButton = document.getElementById("originButton" + currentChoice);
             if (currentChoice != "FormTrait" && currentChoice != "Signature") {
-                SetButtonInfo(originButton, randomEntry, currentChoice, false);
+                SetButtonInfo(originButton, randomEntry, currentChoice);
             }
         }
 
@@ -405,7 +331,7 @@ function ShowHideUnFavs() {
 function getPoints() {
     var totalPoints = 0;
     // check if points are used
-    for (let i = 0; i < currentFormTraitList.length; i++) {
+    for (i = 0; i < currentFormTraitList.length; i++) {
         totalPoints += currentFormTraitList[i].point_cost;
     }
     return totalPoints;
@@ -413,11 +339,11 @@ function getPoints() {
 
 // Function to toggle the origin selection buttons
 function toggleOriginButtons() {
-    document.body.style.overflow = "";
     var selectionsHolder = document.getElementById("selectionsHolder");
     selectionsHolder.style.display = "none";
     var originWrapper = document.getElementById("originWrapperOptions");
     originWrapper.innerHTML = "";
+    // originWrapper.setAttribute("style", "display:none");
     var selectionsText = document.getElementById("selections");
     selectionsText.textContent = "";
 }
@@ -441,7 +367,7 @@ function selectOrigin(origin, type) {
         originButton.textContent = "";
     }
 
-    SetButtonInfo(originButton, origin, type, true);
+    SetButtonInfo(originButton, origin, type);
 
     // assign current selection
     switch (type) {
@@ -753,8 +679,17 @@ function SetTomePathOptions(evt) {
     const rect = evt.target.getBoundingClientRect();
     var selectionsHolder = document.getElementById("selectionsHolder");
 
+    var normalizedPos = getNormalizedPosition(evt);
+
+    var offset = 0;
+    const mouseX = evt.clientX;
+    const mouseY = evt.clientY;
+
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
     var originWrapper = document.getElementById("originWrapperOptions");
-    originWrapper.setAttribute("style", "grid-template-columns: repeat(2, 2fr);");
+    originWrapper.setAttribute("style", "grid-template-columns: repeat(7, 2fr);");
     originWrapper.innerHTML = "";
 
     // Get tomes valid at the insertion point, excluding any already in the full path.
@@ -789,18 +724,26 @@ function SetTomePathOptions(evt) {
     for (const origin of list) {
         const originButtonNew = document.createElement("button");
         originButtonNew.className = "list-button";
-        // set icon and button seperately
-        // originButtonNew.addEventListener("click", () => selectTomePath(origin, false));
+        originButtonNew.addEventListener("click", () => selectTomePath(origin, false));
 
         originWrapper.appendChild(originButtonNew);
 
         SetTomePathInfo(originButtonNew, origin);
     }
-    // console.log(normalizedPos.x + getNormalizedWidth(selectionsHolder));
-    //  selectionsHolder.style.display = "block";
+    console.log(normalizedPos.x + getNormalizedWidth(selectionsHolder));
+    selectionsHolder.style.display = "block";
+    // if (normalizedPos.x + getNormalizedWidth(selectionsHolder) > 1.5) {
+    //     selectionsHolder.style.left = (mouseX - selectionsHolder.getBoundingClientRect().width - offset + scrollLeft) + 'px';
+    // } else {
+    selectionsHolder.style.left = "200px";
+    // }
 
-    document.getElementById("selectionsHolder").classList.add("open");
-    document.body.style.overflow = "hidden"; // stop background scroll while menu is open
+    if (normalizedPos.y + getNormalizedHeight(selectionsHolder) > 0.95) {
+        selectionsHolder.style.top =
+            mouseY - selectionsHolder.getBoundingClientRect().height - offset + scrollTop + "px";
+    } else {
+        selectionsHolder.style.top = mouseY + offset + scrollTop + "px";
+    }
 }
 
 // Function to handle the selection of an origin
@@ -901,7 +844,7 @@ function SetSkillPathInfoSmall(buttonHolder, origin) {
     spa.setAttribute("style", "margin-left:113px");
 
     spa.innerHTML =
-        '<p style="color: #d7c297;>' + '<span style="font-size:20px;">' + origin.name.toUpperCase() + "</span></p>";
+        '<p style="color: #d7c297;>' + '<span style="font-size=20px;">' + origin.name.toUpperCase() + "</p>";
 
     SetSkillPreview(spa, origin);
 
@@ -975,7 +918,7 @@ function SetTomePathInfoSmall(buttonHolder, origin, index, isInvalid, isModified
     spa.setAttribute("style", "margin-left:113px");
 
     spa.innerHTML =
-        '<p style="color: #d7c297;>' + '<span style="font-size:20px;">' + origin.name.toUpperCase() + "</span></p>";
+        '<p style="color: #d7c297;>' + '<span style="font-size=20px;">' + origin.name.toUpperCase() + "</p>";
 
     SetTomePreview(spa, origin);
 
@@ -1155,11 +1098,11 @@ function SetTomePathInfo(button, origin) {
     buttonText.innerHTML = romanize(origin.tier) + ": ";
     var clearname = origin.name.replace("Tome of the", "");
     buttonText.innerHTML += clearname.replace("Tome of", "");
-    buttonText.style = "display: block;font-size: 15px;position: relative;text-align: center;";
+    buttonText.style = "display: block;font-size: 15px;position: relative;text-align: center; top: -40px;";
 
     var affinity = "";
     const affinityText = document.createElement("div");
-    affinityText.style = "position: relative;left: -58px;top: 13px;";
+    affinityText.style = "position: relative;left: -20px;top: -50px;";
     if ("affinities" in origin) {
         affinity = ClearAffinityExtraTags(duplicateTags(origin.affinities));
         affinity = affinity.replaceAll(",", "");
@@ -1169,10 +1112,9 @@ function SetTomePathInfo(button, origin) {
     newDivButton.appendChild(image);
     newDivButton.appendChild(affinityText);
     newDivButton.appendChild(buttonText);
-
     if ("DLC" in origin) {
         let DLCTAG = document.createElement("div");
-        DLCTAG.style = "    position: absolute; left: 30px;top: 4px;";
+        DLCTAG.style = "    position: absolute;right: 0;top: 4px;";
         let dlcTag = origin.DLC.replaceAll(" ", "");
         DLCTAG.innerHTML = "<" + dlcTag + "></" + dlcTag + ">";
         newDivButton.appendChild(DLCTAG);
@@ -1186,24 +1128,17 @@ function SetTomePathInfo(button, origin) {
     spa.setAttribute("style", "margin-left:113px");
 
     spa.innerHTML =
-        '<p style="color: #d7c297;>' + '<span style="font-size:20px;">' + origin.name.toUpperCase() + "</span></p>";
+        '<p style="color: #d7c297;>' + '<span style="font-size=20px;">' + origin.name.toUpperCase() + "</p>";
 
     SetTomePreview(spa, origin);
 
-    addTooltipListeners(image, spa);
-    addTooltipListeners(buttonText, spa);
-
     newDivButton.className = "list-button-long";
 
-    const addButton = document.createElement("button");
-    addButton.className = "add-button";
-    addButton.innerHTML = '<img  src="/aow4db/Icons/Interface/addsymbol.png" height="20px">';
-    addButton.addEventListener("click", (event) => selectTomePath(origin, false));
-    newDivButton.append(addButton);
-
-    // newDivButton.addEventListener("click", (event) => SetTomePathOptions(event));
+    newDivButton.addEventListener("click", (event) => SetTomePathOptions(event));
 
     //  newDivButton.append(spa);
+
+    addTooltipListeners(newDivButton, spa);
 }
 
 function SetSkillPathInfo(button, origin) {
@@ -1250,7 +1185,7 @@ function SetSkillPathInfo(button, origin) {
     spa.setAttribute("style", "margin-left:113px");
 
     spa.innerHTML =
-        '<p style="color: #d7c297;>' + '<span style="font-size:20px;">' + origin.name.toUpperCase() + "</span></p>";
+        '<p style="color: #d7c297;>' + '<span style="font-size=20px;">' + origin.name.toUpperCase() + "</p>";
 
     SetSkillPreview(spa, origin);
 
@@ -1418,12 +1353,12 @@ function SetupButtons(evt, type) {
     for (const origin of list) {
         var originButtonNew = document.createElement("button");
 
-        //  if (type === "Symbol") {
-        //    originButtonNew.addEventListener("click", () => SelectSymbol(origin));
-        //    originButtonNew.className = "list-button-small";
-        //   originWrapper.appendChild(originButtonNew);
-        //   SetButtonInfo(originButtonNew, origin, type);
-        if (type === "FormTrait") {
+        if (type === "Symbol") {
+            originButtonNew.addEventListener("click", () => SelectSymbol(origin));
+            originButtonNew.className = "list-button-small";
+            originWrapper.appendChild(originButtonNew);
+            SetButtonInfo(originButtonNew, origin, type);
+        } else if (type === "FormTrait") {
             // hook into options thingie
             originButtonNew.className = "list-button";
 
@@ -1441,18 +1376,20 @@ function SetupButtons(evt, type) {
 
             // new button script
 
-            //    originButtonNew.addEventListener("click", (event) => toggleSelection(origin, originButtonNew, type, event));
+            originButtonNew.addEventListener("click", (event) => toggleSelection(origin, originButtonNew, type, event));
 
             originWrapper.appendChild(originButtonNew);
 
-            SetButtonInfo(originButtonNew, origin, type, true);
+            SetButtonInfo(originButtonNew, origin, type);
         } else {
             if (!incompatibleCheck(type, origin)) {
                 originButtonNew.className = "list-button";
 
+                originButtonNew.addEventListener("click", (event) => selectOrigin(origin, type));
+
                 originWrapper.appendChild(originButtonNew);
 
-                SetButtonInfo(originButtonNew, origin, type, true);
+                SetButtonInfo(originButtonNew, origin, type);
                 // originButtonNew.innerHTML += "<span style=\"color:red\"> Incompatible </span>";
             }
             // show option but with compatible thingie
@@ -1467,7 +1404,7 @@ function SetupButtons(evt, type) {
 
                     originWrapper.appendChild(originButtonNew);
 
-                    SetButtonInfo(originButtonNew, origin, type, true);
+                    SetButtonInfo(originButtonNew, origin, type);
 
                     if (currentSociety1.name === origin.name) {
                         originButtonNew.className = "list-button-currentequipped";
@@ -1480,8 +1417,33 @@ function SetupButtons(evt, type) {
             }
         }
     }
-    document.getElementById("selectionsHolder").classList.add("open");
-    document.body.style.overflow = "hidden"; // stop background scroll while menu is open
+
+    if (type == "FormTrait") {
+        selectionsHolder.style.display = "block";
+        selectionsHolder.style.left = "254px";
+        selectionsHolder.style.top = "431px";
+    } else {
+        var normalizedPos = getNormalizedPosition(evt);
+
+        const mouseX = evt.clientX;
+        const mouseY = evt.clientY;
+
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+        selectionsHolder.style.display = "block";
+
+        if (normalizedPos.x + getNormalizedWidth(selectionsHolder) > 0.95) {
+            selectionsHolder.style.left = mouseX - selectionsHolder.getBoundingClientRect().width + scrollLeft + "px";
+        } else {
+            selectionsHolder.style.left = mouseX + scrollLeft + "px";
+        }
+
+        if (normalizedPos.y + getNormalizedHeight(selectionsHolder) > 0.95) {
+            selectionsHolder.style.top = mouseY - selectionsHolder.getBoundingClientRect().height + scrollTop + "px";
+        } else {
+            selectionsHolder.style.top = mouseY + scrollTop + "px";
+        }
+    }
 }
 
 function GetCurrentChoiceList() {
@@ -1504,7 +1466,7 @@ function GetCurrentChoiceList() {
 function GetAffinityTotalFromList(list, tomeList, subType, subCulture, subSociety1, subSociety2) {
     var input = "";
 
-    for (let i = 0; i < list.length; i++) {
+    for (i = 0; i < list.length; i++) {
         if (list[i] != "" && list[i] != undefined) {
             if ("affinity" in list[i]) {
                 input += list[i].affinity + ",";
@@ -1529,7 +1491,7 @@ function GetAffinityTotalFromList(list, tomeList, subType, subCulture, subSociet
         }
     }
 
-    for (let i = 0; i < tomeList.length; i++) {
+    for (i = 0; i < tomeList.length; i++) {
         if (tomeList[i] != "") {
             if ("affinity" in tomeList[i]) {
                 input += tomeList[i].affinity + ",";
@@ -1756,7 +1718,7 @@ function duplicateTags(inputString) {
     return result;
 }
 
-function SetButtonInfo(button, origin, type, inSelectionsList) {
+function SetButtonInfo(button, origin, type, color) {
     button.innerHTML = "";
 
     if (type === "SubType" && !["Dragon Lord", "Giant King", "Elder Vampire"].includes(currentOrigin.name)) return;
@@ -1770,25 +1732,10 @@ function SetButtonInfo(button, origin, type, inSelectionsList) {
     const image = createImage(type, origin);
 
     const buttonText = createButtonText(origin, type);
-
     button.append(image, buttonText);
 
     const tooltip = createTooltip(origin, type);
-    addTooltipListeners(button, tooltip);
-    if (inSelectionsList == true) {
-        const addButton = document.createElement("button");
-        addButton.className = "add-button";
-        addButton.innerHTML = '<img  src="/aow4db/Icons/Interface/addsymbol.png" height="20px">';
-
-        if (type == "FormTrait") {
-            addButton.innerHTML = "Toggle";
-            addButton.addEventListener("click", (event) => toggleSelection(origin, button, type, event));
-        } else {
-            addButton.addEventListener("click", (event) => selectOrigin(origin, type));
-        }
-
-        button.append(addButton);
-    }
+    addTooltipListeners(image, tooltip);
 }
 
 function createImage(type, origin) {
@@ -1865,7 +1812,7 @@ function findOriginLocName(origin, type) {
             } else {
                 newOrigin = origin.name;
             }
-            newOrigin = RemoveHyperLinks(newOrigin);
+          
             newOrigin = newOrigin.split("{")[0];
             break;
 
@@ -2036,7 +1983,7 @@ function createTooltip(origin, type) {
 
 function SetSkillPreview(span, origin) {
     span.innerHTML =
-        '<p style="color: #d7c297;>' + '<span style="font-size:20px;">' + origin.name.toUpperCase() + "</span></p>";
+        '<p style="color: #d7c297;>' + '<span style="font-size=20px;">' + origin.name.toUpperCase() + "</p>";
     if ("description" in origin) {
         span.innerHTML += origin.description;
     }
@@ -2178,23 +2125,23 @@ function SetTomePreview(span, origin) {
     }
 
     span.innerHTML =
-        '<p style="color: #d7c297;>' + '<span style="font-size:20px;">' + locOrigin.name.toUpperCase() + "</span></p>";
+        '<p style="color: #d7c297;>' + '<span style="font-size=20px;">' + locOrigin.name.toUpperCase() + "</p>";
     span.innerHTML += locOrigin.gameplay_description + "<br>";
     // if ("hero_skills" in origin) {
-    //   span.innerHTML += '<p style="color: #97d7a2;>' + '<span style="font-size:20px;">Hero Skills:<br></p>';
+    //   span.innerHTML += '<p style="color: #97d7a2;>' + '<span style="font-size=20px;">Hero Skills:<br></p>';
 
     // for (let index = 0; index < origin.hero_skills.length; index++) {
     //   span.innerHTML += "<bullet> " + GetHeroSkillName(origin.hero_skills[index].slug) + "</bullet>";
     //}
     //}
     if ("passives" in locOrigin) {
-        span.innerHTML += '<p style="color: #97d7a2;>' + '<span style="font-size:20px;">Passives:<br></p>';
+        span.innerHTML += '<p style="color: #97d7a2;>' + '<span style="font-size=20px;">Passives:<br></p>';
         for (let index = 0; index < locOrigin.passives.length; index++) {
             span.innerHTML += "<bullet>" + locOrigin.passives[index].name + "</bullet>";
         }
     }
     if ("initial_upgrades" in locOrigin) {
-        span.innerHTML += '<p  style="color: #97d7a2;>' + '<span style="font-size:20px;">Initial Upgrades:<br></p>';
+        span.innerHTML += '<p  style="color: #97d7a2;>' + '<span style="font-size=20px;">Initial Upgrades:<br></p>';
 
         for (let index = 0; index < locOrigin.initial_upgrades.length; index++) {
             const struc = GetStructure(locOrigin.initial_upgrades[index].upgrade_slug);
@@ -2207,7 +2154,7 @@ function SetTomePreview(span, origin) {
         }
     }
     if ("skills" in origin) {
-        span.innerHTML += '<p  style="color: #97d7a2;>' + '<span style="font-size:20px;">Skills:<br></p>';
+        span.innerHTML += '<p  style="color: #97d7a2;>' + '<span style="font-size=20px;">Skills:<br></p>';
 
         for (let index = 0; index < origin.skills.length; index++) {
             // unit unlock
@@ -2232,6 +2179,7 @@ function SetTomePreview(span, origin) {
                             spell.name +
                             "</bullet>";
                     } else {
+                      
                         span.innerHTML +=
                             '<bullet> <img width="20px" src="/aow4db/Icons/SpellIcons/' +
                             iconLink +
@@ -2331,6 +2279,7 @@ function SetTomePreview(span, origin) {
                         spell.name +
                         "</bullet>";
                 } else {
+                    
                     span.innerHTML +=
                         '<bullet> <img width="20px" src="/aow4db/Icons/SpellIcons/' +
                         iconLink +
@@ -2346,7 +2295,7 @@ function SetTomePreview(span, origin) {
 
 function SetFullPreview(span, origin) {
     span.innerHTML =
-        '<p style="color: #d7c297;>' + '<span style="font-size:20px;">' + origin.name.toUpperCase() + "</span></p>";
+        '<p style="color: #d7c297;>' + '<span style="font-size=20px;">' + origin.name.toUpperCase() + "</p>";
 
     // if("biography_description" in origin){
 
@@ -2358,14 +2307,14 @@ function SetFullPreview(span, origin) {
     }
 
     span.innerHTML +=
-        '<br><p style="color: #d7c297;>' + '<span style="font-size:20px;">' + "<bulletlist>EFFECTS: " + "</span></p>";
-    for (let i = 0; i < origin.effect_descriptions.length; i++) {
+        '<br><p style="color: #d7c297;>' + '<span style="font-size=20px;">' + "<bulletlist>EFFECTS: " + "</span></p>";
+    for (i = 0; i < origin.effect_descriptions.length; i++) {
         span.innerHTML += "<bullet>" + origin.effect_descriptions[i].name + "</bullet>";
     }
 
     if ("incompatible_society_traits" in origin) {
         span.innerHTML += "<br>Incompatible with:";
-        for (let i = 0; i < origin.incompatible_society_traits.length; i++) {
+        for (i = 0; i < origin.incompatible_society_traits.length; i++) {
             span.innerHTML += "<bullet>" + origin.incompatible_society_traits[i].name + "</bullet>";
         }
     }
@@ -2389,12 +2338,6 @@ function GetAllStartingTomes() {
 }
 
 function CollectAllPartsForOverview(fromload) {
-    // Force-close any tooltip that might be orphaned by the rebuild below.
-    var hd = document.getElementById("hoverDiv");
-    var hd2 = document.getElementById("hoverDiv2");
-    if (hd && hd.open) hd.close();
-    if (hd2 && hd2.open) hd2.close();
-
     document.getElementById("hiddentooltips").innerHTML = "";
     document.getElementById("mainoverview").innerHTML = "";
     // get all spells
@@ -2650,7 +2593,7 @@ function CreateSpellIcon(listEntry, colorEntry) {
     let imageLinkName = spellData.id;
     if (spellData.icon != undefined && !incorrectIconOverrideList.includes(spellData.id)) {
         imageLinkName = spellData.icon;
-
+       
         imageSRC = "/aow4db/Icons/SpellIcons/" + imageLinkName + ".png";
     } else {
         imageLinkName = spellData.id;
@@ -3139,7 +3082,7 @@ function GetNextSetOfTomes(pathLength) {
 
     var listOfNextTomes = [];
 
-    for (let i = 0; i < jsonTomes.length; i++) {
+    for (i = 0; i < jsonTomes.length; i++) {
         // all tier 1
         if (jsonTomes[i].tier === 1) {
             if (!isInArray(currentTomeList, jsonTomes[i])) {
@@ -3150,7 +3093,7 @@ function GetNextSetOfTomes(pathLength) {
 
     if (currentTomeList.length >= tomeRequirements[2].minTomes) {
         // allow tier 2 tomes
-        for (let i = 0; i < jsonTomes.length; i++) {
+        for (i = 0; i < jsonTomes.length; i++) {
             if (jsonTomes[i].tier === 2) {
                 if (!isInArray(currentTomeList, jsonTomes[i])) {
                     listOfNextTomes.push(jsonTomes[i]);
@@ -3160,7 +3103,7 @@ function GetNextSetOfTomes(pathLength) {
     }
     if (currentTomeList.length >= tomeRequirements[3].minTomes) {
         // allow tier 3 tomes
-        for (let i = 0; i < jsonTomes.length; i++) {
+        for (i = 0; i < jsonTomes.length; i++) {
             if (jsonTomes[i].tier === 3) {
                 // 3 affinity
                 if (
@@ -3180,7 +3123,7 @@ function GetNextSetOfTomes(pathLength) {
     }
     if (currentTomeList.length >= tomeRequirements[4].minTomes) {
         // allow tier 4 tomes
-        for (let i = 0; i < jsonTomes.length; i++) {
+        for (i = 0; i < jsonTomes.length; i++) {
             if (jsonTomes[i].tier === 4) {
                 // 6 affinity
                 if (
@@ -3200,7 +3143,7 @@ function GetNextSetOfTomes(pathLength) {
     }
     if (currentTomeList.length >= tomeRequirements[5].minTomes) {
         // allow tier 5 tomes
-        for (let i = 0; i < jsonTomes.length; i++) {
+        for (i = 0; i < jsonTomes.length; i++) {
             if (jsonTomes[i].tier === 5) {
                 // tome of cosmos exception
                 if (jsonTomes[i].id == "tome_of_the_cosmos") {
@@ -3393,7 +3336,7 @@ function GetAffinityMatches(affinityTotal, substringToCount, number) {
 function GetAllOrigins() {
     var listOfAllOrigins = [];
 
-    for (let i = 0; i < jsonFactionCreation.length; i++) {
+    for (i = 0; i < jsonFactionCreation.length; i++) {
         if (jsonFactionCreation[i].type === "Ruler Origin") {
             if (!showBetaTooltip || !showBetaTooltip.checked) {
                 if (isTheorycrafting(jsonFactionCreation[i])) continue;
@@ -3408,7 +3351,7 @@ function GetAllOrigins() {
 function GetAllCultures() {
     var listOfAllOrigins = [];
 
-    for (let i = 0; i < jsonFactionCreation.length; i++) {
+    for (i = 0; i < jsonFactionCreation.length; i++) {
         if (jsonFactionCreation[i].type === "Culture") {
             if (!showBetaTooltip || !showBetaTooltip.checked) {
                 if (isTheorycrafting(jsonFactionCreation[i])) continue;
@@ -3423,7 +3366,7 @@ function GetAllCultures() {
 function GetAllForms() {
     var listOfAllOrigins = [];
 
-    for (let i = 0; i < jsonFactionCreation.length; i++) {
+    for (i = 0; i < jsonFactionCreation.length; i++) {
         if (jsonFactionCreation[i].type === "Skin") {
             if (!showBetaTooltip || !showBetaTooltip.checked) {
                 if (isTheorycrafting(jsonFactionCreation[i])) continue;
@@ -3438,7 +3381,7 @@ function GetAllForms() {
 function GetAllFormTraitsList() {
     var listOfAllOrigins = [];
 
-    for (let i = 0; i < jsonFactionCreation2.length; i++) {
+    for (i = 0; i < jsonFactionCreation2.length; i++) {
         if (jsonFactionCreation2[i].type === "form") {
             if (!showBetaTooltip || !showBetaTooltip.checked) {
                 if (isTheorycrafting(jsonFactionCreation2[i])) continue;
@@ -3455,7 +3398,7 @@ function GetAllFormTraitsList() {
 function GetAllSocietyTraits() {
     var listOfAllOrigins = [];
 
-    for (let i = 0; i < jsonFactionCreation2.length; i++) {
+    for (i = 0; i < jsonFactionCreation2.length; i++) {
         if (jsonFactionCreation2[i].type === "society") {
             if (jsonFactionCreation2[i].enabled === true) {
                 if (jsonFactionCreation2[i].id != "guardians_of_nature__goodact__") {
@@ -3474,7 +3417,7 @@ function GetAllSocietyTraits() {
 function GetAllAscensions() {
     var listOfAllOrigins = [];
 
-    for (let i = 0; i < jsonHeroSkills.length; i++) {
+    for (i = 0; i < jsonHeroSkills.length; i++) {
         if (jsonHeroSkills[i].name.indexOf("Ascension") != -1 || jsonHeroSkills[i].name.indexOf("Secret Spell") != -1) {
             listOfAllOrigins.push(jsonHeroSkills[i]);
         }
@@ -3486,7 +3429,7 @@ function GetAllAscensions() {
 function GetAllAmbitions() {
     var listOfAllOrigins = [];
 
-    for (let i = 0; i < jsonHeroAmbitions.length; i++) {
+    for (i = 0; i < jsonHeroAmbitions.length; i++) {
         if (jsonHeroAmbitions[i].available_to_rulers == true) {
             listOfAllOrigins.push(jsonHeroAmbitions[i]);
         }
@@ -3498,7 +3441,7 @@ function GetAllAmbitions() {
 function GetAllSubTypes() {
     var listOfAllSubTypes = [];
 
-    for (let i = 0; i < jsonFactionCreation.length; i++) {
+    for (i = 0; i < jsonFactionCreation.length; i++) {
         if (jsonFactionCreation[i].type === "SubType") {
             if (jsonFactionCreation[i].requirement == currentOrigin.name) {
                 if (!showBetaTooltip || !showBetaTooltip.checked) {
@@ -3560,7 +3503,7 @@ function GetAllSubProphecySetups(entry) {
 function GetAllClasses() {
     var listofallClasses = [];
 
-    for (let i = 0; i < jsonFactionCreation.length; i++) {
+    for (i = 0; i < jsonFactionCreation.length; i++) {
         if (jsonFactionCreation[i].type === "Class") {
             if (!showBetaTooltip || !showBetaTooltip.checked) {
                 if (isTheorycrafting(jsonFactionCreation[i])) continue;
@@ -3699,7 +3642,7 @@ function incompatibleCheck(type, origin) {
         if (type === "Culture") {
             var i = "";
             var j = "";
-            for (let i in origin.incompatible) {
+            for (i in origin.incompatible) {
                 if (
                     origin.incompatible[i].name === currentSociety1.name ||
                     origin.incompatible[i].name === currentSociety2.name
@@ -3733,7 +3676,7 @@ function incompatibleCheck(type, origin) {
             // also check from culture here
             //  currentCul = GetCultureFromID(currentCulture);
 
-            for (let i in origin.incompatible_society_traits) {
+            for (i in origin.incompatible_society_traits) {
                 if (currentSociety2 != "") {
                     if (
                         origin.incompatible_society_traits[i].name
@@ -3748,9 +3691,13 @@ function incompatibleCheck(type, origin) {
         if (type === "Society2") {
             var i = "";
 
-            for (let i in origin.incompatible) {
+            for (i in origin.incompatible) {
                 if (currentSociety1 != "") {
-                    if (origin.incompatible[i].name.toLowerCase().indexOf(currentSociety1.name.toLowerCase()) != -1) {
+                    if (
+                        origin.incompatible_society_traits[i].name
+                            .toLowerCase()
+                            .indexOf(currentSociety1.name.toLowerCase()) != -1
+                    ) {
                         incompatibleWithSetup = true;
                     }
                 }
@@ -4456,7 +4403,7 @@ function RebuildFromParam(code) {
             if (typeof spinner !== "undefined" && spinner) spinner.style.display = "none";
         });
 
-    if (window.location.href.indexOf("&edit") != -1) {
+    if (window.location.href.indexOf("&edit")) {
         // save current url for overwriting
         var oldUrlEl = document.getElementById("oldURL");
         if (oldUrlEl) oldUrlEl.innerHTML = window.location.href.split("?")[0] + "?u=" + code;

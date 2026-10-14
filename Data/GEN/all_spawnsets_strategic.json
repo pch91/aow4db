@@ -1,116 +1,91 @@
 [
   {
-    "pool": "Fiend1&2  (Reward) - Unit Pool",
-    "units": [],
-    "others": [
-      "All Fiends (Accursed + Infernal) Units"
-    ]
-  },
-  {
-    "pool": "Architect Base Units + Hero - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Architect Units",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "Architect House Attack - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Architect Units",
-      "All Environments"
-    ]
-  },
-  {
     "pool": "Angelic Figure (AngelUnit) - Unit Pool",
     "units": [
       "Transmuter"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Penitent (AngelUnit) - Unit Pool",
     "units": [
       "Chaplain"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Archon Observatory - Fate - Unit Pool",
-    "units": [],
+    "pool": "Archon Observatory - Fate - Unit Pool/",
+    "units": [
+      "Zealot",
+      "Chaplain",
+      "Wildspeaker",
+      "Inquisitor",
+      "Zephyr Archer",
+      "Subjugator",
+      "Warbreed"
+    ],
     "others": [
       "All Culture Base Units"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Archon Observatory - Servitude - Unit Pool",
+    "pool": "Archon Observatory - Death - Unit Pool1",
+    "units": [
+      "Chaplain",
+      "Zealot",
+      "Lightbringer",
+      "Paladin",
+      "Inquisitor",
+      "High - T2 - Sun Priest"
+    ],
+    "others": [
+      "Tier I - II Order Enchantments",
+      "Tier III - IV Order Enchantments"
+    ],
+    "type": []
+  },
+  {
+    "pool": "Archon Observatory - Servitude - Unit Pool3",
     "units": [
       "Chaplain",
       "Zealot",
       "Paladin",
       "Inquisitor",
       "Necromancer",
-      "Fallen Angel"
+      "Fallen Angel",
+      "Undead Titan"
     ],
     "others": [
-      "All Undead Units - No Water Movement"
-    ]
+      "All Undead Units - No Water Movement",
+      "All Undead Enchantments"
+    ],
+    "type": []
   },
   {
-    "pool": "Angelic1&2  (Reward) - Unit Pool",
-    "units": [],
-    "others": [
-      "Order Tome Units - Land"
-    ]
-  },
-  {
-    "pool": "Reward: Celestial - Unit Pool",
-    "units": [],
-    "others": [
-      "All Celestial Units"
-    ]
-  },
-  {
-    "pool": "Dragon Lords - Spawn: Grasslands 1Mn",
+    "pool": "Archon Observatory - Trial - Unit Pool5",
     "units": [
-      "Slither Hatchling",
-      "Wyvern Fledgling",
-      "Houndmaster",
-      "Carrion Bird",
-      "Slither",
-      "Swamp Trolll",
-      "Warbreed",
-      "Obsidian Dragon"
+      "Blessed Soul",
+      "Chaplain",
+      "Zealot",
+      "Lightbringer",
+      "Paladin",
+      "Inquisitor",
+      "High - T2 - Sun Priest"
     ],
     "others": [
-      "Tier I - II Chaos Enchantments",
-      "Tier III - IV Chaos Enchantments",
-      "Grasslands"
-    ]
-  },
-  {
-    "pool": "Dragon Lords - Spawn: Forest 1On",
-    "units": [
-      "Slither Hatchling",
-      "Wildspeaker",
-      "Plague Serpent",
-      "Entwinned Protector",
-      "Slither",
-      "Entwinned Scourge",
-      "Horned God"
+      "Tier I - II Order Enchantments",
+      "Tier III - IV Order Enchantments"
     ],
-    "others": [
-      "Tier I - II Nature Enchantments",
-      "Tier III - IV Nature Enchantments",
-      "Forest"
-    ]
+    "type": []
   },
   {
-    "pool": "Dragon Nest Pools - Gold Dragon Nest",
+    "pool": "Dragon Nest Pools - Gold Dragon Nest]n",
     "units": [
       "Gold Dragon",
-      "Young Gold Dragon",
+      "Young Dragon (Golden)",
       "Eagle Rider",
       "Phoenix",
       "Blessed Soul",
@@ -127,10 +102,11 @@
       "Tier I - II Order Enchantments",
       "Tier III - IV Order Enchantments",
       "Desert"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Dragon Nest Pools - Obsidian Dragon Nest",
+    "pool": "Dragon Nest Pools - Obsidian Dragon Nest^n",
     "units": [
       "Obsidian Dragon",
       "Druid of the Cycle",
@@ -140,7 +116,7 @@
       "Floral Stinger",
       "Wildspeaker",
       "Slither Hatchling",
-      "Young Obsidian Dragon"
+      "Young Dragon (Obsidian)"
     ],
     "others": [
       "Tier I - II Astral Enchantments",
@@ -148,99 +124,8 @@
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments",
       "Forest"
-    ]
-  },
-  {
-    "pool": "Dragon Lords - Spawn: Grasslands 2_n",
-    "units": [
-      "Slither Hatchling",
-      "Hunter Spider",
-      "Plague Serpent",
-      "Slither",
-      "Hunter Spider Matriarch",
-      "Obsidian Dragon"
     ],
-    "others": [
-      "Tier I - II Nature Enchantments",
-      "Tier III - IV Nature Enchantments",
-      "Grasslands"
-    ]
-  },
-  {
-    "pool": "Dragon Lords - Spawn: Tropical 1Xn",
-    "units": [
-      "Slither Hatchling",
-      "Wyvern Fledgling",
-      "Plague Serpent",
-      "Butcher Ogre",
-      "Young Fire Dragon",
-      "Slither",
-      "Fire Giant",
-      "Fire Dragon"
-    ],
-    "others": [
-      "Tier I - II Chaos Enchantments",
-      "Tier III - IV Chaos Enchantments",
-      "Tropical"
-    ]
-  },
-  {
-    "pool": "Dragon Lords - Spawn: Tropical 2Wn",
-    "units": [
-      "Wyvern Fledgling",
-      "Pyromancer",
-      "Inferno Hound",
-      "Wyvern Red",
-      "Young Fire Dragon",
-      "Phoenix",
-      "Fire Dragon"
-    ],
-    "others": [
-      "Tier I - II Chaos Enchantments",
-      "Tier III - IV Chaos Enchantments",
-      "Tropical"
-    ]
-  },
-  {
-    "pool": "Dragon Lords - Spawn: Desert 1Zn",
-    "units": [
-      "Slither Hatchling",
-      "Butcher Ogre",
-      "Warg",
-      "Slither",
-      "Tyrant Knight",
-      "Gold Dragon"
-    ],
-    "others": [
-      "Tier I - II Order Enchantments",
-      "Tier III - IV Order Enchantments",
-      "Desert"
-    ]
-  },
-  {
-    "pool": "Dragon Lord - Spawn: Arctic 1en",
-    "units": [
-      "Wyvern Fledgling",
-      "Ice Spider",
-      "White Witch",
-      "Blue Wyvern",
-      "Winter Fairy",
-      "Ice Spider Matriarch",
-      "Blue Dragon"
-    ],
-    "others": [
-      "Tier I - II Cryo Enchantments",
-      "Tier III - IV Nature Enchantments",
-      "Tier III - IV Astral Enchantments",
-      "Arctic"
-    ]
-  },
-  {
-    "pool": "Reward: Single Dragon Unit - Unit Pool",
-    "units": [],
-    "others": [
-      "ToW - All Dragon Units"
-    ]
+    "type": []
   },
   {
     "pool": "Reward: Fixed Fire or Frost Dragon - Unit Pool",
@@ -248,77 +133,8 @@
       "Fire Dragon",
       "Frost Dragon"
     ],
-    "others": []
-  },
-  {
-    "pool": "Spawn: Umbral Abyss 1d",
-    "units": [],
-    "others": [
-      "All Astral Monster Units",
-      "All Umbral Demon Units",
-      "All Astral Enchantments",
-      "All Shadow Enchantments",
-      "All Culture Base Units"
-    ]
-  },
-  {
-    "pool": "Spawn: Umbral Abyss 2+",
-    "units": [],
-    "others": [
-      "All Ethereal Units (Except Astral Sea Monsters)",
-      "All Umbral Demon Units",
-      "All Astral Enchantments",
-      "All Shadow Enchantments",
-      "All Culture Base Units"
-    ]
-  },
-  {
-    "pool": "Spawn: Umbral Abyss 3,",
-    "units": [],
-    "others": [
-      "All Undead Units - No Water Movement",
-      "All Umbral Demon Units",
-      "All Astral Enchantments",
-      "All Shadow Enchantments",
-      "All Culture Base Units"
-    ]
-  },
-  {
-    "pool": "Umbral Spawner Pool.",
-    "units": [],
-    "others": [
-      "All Umbral Demon Units",
-      "All Astral Monster Units - No Tier 5",
-      "All Ethereal Units (Except Astral Sea Monsters) - No Tier 5",
-      "All Undead Units - No Water Movement - No Tier 5",
-      "All Astral Enchantments",
-      "All Shadow Enchantments",
-      "All Culture Base Units"
-    ]
-  },
-  {
-    "pool": "Void Stones Pool",
-    "units": [],
-    "others": [
-      "All Umbral Demon Units",
-      "All Astral Monster Units - No Tier 5",
-      "All Ethereal Units (Except Astral Sea Monsters) - No Tier 5",
-      "All Undead Units - No Water Movement - No Tier 5",
-      "All Astral Enchantments",
-      "All Shadow Enchantments",
-      "All Culture Base Units"
-    ]
-  },
-  {
-    "pool": "ER2: Umbral Forces - Unit Pool",
-    "units": [],
-    "others": [
-      "All Astral Monster Units",
-      "All Umbral Demon Units",
-      "All Astral Enchantments",
-      "All Shadow Enchantments",
-      "All Culture Base Units"
-    ]
+    "others": [],
+    "type": []
   },
   {
     "pool": "ER2: Endailon Gift Units - Unit Pool",
@@ -328,84 +144,43 @@
       "Lesser Snow Spirit",
       "Snow Spirit",
       "Living Fog",
-      "Frost Wyvern",
+      "Wyvern Frost",
       "Winter Fairy",
       "Frost Dragon"
     ],
-    "others": []
-  },
-  {
-    "pool": "Spawn: Umbral Abyss - Lavaf",
-    "units": [],
-    "others": [
-      "All Infernal Fiend Units",
-      "All Umbral Demon Units",
-      "All Culture Base Units",
-      "All Chaos Enchantments",
-      "All Shadow Enchantments"
-    ]
-  },
-  {
-    "pool": "Castle Ruins - Gloom - Unit Pool",
-    "units": [],
-    "others": [
-      "All Umbral Demon Units",
-      "All Shadow Enchantments"
-    ]
-  },
-  {
-    "pool": "Wizard Tower - Eldritch - Unit Pool",
-    "units": [],
-    "others": [
-      "All Umbral Demon Units",
-      "All Culture Base Units",
-      "All Astral Enchantments"
-    ]
-  },
-  {
-    "pool": "Reaver Base Units + Hero - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Reaver Units",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "Reaver House Attack - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Reaver Units",
-      "All Environments"
-    ]
+    "others": [],
+    "type": []
   },
   {
     "pool": "Derelict Workshop Infestation - Unit Pool",
     "units": [
       "Scrap Hermit",
-      "Magelock Unit",
-      "Poison Blades",
-      "Poison Arrows",
-      "Flameburst Weapons"
+      "Reaver - T2 - Magelock"
     ],
     "others": [
       "All Construct Units (Non Celestial)",
+      "Blight Blades - Unit Upgrade",
+      "Poison Arrows - Unit Upgrade",
+      "Flameburst Weapons - Unit Upgrade",
       "Tier I - II Materium Enchantments",
-      "Tier III - IV Materium Enchantments",
-      "All Environments"
-    ]
+      "Tier III - IV Materium Enchantments"
+    ],
+    "type": []
   },
   {
-    "pool": "Vaultsphere - Constructs Pool",
+    "pool": "Vaultsphere - Constructs Pool]",
     "units": [
       "Herald of War",
-      "Meteor Arrows",
-      "Sundering Blades",
-      "Seeker arrows",
-      "Flameburst Weapons",
-      "Searing Steel",
       "Scrap Hermit"
     ],
-    "others": []
+    "others": [
+      "Meteor Projectiles - Unit Upgrade",
+      "Sundering Blades - Unit Upgrade",
+      "Seeker Arrows - Unit Upgrade",
+      "Flameburst Weapons - Unit Upgrade",
+      "Searing Steel - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "Seal Marauders - Starter Pool - Elementals TagFilter",
@@ -414,34 +189,44 @@
       "Transmuter",
       "White Witch",
       "Pyromancer",
-      "Evoker"
+      "Evoker",
+      "Progenitor Golem"
     ],
-    "others": []
+    "others": [
+      "Frost Blades - Unit Upgrade",
+      "Lightning Focus - Unit Upgrade",
+      "Fiery Projectiles - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "Seal Marauders - Fiend Pool",
     "units": [
       "Pyromancer",
       "Warbreed",
-      "Berserker",
-      "Houndmaster",
-      "Zealot"
+      "Barbarian - T3 - Berserker",
+      "Zealot",
+      "Chaplain",
+      "Progenitor Golem"
     ],
     "others": [
-      "All Fiend Units - Except T1 and T2 Animals"
-    ]
+      "All Fiend Units - Except T1 and T2 Animals",
+      "Mark of Misfortune - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "Seal Marauders - Construct Pool",
     "units": [
       "Fire Giant",
       "Scrap Hermit",
-      "Gargoyle",
-      "Tempered Metals"
+      "Gargoyle"
     ],
     "others": [
-      "All Construct Units (Non Celestial)"
-    ]
+      "All Construct Units (Non Celestial)",
+      "Tempered Metals - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "Seal Marauders - Undead and Shadow Pool",
@@ -450,11 +235,42 @@
       "Necromancer",
       "White Witch",
       "Chaplain",
-      "Warbreed"
+      "Warbreed",
+      "Progenitor Golem"
     ],
     "others": [
-      "All Undead Units - No Water Movement"
-    ]
+      "All Undead Units - No Water Movement",
+      "Fetid Legion - Unit Upgrade"
+    ],
+    "type": []
+  },
+  {
+    "pool": "Seal Marauders - Ethereal and Astral Pool",
+    "units": [
+      "Mirror Mimic",
+      "Evoker",
+      "Progenitor Golem"
+    ],
+    "others": [
+      "Ethereal and Astral Units (Seals)",
+      "Frenzying Focus - Unit Upgrade",
+      "Lightning Blades - Unit Upgrade"
+    ],
+    "type": []
+  },
+  {
+    "pool": "Seal Marauders - Fey, Plant and Animals Pool",
+    "units": [
+      "Wildspeaker",
+      "Glade Runner",
+      "Progenitor Golem"
+    ],
+    "others": [
+      "Fey and Plants (Seals)",
+      "High Tier Animals (Seals)",
+      "Blight Blades - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "Seal Marauders - Celestials and Order Pool",
@@ -462,22 +278,28 @@
       "Zealot",
       "Inquisitor",
       "Chaplain",
-      "Tyrant Knight",
-      "Eagle Rider"
+      "Subjugator",
+      "Eagle Rider",
+      "Progenitor Golem"
     ],
     "others": [
-      "All Celestial Units"
-    ]
+      "All Celestial Units",
+      "Inquisitor's Mark - Unit Upgrade",
+      "Staves of Mending - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "Seal Marauders - Starter Pool - Construct TagFilter",
     "units": [
       "Progenitor Golem",
       "Scrap Hermit",
-      "Gargoyle",
-      "Tempered Metals"
+      "Gargoyle"
     ],
-    "others": []
+    "others": [
+      "Tempered Metals - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "Seal Marauders - Starter Pool - Elementals TagFilter",
@@ -485,20 +307,30 @@
       "Transmuter",
       "White Witch",
       "Pyromancer",
-      "Evoker"
+      "Evoker",
+      "Progenitor Golem"
     ],
-    "others": []
+    "others": [
+      "Frost Blades - Unit Upgrade",
+      "Lightning Focus - Unit Upgrade",
+      "Fiery Projectiles - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "Seal Marauders - Starter Pool - Fiends TagFilter",
     "units": [
       "Pyromancer",
       "Warbreed",
-      "Berserker",
-      "Houndmaster",
-      "Zealot"
+      "Barbarian - T3 - Berserker",
+      "Zealot",
+      "Chaplain",
+      "Progenitor Golem"
     ],
-    "others": []
+    "others": [
+      "Mark of Misfortune - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "Seal Marauders - Starter Pool - Undead and Shadow TagFilter",
@@ -507,42 +339,38 @@
       "Necromancer",
       "White Witch",
       "Chaplain",
-      "Warbreed"
+      "Warbreed",
+      "Progenitor Golem"
     ],
-    "others": []
+    "others": [
+      "Fetid Legion - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "Seal Marauders - Starter Pool - Ethereal and Astral TagFilter",
     "units": [
       "Mirror Mimic",
-      "Evoker"
-    ],
-    "others": []
-  },
-  {
-    "pool": "Seal Marauders - Starter Pool - Fey, Plant and Animals TagFilter",
-    "units": [
-      "Wildspeaker",
-      "Glade Runner"
+      "Evoker",
+      "Progenitor Golem"
     ],
     "others": [
-      "Seal Marauders - Starter Pool - High Tier Animals"
-    ]
+      "Frenzying Focus - Unit Upgrade",
+      "Lightning Blades - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "Seal Marauders - Starter Pool - High Tier Animals - TagFilter",
     "units": [
       "Wildspeaker",
-      "Glade Runner"
+      "Glade Runner",
+      "Progenitor Golem"
     ],
-    "others": []
-  },
-  {
-    "pool": "Seal Marauders - Starter Pool - Fey, Plant and Animals TagFilter",
-    "units": [],
     "others": [
-      "Seal Marauders - Starter Pool - High Tier Animals"
-    ]
+      "Blight Blades - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "Seal Marauders - Starter Pool - Celestials and Order TagFilter",
@@ -550,30 +378,37 @@
       "Zealot",
       "Inquisitor",
       "Chaplain",
-      "Tyrant Knight",
-      "Eagle Rider"
+      "Subjugator",
+      "Eagle Rider",
+      "Progenitor Golem",
+      "High - T2 - Sun Priest"
     ],
-    "others": []
+    "others": [
+      "Inquisitor's Mark - Unit Upgrade",
+      "Staves of Mending - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "Reward: Vaultsphere Constructs - Unit Pool",
     "units": [
       "Herald of War"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Reward: Vaultsphere Sequestered - Unit Pool",
     "units": [
-      "Spirit",
-      "Goretusk Piglets",
-      "Spirit",
-      "Spirit",
-      "Spirit",
-      "Spirit",
+      "Lesser Magma Spirit",
+      "Goretusk Piglet",
+      "Lesser Snow Spirit",
+      "Lesser Stone Spirit",
+      "Lesser Storm Spirit",
+      "Lesser Tide Spirit",
       "Slither Hatchling",
-      "Wyvern Fledgeling",
-      "Young Fire Dragon",
+      "Wyvern Fledgling",
+      "Young Dragon (Fire)",
       "Young Caustic Worm",
       "Ice Spider",
       "Vampire Spider Hatchling",
@@ -581,7 +416,8 @@
       "Hunter Spider",
       "Copper Golem"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Reward: Vaultsphere My'dhas - Unit Pool",
@@ -590,24 +426,26 @@
       "Gold Dragon",
       "Gold Wyvern"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Vaultsphere - My'dhas Pool",
+    "pool": "Vaultsphere - My'dhas Poola",
     "units": [
       "Gold Golem",
-      "Transmuter",
-      "Adaptive Armor upgrade"
+      "Transmuter"
     ],
     "others": [
       "All Base Mystic Units",
+      "Adaptive Armor - Unit Upgrade",
       "All Materium Except Tier V Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Vaultsphere - Sequestered Pool_",
     "units": [
-      "Goretusk Piglets",
+      "Goretusk Piglet",
       "Young Caustic Worm",
       "Ice Spider",
       "Vampire Spider Hatchling",
@@ -615,7 +453,8 @@
       "Hunter Spider",
       "Inferno Puppy"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Fire Clan - Unit Pool",
@@ -626,12 +465,13 @@
       "Inferno Hound",
       "Inferno Puppy",
       "Nightmare",
-      "Butcher Ogre",
-      "Swamp Troll",
-      "River Troll",
-      "Karagh"
+      "Demigiant Ogre Common",
+      "Demigiant Troll Swamp",
+      "Demigiant Troll River",
+      "Demigiant Karagh"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Flowrock Enigma - Unit Pool",
@@ -642,7 +482,8 @@
       "Earth Titan",
       "Rock Giant"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Lithorite Enigma - Unit Pool",
@@ -653,43 +494,46 @@
       "Lithorine Shardlancer",
       "Lithorine Simulacrum"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "TSR Encounter: Binding Enigma - Unit Pool",
+    "pool": "TSR Encounter: Binding Enigma - Unit Pool ",
     "units": [
       "Copper Golem",
       "Iron Golem",
       "Bronze Golem",
       "Transmuter",
-      "Golden Golem"
+      "Gold Golem"
     ],
     "others": [
       "All Animated Weapon Units"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "TSR Encounter: Final Enigma - Unit Pool",
+    "pool": "TSR Encounter: Final Enigma - Unit PoolP",
     "units": [
       "Copper Golem",
       "Iron Golem",
       "Bronze Golem",
       "Transmuter",
-      "Golden Golem",
-      "Windrager",
+      "Gold Golem",
+      "Wind Rager",
       "Lithorine Core",
       "Lithorine Gemcaster",
       "Lithorine Needler",
       "Lithorine Shardlancer",
       "Lithorine Simulacrum",
-      "Wisp",
+      "Astral Wisp",
       "Gargoyle",
       "Lesser Stone Spirit",
       "Stone Spirit",
       "Earth Titan",
       "Rock Giant"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Storm Clan - Unit Pool",
@@ -698,13 +542,14 @@
       "Lesser Storm Spirit",
       "Storm Spirit",
       "Stormscale Serpent",
-      "Butcher Ogre",
-      "Swamp Troll",
-      "River Troll",
-      "Karagh",
-      "Brewer Ogre"
+      "Demigiant Ogre Common",
+      "Demigiant Troll Swamp",
+      "Demigiant Troll River",
+      "Demigiant Karagh",
+      "Demigiant Ogre Arctic"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Rock Clan - Unit Pool",
@@ -713,35 +558,36 @@
       "Iron Golem",
       "Bronze Golem",
       "Transmuter",
-      "Golden Golem",
-      "Windrager",
+      "Gold Golem",
+      "Wind Rager",
       "Lithorine Core",
       "Lithorine Gemcaster",
       "Lithorine Needler",
       "Lithorine Shardlancer",
       "Lithorine Simulacrum",
-      "Wisp",
+      "Astral Wisp",
       "Gargoyle",
       "Lesser Stone Spirit",
       "Stone Spirit",
       "Earth Titan",
       "Rock Giant",
-      "Butcher Ogre",
-      "Swamp Troll",
-      "River Troll",
-      "Karagh",
-      "Brewer Ogre"
+      "Demigiant Ogre Common",
+      "Demigiant Troll Swamp",
+      "Demigiant Troll River",
+      "Demigiant Karagh",
+      "Demigiant Ogre Arctic"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Crystal Dwelling: Kill Quest - Unit Pool - Fire Monsters",
     "units": [
-      "Red Dragon",
+      "Fire Dragon",
       "Inferno Hound",
-      "Lesser Fire Elemental",
-      "Fire Elemental",
-      "Red Wyvern",
+      "Lesser Magma Spirit",
+      "Magma Spirit",
+      "Wyvern Fire",
       "Nightmare",
       "Fire Giant",
       "Phoenix",
@@ -751,48 +597,25 @@
     "others": [
       "Tier I - II Chaos Enchantments",
       "Tier III - IV Chaos Enchantments"
-    ]
-  },
-  {
-    "pool": "Crystal Dwelling: Kill Quest - Unit Pool - Fiends",
-    "units": [],
-    "others": [
-      "ToW - All Fiend (Accursed + Infernal) Units"
-    ]
-  },
-  {
-    "pool": "Crystal Dwelling: Kill Quest - Unit Pool - Astral Monsters + Elementals",
-    "units": [],
-    "others": [
-      "All Elemental Units",
-      "All Astral Monster Units",
-      "Tier I - II Astral Enchantments",
-      "Tier III - IV Astral Enchantments"
-    ]
-  },
-  {
-    "pool": "Crystal Dwelling: Kill Quest - Unit Pool - Animals + Dragons",
-    "units": [],
-    "others": [
-      "All Animal Units",
-      "All Dragon Units"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Crystal Dwelling: Kill Quest - Unit Pool - Ice Monsters",
     "units": [
       "White Witch",
-      "Arctic Ogre",
+      "Demigiant Ogre Arctic",
       "Ice Spider",
       "Ice Spider Matriarch",
-      "Warlock",
-      "Ice Elemtal",
-      "Lesser Ice Elemtal",
+      "Dark - Cult of Tyranny - T2 - Warlock",
+      "Snow Spirit",
+      "Lesser Snow Spirit",
       "Winter Fairy",
-      "Frost Wyvern",
+      "Wyvern Frost",
       "Frost Dragon"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Crystal Dwelling: Kill Quest - Unit Pool - Spirits and Friends",
@@ -810,23 +633,25 @@
     "others": [
       "Tier I - II Astral Enchantments",
       "Tier III - IV Astral Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Crystal Dwelling: Kill Quest - Unit Pool - Earth + Golems",
     "units": [
-      "Earth Elemental Lesser",
-      "Earth Elemental",
+      "Lesser Stone Spirit",
+      "Stone Spirit",
       "Gargoyle",
       "Rock Giant",
-      "Animated Armor",
+      "Copper Golem",
       "Iron Golem",
       "Gold Golem"
     ],
     "others": [
       "Tier I - II Materium Enchantments",
       "Tier III - IV Materium Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Crystal Dwelling: Kill Quest - Unit Pool - Celestials and Friends",
@@ -837,24 +662,28 @@
       "Shrine of Smiting"
     ],
     "others": [
-      "All Celestial Units"
-    ]
+      "All Celestial Units",
+      "Tier I - II Order Enchantments",
+      "Tier III - IV Order Enchantments"
+    ],
+    "type": []
   },
   {
     "pool": "Crystal Dwelling: Kill Quest - Unit Pool - Demigiants and Pets",
     "units": [
-      "Swamp Troll",
-      "River Troll",
+      "Demigiant Troll Swamp",
+      "Demigiant Troll River",
       "Spring Fairy",
       "Tide Spirit",
       "Lesser Tide Spirit",
-      "Storm Serpent",
-      "Karagh"
+      "Stormscale Serpent",
+      "Demigiant Karagh"
     ],
     "others": [
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Crystal Dwelling: Kill Quest - Unit Pool - Plants and Friends",
@@ -868,38 +697,29 @@
       "Tier III - IV Nature Enchantments",
       "All Plant Units",
       "All Culture Base Units"
-    ]
-  },
-  {
-    "pool": "Lithorine Infestation - Pool",
-    "units": [],
-    "others": [
-      "All Lithorine Units",
-      "Tier I - II Materium Enchantments",
-      "Tier III - IV Materium Enchantments",
-      "Tier I - II Astral Enchantments",
-      "Tier III - IV Astral Sea Enchantments",
-      "All Culture Base Units"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Spirit of Hunger - Unit Pool",
     "units": [
-      "Karagh"
+      "Demigiant Karagh"
     ],
     "others": [
       "All Animal Units"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Spirit of Carnage - Unit Pool",
     "units": [
-      "Butcher Ogre"
+      "Demigiant Ogre Common"
     ],
     "others": [
       "All Giants and Demigiants Units",
       "All Fiends (Accursed + Infernal) Units"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Spirit of Delirium - Unit Pool",
@@ -909,26 +729,21 @@
     "others": [
       "All Undead Units",
       "All Astral Monster Units"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Lava Prison - Ape Unit Pool",
-    "units": [],
-    "others": [
-      "All Lithorine Units"
-    ]
-  },
-  {
-    "pool": "TSR Encounter: Hunger Traitor King - Unit Pool",
+    "pool": "TSR Encounter: Hunger Traitor King - Unit Pool$",
     "units": [
       "Mage Bane",
-      "Butcher Ogre",
-      "Karagh",
+      "Demigiant Ogre Common",
+      "Demigiant Karagh",
       "Living Fog"
     ],
     "others": [
       "All Undead Units"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Mystical Seer - Pool",
@@ -939,9 +754,9 @@
       "Astral Serpent"
     ],
     "others": [
-      "Mystic Seer - Ethereal Units",
       "Mystic Seer - Ethereal Units"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Beast Wrangler - Pool",
@@ -949,16 +764,18 @@
       "Wrangler Ogre"
     ],
     "others": [
-      "Wrangler Ogre - Dragon and Animal Units",
       "Wrangler Ogre - Dragon and Animal Units"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Hero Trainer - Pool",
     "units": [
-      "Trainer Ogre"
+      "Trainer Ogre",
+      "Random Hero"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Lava Prison - Basilisk Unit Pool",
@@ -968,7 +785,8 @@
       "Caustic Worm",
       "Young Caustic Worm"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Lava Prison - Pyremoth Unit Pool",
@@ -977,23 +795,23 @@
       "Clay Charger",
       "Clay Defender"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "TSR Encounter: Traitor King Cult - Unit Pool",
+    "pool": "TSR Encounter: Traitor King Cult - Unit PoolJ",
     "units": [
       "White Witch",
-      "Ice Elemental",
-      "Lesser Ice Elemental",
+      "Snow Spirit",
+      "Lesser Snow Spirit",
       "Transmuter",
       "Evoker",
-      "Houndmaster",
       "Wildspeaker",
       "Chaplain",
       "Geomancer",
       "Pyromancer",
       "Necromancer",
-      "Tyrant Knight",
+      "Subjugator",
       "Phantasm Warrior",
       "Zephyr Archer"
     ],
@@ -1003,40 +821,33 @@
       "Tier III - IV Shadow Enchantments",
       "All Astral Enchantments",
       "All Undead Units"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Giants Throne - Lithorine Unit Pool",
     "units": [
-      "Lithorine core",
-      "Lithorine needler",
-      "Lithorine shardlancer",
-      "Lithorine gemcaster",
-      "Lithorine simulacrum"
+      "Lithorine Core",
+      "Lithorine Needler",
+      "Lithorine Shardlancer",
+      "Lithorine Gemcaster",
+      "Lithorine Simulacrum"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Giants Throne - DemiGiant Unit Pool",
     "units": [
-      "Giant",
-      "DemiGiant",
-      "DemiGiant",
-      "DemiGiant",
-      "Giant",
-      "Giant"
+      "Rock Giant",
+      "Demigiant Troll River",
+      "Demigiant Ogre Common",
+      "Demigiant Ogre Arctic",
+      "Storm Giant",
+      "Fire Giant"
     ],
-    "others": []
-  },
-  {
-    "pool": "Giants Throne - Cultist Unit Pool",
-    "units": [],
-    "others": [
-      "Racial Support Units",
-      "Racial Battle Mage Units",
-      "All Base Dark Units",
-      "ToW Units - Order Tomes"
-    ]
+    "others": [],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Dungeon Guards - Unit Pool",
@@ -1047,12 +858,13 @@
     ],
     "others": [
       "All Animated Weapon Units"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Company of Lost Treasures - Unit Pool",
     "units": [
-      "Raiders of the Deep"
+      "Random Hero"
     ],
     "others": [
       "Racial Battle Mage Units",
@@ -1061,8 +873,10 @@
       "Racial Shock Units",
       "Racial Shield Units",
       "Racial Skirmisher Units",
-      "Racial Support Units"
-    ]
+      "Racial Support Units",
+      "Raiders of the Deep - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "TSR Node Defenders: Dungeon Guards - Unit Pool",
@@ -1073,23 +887,8 @@
     ],
     "others": [
       "All Animated Weapon Units"
-    ]
-  },
-  {
-    "pool": "TSR Encounter: Colonnade Garden Dragons - Unit Pool",
-    "units": [],
-    "others": [
-      "All Non-Celestial, Non-Fractured Dragon Units",
-      "All Non-T5 Elemental Units"
-    ]
-  },
-  {
-    "pool": "TSR Node Defenders: Colonnade Garden Dragons - Unit Pool",
-    "units": [],
-    "others": [
-      "All Non-Celestial, Non-Fractured Dragon Units",
-      "All Non-T5 Elemental Units"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Colonnade Garden Horned God - Unit Pool",
@@ -1100,31 +899,35 @@
       "All Non-T5 Fey Units",
       "All Non-T5 Plant Units",
       "All Non-T5 Animal Units"
-    ]
-  },
-  {
-    "pool": "TSR Encounter: TI Traitor Cult Trial - Map Actor - Unit Pool",
-    "units": [
-      "Dark Knight"
     ],
-    "others": []
+    "type": []
   },
   {
-    "pool": "TSR Encounter: TI Storm Clan Trial - Map Actor - Unit Pool",
+    "pool": "TSR Encounter: TI Traitor Cult Trial - Map Actor - Unit Pool7",
+    "units": [
+      "Dark - T3 - Tyrant Knight"
+    ],
+    "others": [],
+    "type": []
+  },
+  {
+    "pool": "TSR Encounter: TI Storm Clan Trial - Map Actor - Unit Pool;",
     "units": [
       "Storm Giant"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "TSR Encounter: TI Final Trial - Map Actor - Unit Pool",
+    "pool": "TSR Encounter: TI Final Trial - Map Actor - Unit Pool\\",
     "units": [
       "Council Prolocutor"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "TSR Encounter: TI Final Trial - Unit Pool",
+    "pool": "TSR Encounter: TI Final Trial - Unit Poolc",
     "units": [
       "Lithorine Core",
       "Lithorine Gemcaster",
@@ -1132,7 +935,8 @@
       "Lithorine Shardlancer",
       "Council Prolocutor"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Fire Clan + Hero - Unit Pool",
@@ -1143,12 +947,13 @@
       "Inferno Hound",
       "Inferno Puppy",
       "Nightmare",
-      "Butcher Ogre",
-      "Swamp Troll",
-      "River Troll",
-      "Karagh"
+      "Demigiant Ogre Common",
+      "Demigiant Troll Swamp",
+      "Demigiant Troll River",
+      "Demigiant Karagh"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Storm Clan + Hero - Unit Pool",
@@ -1157,13 +962,14 @@
       "Lesser Storm Spirit",
       "Storm Spirit",
       "Stormscale Serpent",
-      "Butcher Ogre",
-      "Swamp Troll",
-      "River Troll",
-      "Karagh",
-      "Brewer Ogre"
+      "Demigiant Ogre Common",
+      "Demigiant Troll Swamp",
+      "Demigiant Troll River",
+      "Demigiant Karagh",
+      "Demigiant Ogre Arctic"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Rock Clan + Hero - Unit Pool",
@@ -1172,61 +978,67 @@
       "Iron Golem",
       "Bronze Golem",
       "Transmuter",
-      "Golden Golem",
-      "Windrager",
+      "Gold Golem",
+      "Wind Rager",
       "Lithorine Core",
       "Lithorine Gemcaster",
       "Lithorine Needler",
       "Lithorine Shardlancer",
       "Lithorine Simulacrum",
-      "Wisp",
+      "Astral Wisp",
       "Gargoyle",
       "Lesser Stone Spirit",
       "Stone Spirit",
       "Earth Titan",
       "Rock Giant",
-      "Butcher Ogre",
-      "Swamp Troll",
-      "River Troll",
-      "Karagh",
-      "Brewer Ogre"
+      "Demigiant Ogre Common",
+      "Demigiant Troll Swamp",
+      "Demigiant Troll River",
+      "Demigiant Karagh",
+      "Demigiant Ogre Arctic"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Large Monster Nest - Pyremoth Pool.",
+    "pool": "Large Monster Nest - Pyremoth Pool.*",
     "units": [
       "Primordial Pyremoth",
-      "Pyremoth"
+      "Pyremoth",
+      "Phoenix",
+      "Lesser Magma Spirit",
+      "Wyvern Fire",
+      "Summer Fairy"
     ],
     "others": [
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments",
       "Tier I - II Chaos Enchantments",
       "Tier III - IV Chaos Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Large Monster Nest - Bloodback Pool",
+    "pool": "Large Monster Nest - Bloodback Pool/*",
     "units": [
-      "Bloodback",
+      "Primordial Ape",
       "Ape",
-      "Entwinned Scourge",
-      "Entwinned Protector",
-      "Entwinned Thrall"
+      "Entwined Scourge",
+      "Entwined Protector",
+      "Entwined Thrall"
     ],
     "others": [
       "Tier I - II Nature Enchantments",
-      "Tier III - IV Nature Enchantments",
-      "All Environments"
-    ]
+      "Tier III - IV Nature Enchantments"
+    ],
+    "type": []
   },
   {
-    "pool": "Large Monster Nest - Basilisk Pool",
+    "pool": "Large Monster Nest - Basilisk Pool0*",
     "units": [
       "Primordial Basilisk",
-      "Serpent Storm",
-      "Serpent Plague",
+      "Stormscale Serpent",
+      "Plague Serpent",
       "Bone Dragon",
       "Caustic Worm",
       "Young Caustic Worm"
@@ -1235,9 +1047,9 @@
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments",
       "Tier I - II Shadow Enchantments",
-      "Tier III - IV Shadow Enchantments",
-      "All Environments"
-    ]
+      "Tier III - IV Shadow Enchantments"
+    ],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Frost Clan + Hero - Unit Pool",
@@ -1249,13 +1061,14 @@
       "White Wolf",
       "Ice Spider",
       "Ice Spider Matriarch",
-      "Butcher Ogre",
-      "Swamp Troll",
-      "River Troll",
-      "Karagh",
-      "Brewer Ogre"
+      "Demigiant Ogre Common",
+      "Demigiant Troll Swamp",
+      "Demigiant Troll River",
+      "Demigiant Karagh",
+      "Demigiant Ogre Arctic"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Frost Clan - Unit Pool",
@@ -1267,67 +1080,75 @@
       "White Wolf",
       "Ice Spider",
       "Ice Spider Matriarch",
-      "Butcher Ogre",
-      "Swamp Troll",
-      "River Troll",
-      "Karagh",
-      "Brewer Ogre"
+      "Demigiant Ogre Common",
+      "Demigiant Troll Swamp",
+      "Demigiant Troll River",
+      "Demigiant Karagh",
+      "Demigiant Ogre Arctic"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Spirit of Hunger - Map Actor - Unit Pool",
     "units": [
-      "Karagh"
+      "Demigiant Karagh"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Spirit of Carnage - Map Actor - Unit Pool",
     "units": [
-      "Butcher Ogre"
+      "Demigiant Ogre Common"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Spirit of Delirium - Map Actor - Unit Pool",
     "units": [
       "Mage Bane"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Flowrock Enigma - Map Actor - Unit Pool",
     "units": [
       "Gargoyle"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Lithorite Enigma - Map Actor - Unit Pool",
     "units": [
       "Lithorine Core"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Binding Enigma - Map Actor - Unit Pool",
     "units": [
       "Copper Golem"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "TSR Encounter: Final Enigma - Map Actor - Unit Pool!",
     "units": [
-      "Golden Golem",
+      "Gold Golem",
       "Lithorine Simulacrum",
       "Earth Titan"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "TSR Node Defenders: Fire Clan - Unit Pool",
+    "pool": "TSR Node Defenders: Fire Clan - Unit Pool#",
     "units": [
       "Fire Giant",
       "Lesser Magma Spirit",
@@ -1335,28 +1156,28 @@
       "Inferno Hound",
       "Inferno Puppy",
       "Nightmare",
-      "Butcher Ogre",
-      "Swamp Troll",
-      "River Troll",
-      "Karagh"
+      "Demigiant Ogre Common",
+      "Demigiant Troll Swamp",
+      "Demigiant Troll River",
+      "Demigiant Karagh"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "TSR Node Defenders: Traitor King Cult - Unit Pool",
+    "pool": "TSR Node Defenders: Traitor King Cult - Unit Pool%",
     "units": [
       "White Witch",
-      "Ice Elemental",
-      "Lesser Ice Elemental",
+      "Snow Spirit",
+      "Lesser Snow Spirit",
       "Transmuter",
       "Evoker",
-      "Houndmaster",
       "Wildspeaker",
       "Chaplain",
       "Geomancer",
       "Pyromancer",
       "Necromancer",
-      "Tyrant Knight",
+      "Subjugator",
       "Phantasm Warrior",
       "Zephyr Archer"
     ],
@@ -1366,72 +1187,64 @@
       "Tier III - IV Shadow Enchantments",
       "All Astral Enchantments",
       "All Undead Units"
-    ]
-  },
-  {
-    "pool": "Primal Base Units + Hero - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Primal Units",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "Primal House Attack - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Primal Units",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "Encounter: Moon Wolf Spirit - Unit Pool",
-    "units": [
-      "Wolf Spirit"
     ],
-    "others": []
+    "type": []
   },
   {
-    "pool": "Encounter: Ash Sabertooth Spirit - Unit Pool",
+    "pool": "Encounter: Moon Wolf Spirit - Unit Pool;",
     "units": [
-      "Sabertooth Spirit"
+      "Primal Wolf Spirit Animal"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Encounter: Bog Crocodile Spirit - Unit Pool",
+    "pool": "Encounter: Ash Sabertooth Spirit - Unit PoolC",
     "units": [
-      "Bog Crocodile"
+      "Primal Sabertooth Spirit Animal"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Encounter: Sand Serpent Spirit - Unit Pool",
+    "pool": "Encounter: Bog Crocodile Spirit - Unit PoolD",
     "units": [
-      "Serpent Spirit"
+      "Primal Crocodile Spirit Animal"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Encounter: Storm Crow Spirit - Unit Pool",
+    "pool": "Encounter: Sand Serpent Spirit - Unit PoolE",
     "units": [
-      "Crow Spirit"
+      "Primal Serpent Spirit Animal"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Encounter: Glacial Mammoth Spirit - Unit Pool",
+    "pool": "Encounter: Storm Crow Spirit - Unit PoolF",
     "units": [
-      "Mammoth Spirit"
+      "Primal Crow Spirit Animal"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Encounter: Lurking Spider Spirit - Unit Pool",
+    "pool": "Encounter: Glacial Mammoth Spirit - Unit PoolG",
     "units": [
-      "Spider Spirit"
+      "Primal Mammoth Spirit Animal"
     ],
-    "others": []
+    "others": [],
+    "type": []
+  },
+  {
+    "pool": "Encounter: Lurking Spider Spirit - Unit PoolH",
+    "units": [
+      "Primal Spider Spirit Animal"
+    ],
+    "others": [],
+    "type": []
   },
   {
     "pool": "Spawn: Water - Naga",
@@ -1439,93 +1252,91 @@
       "Kraken Spawn",
       "Penguin",
       "Kraken",
-      "Blossomed Nimu",
+      "Deep-Sea Nimu",
       "Nimu",
       "Ghost Ship"
     ],
     "others": [
-      "All Culture Base Units"
-    ]
+      "All Culture Base Units",
+      "Tier I - II Nature Enchantments",
+      "Tier III - IV Nature Enchantments",
+      "Tier I - II Astral Enchantments",
+      "Tier III - IV Astral Enchantments",
+      "Water Ocean Only"
+    ],
+    "type": []
   },
   {
     "pool": "Splitting of Essence - Fractured Beasts - Unit Pool",
     "units": [
-      "F Scorpion",
-      "F Worm"
+      "Fractured Scorpion",
+      "Fractured Worm"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Splitting of Essence - Fractured Humanoid - Unit Pool",
     "units": [
-      "F Evoker"
+      "Fractured Evoker"
     ],
-    "others": []
+    "others": [
+      "Racial Battle Mage Units",
+      "Racial Support Units"
+    ],
+    "type": []
   },
   {
     "pool": "Splitting of Essence - Fractured Infestation - Unit Pool",
     "units": [
-      "F Scorpion",
-      "F Worm"
+      "Fractured Scorpion",
+      "Sand Worm"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Fractured Scar - Pool",
-    "units": [],
-    "others": [
-      "All Fractured Units",
-      "All Culture Non-Mage Units"
-    ]
-  },
-  {
-    "pool": "Astral Barrens - Unit Pool",
-    "units": [],
-    "others": [
-      "All Fractured Units",
-      "All Culture Non-Mage Units"
-    ]
-  },
-  {
-    "pool": "TSR PH Encounter: Lieutenant - Map Actor - Unit Pool",
+    "pool": "TSR PH Encounter: Lieutenant - Map Actor - Unit Pool<",
     "units": [
       "Lieutenant"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "TSR PH Encounter: Golem - Map Actor - Unit Pool",
+    "pool": "TSR PH Encounter: Golem - Map Actor - Unit Pool?",
     "units": [
       "War Golem"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "TSR PH Encounter: Evoker - Map Actor - Unit Pool",
+    "pool": "TSR PH Encounter: Evoker - Map Actor - Unit PoolA",
     "units": [
-      "Lieutenant"
+      "Fractured Evoker"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "TSR PH Encounter: Lieutenant - Encounter - Unit Pool",
+    "pool": "TSR PH Encounter: Lieutenant - Encounter - Unit Poolc",
     "units": [
       "Lieutenant",
       "Warbreed",
-      "Earth  Titan",
-      "Houndmaster"
+      "Earth Titan"
     ],
     "others": [
       "All Culture Base Units"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "TSR PH Encounter: Final Encounter - Unit Pool",
+    "pool": "TSR PH Encounter: Final Encounter - Unit Poolk",
     "units": [
       "Lieutenant",
       "Warbreed",
-      "Gold Golem",
-      "Houndmaster",
+      "Earth Titan",
       "War Golem",
       "Herald of War",
       "Roving Furnace"
@@ -1533,135 +1344,109 @@
     "others": [
       "All Culture Base Units",
       "All Destruction Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "TSR PH Encounter: Evoker - Encounter - Unit Pool",
+    "pool": "TSR PH Encounter: Evoker - Encounter - Unit Poolm",
     "units": [
       "Fractured Evoker",
       "Fractured Dragon",
       "Fractured Scorpion",
       "Fractured Worm",
-      "Wisp",
+      "Astral Wisp",
       "Fractured Unicorn",
       "Fractured Serpent"
     ],
     "others": [
       "All Astral Monster Units"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "TSR PH Encounter: Golem - Encounter - Unit Pool",
+    "pool": "TSR PH Encounter: Golem - Encounter - Unit Poolv",
     "units": [
       "Sand Scorpion",
       "Plague Serpent",
-      "Storm Serpent",
+      "Stormscale Serpent",
       "Grimbeak Crow",
       "Carrion Bird",
       "Dread Spider Hatchling",
       "Vampire Spider Hatchling",
       "Sand Worm",
       "Hunter Spider Matriarch",
-      "Karagh"
+      "Demigiant Karagh"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "TSR CM Encounter: Fracture1 - Encounter - Unit Pool",
     "units": [
-      "FWorm",
-      "FScorpion",
-      "FDragon",
-      "FUnicorn",
-      "FSerpent"
+      "Fractured Worm",
+      "Fractured Scorpion",
+      "Fractured Dragon",
+      "Fractured Unicorn",
+      "Fractured Serpent"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "TSR CM Encounter: Fracture2 - Encounter - Unit Pool",
     "units": [
       "Lieutenant",
-      "Hound Master",
-      "Scorpion",
-      "Warlord",
-      "Scorpion Blades"
+      "Sand Scorpion",
+      "Warlord"
     ],
     "others": [
-      "ToW - All Base Nomad Units"
-    ]
+      "ToW - All Base Nomad Units",
+      "Scorpion Venom Blades - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "TSR CM Encounter: Fracture3 - Encounter - Unit Pool",
     "units": [
-      "F Evoker"
+      "Fractured Evoker",
+      "Fractured Dragon",
+      "Transmuter"
     ],
-    "others": []
+    "others": [
+      "Racial Battle Mage Units",
+      "Racial Support Units",
+      "All Base Mystic Units"
+    ],
+    "type": []
   },
   {
     "pool": "TSR CM Encounter: Final Encounter - Unit Pool",
     "units": [
-      "F Evoker"
+      "Fractured Evoker"
     ],
-    "others": []
+    "others": [
+      "Racial Battle Mage Units",
+      "Racial Support Units",
+      "All Base Mystic Units",
+      "All Fractured Units"
+    ],
+    "type": []
   },
   {
     "pool": "TSR CM Reward: Nomad - Unit Pool",
     "units": [
-      "Wind W",
-      "Looter",
-      "Raider",
-      "Dustweaver",
-      "Strider",
-      "Collector",
-      "Champion",
-      "Scorpion Blades"
+      "Nomad - T1 - Looter",
+      "Nomad - T1 - Raider",
+      "Nomad - T2 - Dustweaver",
+      "Nomad - T2 - Strider",
+      "Nomad - T3 - Collector",
+      "Nomad - T3 - Champion"
     ],
     "others": [
-      "All Base Nomad Units"
-    ]
-  },
-  {
-    "pool": "Nomad Base Units + Hero - Unit Pool",
-    "units": [],
-    "others": [
       "All Base Nomad Units",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "Nomad House Attack - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Nomad Units",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "Barren Wellspring - Elementals Unit Pool",
-    "units": [],
-    "others": [
-      "All Elemental Units",
-      "All Terra Enchantments"
-    ]
-  },
-  {
-    "pool": "Barren Wellspring - Mercs and Constructs Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Nomad Units",
-      "ToW - All Construct Units",
-      "All Artifice Enchantments"
-    ]
-  },
-  {
-    "pool": "Forsaken Temple - Forgotten Deity Unit Pool",
-    "units": [],
-    "others": [
-      "All Faith Enchantments",
-      "All Base Mystic Units",
-      "All Undead Enchantments",
-      "All Undead Units"
-    ]
+      "Scorpion Venom Blades - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "Forsaken Temple - Council of Mages Unit Pool",
@@ -1670,75 +1455,60 @@
     ],
     "others": [
       "Racial Battle Mage Units",
-      "Racial Battle Mage Units",
       "Battle Mage Units",
       "Support Units",
       "All Mage Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Withered Tree - Worm Family Unit Pool",
     "units": [
       "Caustic Worm",
-      "Young caustic Worm",
+      "Young Caustic Worm",
       "Sand Worm",
-      "Scorpion",
+      "Sand Scorpion",
       "Plague Serpent",
-      "StormScale Serpent",
+      "Stormscale Serpent",
       "Earth Titan"
     ],
     "others": [
       "All Spider Units",
       "All Animal Enchantments"
-    ]
-  },
-  {
-    "pool": "Withered Tree - Fractured Unit Pool",
-    "units": [],
-    "others": [
-      "All Fractured Units",
-      "Racial Support Units",
-      "All Nature Enchantments",
-      "All Astral Monster Units"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "TSR GWL Nomad Units + Hero - Unit Pool",
     "units": [
-      "Scorpion"
+      "Sand Scorpion"
     ],
     "others": [
-      "All Base Nomad Units"
-    ]
+      "All Base Nomad Units",
+      "Obsidian Blades - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "TSR GWL Fractured Units + Hero - Unit Pool",
-    "units": [],
+    "units": [
+      "Fractured Scorpion"
+    ],
     "others": [
-      "All Base Nomad Units"
-    ]
+      "All Base Nomad Units",
+      "Intimidating Aura - Unit Upgrade",
+      "Obsidian Blades - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "TSR GWL Final Units- Unit Pool",
     "units": [
       "Fractured Worm",
-      "Worm"
+      "Sand Worm"
     ],
-    "others": []
-  },
-  {
-    "pool": "TSR GWL Nomad Units Rewards - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Nomad Units"
-    ]
-  },
-  {
-    "pool": "TSR GWL Fractured Units Rewards - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Nomad Units"
-    ]
+    "others": [],
+    "type": []
   },
   {
     "pool": "Mistwalker Camp - Spring - Unit Pool",
@@ -1752,14 +1522,16 @@
       "Wildspeaker",
       "Glade Runner",
       "Druid of the Cycle",
-      "Swamp Troll",
-      "Morning Sprite",
-      "Poison Arrows",
-      "Blight Blades"
+      "Demigiant Troll Swamp",
+      "Morning Sprite"
     ],
     "others": [
-      "All Base Barbarian Units"
-    ]
+      "All Base Barbarian Units",
+      "Poison Arrows - Unit Upgrade",
+      "Blight Blades - Unit Upgrade",
+      "Mirror Veil - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "Mistwalker Camp - Summer - Unit Pool",
@@ -1770,25 +1542,25 @@
       "Nightmare",
       "Phoenix",
       "Entwined Protector",
-      "Kharag",
+      "Demigiant Karagh",
       "Entwined Thrall",
       "Warbreed",
       "Transmuter",
-      "Morning Sprite",
-      "Fiery Projectiles",
-      "Searing Steal",
-      "Flameburst Weapons",
-      "Mirrow Veil"
+      "Morning Sprite"
     ],
     "others": [
-      "All Base Barbarian Units"
-    ]
+      "All Base Barbarian Units",
+      "Fiery Projectiles - Unit Upgrade",
+      "Searing Steel - Unit Upgrade",
+      "Mirror Veil - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "Mistwalker Camp - Autumn - Unit Pool",
     "units": [
       "Autumn Fairy",
-      "Storm Serpent",
+      "Stormscale Serpent",
       "Entwined Protector",
       "Glade Runner",
       "Thunderbird",
@@ -1796,16 +1568,17 @@
       "Hunter Spider Matriarch",
       "Horned God",
       "Entwined Thrall",
-      "Evening Sprite",
-      "Lightning Blades",
-      "Lightning Focus",
-      "Amplified Arrows",
-      "Seeker Arrows",
-      "Mirrow Veil"
+      "Evening Sprite"
     ],
     "others": [
-      "All Base Barbarian Units"
-    ]
+      "All Base Barbarian Units",
+      "Lightning Blades - Unit Upgrade",
+      "Lightning Focus - Unit Upgrade",
+      "Amplified Arrows  - Unit Upgrade",
+      "Seeker Arrows - Unit Upgrade",
+      "Mirror Veil - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "Mistwalker Camp - Winter - Unit Pool",
@@ -1819,61 +1592,69 @@
       "Entwined Thrall",
       "Reaper",
       "Banshee",
-      "Ice Spider T",
-      "Ice Spider T",
-      "Evening Sprite",
-      "Frost Blades",
-      "Frost Arrows"
+      "Ice Spider Matriarch",
+      "Ice Spider",
+      "Evening Sprite"
     ],
     "others": [
-      "All Base Barbarian Units"
-    ]
+      "All Base Barbarian Units",
+      "Frost Blades - Unit Upgrade",
+      "Frost Arrows - Unit Upgrade",
+      "Mirror Veil - Unit Upgrade"
+    ],
+    "type": []
   },
   {
-    "pool": "Shrouded Isle - Arachna - Spider Unit Pool",
-    "units": [],
+    "pool": "Shrouded Isle - Arachna - Spider Unit PoolC",
+    "units": [
+      "Demigiant Karagh",
+      "Priest of the Weave"
+    ],
     "others": [
       "All Culture Base Units"
-    ]
-  },
-  {
-    "pool": "Shrouded Isle - Yaka's Arcanum - Unit Pool",
-    "units": [
-      "Meteor Projectiles",
-      "Fiery Projectiles",
-      "Searing Steel"
     ],
-    "others": [
-      "All Base Barbarian Units"
-    ]
+    "type": []
   },
   {
-    "pool": "Shrouded Isle - Karissa's Arcanum - Unit Pool",
+    "pool": "Shrouded Isle - Karissa's Arcanum - Unit Pool ",
     "units": [
       "Balor",
-      "Lesser Magma",
-      "Magma",
-      "Hearld",
+      "Lesser Magma Spirit",
+      "Magma Spirit",
+      "Herald of War",
       "Infernal Juggernaut",
       "Temptress",
       "Pyremoth",
-      "Temptress",
       "Pyromancer",
       "Phoenix",
-      "Flame upgrade",
-      "Flame upgrade"
+      "Inferno Hound",
+      "Inferno Puppy",
+      "Gluttonous Imp",
+      "Skald",
+      "Fire Dragon",
+      "Wyvern Fire"
     ],
-    "others": []
+    "others": [
+      "Flamer Focus - Unit Upgrade",
+      "Flameburst Weapons - Unit Upgrade",
+      "All Culture Base Units"
+    ],
+    "type": []
   },
   {
-    "pool": "Shrouded Isle - Nimue's Arcanum - Unit Pool",
+    "pool": "Shrouded Isle - Nimue's Arcanum - Unit Pool ",
     "units": [
-      "Penguin"
+      "Penguin",
+      "Colossal Penguin"
     ],
-    "others": []
+    "others": [
+      "All Nature Enchantments Except Tier V",
+      "Tier I - II Frost Enchantments"
+    ],
+    "type": []
   },
   {
-    "pool": "Shrouded Isle - Noctu's Arcanum - Unit Pool",
+    "pool": "Shrouded Isle - Noctu's Arcanum - Unit Pool ",
     "units": [
       "Necromancer"
     ],
@@ -1882,96 +1663,50 @@
       "All Base Dark Units",
       "Tier I - II Shadow Enchantments",
       "Tier III - IV Shadow Enchantments"
-    ]
-  },
-  {
-    "pool": "Shrouded Isle Portal - Owl Guardians - High - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base High Units",
-      "All non-tier 5 Celestial Units"
-    ]
-  },
-  {
-    "pool": "Shrouded Isle Portal - Owl Guardians - Feudal - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Feudal Units",
-      "All non-Tier 5 Infernal Fiend Units"
-    ]
-  },
-  {
-    "pool": "Shrouded Isle Portal - Owl Guardians - Barbarian - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Barbarian Units",
-      "All Non-T5 Plant Units",
-      "All Non-T5 Animal Units"
-    ]
-  },
-  {
-    "pool": "Shrouded Isle Portal - Owl Guardians - Dark - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Dark Units",
-      "All non-tier 5 Undead Units"
-    ]
-  },
-  {
-    "pool": "Shrouded Isle Portal - Owl Guardians - Mystic - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Mystic Units",
-      "All non-tier 5 Ethereal Units (Except Astral Sea Monsters)"
-    ]
-  },
-  {
-    "pool": "Shrouded Isle Portal - Owl Guardians - Industrious - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Industrious Units",
-      "All non-tier 5 Construct Units (Non Celestial)"
-    ]
-  },
-  {
-    "pool": "Shrouded Isle - Yaka's Arcanum - Reward Unit Pool",
-    "units": [
-      "Sabertooth Primal"
     ],
-    "others": []
+    "type": []
   },
   {
-    "pool": "Shrouded Isle - Ysariel's Arcanum - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base High Units"
-    ]
+    "pool": "Shrouded Isle - Yaka's Arcanum - Reward Unit Pool ",
+    "units": [
+      "Primal Sabertooth Spirit Animal"
+    ],
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Shrouded Isle - Bhajif's Arcanum - Unit Pool",
+    "pool": "Shrouded Isle - Bhajif's Arcanum - Unit Pool ",
     "units": [
       "Lost Wizard"
     ],
     "others": [
       "All Base Mystic Units"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Shrouded Isle - Ydgaard's Arcanum - Unit Pool",
-    "units": [],
+    "pool": "Shrouded Isle - Ydgaard's Arcanum - Unit Pool ",
+    "units": [
+      "Gold Golem",
+      "Transmuter"
+    ],
     "others": [
-      "All Base Industrious Units"
-    ]
+      "All Base Industrious Units",
+      "All Materium Except Tier V Enchantments",
+      "All non-tier 5 Construct Units (Non Celestial)"
+    ],
+    "type": []
   },
   {
     "pool": "Shrouded Isle - Frikka's Arcanum - Unit Pool",
     "units": [
-      "MIrror Mimic"
+      "Mirror Mimic"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Shrouded Isle - Cinren's Arcanum - Unit Pool",
+    "pool": "Shrouded Isle - Cinren's Arcanum - Unit Pool ",
     "units": [
       "Nymph",
       "Temptress",
@@ -1980,20 +1715,26 @@
     "others": [
       "All Base Mystic Units",
       "All Astral Enchantments Except Tier V"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Breached Arcanum - Owl Guardians - Mystic - Unit Pool",
-    "units": [],
+    "units": [
+      "Moon Guardian",
+      "Sun Guardian"
+    ],
     "others": [
       "All Base Mystic Units",
-      "All non-tier 5 Ethereal Units (Except Astral Sea Monsters)"
-    ]
+      "All non-tier 5 Ethereal Units (Except Astral Sea Monsters)",
+      "All Astral Enchantments Except Tier V"
+    ],
+    "type": []
   },
   {
     "pool": "Shrouded Isle - Belbedor's Arcanum - Unit Pool",
     "units": [
-      "Entwinned Scourge",
+      "Entwined Scourge",
       "Floral Stinger"
     ],
     "others": [
@@ -2002,7 +1743,8 @@
       "Tier I - II Blight Enchantments",
       "Tier I - II Frost Enchantments",
       "Tier III - IV Nature Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Shrouded Isle - Zaethyl's Arcanum - Unit Pool",
@@ -2015,7 +1757,19 @@
       "All Plant Units",
       "Tier I - II Plant Enchantments",
       "Tier III - IV Plant Enchantments"
-    ]
+    ],
+    "type": []
+  },
+  {
+    "pool": "Shrouded Isle - Ysariel's Arcanum - Actor Unit PoolP",
+    "units": [
+      "High - T2 - Daylight Spear"
+    ],
+    "others": [
+      "Null Shield - Unit Upgrade",
+      "Obsidian Blades - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "Shrouded Isle - Artica's Arcanum - Unit Pool",
@@ -2025,16 +1779,19 @@
       "Ice Spider Matriarch",
       "Ice Spider",
       "Lesser Snow Spirit",
-      "Snow Spirit"
+      "Snow Spirit",
+      "Necromancer"
     ],
     "others": [
       "All Base Barbarian Units",
       "Tier I - II Frost Enchantments",
-      "Tier III - IV Frost Enchantments"
-    ]
+      "Tier III - IV Frost Enchantments",
+      "All Undead Enchantments"
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Stone Units (filterless)",
+    "pool": "Spawn: Stone Units (filterless)[",
     "units": [
       "Lesser Stone Spirit",
       "Gargoyle",
@@ -2045,8 +1802,10 @@
     "others": [
       "Tier I - II Materium Enchantments",
       "Tier III - IV Materium Enchantments",
-      "All Culture Base Units"
-    ]
+      "All Culture Base Units",
+      "All Lithorine Units"
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Plants & Friends (filterless)b",
@@ -2058,16 +1817,17 @@
       "Forest Bears",
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Ogres Units (filterless)c",
     "units": [
-      "Common Ogre",
-      "Ogre Arctic",
-      "Troll River",
-      "Troll Swamp",
-      "Karagh",
+      "Demigiant Ogre Common",
+      "Demigiant Ogre Arctic",
+      "Demigiant Troll River",
+      "Demigiant Troll Swamp",
+      "Demigiant Karagh",
       "Goretusk Piglet"
     ],
     "others": [
@@ -2075,7 +1835,8 @@
       "Tier III - IV Nature Enchantments",
       "Tier I - II Chaos Enchantments",
       "Tier III - IV Chaos Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Forest Spirits (filterless)d",
@@ -2092,74 +1853,102 @@
       "Tier III - IV Nature Enchantments",
       "Tier I - II Astral Enchantments",
       "Tier III - IV Astral Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Bandits - Feudal + Dark (filterless)e",
-    "units": [],
+    "pool": "Spawn: Undead Units (filterless) f",
+    "units": [
+      "Dark - T1 - Immortal",
+      "Dark - T1 - Pursuer",
+      "Dark - Cult of Tyranny - T2 - Warlock",
+      "Dark - Cult of Tyranny - T2 - Tyrant Guard",
+      "Warbreed",
+      "Corrupt Soul",
+      "Zombie",
+      "Bone Horror",
+      "Banshee",
+      "Reaper",
+      "Wyvern Bone"
+    ],
     "others": [
-      "All Base Feudal Units",
-      "All Base Dark Units"
-    ]
+      "Tier I - II Undead Enchantments",
+      "Tier III - IV Undead Enchantments"
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Fire Units (filterless) g",
     "units": [
-      "Fire Elemental",
-      "Fire Elemental Lesser",
+      "Magma Spirit",
+      "Lesser Magma Spirit",
       "Nightmare",
       "Inferno Hound",
       "Inferno Puppy",
       "Fire Giant",
-      "Red Wyvern",
-      "Red Dragon"
+      "Wyvern Fire",
+      "Fire Dragon"
     ],
     "others": [
       "Tier I - II Chaos Enchantments",
       "Tier III - IV Chaos Enchantments"
-    ]
-  },
-  {
-    "pool": "Spawn: Fiends (filterless)h",
-    "units": [],
-    "others": [
-      "All Infernal Fiend Units",
-      "Tier I - II Chaos Enchantments",
-      "Tier III - IV Chaos Enchantments",
-      "All Culture Base Units"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spirit Forefather's Cloak - Unit Pool",
     "units": [
       "Living Fog",
-      "Doombat",
-      "Upgrade"
+      "Shrieking Bat"
     ],
-    "others": []
+    "others": [
+      "Cosmic Overdrive - Unit Upgrade"
+    ],
+    "type": []
   },
   {
-    "pool": "Zombie Wedding - Unit Pool",
+    "pool": "Zombie Wedding - Unit PoolZ",
     "units": [
       "Zombie"
     ],
-    "others": []
+    "others": [],
+    "type": []
+  },
+  {
+    "pool": "Fair lady Enemy Units - Unit Pool^",
+    "units": [
+      "Blood Maggot",
+      "Shrieking Bat",
+      "Corrupt Soul",
+      "Rose Choked Skeleton - Archer",
+      "Rose Choked Skeleton - Mage",
+      "Rose Choked Skeleton - Polearm",
+      "Rose Choked Skeleton - Shield",
+      "Vampire Spider Matriarch",
+      "Vampire Spider Hatchling",
+      "Doom Bat"
+    ],
+    "others": [],
+    "type": []
   },
   {
     "pool": "Lost Soul World Map - Unit Pool",
     "units": [
       "Lost Soul"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Vampire Forefather's Cloak - Unit Pool",
     "units": [
-      "Doombat",
-      "Maggot",
-      "Upgrade"
+      "Shrieking Bat",
+      "Blood Maggot"
     ],
-    "others": []
+    "others": [
+      "Cosmic Overdrive - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "Crimson Fane - Doombats - Unit Pool",
@@ -2167,22 +1956,26 @@
       "Shrieking Bat",
       "Doom Bat"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Fair lady Units - Unit Pool",
     "units": [
       "Banshee"
     ],
-    "others": []
+    "others": [
+      "Frenzying Focus - Unit Upgrade"
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Sunless 1 - Cultistsj",
+    "pool": "Spawn: Sunless 1 - Cultistsj4",
     "units": [
       "Blood Maggot",
       "Blood Cultist",
       "Skald",
-      "Painbringer",
+      "Pain Bringer",
       "Blood Exarch"
     ],
     "others": [
@@ -2191,10 +1984,11 @@
       "Tier I - II Shadow Enchantments",
       "Tier III - IV Shadow Enchantments",
       "Sunless Spawn"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Sunless 2 - Sunless Animals 1k",
+    "pool": "Spawn: Sunless 2 - Sunless Animals 1k4",
     "units": [
       "Blood Maggot",
       "Vampire Spider Hatchling",
@@ -2210,20 +2004,20 @@
       "Tier I - II Shadow Enchantments",
       "Tier III - IV Shadow Enchantments",
       "Sunless Spawn"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Sunless 3 - Undead",
+    "pool": "Spawn: Sunless 3 - Undeadl4",
     "units": [
       "Rose Choked Skeleton - Archer",
       "Rose Choked Skeleton - Mage",
       "Rose Choked Skeleton - Polearm",
       "Rose Choked Skeleton - Shield",
       "Shrieking Bat",
-      "Bone Wyvern",
+      "Wyvern Bone",
       "Bone Horror",
       "Banshee",
-      "Rose Knight",
       "Bone Dragon",
       "Reaper",
       "Doom Bat"
@@ -2234,30 +2028,57 @@
       "Tier I - II Shadow Enchantments",
       "Tier III - IV Shadow Enchantments",
       "Sunless Spawn"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Sunless 4 - Corrupt Crusaders - Gift of the Old Bloodn",
-    "units": [],
+    "pool": "Spawn: Sunless 4 - Corrupt Crusaders - Gift of the Old Bloodn4",
+    "units": [
+      "Zealot",
+      "High - T2 - Sun Priest",
+      "Chaplain",
+      "Zephyr Archer",
+      "Eagle Rider",
+      "Subjugator",
+      "Blood Exarch"
+    ],
     "others": [
       "Tier I - II Chaos Enchantments",
       "Tier III - IV Chaos Enchantments",
       "Tier I - II Shadow Enchantments",
-      "Tier III - IV Shadow Enchantments"
-    ]
+      "Tier III - IV Shadow Enchantments",
+      "Sunless Spawn",
+      "Sunless Spawnq4"
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Sunless 3 - Undead + Darkr",
-    "units": [],
+    "pool": "Spawn: Sunless 3 - Undead + Darkr4",
+    "units": [
+      "Rose Choked Skeleton - Archer",
+      "Rose Choked Skeleton - Mage",
+      "Rose Choked Skeleton - Polearm",
+      "Rose Choked Skeleton - Shield",
+      "Wyvern Bone",
+      "Bone Horror",
+      "Banshee",
+      "Bone Dragon",
+      "Reaper",
+      "Doom Bat",
+      "Shrieking Bat"
+    ],
     "others": [
       "Tier I - II Chaos Enchantments",
       "Tier III - IV Chaos Enchantments",
       "Tier I - II Shadow Enchantments",
-      "Tier III - IV Shadow Enchantments"
-    ]
+      "Tier III - IV Shadow Enchantments",
+      "All Base Dark Units",
+      "Sunless Spawn"
+    ],
+    "type": []
   },
   {
-    "pool": "Blood Glass Pool",
+    "pool": "Blood Glass Poolu4",
     "units": [
       "Blood Maggot",
       "Doom Bat",
@@ -2266,7 +2087,7 @@
       "White Witch",
       "Skald",
       "Banshee",
-      "Painbringer",
+      "Pain Bringer",
       "Warbreed",
       "Blood Exarch"
     ],
@@ -2275,21 +2096,24 @@
       "Tier III - IV Chaos Enchantments",
       "Tier I - II Shadow Enchantments",
       "Tier III - IV Shadow Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Rose Palace - Rose Skeletons - Unit Pool",
     "units": [
-      "Rose Knight",
-      "Rose Skeleton Archer",
-      "Rose Skeleton Mage",
-      "Rose Skeleton Polearm",
-      "Rose Skeleton Shield"
+      "Rose Choked Skeleton - Archer",
+      "Rose Choked Skeleton - Mage",
+      "Rose Choked Skeleton - Polearm",
+      "Rose Choked Skeleton - Shield"
     ],
-    "others": []
+    "others": [],
+    "type": [
+      "Undead - Subtype"
+    ]
   },
   {
-    "pool": "Spawn: Sunless 2 - Sunless Animals",
+    "pool": "Spawn: Sunless 2 - Sunless Animals 2",
     "units": [
       "Young Caustic Worm",
       "Plague Serpent",
@@ -2305,16 +2129,17 @@
       "Tier I - II Shadow Enchantments",
       "Tier III - IV Shadow Enchantments",
       "Sunless Spawn"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Sunless 2 - Sunless Animals",
+    "pool": "Spawn: Sunless 2 - Sunless Animals 3",
     "units": [
-      "Piglets",
+      "Goretusk Piglet",
       "Warg",
       "Goretusk Matriarch",
       "White Wolf",
-      "Karagh"
+      "Demigiant Karagh"
     ],
     "others": [
       "Tier I - II Chaos Enchantments",
@@ -2322,107 +2147,142 @@
       "Tier I - II Shadow Enchantments",
       "Tier III - IV Shadow Enchantments",
       "Sunless Spawn"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Sunless 4 - Corrupt Crusaders - Demonkin",
-    "units": [],
+    "units": [
+      "Zealot",
+      "High - T2 - Sun Priest",
+      "Chaplain",
+      "Zephyr Archer",
+      "Eagle Rider",
+      "Subjugator",
+      "Balor",
+      "Pyromancer",
+      "Wyvern Fire"
+    ],
     "others": [
       "Tier I - II Chaos Enchantments",
       "Tier III - IV Chaos Enchantments",
       "Tier I - II Shadow Enchantments",
-      "Tier III - IV Shadow Enchantments"
-    ]
+      "Tier III - IV Shadow Enchantments",
+      "All Fiends (Accursed + Infernal) Units",
+      "Sunless Spawn"
+    ],
+    "type": []
   },
   {
-    "pool": "Crimson Fane - Blood Parasite Cultists - Unit Pool",
+    "pool": "Philosopher's Stone Units - Unit Pool",
     "units": [
       "Blood Cultist",
       "Blood Exarch",
-      "Blood Drinking Blades",
-      "Blood Mantle"
+      "Blood Maggot"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Crimson Fane - Pain Party - Unit Pool",
+    "pool": "Blighted Village Units - Unit Pool",
+    "units": [
+      "Blood Exarch",
+      "Blood Maggot",
+      "Shrieking Bat",
+      "Rose Choked Skeleton - Archer",
+      "Rose Choked Skeleton - Mage",
+      "Rose Choked Skeleton - Polearm",
+      "Rose Choked Skeleton - Shield",
+      "Zombie",
+      "Vampire Spider Matriarch",
+      "Vampire Spider Hatchling",
+      "Doom Bat"
+    ],
+    "others": [],
+    "type": []
+  },
+  {
+    "pool": "Headless Horseman Graveyard Units - Unit Pool]",
+    "units": [
+      "Necromancer",
+      "Necrotic Spire"
+    ],
+    "others": [],
+    "type": []
+  },
+  {
+    "pool": "Crimson Fane - Blood Parasite Cultists - Unit Poolc",
+    "units": [
+      "Blood Cultist",
+      "Blood Exarch",
+      "Zealot",
+      "Warbreed"
+    ],
+    "others": [
+      "Blood Drinking Blades - Unit Upgrade",
+      "Mantle of the Blood Noble - Unit Upgrade",
+      "Fetid Legion - Unit Upgrade",
+      "All Base Dark Units"
+    ],
+    "type": []
+  },
+  {
+    "pool": "Crimson Fane - Pain Party - Unit Poole",
     "units": [
       "Pain Bringer",
       "Skald"
     ],
     "others": [
       "All Base Dark Units"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Rose Palace - Banshee Queen - Unit Pool",
+    "pool": "Rose Palace - Banshee Queen - Unit Pooln",
     "units": [
-      "Banshees"
+      "Banshee"
     ],
     "others": [
       "All Undead Units",
       "Shadow Tome Units - Land",
       "All Undead Enchantments",
       "All Base Dark Units"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Rose Palace - Vampire Party - Unit Pool",
+    "pool": "Rose Palace - Vampire Party - Unit Poolq",
     "units": [
       "Vampire Spider Hatchling",
-      "Vampire Matriarch",
-      "Blood exarch",
+      "Vampire Spider Matriarch",
+      "Blood Exarch",
       "Blood Cultist",
       "Pain Bringer"
     ],
     "others": [
       "All Base Dark Units",
       "All Shadow Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Procession Units - Unit Pool",
     "units": [
       "Lost Soul"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "All Culture Base Units - Unit Pool",
-    "units": [],
-    "others": [
-      "All Culture Base Units",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "Reward: Mountable Good Forest Creatures - Unit Pool",
+    "pool": "Reward: Mountable Good Forest Creatures - Unit Pool8",
     "units": [
       "Unicorn"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Nest Pool Small Category",
-    "units": [],
-    "others": [
-      "Forest",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "General Water Nodes/Pickups Pool Category",
-    "units": [],
-    "others": [
-      "Transformation: Astral",
-      "Transformation: Chaos",
-      "Transformation: Elementum",
-      "Transformation: Nature",
-      "Transformation: Order"
-    ]
-  },
-  {
-    "pool": "Nest Pools - Spiders",
+    "pool": "Nest Pools - SpidersJW",
     "units": [
       "Hunter Spider",
       "Hunter Spider Matriarch",
@@ -2430,117 +2290,60 @@
       "Dread Spider Matriarch",
       "Vampire Spider Hatchling",
       "Vampire Spider Matriarch",
-      "Entwinned Thrall",
-      "Entwinned Protector",
+      "Entwined Thrall",
+      "Entwined Protector",
       "Nymph",
       "Horned God"
     ],
     "others": [
       "Tier I - II Nature Enchantments",
-      "Tier III - IV Nature Enchantments",
-      "All Environments",
-      "All Base Mystic Units",
-      "All Base Dark Units",
-      "All Base Industrious Units",
-      "All Base High Units",
-      "All Base Feudal Units",
-      "All Base Barbarian Units",
-      "All Culture Base Units"
-    ]
+      "Tier III - IV Nature Enchantments"
+    ],
+    "type": []
   },
   {
-    "pool": "Abandoned Castle - Pyromancers  Pool",
+    "pool": "Abandoned Castle - Pyromancers  PoolG",
     "units": [
       "Pyromancer",
-      "Fire Elemental",
-      "Fire Elemental Lesser",
+      "Magma Spirit",
       "Fire Giant",
-      "Red Wyvern",
-      "Red Dragon",
-      "Fire Giant",
-      "Fire Wyvern"
+      "Wyvern Fire",
+      "Fire Dragon"
     ],
     "others": [
       "All Infernal Fiend Units",
       "Tier I - II Chaos Enchantments",
       "Tier III - IV Chaos Enchantments"
-    ]
-  },
-  {
-    "pool": "Feudal Base Units + Hero - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Feudal Units",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "Barbarian Base Units + Hero - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Barbarian Units",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "High Base Units + Hero - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base High Units",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "Industrious Base Units + Hero - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Industrious Units",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "Dark Base Units + Hero - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Dark Units",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "Mystic Base Units + Hero - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Mystic Units",
-      "All Environments"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Nest Pools - Wolves",
     "units": [
       "Warg",
       "White Wolf",
-      "Infeno Hound",
+      "Inferno Hound",
       "Inferno Puppy",
       "Spirit Wolf",
-      "Entwinned Thrall",
-      "Entwinned Protector",
+      "Entwined Thrall",
+      "Entwined Protector",
       "Nymph",
       "Wildspeaker",
       "Horned God"
     ],
     "others": [
       "Tier I - II Nature Enchantments",
-      "Tier III - IV Nature Enchantments",
-      "All Environments"
-    ]
+      "Tier III - IV Nature Enchantments"
+    ],
+    "type": []
   },
   {
     "pool": "Nest Pools - Boars",
     "units": [
       "Goretusk Piglet",
       "Goretusk Matriarch",
-      "Entwinned Thrall",
-      "Entwinned Protector",
+      "Entwined Thrall",
+      "Entwined Protector",
       "Nymph",
       "Druid of the Cycle",
       "Wildspeaker",
@@ -2549,69 +2352,73 @@
     ],
     "others": [
       "Tier I - II Nature Enchantments",
-      "Tier III - IV Nature Enchantments",
-      "All Environments"
-    ]
+      "Tier III - IV Nature Enchantments"
+    ],
+    "type": []
   },
   {
-    "pool": "Spirit Wolf (Guardian Spirit) - Unit Pool",
+    "pool": "Spirit Wolf (Guardian Spirit) - Unit Poola",
     "units": [
-      "SpiritWolf"
+      "Spirit Wolf"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Spawn: Grasslands 1 - Materium/Earth!P",
     "units": [
-      "Earth Elemental",
-      "Earth Elemental Lesser",
+      "Stone Spirit",
+      "Lesser Stone Spirit",
       "Gargoyle",
       "Rock Giant",
-      "Titan",
-      "Transmuter",
-      "Eternal Earth Unit Enchantment"
+      "Earth Titan",
+      "Transmuter"
     ],
     "others": [
       "Tier I - II Materium Enchantments",
       "Tier III - IV Materium Enchantments",
+      "Shaper's Touch - Unit Upgrade",
       "Grasslands"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Grasslands 2 - Lightning",
+    "pool": "Spawn: Grasslands 2 - Lightning4W",
     "units": [
-      "Lightning Elemental",
-      "Lightning Elemental Lessser",
-      "Storm Serpent",
+      "Storm Spirit",
+      "Lesser Storm Spirit",
+      "Stormscale Serpent",
       "Storm Giant",
       "Autumn Fairy",
       "Thunderbird",
-      "Earth Titan",
-      "Eternal Earth Unit Enchantment"
+      "Earth Titan"
     ],
     "others": [
       "Tier I - II Astral Enchantments",
       "Tier III - IV Astral Enchantments",
+      "Shaper's Touch - Unit Upgrade",
       "Grasslands"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Grasslands 3 - Order Cretures",
+    "pool": "Spawn: Grasslands 3 - Order Cretures9c",
     "units": [
       "Unicorn",
       "Zealot",
       "Lightbringer",
       "Chaplain",
-      "Wyvern Knight",
+      "Eagle Rider",
       "Shrine of Smiting",
       "Zephyr Archer",
-      "Sun Priest"
+      "High - T2 - Sun Priest"
     ],
     "others": [
       "Tier I - II Order Enchantments",
       "Tier III - IV Order Enchantments",
       "Grasslands"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Grasslands 3 + High - Order Cretures:c",
@@ -2619,28 +2426,33 @@
       "Unicorn",
       "Zealot",
       "Chaplain",
-      "Wyvern Knight",
+      "Eagle Rider",
       "Shrine of Smiting",
       "Zephyr Archer"
     ],
     "others": [
-      "All Base High Units"
-    ]
+      "All Base High Units",
+      "Tier I - II Order Enchantments",
+      "Tier III - IV Order Enchantments",
+      "High Enchantments",
+      "Grasslands"
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Grasslands 4 - Knights",
+    "pool": "Spawn: Grasslands 4 - Knights;c",
     "units": [
-      "Griffon Knight",
-      "Tyrant Knight",
-      "Knight",
-      "Dark Knight",
-      "Warrior",
-      "Dark Warrior",
-      "Night Guard",
-      "Defender",
-      "Bastion",
-      "Halberdier",
-      "Anvil Guard"
+      "Eagle Rider",
+      "Subjugator",
+      "Feudal - T4 - Knight",
+      "Dark - T3 - Tyrant Knight",
+      "Barbarian - T1 - Warrior",
+      "Dark - T1 - Immortal",
+      "Dark - Cult of Tyranny - T2 - Tyrant Guard",
+      "Feudal - Monarchy - T1 - Defender",
+      "Industrious - T3 - Bastion",
+      "Industrious - T2 - Halberdier",
+      "Industrious - T1 - Anvil Guard"
     ],
     "others": [
       "Tier I - II Zeal Enchantments",
@@ -2648,38 +2460,32 @@
       "Dark Enchantments",
       "Industrious Enchantments",
       "Grasslands"
-    ]
-  },
-  {
-    "pool": "Spawn: Grasslands Bandits - Feudal + Dark",
-    "units": [],
-    "others": [
-      "All Base Feudal Units",
-      "All Base Dark Units"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Forest 1 - Entwinned and Fairies(P",
     "units": [
       "Horned God",
-      "Entwinned Thrall",
-      "Entwinned Protector",
-      "Entwinned Scourge",
+      "Entwined Thrall",
+      "Entwined Protector",
+      "Entwined Scourge",
       "Unicorn",
-      "Fairy Spring",
-      "Fairy Summer",
-      "Fairy Autumn",
-      "Fairy Winter",
+      "Spring Fairy",
+      "Summer Fairy",
+      "Autumn Fairy",
+      "Winter Fairy",
       "Floral Stinger"
     ],
     "others": [
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments",
       "Forest"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Forest 2 - Wolves",
+    "pool": "Spawn: Forest 2 - Wolves/c",
     "units": [
       "Horned God",
       "Warg",
@@ -2693,10 +2499,11 @@
       "Tier III - IV Nature Enchantments",
       "Tier I - II Order Enchantments",
       "Tier III - IV Order Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Forest 3 - Rangers and Animals",
+    "pool": "Spawn: Forest 3 - Rangers and Animals0c",
     "units": [
       "Horned God",
       "Wildspeaker",
@@ -2708,10 +2515,11 @@
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments",
       "Forest"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Forest 3 + Barbarian - Rangers and Animals",
+    "pool": "Spawn: Forest 3 + Barbarian - Rangers and Animals1c",
     "units": [
       "Horned God",
       "Glade Runner",
@@ -2724,10 +2532,11 @@
       "Tier III - IV Nature Enchantments",
       "Barbarian Enchantments",
       "Forest"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Forest 4 - Plants & Friends",
+    "pool": "Spawn: Forest 4 - Plants & Friends3c",
     "units": [
       "Spring Fairy"
     ],
@@ -2737,25 +2546,27 @@
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments",
       "Forest"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Forest 5 - Forest Spiders",
+    "pool": "Spawn: Forest 5 - Forest Spiders4c",
     "units": [
       "Horned God",
-      "Dread Spider H",
-      "Dread Spider M",
-      "Hunter Spider M",
+      "Dread Spider Hatchling",
+      "Dread Spider Matriarch",
+      "Hunter Spider Matriarch",
       "Hunter Spider"
     ],
     "others": [
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments",
       "Forest"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Forest 6 - Forest Spirits",
+    "pool": "Spawn: Forest 6 - Forest Spirits5c",
     "units": [
       "Horned God",
       "Wildspeaker",
@@ -2770,15 +2581,16 @@
       "Tier I - II Astral Enchantments",
       "Tier III - IV Astral Enchantments",
       "Forest"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Forest 7 - Boars & Razorbacks",
+    "pool": "Spawn: Forest 7 - Boars & Razorbacks6c",
     "units": [
       "Horned God",
-      "Entwinned Thrall",
-      "Entwinned Protector",
-      "Entwinned Scourge",
+      "Entwined Thrall",
+      "Entwined Protector",
+      "Entwined Scourge",
       "Goretusk Piglet",
       "Goretusk Matriarch",
       "Razorback"
@@ -2787,25 +2599,18 @@
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments",
       "Forest"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Forest Bandits - Feudal + Barbarian@c",
-    "units": [],
-    "others": [
-      "All Base Feudal Units",
-      "All Base Barbarian Units"
-    ]
-  },
-  {
-    "pool": "Spawn: Swamp 1 - Spiders",
+    "pool": "Spawn: Swamp 1 - Spiders5P",
     "units": [
-      "Karagh",
-      "Dread Spider M",
-      "Dread Spider H",
-      "Vampire Spider M",
-      "Vampire Spider H",
-      "Hunter Spider M",
+      "Demigiant Karagh",
+      "Dread Spider Matriarch",
+      "Dread Spider Hatchling",
+      "Vampire Spider Matriarch",
+      "Vampire Spider Hatchling",
+      "Hunter Spider Matriarch",
       "Hunter Spider"
     ],
     "others": [
@@ -2813,41 +2618,44 @@
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments",
       "Swamp"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Swamp 2 - Swamp & Blight)c",
     "units": [
-      "Swamp Troll",
-      "Karagh",
-      "Water Elemental",
-      "Water Elemental Lesser",
+      "Demigiant Troll Swamp",
+      "Demigiant Karagh",
+      "Tide Spirit",
+      "Lesser Tide Spirit",
       "Plague Serpent",
       "Spring Fairy",
-      "Ogre"
+      "Demigiant Ogre Common"
     ],
     "others": [
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments",
       "Swamp/Highlands"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Swamp 3 - Boars & Razorbacks",
+    "pool": "Spawn: Swamp 3 - Boars & Razorbacks*c",
     "units": [
-      "Swamp Troll",
-      "Karagh",
-      "Ogre",
-      "River Troll",
-      "Goretusk M",
-      "Goretusk P",
+      "Demigiant Troll Swamp",
+      "Demigiant Karagh",
+      "Demigiant Ogre Common",
+      "Demigiant Troll River",
+      "Goretusk Matriarch",
+      "Goretusk Piglet",
       "Razorback"
     ],
     "others": [
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments",
       "Swamp"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Swamp 4 - Undead+c",
@@ -2861,7 +2669,8 @@
       "Tier I - II Undead Enchantments",
       "Tier III - IV Undead Enchantments",
       "Swamp"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Swamp 4 + Feudal - Undead,c",
@@ -2870,19 +2679,26 @@
     ],
     "others": [
       "All Undead Units",
-      "All Base Feudal Units"
-    ]
+      "All Base Feudal Units",
+      "Tier I - II Plant Enchantments",
+      "Tier III - IV Plant Enchantments",
+      "Tier I - II Undead Enchantments",
+      "Tier III - IV Undead Enchantments",
+      "Feudal Enchantments",
+      "Swamp"
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Swamp 5 - Evil-c",
     "units": [
       "Banshee",
-      "Tyrant Knight",
+      "Subjugator",
       "Inquisitor",
-      "Ogre",
-      "Vampire Hatcling",
+      "Demigiant Ogre Common",
+      "Vampire Spider Hatchling",
       "Nightmare",
-      "Karagh"
+      "Demigiant Karagh"
     ],
     "others": [
       "Tier I - II Undead Enchantments",
@@ -2890,35 +2706,43 @@
       "Tier I - II PyroDemon Enchantments",
       "Tier III - IV PyroDemon Enchantments",
       "Swamp/Highlands"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Swamp 5 + Dark - Evil.c",
     "units": [
       "Banshee",
-      "Tyrant Knight",
+      "Subjugator",
       "Inquisitor",
-      "Ogre",
-      "Inferno Hounds",
-      "Vampire Hatcling",
+      "Demigiant Ogre Common",
+      "Inferno Hound",
+      "Vampire Spider Hatchling",
       "Nightmare",
-      "Karagh"
+      "Demigiant Karagh"
     ],
     "others": [
-      "All Base Dark Units"
-    ]
+      "All Base Dark Units",
+      "Tier I - II Shadow Enchantments",
+      "Tier III - IV Shadow Enchantments",
+      "Tier I - II PyroDemon Enchantments",
+      "Tier III - IV PyroDemon Enchantments",
+      "Dark Enchantments",
+      "Swamp/Highlands"
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Swamp 6 - Scavengers",
+    "pool": "Spawn: Swamp 6 - ScavengersWc",
     "units": [
       "Young Caustic Worm",
       "Caustic Worm",
       "Druid of the Cycle",
-      "Plague Serpernt",
+      "Plague Serpent",
       "Carrion Bird",
       "Grimbeak Crow",
       "Horned God",
-      "Bone dragon"
+      "Bone Dragon"
     ],
     "others": [
       "Scrap Hermit",
@@ -2927,26 +2751,19 @@
       "Tier I - II Undead Enchantments",
       "Tier III - IV Undead Enchantments",
       "Swamp"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Swamp Bandits - Barbarian + Dark",
-    "units": [],
-    "others": [
-      "All Base Barbarian Units",
-      "All Base Dark Units"
-    ]
-  },
-  {
-    "pool": "Spawn: Arctic 1 - Ice Creatures",
+    "pool": "Spawn: Arctic 1 - Ice Creatures6P",
     "units": [
-      "Arctic Ogre",
-      "Ice Elemental Lesser",
-      "Ice Elemental",
+      "Demigiant Ogre Arctic",
+      "Lesser Snow Spirit",
+      "Snow Spirit",
       "Storm Giant",
       "Winter Fairy",
-      "Blue Wyvern",
-      "BlueDragon",
+      "Wyvern Frost",
+      "Frost Dragon",
       "White Wolf",
       "White Witch",
       "Frost Giant"
@@ -2956,17 +2773,18 @@
       "Tier III - IV Nature Enchantments",
       "Tier III - IV Astral Enchantments",
       "Arctic"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Arctic 2 - Ice Elementals",
     "units": [
       "Ice Spider",
       "Ice Spider Matriarch",
-      "Blue Wyvern",
-      "Blue Dragon",
-      "Ice Elemental Lesser",
-      "Ice Elemental",
+      "Wyvern Frost",
+      "Frost Dragon",
+      "Lesser Snow Spirit",
+      "Snow Spirit",
       "Winter Fairy",
       "White Witch"
     ],
@@ -2975,48 +2793,56 @@
       "Tier III - IV Nature Enchantments",
       "Tier III - IV Astral Enchantments",
       "Arctic"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Arctic 3 - Witches and Banshees",
+    "pool": "Spawn: Arctic 3 - Witches and Banshees$c",
     "units": [
-      "Ice Elemental Lesser",
-      "Ice Elemental",
+      "Lesser Snow Spirit",
+      "Snow Spirit",
       "White Witch",
       "Living Fog",
       "Banshee",
-      "Blue Dragon"
+      "Frost Dragon"
     ],
     "others": [
       "Tier I - II Cryo Enchantments",
       "Tier III - IV Nature Enchantments",
       "Tier III - IV Astral Enchantments",
       "Arctic"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Arctic 3 + Dark - Witches and Banshees",
+    "pool": "Spawn: Arctic 3 + Dark - Witches and Banshees%c",
     "units": [
-      "Ice Elemental Lesser",
-      "Ice Elemental",
+      "Lesser Snow Spirit",
+      "Snow Spirit",
       "White Witch",
       "Living Fog",
       "Banshee",
-      "Blue Dragon"
+      "Frost Dragon"
     ],
     "others": [
-      "All Base Dark Units"
-    ]
+      "All Base Dark Units",
+      "Tier I - II Cryo Enchantments",
+      "Tier III - IV Nature Enchantments",
+      "Tier III - IV Astral Enchantments",
+      "Dark Enchantments",
+      "Arctic"
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Arctic 4 - Arctic Dragons and Animals'c",
     "units": [
-      "Blue Wyvern",
-      "BlueDragon",
+      "Wyvern Frost",
+      "Frost Dragon",
       "White Wolf",
-      "Thunder Bird",
-      "Grimbeak Crows",
-      "Arctic Ogre",
+      "Thunderbird",
+      "Grimbeak Crow",
+      "Demigiant Ogre Arctic",
       "Frost Giant"
     ],
     "others": [
@@ -3026,18 +2852,19 @@
       "Tier III - IV Nature Enchantments",
       "Tier III - IV Astral Enchantments",
       "Arctic"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Arctic 5 - Arctic Animals(c",
     "units": [
-      "Blue Dragon",
+      "Frost Dragon",
       "White Wolf",
-      "Arctic Ogre",
+      "Demigiant Ogre Arctic",
       "Warbreed",
       "Razorback",
-      "Ice Elemental",
-      "Ice Elemental Lesser",
+      "Snow Spirit",
+      "Lesser Snow Spirit",
       "Frost Giant"
     ],
     "others": [
@@ -3048,15 +2875,8 @@
       "Tier III - IV Astral Enchantments",
       "All Destruction Enchantments",
       "Arctic"
-    ]
-  },
-  {
-    "pool": "Spawn: Arctic Bandits - Dark + Mystic",
-    "units": [],
-    "others": [
-      "All Base Dark Units",
-      "All Base Mystic Units"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Reward: Good Forest Dwellers - Unit Pool(",
@@ -3069,7 +2889,8 @@
       "Nymph",
       "Horned God"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Reward: Entwined - Unit Pool&",
@@ -3078,40 +2899,36 @@
       "Entwined Scourge",
       "Entwined Protector"
     ],
-    "others": []
-  },
-  {
-    "pool": "Reward: Demon - Unit Pool",
-    "units": [],
-    "others": [
-      "ToW - All Fiend (Accursed + Infernal) Units"
-    ]
+    "others": [],
+    "type": []
   },
   {
     "pool": "Reward: Dark Warlock - Unit Pool",
     "units": [
-      "Warlock Unit"
+      "Dark - Cult of Tyranny - T2 - Warlock"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Reward: Racial Mage - Unit Pool",
+    "pool": "Reward: Racial Mage - Unit PoolD",
     "units": [
-      "Cleric",
+      "Chaplain",
       "Pyromancer",
       "Evoker",
       "Transmuter",
-      "Steelshaper",
-      "Warlock",
-      "Arcanist",
+      "Industrious - T2 - Steelshaper",
+      "Dark - Cult of Tyranny - T2 - Warlock",
+      "Mystic - T1 - Arcanist",
       "White Witch",
-      "Spellbreaker",
-      "Awakener"
+      "Mystic: Attunement Seekers - T3 - Spellbreaker",
+      "High - T3 - Awakener"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Reward: Good Mountain Dwellers - Unit Pool",
+    "pool": "Reward: Good Mountain Dwellers - Unit Poole",
     "units": [
       "Stone Spirit",
       "Lesser Stone Spirit",
@@ -3119,24 +2936,11 @@
       "Thunderbird",
       "Gargoyle"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Reward: Culture Support/Battle Mage Unit - Unit Pool",
-    "units": [],
-    "others": [
-      "T2 Base Support/Battle Mage Units"
-    ]
-  },
-  {
-    "pool": "Reward: Culture Unit - Unit Pool",
-    "units": [],
-    "others": [
-      "All Culture Base Units"
-    ]
-  },
-  {
-    "pool": "Reward: Good Spirits - Unit Pool",
+    "pool": "Reward: Good Spirits - Unit Poolg",
     "units": [
       "Spirit Hawk",
       "Spirit Wolf",
@@ -3144,16 +2948,17 @@
       "Astral Wisp",
       "Lightbringer"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Abandoned Castle - Brutes Unit Pool - Ogres & Trolls",
+    "pool": "Abandoned Castle - Brutes Unit Pool - Ogres & Trolls *y",
     "units": [
-      "Common Ogre",
-      "Ogre Arctic",
-      "Troll River",
-      "Troll Swamp",
-      "Karagh",
+      "Demigiant Ogre Common",
+      "Demigiant Ogre Arctic",
+      "Demigiant Troll River",
+      "Demigiant Troll Swamp",
+      "Demigiant Karagh",
       "Goretusk Piglet"
     ],
     "others": [
@@ -3161,138 +2966,115 @@
       "Tier III - IV Nature Enchantments",
       "Tier I - II Chaos Enchantments",
       "Tier III - IV Chaos Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Magic Victory - Order Pool",
-    "units": [],
+    "units": [
+      "Shrine of Smiting"
+    ],
     "others": [
       "Order Tome Units - Land",
       "All Base High Units",
-      "All Base Feudal Units"
-    ]
-  },
-  {
-    "pool": "Magic Victory - Chaos Pool",
-    "units": [],
-    "others": [
-      "Chaos Tome Units - Land",
-      "All Base High Units"
-    ]
+      "All Base Feudal Units",
+      "All Order Enchantmentsd",
+      "All Celestial Units"
+    ],
+    "type": []
   },
   {
     "pool": "Magic Victory - Astral Pool",
-    "units": [],
+    "units": [
+      "Lost Wizard"
+    ],
     "others": [
       "Astral Tome Units - Land",
-      "All Base Mystic Units"
-    ]
+      "All Base Mystic Units",
+      "All Astral Enchantmentsd"
+    ],
+    "type": []
   },
   {
-    "pool": "Magic Victory - Materium Pool",
-    "units": [],
-    "others": [
-      "Materium Tome Units - Land",
-      "All Base Industrious Units"
-    ]
-  },
-  {
-    "pool": "Magic Victory - Nature Pool",
-    "units": [],
-    "others": [
-      "Nature Tome Units - Land",
-      "All Base Barbarian Units",
-      "All Base Feudal Units"
-    ]
-  },
-  {
-    "pool": "Magic Victory - Shadow Pool",
-    "units": [],
-    "others": [
-      "Shadow Tome Units - Land",
-      "All Base Dark Units"
-    ]
-  },
-  {
-    "pool": "Expansion Victory - High Pool",
+    "pool": "Expansion Victory - High PoolOh",
     "units": [
       "Eagle Rider"
     ],
     "others": [
-      "All Base High Units",
-      "All Environments"
-    ]
+      "All Base High Units"
+    ],
+    "type": []
   },
   {
-    "pool": "Expansion Victory - Barbarian Pool",
+    "pool": "Expansion Victory - Barbarian PoolQh",
     "units": [
       "Warbreed"
     ],
     "others": [
-      "All Base High Units",
-      "All Environments"
-    ]
+      "All Base High Units"
+    ],
+    "type": []
   },
   {
-    "pool": "Expansion Victory - Mystic Pool",
+    "pool": "Expansion Victory - Mystic PoolSh",
     "units": [
       "Mirror Mimic"
     ],
     "others": [
-      "All Base Mystic Units",
-      "All Environments"
-    ]
+      "All Base Mystic Units"
+    ],
+    "type": []
   },
   {
-    "pool": "Expansion Victory - Industrious Pool",
+    "pool": "Expansion Victory - Industrious PoolUh",
     "units": [
       "Transmuter"
     ],
     "others": [
-      "All Base Industrious Units",
-      "All Environments"
-    ]
+      "All Base Industrious Units"
+    ],
+    "type": []
   },
   {
-    "pool": "Expansion Victory - Feudal Pool",
+    "pool": "Expansion Victory - Feudal PoolWh",
     "units": [
-      "Tyrant Knight"
+      "Subjugator"
     ],
     "others": [
-      "All Base Feudal Units",
-      "All Environments"
-    ]
+      "All Base Feudal Units"
+    ],
+    "type": []
   },
   {
-    "pool": "Expansion Victory - Dark Pool",
+    "pool": "Expansion Victory - Dark PoolYh",
     "units": [
       "Living Fog"
     ],
     "others": [
-      "All Base Dark Units",
-      "All Environments"
-    ]
+      "All Base Dark Units"
+    ],
+    "type": []
   },
   {
-    "pool": "Fireforge Stone Pool",
+    "pool": "Fireforge Stone Poolah",
     "units": [
       "Magma Spirit",
-      "Magma Spirit Lesser",
+      "Lesser Magma Spirit",
       "Nightmare",
       "Inferno Hound",
       "Fire Giant",
       "Pyromancer",
-      "Fire Wyvern",
+      "Wyvern Fire",
       "Fire Dragon"
     ],
     "others": [
       "Tier I - II Chaos Enchantments",
-      "Tier III - IV Chaos Enchantments",
-      "All Environments"
-    ]
+      "Tier III - IV Chaos Enchantments"
+    ],
+    "type": []
   },
   {
-    "pool": "Focus Crystal Pool",
+    "pool": "Focus Crystal Poolch",
     "units": [
       "Phantasm Warrior",
       "Watcher",
@@ -3306,77 +3088,81 @@
     ],
     "others": [
       "Tier I - II Astral Enchantments",
-      "Tier III - IV Astral Enchantments",
-      "All Environments"
-    ]
+      "Tier III - IV Astral Enchantments"
+    ],
+    "type": []
   },
   {
-    "pool": "Arcanum Ore Pool",
+    "pool": "Arcanum Ore Pooleh",
     "units": [
-      "Earth Elemental Lesser",
-      "Earth Elemental",
+      "Lesser Stone Spirit",
+      "Stone Spirit",
       "Gargoyle",
       "Rock Giant",
-      "Animated Armor",
+      "Copper Golem",
       "Iron Golem",
       "Gold Golem"
     ],
     "others": [
       "Tier I - II Materium Enchantments",
       "Tier III - IV Materium Enchantments",
-      "All Lithorine Units",
-      "All Environments"
-    ]
+      "All Lithorine Units"
+    ],
+    "type": []
   },
   {
-    "pool": "Archon Blood Pool",
+    "pool": "Archon Blood Poolih",
     "units": [
       "Zealot",
       "Chaplain",
       "Eagle Rider",
-      "Shrine of Smiting"
+      "Shrine of Smiting",
+      "High - T2 - Sun Priest"
     ],
     "others": [
-      "All Celestial Units"
-    ]
+      "All Celestial Units",
+      "Tier I - II Order Enchantments",
+      "Tier III - IV Order Enchantments"
+    ],
+    "type": []
   },
   {
-    "pool": "Tranquility Pool Pool",
+    "pool": "Tranquility Pool Poolkh",
     "units": [
-      "Swamp Troll",
-      "River Troll",
+      "Demigiant Troll Swamp",
+      "Demigiant Troll River",
       "Spring Fairy",
       "Tide Spirit",
       "Lesser Tide Spirit",
-      "Storm Serpent",
-      "Karagh"
+      "Stormscale Serpent",
+      "Demigiant Karagh"
     ],
     "others": [
       "Tier I - II Nature Enchantments",
-      "Tier III - IV Nature Enchantments",
-      "All Environments"
-    ]
+      "Tier III - IV Nature Enchantments"
+    ],
+    "type": []
   },
   {
-    "pool": "Haste Berries Pool",
+    "pool": "Haste Berries Poolmh",
     "units": [
       "Phoenix",
       "Thunderbird",
       "Carrion Bird",
-      "Crow",
+      "Grimbeak Crow",
       "Balor",
-      "Gremlins",
+      "Gremlin",
       "Wind Rager",
       "Summer Fairy"
     ],
     "others": [
       "Tier I - II Nature Enchantments",
-      "Tier III - IV Nature Enchantments",
-      "All Environments"
-    ]
+      "Tier III - IV Nature Enchantments"
+    ],
+    "type": []
   },
   {
-    "pool": "Silvertongue Fruit Pool",
+    "pool": "Silvertongue Fruit Pooloh",
     "units": [
       "Lightbringer",
       "Nymph",
@@ -3388,25 +3174,14 @@
       "Tier III - IV Nature Enchantments",
       "Tier I - II Order Enchantments",
       "Tier III - IV Order Enchantments",
-      "All Culture Base Units",
-      "All Environments"
-    ]
+      "All Culture Base Units"
+    ],
+    "type": []
   },
   {
-    "pool": "Astral Dew Pool",
-    "units": [],
-    "others": [
-      "All Astral Monster Units",
-      "Tier I - II Astral Enchantments",
-      "Tier III - IV Astral Enchantments",
-      "All Environments",
-      "All Animal Units"
-    ]
-  },
-  {
-    "pool": "Rainbow Clover Pool",
+    "pool": "Rainbow Clover Poolqh",
     "units": [
-      "Entwinned Thrall",
+      "Entwined Thrall",
       "Nymph",
       "Skald",
       "Gremlin",
@@ -3417,71 +3192,17 @@
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments",
       "Tier I - II Chaos Enchantments",
-      "Tier III - IV Chaos Enchantments",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "Bandits (Rite of War) - Unit Pool",
-    "units": [],
-    "others": [
-      "All Environments"
-    ]
+      "Tier III - IV Chaos Enchantments"
+    ],
+    "type": []
   },
   {
     "pool": "Balor (Rite of Posession) - Unit Pool",
     "units": [
       "Balor"
     ],
-    "others": []
-  },
-  {
-    "pool": "Feudal House Attack - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Feudal Units",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "Barbarian House Attack - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Barbarian Units",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "High House Attack - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base High Units",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "Industrious House Attack - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Industrious Units",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "Dark House Attack - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Dark Units",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "Mystic House Attack - Unit Pool",
-    "units": [],
-    "others": [
-      "All Base Mystic Units",
-      "All Environments"
-    ]
+    "others": [],
+    "type": []
   },
   {
     "pool": "Spawn: Underground 1 - Worms and Beetles",
@@ -3498,17 +3219,10 @@
       "Tier III - IV Materium Enchantments",
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments",
-      "All Base Barbarian Units"
-    ]
-  },
-  {
-    "pool": "Spawn: Underground 2 - Undead",
-    "units": [],
-    "others": [
-      "All Culture Base Units",
-      "Tier I - II Undead Enchantments",
-      "Tier III - IV Undead Enchantments"
-    ]
+      "All Base Barbarian Units",
+      "Underground"
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Underground 3 - Constructs",
@@ -3518,11 +3232,15 @@
     "others": [
       "Tier I - II Materium Enchantments",
       "Tier III - IV Materium Enchantments",
-      "All Culture Base Units"
-    ]
+      "All Culture Base Units",
+      "All Construct Units (Non Celestial)",
+      "Scrap Hermit",
+      "Underground"
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Underground 4 - Stone Unit",
+    "pool": "Spawn: Underground 4 - Stone Units",
     "units": [
       "Lesser Stone Spirit",
       "Gargoyle",
@@ -3533,18 +3251,11 @@
     "others": [
       "Tier I - II Materium Enchantments",
       "Tier III - IV Materium Enchantments",
-      "All Culture Base Units"
-    ]
-  },
-  {
-    "pool": "Spawn: Underground 5 - Fiends",
-    "units": [],
-    "others": [
-      "All Infernal Fiend Units",
-      "Tier I - II Chaos Enchantments",
-      "Tier III - IV Chaos Enchantments",
-      "All Culture Base Units"
-    ]
+      "All Culture Base Units",
+      "All Lithorine Units",
+      "Underground"
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Tropical 3 - High & Knights",
@@ -3552,7 +3263,7 @@
       "Blessed Soul",
       "Glade Runner",
       "Phantasm Warrior",
-      "Eagle Knight",
+      "Eagle Rider",
       "Gold Golem"
     ],
     "others": [
@@ -3560,7 +3271,8 @@
       "Tier I - II Order Enchantments",
       "Tier III - IV Order Enchantments",
       "Tropical"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Tropical 2 - Order & Chaos",
@@ -3571,9 +3283,9 @@
       "Skald",
       "Chaplain",
       "Inferno Hound",
-      "Inferno Hound Puppy",
+      "Inferno Puppy",
       "Warbreed",
-      "Tyrant Knight",
+      "Subjugator",
       "Balor"
     ],
     "others": [
@@ -3582,7 +3294,8 @@
       "Tier I - II Order Enchantments",
       "Tier III - IV Order Enchantments",
       "Tropical"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Tropical 1 - Worms & Fire",
@@ -3590,7 +3303,7 @@
       "Young Caustic Worm",
       "Caustic Worm",
       "Fire Dragon",
-      "Wild Speaker",
+      "Wildspeaker",
       "Transmuter"
     ],
     "others": [
@@ -3598,13 +3311,14 @@
       "Tier III - IV Chaos Enchantments",
       "Scrap Hermit",
       "Tropical"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Highlands 3 - Elementals & Plants",
     "units": [
-      "Water Elemental",
-      "Lesser Water Elemental",
+      "Tide Spirit",
+      "Lesser Tide Spirit",
       "Horned God",
       "Nymph",
       "Floral Stinger",
@@ -3614,29 +3328,31 @@
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments",
       "Highlands"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Highlands 2 - Ogres & Giants",
     "units": [
-      "Karagh",
-      "River Troll",
-      "Butcher Ogre",
-      "Piglet",
-      "Swamp Troll",
+      "Demigiant Karagh",
+      "Demigiant Troll River",
+      "Demigiant Ogre Common",
+      "Goretusk Piglet",
+      "Demigiant Troll Swamp",
       "Frost Giant"
     ],
     "others": [
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments",
       "Highlands"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Highlands 1 - Elementals",
     "units": [
-      "Water Elemental",
-      "Lesser Water Elemental",
+      "Tide Spirit",
+      "Lesser Tide Spirit",
       "Wind Rager",
       "Ice Spider Matriarch",
       "Ice Spider",
@@ -3647,30 +3363,32 @@
       "Tier III - IV Nature Enchantments",
       "All Bears",
       "Highlands"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Water 3 - Water Animals",
+    "pool": "Spawn: Water 3 - Water Animals5e",
     "units": [
-      "Blossomed Nimu",
+      "Deep-Sea Nimu",
       "Nimu",
       "Ghost Ship",
       "Kraken Spawn",
       "Kraken",
-      "Lesser Tide Elemental"
+      "Lesser Tide Spirit"
     ],
     "others": [
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments",
       "Water Ocean Only"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Water 2 - Flying Animals",
     "units": [
-      "Lesser Water Elemental",
+      "Lesser Tide Spirit",
       "Penguin",
-      "Blue Wyvern",
+      "Wyvern Frost",
       "Kraken Spawn",
       "Kraken",
       "Ghost Ship"
@@ -3679,13 +3397,14 @@
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments",
       "Water Ocean Only"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Water 1 - Elementals + Kraken",
     "units": [
-      "Water Elemental",
-      "Lesser Water Elemental",
+      "Tide Spirit",
+      "Lesser Tide Spirit",
       "Kraken Spawn",
       "Kraken",
       "Ghost Ship"
@@ -3694,27 +3413,20 @@
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments",
       "Water Ocean Only"
-    ]
-  },
-  {
-    "pool": "Spawn: Desert Bandits - High + Industious",
-    "units": [],
-    "others": [
-      "All Base High Units",
-      "All Base Industrious Units"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Desert 6 + Mystic - Elementals",
     "units": [
       "Wind Rager",
       "Summer Fairy",
-      "Lightning Elemental",
-      "Lightning Elemental Lesser",
+      "Storm Spirit",
+      "Lesser Storm Spirit",
       "Autumn Fairy",
-      "Fire Elemental",
-      "Fire Elemental Lesser",
-      "Red Dragon",
+      "Magma Spirit",
+      "Lesser Magma Spirit",
+      "Fire Dragon",
       "Phoenix"
     ],
     "others": [
@@ -3724,19 +3436,20 @@
       "Tier III - IV Chaos Enchantments",
       "Mystic Enchantments",
       "Desert"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Desert 6 - Elementals",
     "units": [
       "Wind Rager",
       "Summer Fairy",
-      "Lightning Elemental",
-      "Lightning Elemental Lesser",
+      "Storm Spirit",
+      "Lesser Storm Spirit",
       "Autumn Fairy",
-      "Fire Elemental",
-      "Fire Elemental Lesser",
-      "Red Dragon",
+      "Magma Spirit",
+      "Lesser Magma Spirit",
+      "Fire Dragon",
       "Phoenix"
     ],
     "others": [
@@ -3744,7 +3457,8 @@
       "Tier III - IV Chaos Enchantments",
       "Tier I - II Chaos Enchantments",
       "Desert"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Desert 5 + High - Order",
@@ -3752,13 +3466,18 @@
       "Zealot",
       "Chaplain",
       "Inquisitor",
-      "Tyrant Knight",
-      "Rider",
+      "Subjugator",
+      "Eagle Rider",
       "Shrine of Smiting"
     ],
     "others": [
-      "All Base High Units"
-    ]
+      "All Base High Units",
+      "Tier I - II Order Enchantments",
+      "Tier III - IV Order Enchantments",
+      "High Enchantments",
+      "Desert"
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Desert 5 - Order",
@@ -3767,18 +3486,25 @@
       "Chaplain",
       "Lightbringer",
       "Inquisitor",
-      "Tyrant Knight",
-      "Rider"
+      "Subjugator",
+      "Eagle Rider",
+      "Shrine of Smiting",
+      "High - T2 - Sun Priest"
     ],
-    "others": []
+    "others": [
+      "Tier I - II Order Enchantments",
+      "Tier III - IV Order Enchantments",
+      "Desert"
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Desert 4 - Fire Animals",
     "units": [
       "Inferno Hound",
       "Inferno Puppy",
-      "Fire Wyvern",
-      "Red Dragon",
+      "Wyvern Fire",
+      "Fire Dragon",
       "Summer Fairy",
       "Phoenix"
     ],
@@ -3786,25 +3512,27 @@
       "Tier I - II Chaos Enchantments",
       "Tier III - IV Chaos Enchantments",
       "Desert"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Desert 3 - Fire",
     "units": [
-      "Fire Elemental",
-      "Fire Elemental Lesser",
+      "Magma Spirit",
+      "Lesser Magma Spirit",
       "Nightmare",
       "Inferno Hound",
       "Inferno Puppy",
       "Fire Giant",
-      "Red Wyvern",
-      "Red Dragon"
+      "Wyvern Fire",
+      "Fire Dragon"
     ],
     "others": [
       "Tier I - II Chaos Enchantments",
       "Tier III - IV Chaos Enchantments",
       "Desert"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Desert 2 + Industrious - Materium",
@@ -3813,7 +3541,7 @@
       "Iron Golem",
       "Gold Golem",
       "Transmuter",
-      "Animated Armor",
+      "Copper Golem",
       "Gargoyle",
       "Zephyr Archer"
     ],
@@ -3823,7 +3551,8 @@
       "Tier III - IV Materium Enchantments",
       "Industrious Enchantments",
       "Desert"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Desert 2 - Materium",
@@ -3832,7 +3561,7 @@
       "Iron Golem",
       "Gold Golem",
       "Transmuter",
-      "Animated Armor",
+      "Copper Golem",
       "Gargoyle",
       "Zephyr Archer"
     ],
@@ -3840,24 +3569,25 @@
       "Tier I - II Materium Enchantments",
       "Tier III - IV Materium Enchantments",
       "Desert"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Desert 1 - Chaos",
     "units": [
-      "Houndmaster",
       "Skald",
       "Pyromancer",
       "Warbreed",
       "Inferno Hound",
       "Inferno Puppy",
-      "Karagh"
+      "Demigiant Karagh"
     ],
     "others": [
       "Tier I - II Chaos Enchantments",
       "Tier III - IV Chaos Enchantments",
       "Desert"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Desolation 3 - Undead",
@@ -3869,10 +3599,11 @@
       "Tier I - II Shadow Enchantments",
       "Tier III - IV Shadow Enchantments",
       "Desolation Only"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Desolation 2 - Astal Monsters",
+    "pool": "Spawn: Desolation 2 - Astal Monsters^X",
     "units": [
       "Phase Beast",
       "Watcher"
@@ -3882,22 +3613,13 @@
       "Tier I - II Astral Enchantments",
       "Tier III - IV Astral Enchantments",
       "Desolation Only"
-    ]
-  },
-  {
-    "pool": "Spawn: Desolation 1 - Fiends",
-    "units": [],
-    "others": [
-      "All Infernal Fiend Units",
-      "Tier I - II Chaos Enchantments",
-      "Tier III - IV Chaos Enchantments",
-      "Desolation Only"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Underground 6 - Spiders and Beetles",
     "units": [
-      "Karagh",
+      "Demigiant Karagh",
       "Dread Spider Hatchling",
       "Dread Spider Matriarch",
       "Hunter Spider",
@@ -3910,7 +3632,8 @@
       "Tier III - IV Materium Enchantments",
       "Tier III - IV Nature Enchantments",
       "Underground"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Excavation Nest Pool - Digger Animals and Rock Barbarians",
@@ -3927,24 +3650,25 @@
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments",
       "All Base Barbarian Units"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Big Monster Nest Pools - Demi-Giants",
+    "pool": "Big Monster Nest Pools - Demi-GiantsIW",
     "units": [
-      "Karagh",
-      "Swamp Troll",
-      "River Troll",
-      "Common Ogre",
+      "Demigiant Karagh",
+      "Demigiant Troll Swamp",
+      "Demigiant Troll River",
+      "Demigiant Ogre Common",
       "Rock Giant"
     ],
     "others": [
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments",
       "Tier I - II Chaos Enchantments",
-      "Tier III - IV Chaos Enchantments",
-      "All Environments"
-    ]
+      "Tier III - IV Chaos Enchantments"
+    ],
+    "type": []
   },
   {
     "pool": "Excavation Nest Pool Big - Digger Animals and Rock Barbarians",
@@ -3961,10 +3685,11 @@
       "Tier I - II Nature Enchantments",
       "Tier III - IV Nature Enchantments",
       "All Base Barbarian Units"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Excavation Nest Pool Big - Stone Unit",
+    "pool": "Excavation Nest Pool Big - Stone Units",
     "units": [
       "Lesser Stone Spirit",
       "Gargoyle",
@@ -3976,46 +3701,46 @@
       "Tier I - II Materium Enchantments",
       "Tier III - IV Materium Enchantments",
       "All Culture Base Units"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Graveyard Pools - Undead",
-    "units": [],
+    "pool": "Graveyard Pools - UndeadEW",
+    "units": [
+      "Necromancer",
+      "Zombie"
+    ],
     "others": [
-      "Transformation: Minor Chaos"
-    ]
-  },
-  {
-    "pool": "Excavation Graveyard Pool - Undead",
-    "units": [],
-    "others": [
+      "Transformation: Minor Chaos",
       "All Culture Base Units",
-      "Tier I - II Undead Enchantments",
-      "Tier III - IV Undead Enchantments"
-    ]
+      "All Undead Units - No Water Movement",
+      "Tier I - II Shadow Enchantments",
+      "Tier III - IV Shadow Enchantments"
+    ],
+    "type": []
   },
   {
     "pool": "Ritual Site Pools - Cultists (Chaos)",
     "units": [
-      "Pyromancers",
+      "Pyromancer",
       "Skald"
     ],
     "others": [
       "All Infernal Fiend Units",
       "All Base Support/Battle Mage Units (Barbarian)",
       "Tier I - II Chaos Enchantments",
-      "Tier III - IV Chaos Enchantments",
-      "All Environments"
-    ]
+      "Tier III - IV Chaos Enchantments"
+    ],
+    "type": []
   },
   {
     "pool": "Ritual Site Pools - Cultists (Shadow Cryo)",
     "units": [
       "White Witch",
       "White Wolf",
-      "Ice Elemental",
-      "Lesser Ice Elemental",
-      "Blue Dragon",
+      "Snow Spirit",
+      "Lesser Snow Spirit",
+      "Frost Dragon",
       "Banshee",
       "Living Fog"
     ],
@@ -4023,9 +3748,9 @@
       "All Base Support/Battle Mage Units (Dark)",
       "Tier I - II Shadow Enchantments",
       "Tier III - IV Shadow Enchantments",
-      "All Astral Enchantments",
-      "All Environments"
-    ]
+      "All Astral Enchantments"
+    ],
+    "type": []
   },
   {
     "pool": "Ritual Site Pools - Cultists (Astral)",
@@ -4038,14 +3763,14 @@
       "Astral Keeper",
       "Astral Wisp",
       "Mirror Mimic",
-      "Lost Mage"
+      "Lost Wizard"
     ],
     "others": [
       "All Base Support/Battle Mage Units (Mystic)",
       "Tier I - II Astral Enchantments",
-      "Tier III - IV Astral Enchantments",
-      "All Environments"
-    ]
+      "Tier III - IV Astral Enchantments"
+    ],
+    "type": []
   },
   {
     "pool": "Excavation Ritual Site Pool - Constructs",
@@ -4055,91 +3780,85 @@
     "others": [
       "Tier I - II Materium Enchantments",
       "Tier III - IV Materium Enchantments",
-      "All Culture Base Units"
-    ]
+      "All Culture Base Units",
+      "All Construct Units (Non Celestial)"
+    ],
+    "type": []
   },
   {
-    "pool": "Excavation Ritual Site Pool - Fiends",
-    "units": [],
-    "others": [
-      "All Infernal Fiend Units",
-      "Tier I - II Chaos Enchantments",
-      "Tier III - IV Chaos Enchantments",
-      "All Culture Base Units"
-    ]
-  },
-  {
-    "pool": "Dragon Nest Pools - Red Dragon Nest",
+    "pool": "Dragon Nest Pools - Red Dragon NestGW",
     "units": [
-      "Red Dragon",
-      "Red Wyvern",
-      "Fire Elemental",
-      "Lesser Fire Elemental",
-      "Lesser Air Elemental",
-      "Air Elemental"
+      "Fire Dragon",
+      "Wyvern Fire",
+      "Magma Spirit",
+      "Lesser Magma Spirit",
+      "Lesser Storm Spirit",
+      "Storm Spirit"
     ],
     "others": [
       "Tier I - II Astral Enchantments",
       "Tier III - IV Astral Enchantments",
       "Tier I - II Chaos Enchantments",
       "Tier III - IV Chaos Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Dragon Nest Pools - Blue Dragon Nest",
+    "pool": "Dragon Nest Pools - Blue Dragon NestHW",
     "units": [
-      "Blue Dragon",
-      "Blue Wyvern",
-      "Lesser Water Elemental",
-      "Water Elemental",
-      "Lesser Ice Elemental",
-      "Ice Elemental",
+      "Frost Dragon",
+      "Wyvern Frost",
+      "Lesser Tide Spirit",
+      "Tide Spirit",
+      "Lesser Snow Spirit",
+      "Snow Spirit",
       "White Wolf",
       "Banshee",
       "White Witch",
-      "Tyrant Knight"
+      "Subjugator"
     ],
     "others": [
       "Tier I - II Astral Enchantments",
       "Tier III - IV Astral Enchantments",
       "Tier I - II Shadow Enchantments",
       "Tier III - IV Shadow Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Greatbird Nest Pools - Greatbirds",
+    "pool": "Greatbird Nest Pools - GreatbirdsLW",
     "units": [
-      "Crow",
+      "Grimbeak Crow",
       "Carrion Bird",
-      "Zephyr",
-      "Lesser Air Elemental",
-      "Air Elemental",
+      "Thunderbird",
+      "Lesser Storm Spirit",
+      "Storm Spirit",
       "Wind Rager",
       "Phoenix",
       "Horned God"
     ],
     "others": [
       "Tier I - II Nature Enchantments",
-      "Tier III - IV Nature Enchantments",
-      "All Environments"
-    ]
+      "Tier III - IV Nature Enchantments"
+    ],
+    "type": []
   },
   {
-    "pool": "Astral Rift Pools - Astral Monsters",
+    "pool": "Astral Rift Pools - Astral Monsters3b",
     "units": [
       "Astral Wisp",
       "Flow Serpent",
       "Astral Siphoner",
       "Mage Bane",
-      "Lost Mage",
+      "Lost Wizard",
       "Phase Beast",
       "Watcher"
     ],
     "others": [
       "Tier I - II Astral Enchantments",
-      "Tier III - IV Astral Enchantments",
-      "All Environments"
-    ]
+      "Tier III - IV Astral Enchantments"
+    ],
+    "type": []
   },
   {
     "pool": "Forsaken Cove Pool - Undead",
@@ -4151,43 +3870,31 @@
       "Tide Spirit",
       "Lesser Tide Spirit",
       "Phantasm Warrior",
-      "Bone Wyvern"
+      "Wyvern Bone"
     ],
     "others": [
       "Tier I - II Shadow Enchantments",
-      "Tier III - IV Shadow Enchantments",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "Reward: Culture Support Unit - Unit Pool",
-    "units": [],
-    "others": [
-      "T2 Base Support/Battle Mage Units"
-    ]
-  },
-  {
-    "pool": "Reward: Culture Battle Mage Unit - Unit Pool",
-    "units": [],
-    "others": [
-      "Racial Battle Mage Units"
-    ]
+      "Tier III - IV Shadow Enchantments"
+    ],
+    "type": []
   },
   {
     "pool": "Reward: Amphibian Unit - Unit Pool!",
     "units": [
-      "Lesser Water Elemental",
-      "Water Elemental",
-      "Stromscale Serpent"
+      "Lesser Tide Spirit",
+      "Tide Spirit",
+      "Stormscale Serpent"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Reward: Wolf Pet - Unit Pool",
+    "pool": "Reward: Wolf Pet - Unit PoolL",
     "units": [
-      "Wolf Pets"
+      "White Wolf"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Reward: Magic Companion - Unit Pool",
@@ -4197,13 +3904,9 @@
       "Unicorn",
       "Nightmare"
     ],
-    "others": []
-  },
-  {
-    "pool": "Reward: Animal - Unit Pool",
-    "units": [],
-    "others": [
-      "All Animal Units"
+    "others": [],
+    "type": [
+      "Elemental - Subtype"
     ]
   },
   {
@@ -4214,146 +3917,125 @@
       "Astral Serpent",
       "Mirror Mimic"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Reward: Racial Mercenary Units - Unit Pool",
     "units": [
-      "Warrior",
-      "Dark Warrior T",
-      "Dawn Defender T",
-      "Anvil Guard T",
-      "Arcane Guard T",
-      "Knight T",
-      "Dark Knight T",
-      "Bastion T",
-      "Berserker T",
-      "Tyrant Knight T",
-      "Transmuter T"
+      "Barbarian - T1 - Warrior",
+      "Dark - T1 - Immortal",
+      "High - T1 - Dawn Defender",
+      "Industrious - T1 - Anvil Guard",
+      "Mystic - T1 - Arcane Guard",
+      "Feudal - T4 - Knight",
+      "Dark - T3 - Tyrant Knight",
+      "Industrious - T3 - Bastion",
+      "Barbarian - T3 - Berserker",
+      "Subjugator",
+      "Transmuter"
     ],
-    "others": []
-  },
-  {
-    "pool": "Reward: Culture Defensive Unit - Unit Pool",
-    "units": [],
-    "others": [
-      "Racial Polearm Units",
-      "Racial Shield Units",
-      "Racial Ranged Units"
-    ]
+    "others": [],
+    "type": []
   },
   {
     "pool": "Reward: Culture Polearm Farmer Unit - Unit Pool",
     "units": [
-      "Sunderer",
-      "Dark Warrior"
+      "Barbarian - T1 - Sunderer",
+      "Dark - T1 - Immortal"
     ],
     "others": [
       "Racial Polearm Units",
       "Racial Shield Units"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Reward: Racial Mercenary Secondary Units - Unit Pool",
     "units": [
-      "Warrior",
-      "Dark Warrior T",
-      "Dawn Defender T",
-      "Anvil Guard T",
-      "Arcane Guard T",
-      "Knight T",
-      "Dark Knight T",
-      "Bastion T",
-      "Berserker T",
-      "Eagle Rider T",
-      "Warbreed T"
+      "Barbarian - T1 - Warrior",
+      "Dark - T1 - Immortal",
+      "High - T1 - Dawn Defender",
+      "Industrious - T1 - Anvil Guard",
+      "Mystic - T1 - Arcane Guard",
+      "Feudal - T4 - Knight",
+      "Dark - T3 - Tyrant Knight",
+      "Industrious - T3 - Bastion",
+      "Barbarian - T3 - Berserker",
+      "Eagle Rider",
+      "Warbreed"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Actor: Dangerous Beast - Unit Pool",
-    "units": [],
-    "others": [
-      "ToW - All Animal Units",
-      "All Spider Units",
-      "All Astral Monster Units",
-      "ToW - All Dragon Units"
-    ]
-  },
-  {
-    "pool": "Actor: Race Council - Unit Pool",
-    "units": [],
-    "others": [
-      "All Culture Base Units"
-    ]
-  },
-  {
-    "pool": "Actor: Racial Peasant - Unit Pool",
+    "pool": "Actor: Racial Pursuer - Unit Pool2",
     "units": [
-      "Peasant"
+      "Dark - T1 - Pursuer"
     ],
-    "others": []
-  },
-  {
-    "pool": "Actor: Racial Pursuer - Unit Pool",
-    "units": [
-      "Pursuer"
-    ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Encounter: Brutal Incursion - Unit Pool+",
     "units": [
-      "Tyrant Knight",
+      "Subjugator",
       "Inquisitor",
       "Warbreed",
       "Pyromancer",
-      "Houndmaster",
       "Skald",
       "Glade Runner",
       "Necromancer",
-      "Transmuter"
+      "Transmuter",
+      "Dark - T0 - Outrider",
+      "Barbarian - T1 - Sunderer",
+      "Dark - T1 - Pursuer",
+      "Barbarian - T1 - Warrior"
     ],
     "others": [
       "All Base Barbarian Units",
       "All Base Feudal Units",
       "ToW - All Base Reaver Units",
       "All Base Dark Units"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Encounter: Cross Purposes (Traders) - Unit Pool",
+    "pool": "Encounter: Cross Purposes (Traders) - Unit Pool*",
     "units": [
-      "Tyrant Knight",
+      "Subjugator",
       "Pyromancer",
-      "Houndmaster",
       "Inquisitor",
       "Zealot"
     ],
     "others": [
       "Racial Support Units"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Encounter: Harbingers of Misfortune (Watchers) - Unit Pool,",
     "units": [
-      "Watchers"
+      "Watcher"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Encounter: Harbingers of Misfortune (Corrupt Souls) - Unit Pool+",
     "units": [
       "Corrupt Soul"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Encounter: Harbingers of Misfortune (Blessed Souls) - Unit Pool(",
     "units": [
       "Blessed Soul"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Encounter: Hunted Animals - Unit Pool",
@@ -4366,35 +4048,38 @@
       "Carrion Bird",
       "White Wolf"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Encounter: Knights - Unit Pool",
     "units": [
-      "Knight",
-      "Tyrant Knight",
-      "Dawn Defender",
-      "Bannerman",
-      "Defender",
-      "Anvil Guard",
-      "Wyyvern Rider",
+      "Feudal - T4 - Knight",
+      "Subjugator",
+      "High - T1 - Dawn Defender",
+      "Feudal - T2 - Bannerman",
+      "Feudal - Monarchy - T1 - Defender",
+      "Industrious - T1 - Anvil Guard",
+      "Eagle Rider",
       "Zealot",
       "Chaplain",
-      "Lightseeker (T"
+      "High - T0 - Lightseeker"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Encounter: Silver Knight - Unit Pool",
     "units": [
       "Warbreed",
-      "Tyrant Knight",
+      "Subjugator",
       "Phantasm Warrior",
-      "Dark Knight",
-      "Knight",
-      "Berserker"
+      "Dark - T3 - Tyrant Knight",
+      "Feudal - T4 - Knight",
+      "Barbarian - T3 - Berserker"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Encounter: Caustic Worms - Unit Pool",
@@ -4403,65 +4088,43 @@
       "Young Caustic Worm"
     ],
     "others": [
-      "All Spider Units",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "Encounter: Culture Units - Unit Pool",
-    "units": [],
-    "others": [
-      "All Culture Base Units"
-    ]
+      "All Spider Units"
+    ],
+    "type": []
   },
   {
     "pool": "Encounter: Frost Bringers - Unit Pool",
     "units": [
       "White Witch",
-      "Arctic Ogre",
+      "Demigiant Ogre Arctic",
       "Ice Spider",
       "Ice Spider Matriarch",
-      "Warlock",
-      "Ice Elemtal",
-      "Lesser Ice Elemtal",
+      "Dark - Cult of Tyranny - T2 - Warlock",
+      "Snow Spirit",
+      "Lesser Snow Spirit",
       "Winter Fairy",
-      "Blue Wyvern",
+      "Wyvern Frost",
       "Frost Giant"
     ],
-    "others": [
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "Encounter: Astral Monsters - Unit Pool",
-    "units": [],
-    "others": [
-      "All Elemental Units",
-      "All Astral Monster Units"
-    ]
-  },
-  {
-    "pool": "Encounter: Fiends - Unit Pool",
-    "units": [],
-    "others": [
-      "ToW - All Fiend (Accursed + Infernal) Units"
-    ]
+    "others": [],
+    "type": []
   },
   {
     "pool": "Encounter: Fire Monsters - Unit Pool",
     "units": [
-      "Red Dragon",
+      "Fire Dragon",
       "Inferno Hound",
-      "Lesser Fire Elemental",
-      "Fire Elemental",
-      "Red Wyvern",
+      "Lesser Magma Spirit",
+      "Magma Spirit",
+      "Wyvern Fire",
       "Nightmare",
       "Fire Giant",
       "Phoenix",
       "Inferno Puppy",
       "Gremlin"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Reward: Serpent - Unit Pool",
@@ -4469,28 +4132,30 @@
       "Stormscale Serpent",
       "Plague Serpent"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Golden Ziggurat - Dragons Pool",
     "units": [
-      "Frost Wyvern Unit",
+      "Wyvern Frost",
       "Magma Spirit",
       "Snow Spirit",
       "Winter Fairy",
       "Summer Fairy",
-      "Fire Wyvern",
+      "Wyvern Fire",
       "Phoenix",
       "Ice Spider Matriarch"
     ],
     "others": [
       "All Base Mystic Units"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Golden Ziggurat - Portal Pool",
+    "pool": "Golden Ziggurat - Portal Poolsc",
     "units": [
-      "Sun Priest"
+      "High - T2 - Sun Priest"
     ],
     "others": [
       "All Astral Monster Units",
@@ -4499,7 +4164,8 @@
       "All Astral Enchantments Except Tier V",
       "ToW Units - Order Tomes",
       "All Order Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Ancient Wellspring - Ice Pool",
@@ -4510,36 +4176,35 @@
       "Winter Fairy",
       "Lesser Snow Spirit",
       "Snow Spirit",
-      "PENGUINS",
+      "Penguin",
       "Frost Dragon",
-      "Frost Wyvern"
+      "Wyvern Frost"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Ancient Wellspring - Seducers Pool",
     "units": [
-      "Nymph"
+      "Nymph",
+      "Entwined Thrall"
     ],
-    "others": []
-  },
-  {
-    "pool": "Wizard Tower - Displacing Reality Pool",
-    "units": [],
     "others": [
-      "All Astral Sea Enchantments",
-      "All Ethereal Units (Except Astral Sea Monsters)",
-      "All Astral Monster Units",
-      "Astral Tome Units - Land"
+      "Tier I - II Nature Enchantments",
+      "Tier III - IV Nature Enchantments",
+      "Tier V Nature Enchantments"
+    ],
+    "type": [
+      "Fey - Subtype"
     ]
   },
   {
-    "pool": "Wizard Tower - Lost Mage Pool",
+    "pool": "Wizard Tower - Lost Mage PoolkP",
     "units": [
       "Astral Siphoner",
       "Astral Serpent",
       "Astral Wisp",
-      "Watcher Unit",
+      "Watcher",
       "Bone Dragon",
       "Reaper"
     ],
@@ -4547,7 +4212,8 @@
       "All Astral Sea Enchantments",
       "Racial Battle Mage Units",
       "ToW - All Base Mystic Units"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Ancient Tree - Poison Pool",
@@ -4562,7 +4228,8 @@
       "Dread Spider Hatchling",
       "Horned God"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Ancient Tree - Entwined Pool",
@@ -4574,24 +4241,16 @@
       "Nymph",
       "Druid of the Cycle",
       "Wildspeaker",
-      "Karagh"
+      "Demigiant Karagh"
     ],
     "others": [
       "All Animal Units",
       "All Nature Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Crystal Forest - Mirrors Pool",
-    "units": [],
-    "others": [
-      "All Astral Monster Units",
-      "All Ethereal Units (Except Astral Sea Monsters)",
-      "Astral Tome Units - Land"
-    ]
-  },
-  {
-    "pool": "Crystal Forest - Mimics Pool",
+    "pool": "Crystal Forest - Mimics PoolMc",
     "units": [
       "Mirror Mimic",
       "Astral Wisp",
@@ -4599,7 +4258,8 @@
     ],
     "others": [
       "All Astral Enchantments Except Tier V"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "magma Forge - Fire Giant Unit Pool",
@@ -4608,47 +4268,57 @@
       "Stone Spirit",
       "Lesser Stone Spirit",
       "Earth Titan",
-      "Fire Wyvern"
+      "Wyvern Fire"
     ],
     "others": [
       "ToW - All Base Industrious Units",
       "Industrious Enchantments",
       "All Materium Enchantments"
+    ],
+    "type": [
+      "Construct - Subtype"
     ]
   },
   {
     "pool": "Magma Forge - Fire Elementals Pool",
     "units": [
-      "Fire Elemental",
+      "Magma Spirit",
       "Lesser Magma Spirit",
-      "Inferno Puppies",
-      "Gremlins"
+      "Inferno Puppy",
+      "Gremlin"
     ],
     "others": [
       "Tier I - II Chaos Enchantments",
       "Tier III - IV Chaos Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Secret Temple - Confessionsits Pool",
-    "units": [],
+    "units": [
+      "High - T2 - Sun Priest"
+    ],
     "others": [
       "ToW Units - Order Tomes",
       "All Zeal Enchantments",
       "All Faith Enchantments"
+    ],
+    "type": [
+      "Celestial - Subtype"
     ]
   },
   {
-    "pool": "Evil Penguin (Reward) - Unit Pool",
+    "pool": "Evil Penguin (Reward) - Unit Poolv",
     "units": [
-      "Pingu"
+      "Penguin"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Secret Temple - Cultists Pool",
+    "pool": "Secret Temple - Cultists Poola",
     "units": [
-      "Fire Wyvern"
+      "Wyvern Fire"
     ],
     "others": [
       "Racial Support Units",
@@ -4657,85 +4327,164 @@
       "ToW Units - Order Tomes",
       "All Zeal Enchantments",
       "All Infernal Fiend Units"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Hidden Lair - Predators - Penguins Pool",
     "units": [
-      "Penguins",
-      "Arctic Ogres",
+      "Penguin",
+      "Demigiant Ogre Arctic",
       "Winter Fairy",
-      "Ice Spider M",
+      "Ice Spider Matriarch",
       "Ice Spider"
     ],
     "others": [
       "All Animal Enchantments",
       "All Shadow Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Hidden Lair - Predators - Worms and Serpents Pool",
     "units": [
-      "Young Worm",
-      "Worm",
+      "Young Caustic Worm",
+      "Caustic Worm",
       "Plague Serpent",
-      "Storm Serpent",
-      "Karagh",
+      "Stormscale Serpent",
+      "Demigiant Karagh",
       "Bone Dragon"
     ],
     "others": [
       "All Animal Enchantments"
+    ],
+    "type": []
+  },
+  {
+    "pool": "Hidden Lair - Predators - Birds/Wyverns/Dragon Pool",
+    "units": [
+      "Phoenix",
+      "Carrion Bird",
+      "Thunderbird",
+      "Grimbeak Crow"
+    ],
+    "others": [
+      "All Animal Enchantments"
+    ],
+    "type": [
+      "Dragon Subtype",
+      "Dragons - Subtype"
     ]
   },
   {
-    "pool": "Hidden Lair - Predators - Canines Pool",
+    "pool": "Hidden Lair - Predators - Canines PoolW",
     "units": [
       "White Wolf",
       "Spirit Wolf",
       "Warg",
       "Inferno Hound",
-      "Inferno Puppies",
-      "Karagh"
+      "Inferno Puppy",
+      "Demigiant Karagh"
     ],
     "others": [
       "All Animal Enchantments"
+    ],
+    "type": []
+  },
+  {
+    "pool": "Ancient Tomb - Skeletons Unit Pool",
+    "units": [
+      "Bone Horror",
+      "Bone Dragon",
+      "Wyvern Bone",
+      "Reaper",
+      "Necromancer",
+      "Banshee"
+    ],
+    "others": [],
+    "type": [
+      "Undead - Subtype"
     ]
   },
   {
-    "pool": "Abandoned Castle - Astral Unit Pool",
-    "units": [],
+    "pool": "Ancient Tomb - Undead Unit PoolJ",
+    "units": [
+      "Dark - T1 - Immortal",
+      "Dark - T1 - Pursuer",
+      "Dark - Cult of Tyranny - T2 - Warlock",
+      "Dark - Cult of Tyranny - T2 - Tyrant Guard",
+      "Warbreed",
+      "Corrupt Soul",
+      "Zombie",
+      "Bone Horror",
+      "Banshee",
+      "Reaper",
+      "Wyvern Bone"
+    ],
     "others": [
-      "All Astral Monster Units"
-    ]
+      "Tier I - II Undead Enchantments",
+      "Tier III - IV Undead Enchantments"
+    ],
+    "type": []
+  },
+  {
+    "pool": "Abandoned Castle - Gladiators Pool,",
+    "units": [
+      "Random Hero"
+    ],
+    "others": [],
+    "type": []
+  },
+  {
+    "pool": "Abandoned Castle - Astral Unit Pool",
+    "units": [
+      "Astral Sea Monster"
+    ],
+    "others": [],
+    "type": []
   },
   {
     "pool": "Reward: Fire Creature - Unit Pool(",
     "units": [
-      "Red Dragon",
+      "Fire Dragon",
       "Inferno Hound",
-      "Lesser Fire Elemental",
-      "Fire Elemental",
-      "Red Wyvern",
+      "Lesser Magma Spirit",
+      "Magma Spirit",
+      "Wyvern Fire",
       "Nightmare",
       "Fire Giant",
       "Phoenix",
       "Inferno Puppy"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Reward: Frost Creature - Unit Pool",
+    "pool": "Reward: Frost Creature - Unit Pool[",
     "units": [
-      "Arctic Ogre",
+      "Demigiant Ogre Arctic",
       "Ice Spider",
       "Ice Spider Matriarch",
-      "Ice Elemtal",
-      "Lesser Ice Elemtal",
+      "Snow Spirit",
+      "Lesser Snow Spirit",
       "Winter Fairy",
-      "Blue Wyvern",
+      "Wyvern Frost",
       "Frost Giant"
     ],
-    "others": []
+    "others": [],
+    "type": []
+  },
+  {
+    "pool": "Encounter: Legendary Beast + Allies - Unit PoolQ",
+    "units": [
+      "Progenitor Golem"
+    ],
+    "others": [],
+    "type": [
+      "Dragons Subtype",
+      "Dragons - Subtype",
+      "Animal - Subtype"
+    ]
   },
   {
     "pool": "Spawn: Tropical 4 - Archon & Prosperity",
@@ -4743,8 +4492,14 @@
       "Blessed Soul"
     ],
     "others": [
-      "All Prosperity Units"
-    ]
+      "All Prosperity Units",
+      "All Base High Units",
+      "Tier I - II Order Enchantments",
+      "Tier III - IV Order Enchantments",
+      "Tropical",
+      "All Undead or Fiend Units"
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Grasslands 5 - Archon/Prosperity",
@@ -4752,29 +4507,13 @@
       "Blessed Soul"
     ],
     "others": [
-      "All Prosperity Units"
-    ]
-  },
-  {
-    "pool": "Spawn: Desolation 4 - Fiends + Accursed",
-    "units": [],
-    "others": [
-      "All Accursed Fiends Units",
-      "All Infernal Fiend Units",
-      "Tier I - II Chaos Enchantments",
-      "Tier III - IV Chaos Enchantments",
-      "Desolation Only"
-    ]
-  },
-  {
-    "pool": "Spawn: Underground 7 - Accursed:",
-    "units": [],
-    "others": [
-      "All Accursed Fiends Units",
-      "Tier I - II Chaos Enchantments",
-      "Tier III - IV Chaos Enchantments",
-      "All Culture Base Units"
-    ]
+      "All Prosperity Units",
+      "All Base High Units",
+      "Tier I - II Order Enchantments",
+      "Tier III - IV Order Enchantments",
+      "Tropical"
+    ],
+    "type": []
   },
   {
     "pool": "Reward: Lightning Creature - Unit Pool",
@@ -4786,7 +4525,8 @@
       "Thunderbird",
       "Watcher"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Magma Forge - The One Unit Pool",
@@ -4798,15 +4538,8 @@
       "Materium Tome Units - Land",
       "All Infernal Fiend Units",
       "All Materium Enchantments"
-    ]
-  },
-  {
-    "pool": "Crystal Forest - Silver Knight Pool",
-    "units": [],
-    "others": [
-      "All Ethereal Units (Except Astral Sea Monsters)",
-      "All Astral Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Underground 8 - Lithorine",
@@ -4820,9 +4553,9 @@
       "All Lithorine Units",
       "Tier I - II Materium Enchantments",
       "Tier III - IV Materium Enchantments",
-      "Underground",
-      "All Lithorine Units"
-    ]
+      "Underground"
+    ],
+    "type": []
   },
   {
     "pool": "Excavation Nest Pool Big - Lithorine",
@@ -4837,6 +4570,21 @@
       "Tier I - II Materium Enchantments",
       "Tier III - IV Materium Enchantments",
       "Underground"
+    ],
+    "type": []
+  },
+  {
+    "pool": "Ancient Tomb - Sleeper Unit Pool",
+    "units": [
+      "Wyvern Bone",
+      "Necromancer",
+      "Banshee",
+      "Corrupt Soul",
+      "Living Fog"
+    ],
+    "others": [],
+    "type": [
+      "Undead - Subtype"
     ]
   },
   {
@@ -4848,69 +4596,80 @@
       "Iron Golem",
       "Copper Golem"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Secret Temple - Glutton Pool",
     "units": [
-      "Karagh",
-      "Butcher Ogre",
+      "Demigiant Karagh",
+      "Demigiant Ogre Common",
       "Chaplain"
     ],
     "others": [
       "All Base Barbarian Units",
       "All Base Feudal Units",
-      "All Culture Base Units"
-    ]
+      "All Culture Base Units",
+      "All Dragon Units8"
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Lava 1 - Dragons and Elementals",
     "units": [
-      "Red Dragon",
-      "Red Wyvern",
+      "Fire Dragon",
+      "Wyvern Fire",
       "Phoenix",
-      "Fire Elemental",
-      "Lesser Fire Elemental",
-      "Pyromancer"
+      "Magma Spirit",
+      "Lesser Magma Spirit",
+      "Pyromancer",
+      "Carrion Bird"
     ],
     "others": [
       "Tier I - II Chaos Enchantments",
       "Tier III - IV Chaos Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Spawn: Lava 2 - Demons and Giants",
     "units": [
-      "Pyromancers",
+      "Pyromancer",
       "Fire Giant"
     ],
     "others": [
       "All Infernal Fiend Units",
       "Tier I - II Chaos Enchantments",
       "Tier III - IV Chaos Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Spawn: Lava 3 - Constructs and Cultural Unit",
-    "units": [],
+    "pool": "Spawn: Lava 3 - Constructs and Cultural Units",
+    "units": [
+      "Gold Golem",
+      "Rock Giant"
+    ],
     "others": [
       "All Base Reaver Units",
       "All Base Industrious Units",
       "Tier I - II Chaos Enchantments",
       "Tier III - IV Chaos Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Ancient Tree - Thunder Pool",
     "units": [
       "Storm Giant",
-      "Thunder Bird",
+      "Thunderbird",
       "Storm Spirit",
       "Lesser Storm Spirit",
       "Warbreed",
-      "Berserker"
+      "Barbarian - T3 - Berserker"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
     "pool": "Ancient Wellspring - Fairy Pool",
@@ -4922,25 +4681,11 @@
       "Unicorn",
       "Nymph"
     ],
-    "others": []
+    "others": [],
+    "type": []
   },
   {
-    "pool": "Reward: Plant or Fey - Unit Pool",
-    "units": [],
-    "others": [
-      "All Plant Units",
-      "All Fey Units"
-    ]
-  },
-  {
-    "pool": "Reward: Dragon - Unit Pool",
-    "units": [],
-    "others": [
-      "All Dragon Units"
-    ]
-  },
-  {
-    "pool": "Reward: Astral Creature - Unit Pool",
+    "pool": "Reward: Astral Creature - Unit Pool4 ",
     "units": [
       "Astral Wisp",
       "Astral Keeper",
@@ -4950,91 +4695,40 @@
       "Phase Beast",
       "Astral Siphoner"
     ],
-    "others": []
-  },
-  {
-    "pool": "Reward: Elemental Spirit - Unit Pool",
-    "units": [],
-    "others": [
-      "All Regular Elemental Units"
-    ]
+    "others": [],
+    "type": []
   },
   {
     "pool": "Reward: Racial Hunter - Unit Pool",
     "units": [
-      "Houndmaster",
       "Glade Runner",
       "Zephyr Archer"
     ],
     "others": [
       "Racial Ranged Units",
       "Racial Skirmisher Units"
-    ]
-  },
-  {
-    "pool": "Reward: Undead - Unit Pool",
-    "units": [],
-    "others": [
-      "All Undead Units"
-    ]
-  },
-  {
-    "pool": "Reward: Celestial - Unit Pool",
-    "units": [],
-    "others": [
-      "All Celestial Units"
-    ]
-  },
-  {
-    "pool": "Reward: Construct - Unit Pool",
-    "units": [],
-    "others": [
-      "All Construct Units (Non Celestial)"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Rite of Nature's Guardians Animal - Unit Pool",
     "units": [
-      "Animals",
-      "Animal Guardian"
+      "White Wolf"
     ],
-    "others": []
-  },
-  {
-    "pool": "Spider Pool Category",
-    "units": [],
     "others": [
-      "All non-Tier 5 Infernal Fiend Units",
-      "All non-tier 5 Celestial Units",
-      "All non-tier 5 Undead Units",
-      "All non-tier 5 Construct Units (Non Celestial)",
-      "All non-tier 5 Ethereal Units (Except Astral Sea Monsters)",
-      "All Ethereal Units (Except Astral Sea Monsters + Undead)"
-    ]
+      "Animal Guardian - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "Rite of Nature's Guardians Plant - Unit Pool)",
     "units": [
-      "Plants",
-      "Plant Guardian"
+      "Entwined Scourge"
     ],
-    "others": []
-  },
-  {
-    "pool": "Oathsworn Base Units + Hero - Unit Pool",
-    "units": [],
     "others": [
-      "All Base Oathsworn Units",
-      "All Environments"
-    ]
-  },
-  {
-    "pool": "Oathsworn House Attack - Unit Pool,",
-    "units": [],
-    "others": [
-      "All Base Oathsworn Units",
-      "All Environments"
-    ]
+      "Plant Guardian - Unit Upgrade"
+    ],
+    "type": []
   },
   {
     "pool": "Archon Blood - Prosperity - Pool",
@@ -5045,32 +4739,36 @@
       "Eagle Rider"
     ],
     "others": [
-      "All Prosperity Units"
-    ]
+      "All Prosperity Units",
+      "Tier I - II Order Enchantments",
+      "Tier III - IV Order Enchantments"
+    ],
+    "type": []
   },
   {
-    "pool": "Ritual Site Pools - Cultists (Accursed)",
+    "pool": "Ritual Site Pools - Cultists (Accursed)9",
     "units": [
-      "Pyromancers",
+      "Pyromancer",
       "Skald",
       "White Witch",
-      "Lesser Snow Elemental",
-      "Snow Elemental"
+      "Lesser Snow Spirit",
+      "Snow Spirit"
     ],
     "others": [
       "All Accursed Fiends Units",
       "All Base Support/Battle Mage Units (Barbarian)",
       "Tier I - II Chaos Enchantments",
       "Tier III - IV Chaos Enchantments"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Dragon Nest Pools - Accursed Dragon Nest",
     "units": [
-      "Red Wyvern",
-      "Lesser Snow Elemental",
-      "Snow Elemental",
-      "Blue Wyvern"
+      "Wyvern Fire",
+      "Lesser Snow Spirit",
+      "Snow Spirit",
+      "Wyvern Frost"
     ],
     "others": [
       "All Accursed Fiends Units",
@@ -5079,7 +4777,8 @@
       "Tier I - II Shadow Enchantments",
       "Tier III - IV Shadow Enchantments",
       "Desolation Only"
-    ]
+    ],
+    "type": []
   },
   {
     "pool": "Dragon Nest Pools - Prosperity Dragon Nest",
@@ -5093,7 +4792,7 @@
       "Zealot",
       "Spirit Hawk",
       "Nymph",
-      "Circle Druid",
+      "Druid of the Cycle",
       "Glade Runner",
       "Wildspeaker"
     ],
@@ -5104,10 +4803,11 @@
       "Tier III - IV Order Enchantments",
       "All Prosperity Units",
       "Grasslands"
-    ]
+    ],
+    "type": []
   },
   {
-    "pool": "Cherry Orchard - Pool",
+    "pool": "Cherry Orchard - Pool5",
     "units": [
       "Zealot",
       "Monk",
@@ -5116,18 +4816,28 @@
       "Entwined Protector"
     ],
     "others": [
-      "All Prosperity Units"
-    ]
+      "All Prosperity Units",
+      "Tier I - II Order Enchantments",
+      "Tier III - IV Order Enchantments",
+      "Tier I - II Nature Enchantments",
+      "Tier III - IV Nature Enchantments"
+    ],
+    "type": []
   },
   {
-    "pool": "Jade Dragon - Pool",
+    "pool": "Jade Dragon - Pool7",
     "units": [
       "Monk",
       "Shade",
       "Lesser Magma Spirit"
     ],
     "others": [
-      "All Accursed Fiends Units"
-    ]
+      "All Accursed Fiends Units",
+      "Tier I - II Shadow Enchantments",
+      "Tier III - IV Shadow Enchantments",
+      "Tier I - II Chaos Enchantments",
+      "Tier III - IV Chaos Enchantments"
+    ],
+    "type": []
   }
 ]
