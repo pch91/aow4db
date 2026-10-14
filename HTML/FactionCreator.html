@@ -16,6 +16,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="/aow4db/favicon.ico" />
         <link rel="stylesheet" type="text/css" href="/aow4db/Style/style.css" />
         <link rel="stylesheet" type="text/css" href="/aow4db/Style/icons.css" />
+
         <meta charset="UTF-8" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -23,166 +24,61 @@
         <script src="/aow4db/Data/TomeRestriction.js" defer></script>
 
         <style>
-            button {
-                font-family: "Regular", sans-serif;
-            }
+                                            button {
+                                                font-family: "Regular", sans-serif;
+                                            }
 
-            .small_title {
-                font-family: "Decorative";
-                color: burlywood;
-                font-size: 14px;
-            }
+                                            .small_title {
+                                                font-family: "Decorative";
+                                                color: burlywood;
+                                                font-size: 14px;
+                                            }
 
-            /* CSS styles for buttons */
-            .button {
-                background-color: #007bff00;
-                color: #fff;
-                border: none;
-                position: relative;
-                display: flex;
-                justify-content: space-between;
+                                            /* CSS styles for buttons */
+                                            .button {
+                                                background-color: #007bff00;
+                                                color: #fff;
+                                                border: none;
+                                                position: relative;
+                                                display: flex;
+                                                justify-content: space-between;
 
-                align-items: center;
+                                                align-items: center;
 
-                cursor: pointer;
-            }
+                                                cursor: pointer;
+                                            }
 
-            /* CSS styles for buttons */
-            .button2 {
-                background-color: #007bff00;
-                color: #fff;
-                border: none;
-                position: relative;
-                display: flex;
-                justify-content: space-between;
+                                            /* CSS styles for buttons */
+                                            .button2 {
+                                                background-color: #007bff00;
+                                                color: #fff;
+                                                border: none;
+                                                position: relative;
+                                                display: flex;
+                                                justify-content: space-between;
 
-                align-items: center;
+                                                align-items: center;
 
-                cursor: pointer;
-            }
+                                                cursor: pointer;
+                                            }
 
-            #notesDisplay {
-                border: 1px solid #ccc;
-                padding: 6px;
-                min-height: 100px;
-                width: 100%;
-            }
+                                            #notesDisplay {
+                                                border: 1px solid #ccc;
+                                                padding: 6px;
+                                                min-height: 100px;
+                                                width: 100%;
+                                            }
 
-            /* CSS styles for origin buttons */
-            .origin-button {
-                padding: 5px;
-                background-color: #007bff;
-                color: #fff;
-                border: none;
-                cursor: pointer;
-                margin: 5px;
-                border-radius: 5px;
-            }
-
-            .button-inset {
-                background-color: #007bff00;
-                color: #b5b5b1;
-                border: none;
-                cursor: pointer;
-                position: relative;
-                left: 30px;
-
-                align-items: center;
-
-                display: flex;
-                justify-content: space-between;
-            }
-            .button-inset:hover{
-                 color: #fff;
-            }
-
-            .list-button {
-                border-width: 3px;
-                border-style: solid;
-                border-image: url(/aow4db/Icons/9slicetooltip.png);
-                border-image-slice: 10 10 10 10;
-                border-image-repeat: stretch;
-                width: 100%;
-                background-color: #111;
-                color: #fff;
-                /* border: none; */
-                cursor: pointer;
-                position: relative;
-                z-index: 2;
-                display: flex;
-                justify-content: normal;
-            }
-
-            .list-button.selected {
-                background-color: #4caf50;
-                color: white;
-            }
-
-            .list-button-small {
-                border-width: 3px;
-                border-style: solid;
-                border-image: url(/aow4db/Icons/9slicetooltip.png);
-                border-image-slice: 10 10 10 10;
-                border-image-repeat: stretch;
-                width: 60px;
-
-                background-color: #111;
-                color: #fff;
-                /* border: none; */
-                cursor: pointer;
-                position: relative;
-            }
-
-            .list-button-disabled {
-                border-width: 3px;
-                border-style: solid;
-                border-image: url(/aow4db/Icons/9slicetooltip.png);
-                border-image-slice: 10 10 10 10;
-                border-image-repeat: stretch;
-                width: 100%;
-                background-color: #111;
-                color: #ff1111;
-                /* border: none; */
-                cursor: pointer;
-                position: relative;
-
-                display: flex;
-                filter: brightness(0.5);
-                justify-content: normal;
-            }
-
-            .list-button-currentequipped {
-                border-width: 3px;
-                border-style: solid;
-                border-image: url(/aow4db/Icons/9slicetooltip.png);
-                border-image-slice: 10 10 10 10;
-                border-image-repeat: stretch;
-                width: 100%;
-                background-color: #347634;
-                color: #fff;
-                /* border: none; */
-                cursor: pointer;
-                position: relative;
-
-                display: flex;
-                justify-content: normal;
-            }
-
-            .list-button-long {
-                /* border-width: 3px; */
-                /* border-style: solid; */
-                /* border-image: url(/aow4db/Icons/9slicetooltip.png); */
-                /* border-image-slice: 10 10 10 10; */
-                /* border-image-repeat: stretch; */
-                width: 100px;
-                height: 30px;
-                background-color: #111;
-                color: #fff;
-                height: 60px;
-                /* border: none; */
-                cursor: pointer;
-                position: relative;
-            }
+                                            /* CSS styles for origin buttons */
+                                            .origin-button {
+                                                padding: 5px;
+                                                background-color: #007bff;
+                                                color: #fff;
+                                                border: none;
+                                                cursor: pointer;
+                                                margin: 5px;
+                                                border-radius: 5px;
+                                            }
             
             .padded-image{
                 padding:15px;
@@ -583,10 +479,9 @@
         <script>
             const namePrefixes = ["Arcane", "Feral", "Divine", "Cursed", "Mystic"];
             const nameTypes = ["Warlord", "Summoner", "Champion", "Sorcerer", "Guardian"];
-            
+
             const placeHolderTomes = [];
 
-          
             function HandlePage() {
                 
                    jsonTomes = [...jsonTomes, ...placeHolderTomes];
@@ -648,7 +543,7 @@
             <div id="shareSection">
             <button class="button-random" id="genCopyBtn" onclick="generateAndCopyLink()">Generate &amp; Copy Link</button>
 
-            <input type="text" value="" class="inputfield" id="shareLink" style="width: 600px" />
+                <input type="text" value="" class="inputfield" id="shareLink" style="width: 600px" />
 
             </div>
             <div style="display: flex; flex-direction: row; justify-content: space-around; align-items: center; gap: 8px;" id="actionRow">
@@ -694,8 +589,12 @@
                                     <div style="display: flex; height: 50px">
                                         <div id="extraOrder"></div>
                                         <div style="display: flex; flex-direction: column">
-                                            <button class="AddSubtract" onclick="AddExtra('order','⮝')"><img src="/aow4db/Icons/Interface/arrow_up.png" width="15px"></button>
-                                            <button class="AddSubtract" onclick="AddExtra('order','⮟')"><img src="/aow4db/Icons/Interface/arrow_down.png" width="15px"></button>
+                                            <button class="AddSubtract" onclick="AddExtra('order','⮝')">
+                                                <img src="/aow4db/Icons/Interface/arrow_up.png" width="15px" />
+                                            </button>
+                                            <button class="AddSubtract" onclick="AddExtra('order','⮟')">
+                                                <img src="/aow4db/Icons/Interface/arrow_down.png" width="15px" />
+                                            </button>
                                         </div>
                                     </div>
 
@@ -703,40 +602,60 @@
                                         <div id="extraChaos"></div>
 
                                         <div style="display: flex; flex-direction: column">
-                                               <button class="AddSubtract" onclick="AddExtra('chaos','⮝')"><img src="/aow4db/Icons/Interface/arrow_up.png" width="15px"></button>
-                                            <button class="AddSubtract" onclick="AddExtra('chaos','⮟')"><img src="/aow4db/Icons/Interface/arrow_down.png" width="15px"></button>
+                                            <button class="AddSubtract" onclick="AddExtra('chaos','⮝')">
+                                                <img src="/aow4db/Icons/Interface/arrow_up.png" width="15px" />
+                                            </button>
+                                            <button class="AddSubtract" onclick="AddExtra('chaos','⮟')">
+                                                <img src="/aow4db/Icons/Interface/arrow_down.png" width="15px" />
+                                            </button>
                                         </div>
                                     </div>
 
                                     <div style="display: flex; height: 50px">
                                         <div id="extraNature"></div>
                                         <div style="display: flex; flex-direction: column">
-                                               <button class="AddSubtract" onclick="AddExtra('nature','⮝')"><img src="/aow4db/Icons/Interface/arrow_up.png" width="15px"></button>
-                                            <button class="AddSubtract" onclick="AddExtra('nature','⮟')"><img src="/aow4db/Icons/Interface/arrow_down.png" width="15px"></button>
+                                            <button class="AddSubtract" onclick="AddExtra('nature','⮝')">
+                                                <img src="/aow4db/Icons/Interface/arrow_up.png" width="15px" />
+                                            </button>
+                                            <button class="AddSubtract" onclick="AddExtra('nature','⮟')">
+                                                <img src="/aow4db/Icons/Interface/arrow_down.png" width="15px" />
+                                            </button>
                                         </div>
                                     </div>
                                     <div style="display: flex; height: 50px">
                                         <div id="extraShadow"></div>
 
                                         <div style="display: flex; flex-direction: column">
-                                               <button class="AddSubtract" onclick="AddExtra('shadow','⮝')"><img src="/aow4db/Icons/Interface/arrow_up.png" width="15px"></button>
-                                            <button class="AddSubtract" onclick="AddExtra('shadow','⮟')"><img src="/aow4db/Icons/Interface/arrow_down.png" width="15px"></button>
+                                            <button class="AddSubtract" onclick="AddExtra('shadow','⮝')">
+                                                <img src="/aow4db/Icons/Interface/arrow_up.png" width="15px" />
+                                            </button>
+                                            <button class="AddSubtract" onclick="AddExtra('shadow','⮟')">
+                                                <img src="/aow4db/Icons/Interface/arrow_down.png" width="15px" />
+                                            </button>
                                         </div>
                                     </div>
                                     <div style="display: flex; height: 50px">
                                         <div id="extraMaterium"></div>
 
                                         <div style="display: flex; flex-direction: column">
-                                               <button class="AddSubtract" onclick="AddExtra('materium','⮝')"><img src="/aow4db/Icons/Interface/arrow_up.png" width="15px"></button>
-                                            <button class="AddSubtract" onclick="AddExtra('materium','⮟')"><img src="/aow4db/Icons/Interface/arrow_down.png" width="15px"></button>
+                                            <button class="AddSubtract" onclick="AddExtra('materium','⮝')">
+                                                <img src="/aow4db/Icons/Interface/arrow_up.png" width="15px" />
+                                            </button>
+                                            <button class="AddSubtract" onclick="AddExtra('materium','⮟')">
+                                                <img src="/aow4db/Icons/Interface/arrow_down.png" width="15px" />
+                                            </button>
                                         </div>
                                     </div>
                                     <div style="display: flex; height: 50px">
                                         <div id="extraAstral"></div>
 
                                         <div style="display: flex; flex-direction: column">
-                                               <button class="AddSubtract" onclick="AddExtra('astral','⮝')"><img src="/aow4db/Icons/Interface/arrow_up.png" width="15px"></button>
-                                            <button class="AddSubtract" onclick="AddExtra('astral','⮟')"><img src="/aow4db/Icons/Interface/arrow_down.png" width="15px"></button>
+                                            <button class="AddSubtract" onclick="AddExtra('astral','⮝')">
+                                                <img src="/aow4db/Icons/Interface/arrow_up.png" width="15px" />
+                                            </button>
+                                            <button class="AddSubtract" onclick="AddExtra('astral','⮟')">
+                                                <img src="/aow4db/Icons/Interface/arrow_down.png" width="15px" />
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -793,29 +712,35 @@
                                             style="float: right; color: red"
                                             class="button"
                                             onclick="ClearAscensionSkill()">
-                                           <img src="/aow4db/Icons/Interface/CloseX.png" height="20px" />
+                                            <img src="/aow4db/Icons/Interface/CloseX.png" height="20px" />
                                         </button>
                                         <button
                                             class="button-inset"
                                             id="originButtonAscension"
                                             onclick="SetupButtons(event,'Ascension')">
-                                            <img class="padded-image" src="/aow4db/Icons/Interface/addsymbol.png" height="20px" />
+                                            <img
+                                                class="padded-image"
+                                                src="/aow4db/Icons/Interface/addsymbol.png"
+                                                height="20px" />
                                         </button>
                                     </div>
-                                    <br><br>
-                                         <div id="buttonContainer15">
+                                    <br /><br />
+                                    <div id="buttonContainer15">
                                         <span class="small_title"> Ambition</span>
-                                         <button
+                                        <button
                                             style="float: right; color: red"
                                             class="button"
                                             onclick="ClearAmbition()">
                                             <img src="/aow4db/Icons/Interface/CloseX.png" height="20px" />
                                         </button>
-                                         <button
+                                        <button
                                             class="button-inset"
                                             id="originButtonAmbition"
                                             onclick="SetupButtons(event,'Ambition')">
-                                            <img class="padded-image" src="/aow4db/Icons/Interface/addsymbol.png" height="20px" />
+                                            <img
+                                                class="padded-image"
+                                                src="/aow4db/Icons/Interface/addsymbol.png"
+                                                height="20px" />
                                         </button>
                                     </div>
                                 </div>
@@ -877,10 +802,10 @@
                                         class="button"
                                         id="originButtonCulture"
                                         onclick="SetupButtons(event,'Culture')"></button>
-                                        <button
-                                            class="button-inset"
-                                            id="originButtonSubCulture"
-                                            onclick="SetupButtons(event,'SubCulture')"></button>
+                                    <button
+                                        class="button-inset"
+                                        id="originButtonSubCulture"
+                                        onclick="SetupButtons(event,'SubCulture')"></button>
                                 </div>
 
                                 <div id="buttonContainer2">
@@ -888,20 +813,20 @@
                                         class="button-inset"
                                         id="originButtonSociety1"
                                         onclick="SetupButtons(event,'Society1')"></button>
-                                     <button
-                                            class="button-inset"
-                                            id="originButtonSubSociety1"
-                                            onclick="SetupButtons(event,'SubSociety1')"></button>
+                                    <button
+                                        class="button-inset"
+                                        id="originButtonSubSociety1"
+                                        onclick="SetupButtons(event,'SubSociety1')"></button>
                                 </div>
                                 <div id="buttonContainer1">
                                     <button
                                         class="button-inset"
                                         id="originButtonSociety2"
                                         onclick="SetupButtons(event,'Society2')"></button>
-                                     <button
-                                            class="button-inset"
-                                            id="originButtonSubSociety2"
-                                            onclick="SetupButtons(event,'SubSociety2')"></button>
+                                    <button
+                                        class="button-inset"
+                                        id="originButtonSubSociety2"
+                                        onclick="SetupButtons(event,'SubSociety2')"></button>
                                 </div>
                             </div>
                         </div>
@@ -927,6 +852,7 @@
                             id="tomePathButton"></div>
                     </div>
                 </div>
+                 
             </div>
             <div style="color: white; display: none" id="overviewPanel">
                 <button class="button-random" onclick="ResetHighlights()" id="toggleButton1">

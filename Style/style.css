@@ -283,25 +283,35 @@ a:hover {
     text-decoration: none;
     color: #eee;
 }
+@media (min-width:800px) {
+    #menu li:hover > a,
+    #menu li a:hover {
+        background: #111;
+    }
 
-#menu li:hover > a,
-#menu li a:hover {
-    background: #111;
+    #menu li:hover ul.menus {
+        display: block;
+    }
+
+    #menu ul.menus .has-submenu:hover .submenu {
+        display: block;
+    }
 }
 
+
 #menu input {
-    display: none;
+  
     margin: 0 0;
     padding: 0 0;
     width: 80px;
     height: 35px;
-    opacity: 0;
+   
     cursor: pointer;
 }
 
 #menu label {
     font: bold 30px Arial;
-    display: none;
+   
     width: 35px;
     height: 36px;
     line-height: 36px;
@@ -334,10 +344,6 @@ a:hover {
     text-transform: uppercase;
 }
 
-#menu li:hover ul.menus {
-    display: block;
-}
-
 #menu a.home {
     background: #c00;
 }
@@ -356,9 +362,6 @@ a:hover {
     right: 9px;
 }
 
-#menu ul.menus a:hover {
-    background: #333;
-}
 
 #menu ul.menus .submenu {
     display: none;
@@ -371,10 +374,6 @@ a:hover {
 
 #menu ul.menus .submenu li {
     background: #111;
-}
-
-#menu ul.menus .has-submenu:hover .submenu {
-    display: block;
 }
 
 .collapsible {
@@ -812,6 +811,8 @@ tab {
     margin-left: auto;
     margin-right: auto;
 }
+
+
 
 .InitialBonus {
     display: flex;
@@ -1472,6 +1473,8 @@ hr {
 
     margin-left: 0;
     font-weight: lighter;
+      max-height: 80vh;
+    overflow-y: auto;
 }
 .tooltiptextnew.wide {
     max-width: 500px;
