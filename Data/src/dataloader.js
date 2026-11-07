@@ -124,7 +124,7 @@ function fetchJsonFiles(filePaths) {
 }
 var jsonSiegeProjects;
 
-const dlcMap = {
+const rawDlcMap = {
     DRAGONLORDS: {
         src: "/aow4db/Icons/Text/DragonDawn.png",
         text: "Part of the Dragon Dawn DLC"
@@ -164,10 +164,12 @@ const dlcMap = {
     THRONESOFBLOOD: {
         src: "/aow4db/Icons/Text/ThronesOfBlood.png",
         text: "Part of the Thrones of Blood DLC"
-    }, RISEFROMRUIN: {
+    },
+    RISEFROMRUIN: {
         src: "/aow4db/Icons/Text/RiseFromRuin.png",
         text: "Part of the Rise From Ruin DLC"
-    }, SECRETSOFTHEARCHMAGES: {
+    },
+    SECRETSOFTHEARCHMAGES: {
         src: "/aow4db/Icons/Text/SecretsOfTheArchmages.png",
         text: "Part of the Secrets of the Archmages DLC"
     },
@@ -180,6 +182,53 @@ const dlcMap = {
         text: "Silver Seas for theorycrafting"
     }
 };
+
+// Injeta regras de CSS dinamicamente para tags de DLCs novas ou desconhecidas
+function ensureDynamicDlcStyle(tag, src) {
+    if (typeof document === "undefined") return;
+    let sheet = document.getElementById("dynamic-dlc-styles");
+    if (!sheet) {
+        const styleEl = document.createElement("style");
+        styleEl.id = "dynamic-dlc-styles";
+        document.head.appendChild(styleEl);
+        sheet = styleEl;
+    }
+    const upper = tag.toUpperCase();
+    const lower = tag.toLowerCase();
+    try {
+        sheet.sheet.insertRule(`
+            ${upper}, ${lower} {
+                content: url("${src}");
+                max-width: 20px;
+                top: 7px;
+                position: relative;
+                display: inline-block;
+            }
+        `, sheet.sheet.cssRules.length);
+    } catch (e) {
+        // Tag já possui estilo ou rule duplicada
+    }
+}
+
+// Proxy dinâmico: resolve qualquer DLC futura automaticamente sem precisar de código manual
+const dlcMap = new Proxy(rawDlcMap, {
+    get(target, prop) {
+        if (typeof prop !== "string") return target[prop];
+        const key = prop.trim().toUpperCase();
+        if (key in target) {
+            ensureDynamicDlcStyle(key, target[key].src);
+            return target[key];
+        }
+        if (!key) return undefined;
+        const cleanName = key.toLowerCase().replace(/[\s_]/g, "");
+        const fallback = {
+            src: `/aow4db/Icons/Text/${cleanName}.png`,
+            text: `Part of ${key} DLC`
+        };
+        ensureDynamicDlcStyle(key, fallback.src);
+        return fallback;
+    }
+});
 
 async function GetAllData(selectedLang) {
     let basePathEN = `/aow4db/Data/EN/`;

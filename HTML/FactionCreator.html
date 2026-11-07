@@ -1,831 +1,850 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CC3NE8PT7K"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
 
-            gtag("config", "G-CC3NE8PT7K");
-        </script>
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CC3NE8PT7K"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
 
-        <link rel="shortcut icon" type="image/x-icon" href="/aow4db/favicon.ico" />
-        <link rel="stylesheet" type="text/css" href="/aow4db/Style/style.css" />
-        <link rel="stylesheet" type="text/css" href="/aow4db/Style/icons.css" />
-        <meta charset="UTF-8" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-         <script src="/aow4db/Data/Init.js" defer></script>
-        <script src="/aow4db/Data/TomeRestriction.js" defer></script>
+        gtag("config", "G-CC3NE8PT7K");
+    </script>
 
-        <style>
-            button {
-                font-family: "Regular", sans-serif;
-            }
+    <link rel="shortcut icon" type="image/x-icon" href="/aow4db/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/aow4db/Style/style.css" />
+    <link rel="stylesheet" type="text/css" href="/aow4db/Style/icons.css" />
+    <meta charset="UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="/aow4db/Data/Init.js" defer></script>
+    <script src="/aow4db/Data/TomeRestriction.js" defer></script>
 
-            .small_title {
-                font-family: "Decorative";
-                color: burlywood;
-                font-size: 14px;
-            }
+    <style>
+        button {
+            font-family: "Regular", sans-serif;
+        }
 
-            /* CSS styles for buttons */
-            .button {
-                background-color: #007bff00;
-                color: #fff;
-                border: none;
-                position: relative;
-                display: flex;
-                justify-content: space-between;
+        .small_title {
+            font-family: "Decorative";
+            color: burlywood;
+            font-size: 14px;
+        }
 
-                align-items: center;
+        /* CSS styles for buttons */
+        .button {
+            background-color: #007bff00;
+            color: #fff;
+            border: none;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
 
-                cursor: pointer;
-            }
+            align-items: center;
 
-            /* CSS styles for buttons */
-            .button2 {
-                background-color: #007bff00;
-                color: #fff;
-                border: none;
-                position: relative;
-                display: flex;
-                justify-content: space-between;
+            cursor: pointer;
+        }
 
-                align-items: center;
+        /* CSS styles for buttons */
+        .button2 {
+            background-color: #007bff00;
+            color: #fff;
+            border: none;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
 
-                cursor: pointer;
-            }
+            align-items: center;
 
-            #notesDisplay {
-                border: 1px solid #ccc;
-                padding: 6px;
-                min-height: 100px;
-                width: 100%;
-            }
+            cursor: pointer;
+        }
 
-            /* CSS styles for origin buttons */
-            .origin-button {
-                padding: 5px;
-                background-color: #007bff;
-                color: #fff;
-                border: none;
-                cursor: pointer;
-                margin: 5px;
-                border-radius: 5px;
-            }
+        #notesDisplay {
+            border: 1px solid #ccc;
+            padding: 6px;
+            min-height: 100px;
+            width: 100%;
+        }
 
-            .button-inset {
-                background-color: #007bff00;
-                color: #b5b5b1;
-                border: none;
-                cursor: pointer;
-                position: relative;
-                left: 30px;
+        /* CSS styles for origin buttons */
+        .origin-button {
+            padding: 5px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+        }
 
-                align-items: center;
+        .button-inset {
+            background-color: #007bff00;
+            color: #b5b5b1;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            left: 30px;
 
-                display: flex;
-                justify-content: space-between;
-            }
-            .button-inset:hover{
-                 color: #fff;
-            }
+            align-items: center;
 
-            .list-button {
-                border-width: 3px;
-                border-style: solid;
-                border-image: url(/aow4db/Icons/9slicetooltip.png);
-                border-image-slice: 10 10 10 10;
-                border-image-repeat: stretch;
-                width: 100%;
-                background-color: #111;
-                color: #fff;
-                /* border: none; */
-                cursor: pointer;
-                position: relative;
-                z-index: 2;
-                display: flex;
-                justify-content: normal;
-            }
+            display: flex;
+            justify-content: space-between;
+        }
 
-            .list-button.selected {
-                background-color: #4caf50;
-                color: white;
-            }
+        .button-inset:hover {
+            color: #fff;
+        }
 
-            .list-button-small {
-                border-width: 3px;
-                border-style: solid;
-                border-image: url(/aow4db/Icons/9slicetooltip.png);
-                border-image-slice: 10 10 10 10;
-                border-image-repeat: stretch;
-                width: 60px;
+        .list-button {
+            border-width: 3px;
+            border-style: solid;
+            border-image: url(/aow4db/Icons/9slicetooltip.png);
+            border-image-slice: 10 10 10 10;
+            border-image-repeat: stretch;
+            width: 100%;
+            background-color: #111;
+            color: #fff;
+            /* border: none; */
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: normal;
+        }
 
-                background-color: #111;
-                color: #fff;
-                /* border: none; */
-                cursor: pointer;
-                position: relative;
-            }
+        .list-button.selected {
+            background-color: #4caf50;
+            color: white;
+        }
 
-            .list-button-disabled {
-                border-width: 3px;
-                border-style: solid;
-                border-image: url(/aow4db/Icons/9slicetooltip.png);
-                border-image-slice: 10 10 10 10;
-                border-image-repeat: stretch;
-                width: 100%;
-                background-color: #111;
-                color: #ff1111;
-                /* border: none; */
-                cursor: pointer;
-                position: relative;
+        .list-button-small {
+            border-width: 3px;
+            border-style: solid;
+            border-image: url(/aow4db/Icons/9slicetooltip.png);
+            border-image-slice: 10 10 10 10;
+            border-image-repeat: stretch;
+            width: 60px;
 
-                display: flex;
-                filter: brightness(0.5);
-                justify-content: normal;
-            }
+            background-color: #111;
+            color: #fff;
+            /* border: none; */
+            cursor: pointer;
+            position: relative;
+        }
 
-            .list-button-currentequipped {
-                border-width: 3px;
-                border-style: solid;
-                border-image: url(/aow4db/Icons/9slicetooltip.png);
-                border-image-slice: 10 10 10 10;
-                border-image-repeat: stretch;
-                width: 100%;
-                background-color: #347634;
-                color: #fff;
-                /* border: none; */
-                cursor: pointer;
-                position: relative;
+        .list-button-disabled {
+            border-width: 3px;
+            border-style: solid;
+            border-image: url(/aow4db/Icons/9slicetooltip.png);
+            border-image-slice: 10 10 10 10;
+            border-image-repeat: stretch;
+            width: 100%;
+            background-color: #111;
+            color: #ff1111;
+            /* border: none; */
+            cursor: pointer;
+            position: relative;
 
-                display: flex;
-                justify-content: normal;
-            }
+            display: flex;
+            filter: brightness(0.5);
+            justify-content: normal;
+        }
 
-            .list-button-long {
-                /* border-width: 3px; */
-                /* border-style: solid; */
-                /* border-image: url(/aow4db/Icons/9slicetooltip.png); */
-                /* border-image-slice: 10 10 10 10; */
-                /* border-image-repeat: stretch; */
-                width: 100px;
-                height: 30px;
-                background-color: #111;
-                color: #fff;
-                height: 60px;
-                /* border: none; */
-                cursor: pointer;
-                position: relative;
-            }
-            
-            .padded-image{
-                padding:15px;
-            }
-            .tome-button-small {
-                width: 60px;
-                height: 70px;
+        .list-button-currentequipped {
+            border-width: 3px;
+            border-style: solid;
+            border-image: url(/aow4db/Icons/9slicetooltip.png);
+            border-image-slice: 10 10 10 10;
+            border-image-repeat: stretch;
+            width: 100%;
+            background-color: #347634;
+            color: #fff;
+            /* border: none; */
+            cursor: pointer;
+            position: relative;
 
-                color: #fff;
-                /* border: none; */
-                cursor: pointer;
-                position: relative;
-            }
+            display: flex;
+            justify-content: normal;
+        }
 
-            .skill-button-small {
-                width: 80px;
-                height: 80px;
+        .list-button-long {
+            /* border-width: 3px; */
+            /* border-style: solid; */
+            /* border-image: url(/aow4db/Icons/9slicetooltip.png); */
+            /* border-image-slice: 10 10 10 10; */
+            /* border-image-repeat: stretch; */
+            width: 100px;
+            height: 30px;
+            background-color: #111;
+            color: #fff;
+            height: 60px;
+            /* border: none; */
+            cursor: pointer;
+            position: relative;
+        }
 
-                color: #fff;
-                /* border: none; */
-                cursor: pointer;
-                position: relative;
-            }
+        .padded-image {
+            padding: 15px;
+        }
 
-            .subDivider {
-                display: flex;
-                justify-content: space-between;
-            }
-            
-           
+        .tome-button-small {
+            width: 60px;
+            height: 70px;
 
-            .list-button-small:hover,
-            .list-button:hover,
-            .button:hover,
-            .button-inset:hover,
-            .skill-button-small:hover,
-            .tome-button-small:hover,
-            .button-random:hover,
-            .button-overview:hover {
-                filter: brightness(200%);
-            }
+            color: #fff;
+            /* border: none; */
+            cursor: pointer;
+            position: relative;
+        }
 
-            .test {
-                width: 20px;
-                height: 20px;
-                border-width: 5px;
-                border-style: solid;
-                border-image: url(/aow4db/Icons/9slicetooltip.png);
-                border-image-slice: 10 10 10 10;
-            }
+        .skill-button-small {
+            width: 80px;
+            height: 80px;
 
-            .wrappers {
-                position: relative;
-                display: grid;
-                grid-template-columns: repeat(7, 2fr);
-                max-width: 100%;
-                max-height: calc(min(70vh, 520px) - 36px);
-                height: fit-content;
-                overflow: auto;
-                box-sizing: border-box;
-            }
+            color: #fff;
+            /* border: none; */
+            cursor: pointer;
+            position: relative;
+        }
 
-            .subSubDiv {
-                min-height: 240px;
-                width: 350px;
-            }
+        .subDivider {
+            display: flex;
+            justify-content: space-between;
+        }
 
-            .subSubDiv2 {
-                min-height: 130px;
-                width: 350px;
-            }
 
-            .shield {
-                float: left;
-            }
 
-            .symbol {
-                position: absolute;
-                /* float: left; */
-                top: 12px;
-                left: 14px;
-            }
+        .list-button-small:hover,
+        .list-button:hover,
+        .button:hover,
+        .button-inset:hover,
+        .skill-button-small:hover,
+        .tome-button-small:hover,
+        .button-random:hover,
+        .button-overview:hover {
+            filter: brightness(200%);
+        }
 
-            .selections {
-                width: fit-content;
-                max-width: calc(100vw - 16px);
-                height: auto;
-                max-height: min(70vh, 520px);
-                color: white;
-                display: inline-block;
-                position: absolute;
-                z-index: 1000;
-                border-width: 6px;
-                border-style: solid;
-                border-image: url(/aow4db/Icons/9slicetooltip.png);
-                border-image-slice: 10 10 10 10;
-                background-color: black;
-                overflow: hidden;
-                box-sizing: border-box;
-            }
+        .test {
+            width: 20px;
+            height: 20px;
+            border-width: 5px;
+            border-style: solid;
+            border-image: url(/aow4db/Icons/9slicetooltip.png);
+            border-image-slice: 10 10 10 10;
+        }
 
-            .container {
-                display: inline-block;
-                position: relative;
+        .wrappers {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(7, 2fr);
+            max-width: 100%;
+            max-height: calc(min(70vh, 520px) - 36px);
+            height: fit-content;
+            overflow: auto;
+            box-sizing: border-box;
+        }
 
-                width: 700px;
+        .subSubDiv {
+            min-height: 240px;
+            width: 350px;
+        }
 
-                background-image: url(/aow4db/Icons/tooltipBG.png);
+        .subSubDiv2 {
+            min-height: 130px;
+            width: 350px;
+        }
 
-                background-size: cover;
-                font-size: 13px;
-                color: #bbcdf6;
-                text-align: left;
-                border-width: 6px;
-                border-style: solid;
-                border-image: url(/aow4db/Icons/9slicetooltip.png);
-                border-image-slice: 10 10 10 10;
-                text-shadow: 2px 2px black;
-            }
+        .shield {
+            float: left;
+        }
 
-            .affinityText {
-                top: 20px;
-                max-width: 300px;
-                font-size: 24px;
-                position: relative;
-            }
+        .symbol {
+            position: absolute;
+            /* float: left; */
+            top: 12px;
+            left: 14px;
+        }
 
-            .factioncreator {
-                position: relative;
-                display: flex;
+        .selections {
+            width: fit-content;
+            max-width: calc(100vw - 16px);
+            height: auto;
+            max-height: min(70vh, 520px);
+            color: white;
+            display: inline-block;
+            position: absolute;
+            z-index: 1000;
+            border-width: 6px;
+            border-style: solid;
+            border-image: url(/aow4db/Icons/9slicetooltip.png);
+            border-image-slice: 10 10 10 10;
+            background-color: black;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
 
-                justify-content: center;
-            }
+        .container {
+            display: inline-block;
+            position: relative;
 
-            .AddSubtract {
-                margin: -2px;
-                font-weight: 900;
-                color: white;
-                background-color: transparent;
-                border: none;
-            }
+            width: 700px;
 
-            .overview {
-                max-height: 650px;
-                display: flex;
-                align-content: flex-start;
-                align-items: flex-start;
-                flex-wrap: wrap;
-                flex-direction: column;
-            }
+            background-image: url(/aow4db/Icons/tooltipBG.png);
 
-            .column {
-                padding: 6px;
-                font-size: 14px;
-                font-family: "Decorative";
-                color: burlywood;
-            }
+            background-size: cover;
+            font-size: 13px;
+            color: #bbcdf6;
+            text-align: left;
+            border-width: 6px;
+            border-style: solid;
+            border-image: url(/aow4db/Icons/9slicetooltip.png);
+            border-image-slice: 10 10 10 10;
+            text-shadow: 2px 2px black;
+        }
 
-            .overview_list_entry {
-                display: flex;
-                box-sizing: border-box;
-                min-width: 180px;
-                min-height: 30px;
-                max-width: 180px;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                border-width: 3px;
-                border-style: solid;
-                border-image: url(/aow4db/Icons/9slicetooltip.png);
-                border-image-slice: 10 10 10 10;
-                border-image-repeat: stretch;
-                overflow: hidden;
-                background-color: rgb(17, 17, 17);
+        .affinityText {
+            top: 20px;
+            max-width: 300px;
+            font-size: 24px;
+            position: relative;
+        }
 
-                font-size: 12px;
-                color: white;
-            }
+        .factioncreator {
+            position: relative;
+            display: flex;
 
-            .overview_list_entry.highlighted {
-                background-image: url(/aow4db/Icons/Interface/fav.png);
-                background-repeat: no-repeat;
-                background-position-x: 156px;
-                background-size: 20px;
-                background-color: rgb(24 42 64);
-            }
+            justify-content: center;
+        }
 
-            .overview_list_entry:hover {
-                filter: brightness(200%);
-            }
+        .AddSubtract {
+            margin: -2px;
+            font-weight: 900;
+            color: white;
+            background-color: transparent;
+            border: none;
+        }
 
-            .AddSubtract:hover {
-                margin: -2px;
-                font-weight: 1900;
-               filter: brightness(200%);
-                background-color: transparent;
-                border: none;
-            }
+        .overview {
+            max-height: 650px;
+            display: flex;
+            align-content: flex-start;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
 
-            .sortingButton:hover {
-                background-color: dimgrey;
-            }
+        .column {
+            padding: 6px;
+            font-size: 14px;
+            font-family: "Decorative";
+            color: burlywood;
+        }
 
-            .tome-remove-btn {
-                display: none;
-                position: absolute;
-                top: -18px;
-                right: 2px;
-                color: #ccc;
-                font-size: 13px;
-                font-weight: bold;
-                cursor: pointer;
-                z-index: 10;
-                line-height: 1;
-                background: rgba(0, 0, 0, 0.55);
-                border-radius: 3px;
-                padding: 0 2px;
-            }
-            .tome-button-small::before {
-                content: '';
-                position: absolute;
-                top: -18px;
-                left: 0;
-                right: 0;
-                height: 18px;
-            }
-            .tome-button-small:hover .tome-remove-btn {
-                display: block;
-            }
-            .tome-remove-btn:hover {
-                color: #ff6666;
-            }
-            .tome-warning-icon {
-                position: absolute;
-                top: -18px;
-                left: 2px;
-                font-size: 12px;
-                font-weight: bold;
-                color: #e05252;
-                pointer-events: none;
-                z-index: 10;
-                text-shadow: 0 0 3px #000;
-            }
-            .tome-invalid {
-                outline: 2px solid #e05252;
-                outline-offset: 3px;
-            }
-            .tome-modified {
-                outline: 2px solid #4caf50;
-                outline-offset: 3px;
-            }
-            .tome-add-slot {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                width: 60px;
-                height: 70px;
-                border: 2px dashed #555;
-                border-radius: 4px;
-                cursor: pointer;
-                color: #555;
-                font-size: 28px;
-                box-sizing: border-box;
-                align-self: center;
-                transition: border-color 0.15s, color 0.15s;
-            }
-            .tome-add-slot:hover {
-                border-color: #d7c297;
-                color: #d7c297;
-            }
+        .overview_list_entry {
+            display: flex;
+            box-sizing: border-box;
+            min-width: 180px;
+            min-height: 30px;
+            max-width: 180px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            border-width: 3px;
+            border-style: solid;
+            border-image: url(/aow4db/Icons/9slicetooltip.png);
+            border-image-slice: 10 10 10 10;
+            border-image-repeat: stretch;
+            overflow: hidden;
+            background-color: rgb(17, 17, 17);
 
-            /* PrintScreen Modal */
-            #printModal {
-                display: none;
-                position: fixed;
-                z-index: 9999;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.7);
-            }
-            #printModal .modal-content {
-                background-image: url(/aow4db/Icons/tooltipBG.png);
-                border-width: 6px;
-                border-style: solid;
-                border-image: url(/aow4db/Icons/9slicetooltip.png);
-                border-image-slice: 10 10 10 10;
-                padding: 24px;
-                width: 360px;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                text-align: center;
-                color: #fff;
-                font-family: "Regular", sans-serif;
-            }
-            #printModal .modal-content h3 {
-                font-family: "Decorative";
-                color: burlywood;
-                margin-top: 0;
-                font-size: 18px;
-            }
-            #printModal .modal-content p {
-                margin: 8px 0 20px 0;
-                font-size: 13px;
-                color: #bbb;
-            }
-            #printModal .preview-img {
-                max-width: 280px;
-                max-height: 180px;
-                border: 1px solid #444;
-                margin-bottom: 16px;
-                border-radius: 4px;
-            }
-            #printModal .modal-buttons {
-                display: flex;
-                gap: 10px;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-            #printModal .modal-btn {
-                padding: 10px 20px;
-                border: 1px solid burlywood;
-                background: transparent;
-                color: burlywood;
-                font-family: "Regular", sans-serif;
-                font-size: 14px;
-                cursor: pointer;
-                border-radius: 4px;
-                transition: background 0.2s, color 0.2s;
-            }
-            #printModal .modal-btn:hover {
-                background: burlywood;
-                color: #111;
-            }
-            #printModal .modal-btn.primary {
-                background: burlywood;
-                color: #111;
-            }
-            #printModal .modal-btn.primary:hover {
-                background: #d4b87a;
-            }
-            #printModal .modal-btn.cancel {
-                border-color: #666;
-                color: #888;
-            }
-            #printModal .modal-btn.cancel:hover {
-                background: #444;
-                color: #fff;
-            }
-            #printScreenButton {
-                margin-left: 0;
-            }
+            font-size: 12px;
+            color: white;
+        }
 
-            /* ─── Mobile icon-only action buttons (save space) ─── */
+        .overview_list_entry.highlighted {
+            background-image: url(/aow4db/Icons/Interface/fav.png);
+            background-repeat: no-repeat;
+            background-position-x: 156px;
+            background-size: 20px;
+            background-color: rgb(24 42 64);
+        }
+
+        .overview_list_entry:hover {
+            filter: brightness(200%);
+        }
+
+        .AddSubtract:hover {
+            margin: -2px;
+            font-weight: 1900;
+            filter: brightness(200%);
+            background-color: transparent;
+            border: none;
+        }
+
+        .sortingButton:hover {
+            background-color: dimgrey;
+        }
+
+        .tome-remove-btn {
+            display: none;
+            position: absolute;
+            top: -18px;
+            right: 2px;
+            color: #ccc;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+            line-height: 1;
+            background: rgba(0, 0, 0, 0.55);
+            border-radius: 3px;
+            padding: 0 2px;
+        }
+
+        .tome-button-small::before {
+            content: '';
+            position: absolute;
+            top: -18px;
+            left: 0;
+            right: 0;
+            height: 18px;
+        }
+
+        .tome-button-small:hover .tome-remove-btn {
+            display: block;
+        }
+
+        .tome-remove-btn:hover {
+            color: #ff6666;
+        }
+
+        .tome-warning-icon {
+            position: absolute;
+            top: -18px;
+            left: 2px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #e05252;
+            pointer-events: none;
+            z-index: 10;
+            text-shadow: 0 0 3px #000;
+        }
+
+        .tome-invalid {
+            outline: 2px solid #e05252;
+            outline-offset: 3px;
+        }
+
+        .tome-modified {
+            outline: 2px solid #4caf50;
+            outline-offset: 3px;
+        }
+
+        .tome-add-slot {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 70px;
+            border: 2px dashed #555;
+            border-radius: 4px;
+            cursor: pointer;
+            color: #555;
+            font-size: 28px;
+            box-sizing: border-box;
+            align-self: center;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .tome-add-slot:hover {
+            border-color: #d7c297;
+            color: #d7c297;
+        }
+
+        /* PrintScreen Modal */
+        #printModal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        #printModal .modal-content {
+            background-image: url(/aow4db/Icons/tooltipBG.png);
+            border-width: 6px;
+            border-style: solid;
+            border-image: url(/aow4db/Icons/9slicetooltip.png);
+            border-image-slice: 10 10 10 10;
+            padding: 24px;
+            width: 360px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            font-family: "Regular", sans-serif;
+        }
+
+        #printModal .modal-content h3 {
+            font-family: "Decorative";
+            color: burlywood;
+            margin-top: 0;
+            font-size: 18px;
+        }
+
+        #printModal .modal-content p {
+            margin: 8px 0 20px 0;
+            font-size: 13px;
+            color: #bbb;
+        }
+
+        #printModal .preview-img {
+            max-width: 280px;
+            max-height: 180px;
+            border: 1px solid #444;
+            margin-bottom: 16px;
+            border-radius: 4px;
+        }
+
+        #printModal .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        #printModal .modal-btn {
+            padding: 10px 20px;
+            border: 1px solid burlywood;
+            background: transparent;
+            color: burlywood;
+            font-family: "Regular", sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        #printModal .modal-btn:hover {
+            background: burlywood;
+            color: #111;
+        }
+
+        #printModal .modal-btn.primary {
+            background: burlywood;
+            color: #111;
+        }
+
+        #printModal .modal-btn.primary:hover {
+            background: #d4b87a;
+        }
+
+        #printModal .modal-btn.cancel {
+            border-color: #666;
+            color: #888;
+        }
+
+        #printModal .modal-btn.cancel:hover {
+            background: #444;
+            color: #fff;
+        }
+
+        #printScreenButton {
+            margin-left: 0;
+        }
+
+        /* ─── Mobile icon-only action buttons (save space) ─── */
+        .action-icon-btn {
+            display: none;
+            width: 30px !important;
+            height: 30px !important;
+            min-width: 30px;
+            padding: 2px !important;
+            font-size: 0 !important;
+        }
+
+        .action-icon-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* bordas mais finas que o style.css global (10px → 6px) */
+        #capture .inputfield {
+            border-width: 6px;
+        }
+
+        /* ─── Mobile: icon-only action buttons ─── */
+        @media (max-width: 768px) {
             .action-icon-btn {
-                display: none;
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #printScreenButton {
                 width: 30px !important;
                 height: 30px !important;
                 min-width: 30px;
                 padding: 2px !important;
                 font-size: 0 !important;
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
             }
-            .action-icon-btn svg {
+
+            #printScreenButton::after {
+                content: "";
+                display: inline-block;
                 width: 18px;
                 height: 18px;
+                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'/%3E%3Ccircle cx='12' cy='13' r='4'/%3E%3C/svg%3E") center/contain no-repeat;
+            }
+        }
+    </style>
+
+    <script>
+        const namePrefixes = ["Arcane", "Feral", "Divine", "Cursed", "Mystic"];
+        const nameTypes = ["Warlord", "Summoner", "Champion", "Sorcerer", "Guardian"];
+
+        const placeHolderTomes = [];
+
+
+        function HandlePage() {
+
+            jsonTomes = [...jsonTomes, ...placeHolderTomes];
+            SetRandomStart();
+
+            var yourKeyEl = document.getElementById("YourKey");
+            if (yourKeyEl) yourKeyEl.textContent = getOrCreateUserEditKey();
+
+            var tooltip = document.getElementById("tooltipKey");
+            if (tooltip) {
+                var span = document.createElement("span");
+                span.innerHTML =
+                    "Important! <br>This key is used to load and delete your builds, it is stored in your browser data, please save it in case it gets wiped!. You can overwrite it using Load Key";
+                addTooltipListeners(tooltip, span);
             }
 
-            /* bordas mais finas que o style.css global (10px → 6px) */
-            #capture .inputfield {
-                border-width: 6px;
+            hidePageLoading();
+        }
+
+        // ── Reusable loading overlay helpers ──────────────────────────
+        function showPageLoading(msg) {
+            var overlay = document.getElementById("pageLoadingOverlay");
+            var text = document.getElementById("pageLoadingText");
+            if (overlay) { overlay.style.opacity = "1"; overlay.style.display = "flex"; }
+            if (text) text.textContent = msg || "Loading…";
+        }
+        function hidePageLoading() {
+            var overlay = document.getElementById("pageLoadingOverlay");
+            if (overlay) {
+                overlay.style.opacity = "0";
+                setTimeout(function () { overlay.style.display = "none"; }, 400);
             }
+        }
+    </script>
 
-            /* ─── Mobile: icon-only action buttons ─── */
-            @media (max-width: 768px) {
-                .action-icon-btn {
-                    display: flex !important;
-                    align-items: center;
-                    justify-content: center;
-                }
-                #printScreenButton {
-                    width: 30px !important;
-                    height: 30px !important;
-                    min-width: 30px;
-                    padding: 2px !important;
-                    font-size: 0 !important;
-                    display: flex !important;
-                    align-items: center;
-                    justify-content: center;
-                }
-                #printScreenButton::after {
-                    content: "";
-                    display: inline-block;
-                    width: 18px;
-                    height: 18px;
-                    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'/%3E%3Ccircle cx='12' cy='13' r='4'/%3E%3C/svg%3E") center/contain no-repeat;
-                }
-            }
-        </style>
+    <title>Age of Wonders 4 Database - Faction Creator</title>
+</head>
 
-        <script>
-            const namePrefixes = ["Arcane", "Feral", "Divine", "Cursed", "Mystic"];
-            const nameTypes = ["Warlord", "Summoner", "Champion", "Sorcerer", "Guardian"];
-            
-            const placeHolderTomes = [];
-
-          
-            function HandlePage() {
-                
-                   jsonTomes = [...jsonTomes, ...placeHolderTomes];
-                SetRandomStart();
-
-                var yourKeyEl = document.getElementById("YourKey");
-                if (yourKeyEl) yourKeyEl.textContent = getOrCreateUserEditKey();
-
-                var tooltip = document.getElementById("tooltipKey");
-                if (tooltip) {
-                    var span = document.createElement("span");
-                    span.innerHTML =
-                        "Important! <br>This key is used to load and delete your builds, it is stored in your browser data, please save it in case it gets wiped!. You can overwrite it using Load Key";
-                    addTooltipListeners(tooltip, span);
-                }
-
-                hidePageLoading();
-            }
-
-            // ── Reusable loading overlay helpers ──────────────────────────
-            function showPageLoading(msg) {
-                var overlay = document.getElementById("pageLoadingOverlay");
-                var text = document.getElementById("pageLoadingText");
-                if (overlay) { overlay.style.opacity = "1"; overlay.style.display = "flex"; }
-                if (text) text.textContent = msg || "Loading…";
-            }
-            function hidePageLoading() {
-                var overlay = document.getElementById("pageLoadingOverlay");
-                if (overlay) {
-                    overlay.style.opacity = "0";
-                    setTimeout(function () { overlay.style.display = "none"; }, 400);
-                }
-            }
-        </script>
-
-        <title>Age of Wonders 4 Database - Faction Creator</title>
-    </head>
-
-    <body>
-        <!-- Page-load overlay -->
-        <div id="pageLoadingOverlay" style="
+<body>
+    <!-- Page-load overlay -->
+    <div id="pageLoadingOverlay" style="
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: #0a0a0a; z-index: 99999; display: flex;
             flex-direction: column; align-items: center; justify-content: center;
             font-family: 'Decorative'; color: burlywood; font-size: 18px;
             transition: opacity 0.4s;
         ">
-            <div class="spinner" style="margin-bottom: 16px;"></div>
-            <span id="pageLoadingText">Loading Faction Creator…</span>
-        </div>
+        <div class="spinner" style="margin-bottom: 16px;"></div>
+        <span id="pageLoadingText">Loading Faction Creator…</span>
+    </div>
 
-        <div id="header"></div>
+    <div id="header"></div>
 
-        <div class="tome_name">Faction creator</div>
+    <div class="tome_name">Faction creator</div>
 
-        <div style="color: white; display: table; margin: 5px; margin-left: auto; margin-right: auto">
-            <div></div>
-            <div id="note"></div>
-            <div id="shareSection">
-            <button class="button-random" id="genCopyBtn" onclick="generateAndCopyLink()">Generate &amp; Copy Link</button>
+    <div style="color: white; display: table; margin: 5px; margin-left: auto; margin-right: auto">
+        <div></div>
+        <div id="note"></div>
+        <div id="shareSection">
+            <button class="button-random" id="genCopyBtn" onclick="generateAndCopyLink()">Generate &amp; Copy
+                Link</button>
 
             <input type="text" value="" class="inputfield" id="shareLink" style="width: 600px" />
 
-            </div>
-            <div style="display: flex; flex-direction: row; justify-content: space-around; align-items: center; gap: 8px;" id="actionRow">
-                <button class="button-random" onclick="showPageLoading('Randomising…');_deferDepth=1;setTimeout(function(){SetRandomStart(true);_deferDepth=0;hidePageLoading();},20);">Randomise</button>
-                <button class="button-random action-icon-btn" id="mobileCopyLinkBtn" onclick="generateAndCopyLink()" title="Copy Link">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-                </button>
-                <button class="button-random" id="printScreenButton" onclick="printScreen()">PrintScreen</button>
-                <button class="button-overview" style="left: 200px" id="toggleButton">▶ Show Overview</button>
-            </div>
         </div>
+        <div style="display: flex; flex-direction: row; justify-content: space-around; align-items: center; gap: 8px;"
+            id="actionRow">
+            <button class="button-random"
+                onclick="showPageLoading('Randomising…');_deferDepth=1;setTimeout(function(){SetRandomStart(true);_deferDepth=0;hidePageLoading();},20);">Randomise</button>
+            <button class="button-random action-icon-btn" id="mobileCopyLinkBtn" onclick="generateAndCopyLink()"
+                title="Copy Link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                </svg>
+            </button>
+            <button class="button-random" id="printScreenButton" onclick="printScreen()">PrintScreen</button>
+            <button class="button-overview" style="left: 200px" id="toggleButton">▶ Show Overview</button>
+        </div>
+    </div>
 
-        <div class="factioncreator" id="capture">
-            <div class="typeHolder" id="factioncreator">
-                <div class="container">
-                    <div>
-                        <div class="playerSigil">
-                            <!-- <canvas id="myCanvas" class="shield" width="70" height="70" style="float:left"></canvas>
+    <div class="factioncreator" id="capture">
+        <div class="typeHolder" id="factioncreator">
+            <div class="container">
+                <div>
+                    <div class="playerSigil">
+                        <!-- <canvas id="myCanvas" class="shield" width="70" height="70" style="float:left"></canvas>
                         <canvas class="symbol" id="myCanvas2" width="50" height="50" style="float:left"></canvas>-->
-                            <img
-                                class="shield"
-                                id="shield"
-                                src="/aow4db/Icons/Interface/Sigil.png"
-                                width="70px"
-                                height="70px" />
-                            <img class="symbol" id="symbol" src="/aow4db/Icons/Interface/symbol.png" height="45px" />
-                        </div>
-                        <!--  <button class="test" id="shieldColor" onclick="ChangeShieldCol()"> </button>
+                        <img class="shield" id="shield" src="/aow4db/Icons/Interface/Sigil.png" width="70px"
+                            height="70px" />
+                        <img class="symbol" id="symbol" src="/aow4db/Icons/Interface/symbol.png" height="45px" />
+                    </div>
+                    <!--  <button class="test" id="shieldColor" onclick="ChangeShieldCol()"> </button>
                     <button class="test" id="symbolColor" onclick="ChangeSymbolCol()"> </button>-->
-                        <div>
-                            <div id="currentAffinity" class="affinityText"></div>
-                            <div id="extraAffinityFT">
-                                Extra Affinity Points
-                                <div
-                                    id="extraAffinity"
-                                    style="
+                    <div>
+                        <div id="currentAffinity" class="affinityText"></div>
+                        <div id="extraAffinityFT">
+                            Extra Affinity Points
+                            <div id="extraAffinity" style="
                                         max-width: 300px;
                                         display: flex;
                                         justify-content: space-evenly;
                                         background-color: #f0f8ff2b;
                                         position: relative;
                                     ">
-                                    <div style="display: flex; height: 50px">
-                                        <div id="extraOrder"></div>
-                                        <div style="display: flex; flex-direction: column">
-                                            <button class="AddSubtract" onclick="AddExtra('order','⮝')"><img src="/aow4db/Icons/Interface/arrow_up.png" width="15px"></button>
-                                            <button class="AddSubtract" onclick="AddExtra('order','⮟')"><img src="/aow4db/Icons/Interface/arrow_down.png" width="15px"></button>
-                                        </div>
+                                <div style="display: flex; height: 50px">
+                                    <div id="extraOrder"></div>
+                                    <div style="display: flex; flex-direction: column">
+                                        <button class="AddSubtract" onclick="AddExtra('order','⮝')"><img
+                                                src="/aow4db/Icons/Interface/arrow_up.png" width="15px"></button>
+                                        <button class="AddSubtract" onclick="AddExtra('order','⮟')"><img
+                                                src="/aow4db/Icons/Interface/arrow_down.png" width="15px"></button>
                                     </div>
+                                </div>
 
-                                    <div style="display: flex; height: 50px">
-                                        <div id="extraChaos"></div>
+                                <div style="display: flex; height: 50px">
+                                    <div id="extraChaos"></div>
 
-                                        <div style="display: flex; flex-direction: column">
-                                               <button class="AddSubtract" onclick="AddExtra('chaos','⮝')"><img src="/aow4db/Icons/Interface/arrow_up.png" width="15px"></button>
-                                            <button class="AddSubtract" onclick="AddExtra('chaos','⮟')"><img src="/aow4db/Icons/Interface/arrow_down.png" width="15px"></button>
-                                        </div>
+                                    <div style="display: flex; flex-direction: column">
+                                        <button class="AddSubtract" onclick="AddExtra('chaos','⮝')"><img
+                                                src="/aow4db/Icons/Interface/arrow_up.png" width="15px"></button>
+                                        <button class="AddSubtract" onclick="AddExtra('chaos','⮟')"><img
+                                                src="/aow4db/Icons/Interface/arrow_down.png" width="15px"></button>
                                     </div>
+                                </div>
 
-                                    <div style="display: flex; height: 50px">
-                                        <div id="extraNature"></div>
-                                        <div style="display: flex; flex-direction: column">
-                                               <button class="AddSubtract" onclick="AddExtra('nature','⮝')"><img src="/aow4db/Icons/Interface/arrow_up.png" width="15px"></button>
-                                            <button class="AddSubtract" onclick="AddExtra('nature','⮟')"><img src="/aow4db/Icons/Interface/arrow_down.png" width="15px"></button>
-                                        </div>
+                                <div style="display: flex; height: 50px">
+                                    <div id="extraNature"></div>
+                                    <div style="display: flex; flex-direction: column">
+                                        <button class="AddSubtract" onclick="AddExtra('nature','⮝')"><img
+                                                src="/aow4db/Icons/Interface/arrow_up.png" width="15px"></button>
+                                        <button class="AddSubtract" onclick="AddExtra('nature','⮟')"><img
+                                                src="/aow4db/Icons/Interface/arrow_down.png" width="15px"></button>
                                     </div>
-                                    <div style="display: flex; height: 50px">
-                                        <div id="extraShadow"></div>
+                                </div>
+                                <div style="display: flex; height: 50px">
+                                    <div id="extraShadow"></div>
 
-                                        <div style="display: flex; flex-direction: column">
-                                               <button class="AddSubtract" onclick="AddExtra('shadow','⮝')"><img src="/aow4db/Icons/Interface/arrow_up.png" width="15px"></button>
-                                            <button class="AddSubtract" onclick="AddExtra('shadow','⮟')"><img src="/aow4db/Icons/Interface/arrow_down.png" width="15px"></button>
-                                        </div>
+                                    <div style="display: flex; flex-direction: column">
+                                        <button class="AddSubtract" onclick="AddExtra('shadow','⮝')"><img
+                                                src="/aow4db/Icons/Interface/arrow_up.png" width="15px"></button>
+                                        <button class="AddSubtract" onclick="AddExtra('shadow','⮟')"><img
+                                                src="/aow4db/Icons/Interface/arrow_down.png" width="15px"></button>
                                     </div>
-                                    <div style="display: flex; height: 50px">
-                                        <div id="extraMaterium"></div>
+                                </div>
+                                <div style="display: flex; height: 50px">
+                                    <div id="extraMaterium"></div>
 
-                                        <div style="display: flex; flex-direction: column">
-                                               <button class="AddSubtract" onclick="AddExtra('materium','⮝')"><img src="/aow4db/Icons/Interface/arrow_up.png" width="15px"></button>
-                                            <button class="AddSubtract" onclick="AddExtra('materium','⮟')"><img src="/aow4db/Icons/Interface/arrow_down.png" width="15px"></button>
-                                        </div>
+                                    <div style="display: flex; flex-direction: column">
+                                        <button class="AddSubtract" onclick="AddExtra('materium','⮝')"><img
+                                                src="/aow4db/Icons/Interface/arrow_up.png" width="15px"></button>
+                                        <button class="AddSubtract" onclick="AddExtra('materium','⮟')"><img
+                                                src="/aow4db/Icons/Interface/arrow_down.png" width="15px"></button>
                                     </div>
-                                    <div style="display: flex; height: 50px">
-                                        <div id="extraAstral"></div>
+                                </div>
+                                <div style="display: flex; height: 50px">
+                                    <div id="extraAstral"></div>
 
-                                        <div style="display: flex; flex-direction: column">
-                                               <button class="AddSubtract" onclick="AddExtra('astral','⮝')"><img src="/aow4db/Icons/Interface/arrow_up.png" width="15px"></button>
-                                            <button class="AddSubtract" onclick="AddExtra('astral','⮟')"><img src="/aow4db/Icons/Interface/arrow_down.png" width="15px"></button>
-                                        </div>
+                                    <div style="display: flex; flex-direction: column">
+                                        <button class="AddSubtract" onclick="AddExtra('astral','⮝')"><img
+                                                src="/aow4db/Icons/Interface/arrow_up.png" width="15px"></button>
+                                        <button class="AddSubtract" onclick="AddExtra('astral','⮟')"><img
+                                                src="/aow4db/Icons/Interface/arrow_down.png" width="15px"></button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <br />
-                        <hr />
                     </div>
+                    <br />
+                    <hr />
+                </div>
 
-                    <div class="subDivider">
-                        <div style="width: 280px">
-                            <div class="subSubDiv">
-                                <div style="min-height: 200px">
-                                    <span class="small_title"> Ruler</span>
-                                    <input
-                                        type="text"
-                                        value="Ruler Name"
-                                        pattern="[a-zA-Z0-9\s]+"
-                                        class="inputfield"
-                                        id="fname1"
-                                        maxlength="35"
-                                        name="fname" />
+                <div class="subDivider">
+                    <div style="width: 280px">
+                        <div class="subSubDiv">
+                            <div style="min-height: 200px">
+                                <span class="small_title"> Ruler</span>
+                                <input type="text" value="Ruler Name" pattern="[a-zA-Z0-9\s]+" class="inputfield"
+                                    id="fname1" maxlength="35" name="fname" />
 
-                                    <!--<input type="text" value="Title" class="inputfield" id="fname2" name="fname">-->
-                                    <div id="buttonContainer">
-                                        <button
-                                            class="button"
-                                            id="originButtonOrigin"
-                                            onclick="SetupButtons(event,'Origin')"></button>
-                                    </div>
+                                <!--<input type="text" value="Title" class="inputfield" id="fname2" name="fname">-->
+                                <div id="buttonContainer">
+                                    <button class="button" id="originButtonOrigin"
+                                        onclick="SetupButtons(event,'Origin')"></button>
+                                </div>
 
-                                    <div id="buttonContainer10">
-                                        <button
-                                            class="button-inset"
-                                            id="originButtonSubType"
-                                            onclick="SetupButtons(event,'SubType')"></button>
-                                    </div>
-                                    <div id="buttonContainer8">
-                                        <button
-                                            class="button-inset"
-                                            id="originButtonClass"
-                                            onclick="SetupButtons(event,'Class')"></button>
-                                    </div>
-                                    <div id="buttonContainer9">
-                                        <button
-                                            class="button-inset"
-                                            id="originButtonTome"
-                                            onclick="SetupButtons(event,'Tome')"></button>
-                                    </div>
-                                    <br /><br />
-                                    <div id="buttonContainer7">
-                                        <span class="small_title"> Ascension</span>
-                                        <button
-                                            style="float: right; color: red"
-                                            class="button"
-                                            onclick="ClearAscensionSkill()">
-                                           <img src="/aow4db/Icons/Interface/CloseX.png" height="20px" />
-                                        </button>
-                                        <button
-                                            class="button-inset"
-                                            id="originButtonAscension"
-                                            onclick="SetupButtons(event,'Ascension')">
-                                            <img class="padded-image" src="/aow4db/Icons/Interface/addsymbol.png" height="20px" />
-                                        </button>
-                                    </div>
-                                    <br><br>
-                                         <div id="buttonContainer15">
-                                        <span class="small_title"> Ambition</span>
-                                         <button
-                                            style="float: right; color: red"
-                                            class="button"
-                                            onclick="ClearAmbition()">
-                                            <img src="/aow4db/Icons/Interface/CloseX.png" height="20px" />
-                                        </button>
-                                         <button
-                                            class="button-inset"
-                                            id="originButtonAmbition"
-                                            onclick="SetupButtons(event,'Ambition')">
-                                            <img class="padded-image" src="/aow4db/Icons/Interface/addsymbol.png" height="20px" />
-                                        </button>
-                                    </div>
+                                <div id="buttonContainer10">
+                                    <button class="button-inset" id="originButtonSubType"
+                                        onclick="SetupButtons(event,'SubType')"></button>
+                                </div>
+                                <div id="buttonContainer8">
+                                    <button class="button-inset" id="originButtonClass"
+                                        onclick="SetupButtons(event,'Class')"></button>
+                                </div>
+                                <div id="buttonContainer9">
+                                    <button class="button-inset" id="originButtonTome"
+                                        onclick="SetupButtons(event,'Tome')"></button>
+                                </div>
+                                <br /><br />
+                                <div id="buttonContainer7">
+                                    <span class="small_title"> Ascension</span>
+                                    <button style="float: right; color: red" class="button"
+                                        onclick="ClearAscensionSkill()">
+                                        <img src="/aow4db/Icons/Interface/CloseX.png" height="20px" />
+                                    </button>
+                                    <button class="button-inset" id="originButtonAscension"
+                                        onclick="SetupButtons(event,'Ascension')">
+                                        <img class="padded-image" src="/aow4db/Icons/Interface/addsymbol.png"
+                                            height="20px" />
+                                    </button>
+                                </div>
+                                <br><br>
+                                <div id="buttonContainer15">
+                                    <span class="small_title"> Ambition</span>
+                                    <button style="float: right; color: red" class="button" onclick="ClearAmbition()">
+                                        <img src="/aow4db/Icons/Interface/CloseX.png" height="20px" />
+                                    </button>
+                                    <button class="button-inset" id="originButtonAmbition"
+                                        onclick="SetupButtons(event,'Ambition')">
+                                        <img class="padded-image" src="/aow4db/Icons/Interface/addsymbol.png"
+                                            height="20px" />
+                                    </button>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- <div class="subSubDiv2">
+                        <!-- <div class="subSubDiv2">
                                 <span class="small_title">Signature Skills</span>
                                 <button style="float: right; color: red" class="button" onclick="RemoveLastSkill()">
                                     X
@@ -839,145 +858,120 @@
                                     </button>
                                 </div>
                             </div>-->
-                        </div>
+                    </div>
 
-                        <div style="width: 300px">
-                            <div class="subSubDiv" style="min-height: 200px">
-                                <span class="small_title"> Race</span>
-                                <input
-                                    type="text"
-                                    class="inputfield"
-                                    pattern="[a-zA-Z0-9\s]+"
-                                    value="Race Name"
-                                    id="fname"
-                                    maxlength="35"
-                                    name="fname" />
+                    <div style="width: 300px">
+                        <div class="subSubDiv" style="min-height: 200px">
+                            <span class="small_title"> Race</span>
+                            <input type="text" class="inputfield" pattern="[a-zA-Z0-9\s]+" value="Race Name" id="fname"
+                                maxlength="35" name="fname" />
 
-                                <div id="buttonContainer5">
-                                    <button
-                                        class="button"
-                                        id="originButtonForm"
-                                        onclick="SetupButtons(event,'Form')"></button>
-                                </div>
+                            <div id="buttonContainer5">
+                                <button class="button" id="originButtonForm"
+                                    onclick="SetupButtons(event,'Form')"></button>
+                            </div>
 
-                                <div id="buttonContainer4">
-                                    <button
-                                        style="
+                            <div id="buttonContainer4">
+                                <button style="
                                             background-color: transparent;
                                             min-height: 40px;
                                             min-width: 200px;
                                             border: none;
-                                        "
-                                        id="originButtonFormTrait"
-                                        onclick="SetupButtons(event,'FormTrait')">
-                                        <span id="selected-options-container" style="color: white"></span>
-                                    </button>
-                                </div>
+                                        " id="originButtonFormTrait" onclick="SetupButtons(event,'FormTrait')">
+                                    <span id="selected-options-container" style="color: white"></span>
+                                </button>
                             </div>
-                            <div class="subSubDiv2">
-                                <div id="buttonContainer3">
-                                    <span class="small_title"> Culture & Society</span>
-                                    <button
-                                        class="button"
-                                        id="originButtonCulture"
-                                        onclick="SetupButtons(event,'Culture')"></button>
-                                        <button
-                                            class="button-inset"
-                                            id="originButtonSubCulture"
-                                            onclick="SetupButtons(event,'SubCulture')"></button>
-                                </div>
+                        </div>
+                        <div class="subSubDiv2">
+                            <div id="buttonContainer3">
+                                <span class="small_title"> Culture & Society</span>
+                                <button class="button" id="originButtonCulture"
+                                    onclick="SetupButtons(event,'Culture')"></button>
+                                <button class="button-inset" id="originButtonSubCulture"
+                                    onclick="SetupButtons(event,'SubCulture')"></button>
+                            </div>
 
-                                <div id="buttonContainer2">
-                                    <button
-                                        class="button-inset"
-                                        id="originButtonSociety1"
-                                        onclick="SetupButtons(event,'Society1')"></button>
-                                     <button
-                                            class="button-inset"
-                                            id="originButtonSubSociety1"
-                                            onclick="SetupButtons(event,'SubSociety1')"></button>
-                                </div>
-                                <div id="buttonContainer1">
-                                    <button
-                                        class="button-inset"
-                                        id="originButtonSociety2"
-                                        onclick="SetupButtons(event,'Society2')"></button>
-                                     <button
-                                            class="button-inset"
-                                            id="originButtonSubSociety2"
-                                            onclick="SetupButtons(event,'SubSociety2')"></button>
-                                </div>
+                            <div id="buttonContainer2">
+                                <button class="button-inset" id="originButtonSociety1"
+                                    onclick="SetupButtons(event,'Society1')"></button>
+                                <button class="button-inset" id="originButtonSubSociety1"
+                                    onclick="SetupButtons(event,'SubSociety1')"></button>
+                            </div>
+                            <div id="buttonContainer1">
+                                <button class="button-inset" id="originButtonSociety2"
+                                    onclick="SetupButtons(event,'Society2')"></button>
+                                <button class="button-inset" id="originButtonSubSociety2"
+                                    onclick="SetupButtons(event,'SubSociety2')"></button>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div>
-                        <hr />
+                <div>
+                    <hr />
 
-                        <button class="button-inset" id="originButtonTome2"></button>
+                    <button class="button-inset" id="originButtonTome2"></button>
 
-                        <span class="small_title"> Tome Path</span>
-                        <label style="color:#d7c297;font-family:'Decorative';font-size:12px;cursor:pointer;margin-left:10px;">
-                            <input type="checkbox" id="tomeRestrictionToggle" style="vertical-align:middle;margin-right:4px;" onchange="showPageLoading('Applying restrictions…');"> Tome Restriction
-                        </label>
+                    <span class="small_title"> Tome Path</span>
+                    <label
+                        style="color:#d7c297;font-family:'Decorative';font-size:12px;cursor:pointer;margin-left:10px;">
+                        <input type="checkbox" id="tomeRestrictionToggle"
+                            style="vertical-align:middle;margin-right:4px;"
+                            onchange="showPageLoading('Applying restrictions…');"> Tome Restriction
+                    </label>
 
-                        <button style="float: right; color: red" class="button" onclick="ClearTomePath()">
-                            <img src="/aow4db/Icons/Interface/CloseX.png" height="20px" />
-                        </button>
-                        <br />
-                        <div id="tomeRestrictionDisplay" style="display:none; margin: 0 15px 4px 15px;"></div>
-                        <div
-                            style="display: grid; grid-template-columns: repeat(8, 2fr); margin: 15px"
-                            id="tomePathButton"></div>
+                    <button style="float: right; color: red" class="button" onclick="ClearTomePath()">
+                        <img src="/aow4db/Icons/Interface/CloseX.png" height="20px" />
+                    </button>
+                    <br />
+                    <div id="tomeRestrictionDisplay" style="display:none; margin: 0 15px 4px 15px;"></div>
+                    <div style="display: grid; grid-template-columns: repeat(8, 2fr); margin: 15px" id="tomePathButton">
                     </div>
                 </div>
             </div>
-            <div style="color: white; display: none" id="overviewPanel">
-                <button class="button-random" onclick="ResetHighlights()" id="toggleButton1">
-                    Reset <favourite></favourite>
-                </button>
-                <button class="button-random" onclick="ShowHideUnFavs()" id="toggleButton2">
-                    Show/Hide non-<favourite></favourite>
-                </button>
-                <p><span id="active-indices"></span></p>
-                <div class="overview" id="mainoverview">
-                    <div class="column" id="overviewHeroSkillsHolder"></div>
-                    <div class="column" id="overviewPassivesHolder"></div>
-                    <div class="column" id="overviewSummonHolder"></div>
-                    <div class="column" id="overviewCombatSpellsHolder"></div>
-                    <div class="column" id="overviewTransformationsHolder"></div>
-                    <div class="column" id="overviewEnchantmentsHolder"></div>
-                    <div class="column" id="overviewOtherSpellHolder"></div>
+        </div>
+        <div style="color: white; display: none" id="overviewPanel">
+            <button class="button-random" onclick="ResetHighlights()" id="toggleButton1">
+                Reset <favourite></favourite>
+            </button>
+            <button class="button-random" onclick="ShowHideUnFavs()" id="toggleButton2">
+                Show/Hide non-<favourite></favourite>
+            </button>
+            <p><span id="active-indices"></span></p>
+            <div class="overview" id="mainoverview">
+                <div class="column" id="overviewHeroSkillsHolder"></div>
+                <div class="column" id="overviewPassivesHolder"></div>
+                <div class="column" id="overviewSummonHolder"></div>
+                <div class="column" id="overviewCombatSpellsHolder"></div>
+                <div class="column" id="overviewTransformationsHolder"></div>
+                <div class="column" id="overviewEnchantmentsHolder"></div>
+                <div class="column" id="overviewOtherSpellHolder"></div>
 
-                    <div class="column" id="overviewUnitsHolder"></div>
-                    <div class="column" id="overviewUpgradesHolder"></div>
-                    <div class="column" id="overviewSPIHolder"></div>
-                    <div class="column" id="overviewSiegeHolder"></div>
-                    <div class="column" id="overviewEmpireHolder"></div>
-                </div>
+                <div class="column" id="overviewUnitsHolder"></div>
+                <div class="column" id="overviewUpgradesHolder"></div>
+                <div class="column" id="overviewSPIHolder"></div>
+                <div class="column" id="overviewSiegeHolder"></div>
+                <div class="column" id="overviewEmpireHolder"></div>
             </div>
         </div>
+    </div>
 
-        <div id="hiddentooltips" style="display: none"></div>
+    <div id="hiddentooltips" style="display: none"></div>
 
-        <div class="selections" id="selectionsHolder">
-            <p id="selections" style="text-align: center"></p>
-            <button
-                style="float: right; position: relative; top: -20px; color: red"
-                class="button"
-                onclick="toggleOriginButtons()">
-                 <img src="/aow4db/Icons/Interface/CloseX.png" height="20px" />
-            </button>
+    <div class="selections" id="selectionsHolder">
+        <p id="selections" style="text-align: center"></p>
+        <button style="float: right; position: relative; top: -20px; color: red" class="button"
+            onclick="toggleOriginButtons()">
+            <img src="/aow4db/Icons/Interface/CloseX.png" height="20px" />
+        </button>
 
-            <div id="originWrapperOptions" class="wrappers"></div>
+        <div id="originWrapperOptions" class="wrappers"></div>
 
-        </div>
-        <br /><br />
-        <hr>
+    </div>
+    <br /><br />
+    <hr>
 
-        <div
-            id="loading-spinner"
-            style="
+    <div id="loading-spinner" style="
                 display: none;
                 position: fixed;
                 top: 50%;
@@ -985,282 +979,282 @@
                 transform: translate(-50%, -50%);
                 z-index: 9999;
             ">
-            <div class="spinner"></div>
-        </div>
+        <div class="spinner"></div>
+    </div>
 
-        <script>
-            var rawNotes = "";
-            const selectedTags = new Set();
-            const spinner = document.getElementById("loading-spinner");
-            function addTag() {
-                const dropdown = document.getElementById("tagDropdown");
-                const tag = dropdown.value;
+    <script>
+        var rawNotes = "";
+        const selectedTags = new Set();
+        const spinner = document.getElementById("loading-spinner");
+        function addTag() {
+            const dropdown = document.getElementById("tagDropdown");
+            const tag = dropdown.value;
 
-                if (tag && !selectedTags.has(tag)) {
-                    selectedTags.add(tag);
-                    updateTagList(selectedTags);
-                }
-            }
-
-            function removeTag(tag) {
-                selectedTags.delete(tag);
+            if (tag && !selectedTags.has(tag)) {
+                selectedTags.add(tag);
                 updateTagList(selectedTags);
             }
+        }
 
-            function updateTagList(tagsSet) {
-                const tagListDiv = document.getElementById("tagList");
-                tagListDiv.innerHTML = ""; // Clear previous tags
+        function removeTag(tag) {
+            selectedTags.delete(tag);
+            updateTagList(selectedTags);
+        }
 
-                tagsSet.forEach((tag) => {
-                    const tagDiv = document.createElement("div");
-                    tagDiv.textContent = tag;
-                    tagDiv.style.display = "inline-block";
-                    tagDiv.style.margin = "5px";
-                    tagDiv.style.padding = "5px 10px";
-                    tagDiv.style.backgroundColor = "#444";
-                    tagDiv.style.color = "#fff";
-                    tagDiv.style.borderRadius = "4px";
+        function updateTagList(tagsSet) {
+            const tagListDiv = document.getElementById("tagList");
+            tagListDiv.innerHTML = ""; // Clear previous tags
 
-                    const removeBtn = document.createElement("button");
-                    removeBtn.textContent = "x";
-                    removeBtn.style.marginLeft = "8px";
-                    removeBtn.style.cursor = "pointer";
-                    removeBtn.onclick = () => removeTag(tag);
+            tagsSet.forEach((tag) => {
+                const tagDiv = document.createElement("div");
+                tagDiv.textContent = tag;
+                tagDiv.style.display = "inline-block";
+                tagDiv.style.margin = "5px";
+                tagDiv.style.padding = "5px 10px";
+                tagDiv.style.backgroundColor = "#444";
+                tagDiv.style.color = "#fff";
+                tagDiv.style.borderRadius = "4px";
 
-                    tagDiv.appendChild(removeBtn);
-                    tagListDiv.appendChild(tagDiv);
-                });
+                const removeBtn = document.createElement("button");
+                removeBtn.textContent = "x";
+                removeBtn.style.marginLeft = "8px";
+                removeBtn.style.cursor = "pointer";
+                removeBtn.onclick = () => removeTag(tag);
+
+                tagDiv.appendChild(removeBtn);
+                tagListDiv.appendChild(tagDiv);
+            });
+        }
+
+        function formatHeader(command) {
+            document.execCommand("formatBlock", false, command);
+        }
+        function format(command) {
+            document.execCommand(command, false, null);
+        }
+
+        function insertTag(tag) {
+            const editor = document.getElementById("NotesInput");
+            const selection = window.getSelection();
+            const range = selection.getRangeAt(0);
+
+            const tagEl = document.createElement(tag);
+            tagEl.innerHTML = " ";
+            range.insertNode(tagEl);
+            range.collapse(false);
+        }
+
+        function insertTooltip() {
+            const tooltipText = prompt("Enter tooltip text:");
+            if (!tooltipText) return;
+
+            const span = document.createElement("span");
+            span.className = "tooltip";
+            span.setAttribute("data-tooltip", tooltipText);
+            span.textContent = "[?]";
+
+            const selection = window.getSelection();
+            const range = selection.getRangeAt(0);
+            range.insertNode(span);
+            range.collapse(false);
+        }
+        /**
+         * Generate share link AND copy to clipboard in one click.
+         */
+        function generateAndCopyLink() {
+            GetQuickLink();
+            var copyText = document.getElementById("shareLink");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value).then(function () {
+                showToast("Link copied! (Ctrl+V to share)");
+            }).catch(function () {
+                showToast("Link generated. Select & copy manually.");
+            });
+        }
+
+        document.getElementById("toggleButton").addEventListener("click", function (event) {
+            const panel = document.getElementById("overviewPanel");
+
+            if (panel.style.display === "none" || panel.style.display === "") {
+                event.target.innerHTML = "◀ Hide Overview";
+                panel.style.display = "block"; // Show the panel
+            } else {
+                event.target.innerHTML = "▶ Show Overview";
+                panel.style.display = "none"; // Hide the panel
             }
+        });
 
-            function formatHeader(command) {
-                document.execCommand("formatBlock", false, command);
-            }
-            function format(command) {
-                document.execCommand(command, false, null);
-            }
-
-            function insertTag(tag) {
-                const editor = document.getElementById("NotesInput");
-                const selection = window.getSelection();
-                const range = selection.getRangeAt(0);
-
-                const tagEl = document.createElement(tag);
-                tagEl.innerHTML = " ";
-                range.insertNode(tagEl);
-                range.collapse(false);
-            }
-
-            function insertTooltip() {
-                const tooltipText = prompt("Enter tooltip text:");
-                if (!tooltipText) return;
-
-                const span = document.createElement("span");
-                span.className = "tooltip";
-                span.setAttribute("data-tooltip", tooltipText);
-                span.textContent = "[?]";
-
-                const selection = window.getSelection();
-                const range = selection.getRangeAt(0);
-                range.insertNode(span);
-                range.collapse(false);
-            }
-            /**
-             * Generate share link AND copy to clipboard in one click.
-             */
-            function generateAndCopyLink() {
-                GetQuickLink();
-                var copyText = document.getElementById("shareLink");
-                copyText.select();
-                copyText.setSelectionRange(0, 99999);
-                navigator.clipboard.writeText(copyText.value).then(function () {
-                    showToast("Link copied! (Ctrl+V to share)");
-                }).catch(function () {
-                    showToast("Link generated. Select & copy manually.");
-                });
-            }
-
-            document.getElementById("toggleButton").addEventListener("click", function (event) {
-                const panel = document.getElementById("overviewPanel");
-
-                if (panel.style.display === "none" || panel.style.display === "") {
-                    event.target.innerHTML = "◀ Hide Overview";
-                    panel.style.display = "block"; // Show the panel
-                } else {
-                    event.target.innerHTML = "▶ Show Overview";
-                    panel.style.display = "none"; // Hide the panel
+        // Add Tome Restriction toggle handler
+        var tomeRestrictionCheckbox = document.getElementById("tomeRestrictionToggle");
+        if (tomeRestrictionCheckbox) {
+            tomeRestrictionCheckbox.addEventListener("change", function () {
+                if (window.TomeRestriction) {
+                    window.TomeRestriction.onToggle(this.checked);
                 }
             });
+        }
 
-            // Add Tome Restriction toggle handler
-            var tomeRestrictionCheckbox = document.getElementById("tomeRestrictionToggle");
-            if (tomeRestrictionCheckbox) {
-                tomeRestrictionCheckbox.addEventListener("change", function () {
-                    if (window.TomeRestriction) {
-                        window.TomeRestriction.onToggle(this.checked);
-                    }
-                });
-            }
+        function toggleEditNotes() {
+            const notesDisplay = document.getElementById("notesDisplay");
+            const notesInput = document.getElementById("NotesInput");
+            const notesEditor = document.getElementById("NotesEditInput");
+            const editBtn = document.getElementById("editNotesBtn");
+            const saveBtn = document.getElementById("saveNotesBtn");
+            // console.log(convertHTMLToBrackets(notesDisplay.innerHTML.trim()));
+            notesInput.innerHTML = convertHTMLToBrackets(notesDisplay.innerHTML);
 
-            function toggleEditNotes() {
-                const notesDisplay = document.getElementById("notesDisplay");
-                const notesInput = document.getElementById("NotesInput");
-                const notesEditor = document.getElementById("NotesEditInput");
-                const editBtn = document.getElementById("editNotesBtn");
-                const saveBtn = document.getElementById("saveNotesBtn");
-                // console.log(convertHTMLToBrackets(notesDisplay.innerHTML.trim()));
-                notesInput.innerHTML = convertHTMLToBrackets(notesDisplay.innerHTML);
+            notesInput.innerHTML = convertHTMLToNames(notesInput.innerHTML);
+            notesDisplay.style.display = "none";
+            notesEditor.style.display = "block";
+            editBtn.style.display = "none";
+            saveBtn.style.display = "inline-block";
+        }
 
-                notesInput.innerHTML = convertHTMLToNames(notesInput.innerHTML);
-                notesDisplay.style.display = "none";
-                notesEditor.style.display = "block";
-                editBtn.style.display = "none";
-                saveBtn.style.display = "inline-block";
-            }
+        const excludedTags = ["p", "span", "div", "strong", "em"]; // excluded tags to stop breaking
 
-            const excludedTags = ["p", "span", "div", "strong", "em"]; // excluded tags to stop breaking
+        function convertHTMLToBrackets(text) {
+            return text.replace(/<([a-z0-9]+)><\/\1>/gi, (match, tag) => {
+                return excludedTags.includes(tag.toLowerCase()) ? match : `[${tag}]`;
+            });
+        }
 
-            function convertHTMLToBrackets(text) {
-                return text.replace(/<([a-z0-9]+)><\/\1>/gi, (match, tag) => {
-                    return excludedTags.includes(tag.toLowerCase()) ? match : `[${tag}]`;
-                });
-            }
+        function convertNamesToHTML(text) {
+            return text.replace(/\{([^}]+)\}/g, (match, name) => {
+                const data = LookUpName(name);
+                if (!data) return match; // Leave unchanged if not found
 
-            function convertNamesToHTML(text) {
-                return text.replace(/\{([^}]+)\}/g, (match, name) => {
-                    const data = LookUpName(name);
-                    if (!data) return match; // Leave unchanged if not found
-
-                    return `<span class="named-tag" style="color: burlywood; display: inline-flex; align-items: center; gap: 4px;">
+                return `<span class="named-tag" style="color: burlywood; display: inline-flex; align-items: center; gap: 4px;">
                     <img src="/aow4db/Icons/TraitIcons/${data.icon}.png" alt="${name}" style="width: 16px; height: 16px;" />
                     ${name}
                 </span>`;
+            });
+        }
+
+        function LookUpName(name) {
+            var data = GetCurrentChoiceList().find((entry) => entry.name.indexOf(name) != -1);
+
+            return data;
+        }
+
+        function convertHTMLToNames(text) {
+            return text.replace(
+                /<span class="named-tag"[^>]*>[\s\S]*?<img[^>]*>\s*([^<]+?)\s*<\/span>/g,
+                (match, name) => `{${name.trim()}}`
+            );
+        }
+
+        function convertBracketsToHTML(text) {
+            return text.replace(/\[([a-z0-9]+)\]/gi, (match, tag) => {
+                return excludedTags.includes(tag.toLowerCase()) ? match : `<${tag}></${tag}>`;
+            });
+        }
+
+        function saveNotes() {
+            const notesDisplay = document.getElementById("notesDisplay");
+            const notesInput = document.getElementById("NotesInput");
+            const notesEditor = document.getElementById("NotesEditInput");
+            const editBtn = document.getElementById("editNotesBtn");
+            const saveBtn = document.getElementById("saveNotesBtn");
+
+            notesDisplay.innerHTML = convertBracketsToHTML(notesInput.innerHTML);
+            notesDisplay.innerHTML = convertNamesToHTML(notesDisplay.innerHTML);
+            rawNotes = notesInput.innerHTML;
+            console.log(rawNotes);
+            notesDisplay.style.display = "block";
+            notesEditor.style.display = "none";
+            editBtn.style.display = "inline-block";
+            saveBtn.style.display = "none";
+
+            // console.log("Saved HTML:", notesInput.innerHTML);
+        }
+
+        function submitBuild2(buildName, tags, notes) {
+            var getLink = GenerateQuickLink();
+            var currenturl = window.location.href.split("?")[0];
+            getLink = currenturl + "?u=" + getLink;
+
+            var userEditKey = getOrCreateUserEditKey();
+            var url = new URL(
+                "https://script.google.com/macros/s/AKfycbz5r36EOFcrtfu2Y3CN8DdgDkJDiq6NHf7Y6JEv1IkngOG4we3F5uFU6o5aYFSnm5M4/exec"
+            );
+            url.searchParams.set("action", "save");
+            // actual build settings
+            url.searchParams.set("buildName", buildName);
+            url.searchParams.set("notes", notes);
+            url.searchParams.set("url", getLink);
+            url.searchParams.set("tags", tags);
+            url.searchParams.set("views", 0);
+            url.searchParams.set("editKey", userEditKey);
+
+            if (spinner) spinner.style.display = "block";
+            fetch(url)
+                .then((res) => res.text())
+                .then((msg) => alert("Submitted: " + msg))
+                .catch((err) => console.error("Submission failed:", err))
+                .finally(() => {
+                    if (spinner) spinner.style.display = "none";
                 });
-            }
+        }
 
-            function LookUpName(name) {
-                var data = GetCurrentChoiceList().find((entry) => entry.name.indexOf(name) != -1);
+        function updateBuild(buildName, notes, oldURL, tags) {
+            var getLink = GenerateQuickLink();
+            var currenturl = window.location.href.split("?")[0];
+            getLink = currenturl + "?u=" + getLink;
+            if (spinner) spinner.style.display = "block";
+            var userEditKey = getOrCreateUserEditKey();
+            var url = new URL(
+                "https://script.google.com/macros/s/AKfycbz5r36EOFcrtfu2Y3CN8DdgDkJDiq6NHf7Y6JEv1IkngOG4we3F5uFU6o5aYFSnm5M4/exec"
+            );
+            url.searchParams.set("action", "edit");
+            // actual build settings
+            url.searchParams.set("buildName", buildName);
+            url.searchParams.set("tags", tags);
+            url.searchParams.set("notes", notes);
+            url.searchParams.set("oldURL", oldURL);
+            url.searchParams.set("newURL", getLink);
+            url.searchParams.set("editKey", userEditKey);
 
-                return data;
-            }
-
-            function convertHTMLToNames(text) {
-                return text.replace(
-                    /<span class="named-tag"[^>]*>[\s\S]*?<img[^>]*>\s*([^<]+?)\s*<\/span>/g,
-                    (match, name) => `{${name.trim()}}`
-                );
-            }
-
-            function convertBracketsToHTML(text) {
-                return text.replace(/\[([a-z0-9]+)\]/gi, (match, tag) => {
-                    return excludedTags.includes(tag.toLowerCase()) ? match : `<${tag}></${tag}>`;
+            fetch(url)
+                .then((res) => res.text())
+                .then((msg) => alert("Submitted: " + msg))
+                .catch((err) => console.error("Submission failed:", err))
+                .finally(() => {
+                    if (spinner) spinner.style.display = "none";
                 });
-            }
+        }
 
-            function saveNotes() {
-                const notesDisplay = document.getElementById("notesDisplay");
-                const notesInput = document.getElementById("NotesInput");
-                const notesEditor = document.getElementById("NotesEditInput");
-                const editBtn = document.getElementById("editNotesBtn");
-                const saveBtn = document.getElementById("saveNotesBtn");
+        function getBuildNameAndIcon() {
+            var name = document.getElementById("buildName").value;
 
-                notesDisplay.innerHTML = convertBracketsToHTML(notesInput.innerHTML);
-                notesDisplay.innerHTML = convertNamesToHTML(notesDisplay.innerHTML);
-                rawNotes = notesInput.innerHTML;
-                console.log(rawNotes);
-                notesDisplay.style.display = "block";
-                notesEditor.style.display = "none";
-                editBtn.style.display = "inline-block";
-                saveBtn.style.display = "none";
+            return name;
+        }
 
-                // console.log("Saved HTML:", notesInput.innerHTML);
-            }
+        function GenerateGenericName() {
+            return currentTomeList[0].name;
+        }
 
-            function submitBuild2(buildName, tags, notes) {
-                var getLink = GenerateQuickLink();
-                var currenturl = window.location.href.split("?")[0];
-                getLink = currenturl + "?u=" + getLink;
+        function overwriteBuild() {
+            var oldURLName = document.getElementById("oldURL").innerText;
+            // get notes
+            var notes = rawNotes;
+            const tagArray = Array.from(selectedTags);
 
-                var userEditKey = getOrCreateUserEditKey();
-                var url = new URL(
-                    "https://script.google.com/macros/s/AKfycbz5r36EOFcrtfu2Y3CN8DdgDkJDiq6NHf7Y6JEv1IkngOG4we3F5uFU6o5aYFSnm5M4/exec"
-                );
-                url.searchParams.set("action", "save");
-                // actual build settings
-                url.searchParams.set("buildName", buildName);
-                url.searchParams.set("notes", notes);
-                url.searchParams.set("url", getLink);
-                url.searchParams.set("tags", tags);
-                url.searchParams.set("views", 0);
-                url.searchParams.set("editKey", userEditKey);
+            updateBuild(getBuildNameAndIcon(), rawNotes, oldURLName, tagArray);
+        }
 
-                if (spinner) spinner.style.display = "block";
-                fetch(url)
-                    .then((res) => res.text())
-                    .then((msg) => alert("Submitted: " + msg))
-                    .catch((err) => console.error("Submission failed:", err))
-                    .finally(() => {
-                        if (spinner) spinner.style.display = "none";
-                    });
-            }
+        // Example usage
+        function submitBuild() {
+            var buildName = getBuildNameAndIcon();
 
-            function updateBuild(buildName, notes, oldURL, tags) {
-                var getLink = GenerateQuickLink();
-                var currenturl = window.location.href.split("?")[0];
-                getLink = currenturl + "?u=" + getLink;
-                if (spinner) spinner.style.display = "block";
-                var userEditKey = getOrCreateUserEditKey();
-                var url = new URL(
-                    "https://script.google.com/macros/s/AKfycbz5r36EOFcrtfu2Y3CN8DdgDkJDiq6NHf7Y6JEv1IkngOG4we3F5uFU6o5aYFSnm5M4/exec"
-                );
-                url.searchParams.set("action", "edit");
-                // actual build settings
-                url.searchParams.set("buildName", buildName);
-                url.searchParams.set("tags", tags);
-                url.searchParams.set("notes", notes);
-                url.searchParams.set("oldURL", oldURL);
-                url.searchParams.set("newURL", getLink);
-                url.searchParams.set("editKey", userEditKey);
+            //var notes = document.getElementById("NotesInput");
+            // console.log(notes + " " + notes.value);
+            const tagArray = Array.from(selectedTags);
 
-                fetch(url)
-                    .then((res) => res.text())
-                    .then((msg) => alert("Submitted: " + msg))
-                    .catch((err) => console.error("Submission failed:", err))
-                    .finally(() => {
-                        if (spinner) spinner.style.display = "none";
-                    });
-            }
+            submitBuild2(buildName, tagArray, rawNotes);
+        }
 
-            function getBuildNameAndIcon() {
-                var name = document.getElementById("buildName").value;
-
-                return name;
-            }
-
-            function GenerateGenericName() {
-                return currentTomeList[0].name;
-            }
-
-            function overwriteBuild() {
-                var oldURLName = document.getElementById("oldURL").innerText;
-                // get notes
-                var notes = rawNotes;
-                const tagArray = Array.from(selectedTags);
-
-                updateBuild(getBuildNameAndIcon(), rawNotes, oldURLName, tagArray);
-            }
-
-            // Example usage
-            function submitBuild() {
-                var buildName = getBuildNameAndIcon();
-
-                //var notes = document.getElementById("NotesInput");
-                // console.log(notes + " " + notes.value);
-                const tagArray = Array.from(selectedTags);
-
-                submitBuild2(buildName, tagArray, rawNotes);
-            }
-
-            document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function () {
 
             // Seleciona o elemento de afinidade e reposiciona-lo para a direita quando necessário
             const affinityElement = document.querySelector("#currentAffinity");
@@ -1381,6 +1375,11 @@
                 return;
             }
 
+            // Recorta estritamente o box (.container) para evitar margens vazias na imagem (Discord)
+            const overviewPanel = document.getElementById("overviewPanel");
+            const isOverviewOpen = overviewPanel && overviewPanel.style.display !== "none" && overviewPanel.style.display !== "";
+            const targetEl = isOverviewOpen ? captureEl : (captureEl.querySelector(".container") || captureEl);
+
             showPageLoading("Capturing screenshot…");
 
             // Proteção contra bug de subpixel/0x0 do html2canvas em createPattern
@@ -1397,55 +1396,63 @@
 
             try {
                 const canvas = await html2canvas(captureEl, {
-                    backgroundColor: null,   // transparent – sem fundo cinza
-                    scale: 2,
-                    useCORS: true,
-                    allowTaint: true,
-                    logging: false,
-                    onclone: (clonedDoc) => {
-                        const clonedCapture = clonedDoc.getElementById("capture");
-                        if (!clonedCapture) return;
+                    const canvas = await html2canvas(targetEl, {
+                        backgroundColor: null,   // transparent – sem fundo cinza
+                        scale: 2,
+                        useCORS: true,
+                        allowTaint: true,
+                        logging: false,
+                        onclone: (clonedDoc) => {
+                            const clonedCapture = clonedDoc.getElementById("capture");
+                            if (!clonedCapture) return;
 
-                        // Remove painéis ocultos que possam ter dimensões 0x0
-                        const hiddenElements = clonedCapture.querySelectorAll("#overviewPanel, #tomeRestrictionDisplay");
-                        hiddenElements.forEach(el => {
-                            if (el.style.display === "none") el.remove();
-                        });
+                            // Remove painéis ocultos que possam ter dimensões 0x0
+                            const hiddenElements = clonedCapture.querySelectorAll("#overviewPanel, #tomeRestrictionDisplay");
+                            hiddenElements.forEach(el => {
+                                if (el.style.display === "none") el.remove();
+                            });
+                            // Se o painel overview estiver oculto, remove elementos ocultos que possam quebrar dimensões
+                            if (!isOverviewOpen) {
+                                const hiddenElements = clonedCapture.querySelectorAll("#overviewPanel, #tomeRestrictionDisplay");
+                                hiddenElements.forEach(el => {
+                                    if (el.style.display === "none") el.remove();
+                                });
+                            }
 
-                        // Corrige elementos com content:url() no clone
-                        fixContentUrlElements(clonedCapture);
+                            // Corrige elementos com content:url() no clone
+                            fixContentUrlElements(clonedCapture);
 
-                        // Afina bordas no clone para o screenshot
-                        var containers = clonedCapture.querySelectorAll(".container");
-                        for (var ci = 0; ci < containers.length; ci++) {
-                            containers[ci].style.borderWidth = "4px";
+                            // Afina bordas no clone para o screenshot
+                            var containers = clonedCapture.querySelectorAll(".container");
+                            for (var ci = 0; ci < containers.length; ci++) {
+                                containers[ci].style.borderWidth = "4px";
+                            }
+                            var inputs = clonedCapture.querySelectorAll(".inputfield");
+                            for (var ii = 0; ii < inputs.length; ii++) {
+                                inputs[ii].style.borderWidth = "4px";
+                            }
                         }
-                        var inputs = clonedCapture.querySelectorAll(".inputfield");
-                        for (var ii = 0; ii < inputs.length; ii++) {
-                            inputs[ii].style.borderWidth = "4px";
-                        }
-                    }
-                });
+                    });
 
-                capturedDataUrl = canvas.toDataURL("image/png");
-                showPrintModal(capturedDataUrl);
-            } catch (err) {
-                console.error("PrintScreen failed:", err);
-                alert("Failed to capture screenshot.");
-            } finally {
-                CanvasRenderingContext2D.prototype.createPattern = origCreatePattern;
-                hidePageLoading();
+                    capturedDataUrl = canvas.toDataURL("image/png");
+                    showPrintModal(capturedDataUrl);
+                } catch (err) {
+                    console.error("PrintScreen failed:", err);
+                    alert("Failed to capture screenshot.");
+                } finally {
+                    CanvasRenderingContext2D.prototype.createPattern = origCreatePattern;
+                    hidePageLoading();
+                }
             }
-        }
 
         function showPrintModal(dataUrl) {
-            // remove old modal if any
-            const old = document.getElementById("printModal");
-            if (old) old.remove();
+                // remove old modal if any
+                const old = document.getElementById("printModal");
+                if (old) old.remove();
 
-            const modal = document.createElement("div");
-            modal.id = "printModal";
-            modal.innerHTML = `
+                const modal = document.createElement("div");
+                modal.id = "printModal";
+                modal.innerHTML = `
                 <div class="modal-content">
                     <h3>Screenshot Ready</h3>
                     <img class="preview-img" src="${dataUrl}" alt="Preview" />
@@ -1457,79 +1464,80 @@
                     </div>
                 </div>
             `;
-            document.body.appendChild(modal);
-            modal.style.display = "block";
+                document.body.appendChild(modal);
+                modal.style.display = "block";
 
-            // Close on background click
-            modal.addEventListener("click", function (e) {
-                if (e.target === modal) closePrintModal();
-            });
+                // Close on background click
+                modal.addEventListener("click", function (e) {
+                    if (e.target === modal) closePrintModal();
+                });
 
-            // Cancel
-            modal.querySelector("#btnCancelModal").addEventListener("click", closePrintModal);
+                // Cancel
+                modal.querySelector("#btnCancelModal").addEventListener("click", closePrintModal);
 
-            // Download
-            modal.querySelector("#btnDownloadImage").addEventListener("click", function () {
-                downloadImage(capturedDataUrl);
-                closePrintModal();
-            });
+                // Download
+                modal.querySelector("#btnDownloadImage").addEventListener("click", function () {
+                    downloadImage(capturedDataUrl);
+                    closePrintModal();
+                });
 
-            // Copy to clipboard
-            modal.querySelector("#btnCopyImage").addEventListener("click", async function () {
-                await copyImageToClipboard(capturedDataUrl);
-                closePrintModal();
-            });
-        }
-
-        function closePrintModal() {
-            const modal = document.getElementById("printModal");
-            if (modal) modal.remove();
-        }
-
-        function downloadImage(dataUrl) {
-            const link = document.createElement("a");
-            link.download = "faction-creator-" + Date.now() + ".png";
-            link.href = dataUrl;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-
-        async function copyImageToClipboard(dataUrl) {
-            try {
-                const res = await fetch(dataUrl);
-                const blob = await res.blob();
-                await navigator.clipboard.write([
-                    new ClipboardItem({ "image/png": blob })
-                ]);
-                // brief feedback (non-blocking alert)
-                showToast("Image copied to clipboard! (Ctrl+V to paste)");
-            } catch (err) {
-                console.error("Clipboard copy failed:", err);
-                // fallback: open in new tab where user can right-click → copy
-                const win = window.open("");
-                win.document.write(`<img src="${dataUrl}" style="max-width:100%"/><p style="color:#fff;font-family:sans-serif">Right-click the image and choose "Copy image", then paste with Ctrl+V.</p>`);
-                win.document.title = "Screenshot - Right-click to copy";
+                // Copy to clipboard
+                modal.querySelector("#btnCopyImage").addEventListener("click", async function () {
+                    await copyImageToClipboard(capturedDataUrl);
+                    closePrintModal();
+                });
             }
-        }
 
-        function showToast(msg) {
-            const toast = document.createElement("div");
-            toast.textContent = msg;
-            toast.style.cssText = `
+            function closePrintModal() {
+                const modal = document.getElementById("printModal");
+                if (modal) modal.remove();
+            }
+
+            function downloadImage(dataUrl) {
+                const link = document.createElement("a");
+                link.download = "faction-creator-" + Date.now() + ".png";
+                link.href = dataUrl;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+
+            async function copyImageToClipboard(dataUrl) {
+                try {
+                    const res = await fetch(dataUrl);
+                    const blob = await res.blob();
+                    await navigator.clipboard.write([
+                        new ClipboardItem({ "image/png": blob })
+                    ]);
+                    // brief feedback (non-blocking alert)
+                    showToast("Image copied to clipboard! (Ctrl+V to paste)");
+                } catch (err) {
+                    console.error("Clipboard copy failed:", err);
+                    // fallback: open in new tab where user can right-click → copy
+                    const win = window.open("");
+                    win.document.write(`<img src="${dataUrl}" style="max-width:100%"/><p style="color:#fff;font-family:sans-serif">Right-click the image and choose "Copy image", then paste with Ctrl+V.</p>`);
+                    win.document.title = "Screenshot - Right-click to copy";
+                }
+            }
+
+            function showToast(msg) {
+                const toast = document.createElement("div");
+                toast.textContent = msg;
+                toast.style.cssText = `
                 position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
                 background: #2e7d32; color: #fff; padding: 12px 24px;
                 border-radius: 6px; font-family: "Regular", sans-serif;
                 font-size: 14px; z-index: 99999; pointer-events: none;
                 transition: opacity 0.4s; opacity: 1;
             `;
-            document.body.appendChild(toast);
-            setTimeout(() => {
-                toast.style.opacity = "0";
-                setTimeout(() => toast.remove(), 400);
-            }, 2500);
-        }
-        </script>
-    </body>
+                document.body.appendChild(toast);
+                setTimeout(() => {
+                    toast.style.opacity = "0";
+                    setTimeout(() => toast.remove(), 400);
+                }, 2500);
+            }
+    </script>
+</body>
+
 </html>
 <footer><br /><br /></footer>
