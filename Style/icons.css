@@ -328,6 +328,7 @@ THRONESOFBLOOD,
 RISEFROMRUIN,
 SECRETSOFTHEARCHMAGES,
 WITCHOFTHEWAVES,
+SILVERSEAS,
 THESILVERSEAS {
     max-width: 20px;
     top: 7px;
@@ -384,6 +385,13 @@ WAYSOFWAR {
 }
 ARCHONPROPHECY {
     content: url(/aow4db/Icons/Text/ArchonProphecy.png);
+}
+WITCHOFTHEWAVES {
+    content: url(/aow4db/Icons/Text/singer_of_storms.png);
+}
+SILVERSEAS,
+THESILVERSEAS {
+    content: url(/aow4db/Icons/Text/the_silver_seas.png);
 }
 
 /* ///////////////////////////////DLC TAGS */

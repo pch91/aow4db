@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
     <head>
         <!-- Google tag (gtag.js) -->
@@ -1318,6 +1318,7 @@
                 "boxSizing", "zoom"
             ];
 
+            const win = clone.ownerDocument.defaultView || window;
             var all = clone.querySelectorAll("*");
             var toReplace = [];
             for (var i = 0; i < all.length; i++) {
@@ -1325,7 +1326,7 @@
                 // Fast skip: standard HTML elements are lowercase;
                 // custom elements (empireorderBig, DRAGONLORDS) have uppercase
                 if (el.nodeName === el.nodeName.toLowerCase()) continue;
-                var style = window.getComputedStyle(el);
+                var style = win.getComputedStyle(el);
                 var content = style.content;
                 if (!content || content === "none" || content === "normal") continue;
                 var m = content.match(/url\(["']?([^"')]+)["']?\)/);
@@ -1337,7 +1338,7 @@
                 var item = toReplace[j];
                 var el = item.el;
                 var url = item.url;
-                var style = window.getComputedStyle(el);
+                var style = win.getComputedStyle(el);
 
                 var img = document.createElement("img");
                 img.src = url;
@@ -1382,47 +1383,59 @@
 
             showPageLoading("Capturing screenshot…");
 
+            // Proteção contra bug de subpixel/0x0 do html2canvas em createPattern
+            const origCreatePattern = CanvasRenderingContext2D.prototype.createPattern;
+            CanvasRenderingContext2D.prototype.createPattern = function (image, repetition) {
+                if (image && (image.width === 0 || image.height === 0)) {
+                    const dummy = document.createElement("canvas");
+                    dummy.width = 1;
+                    dummy.height = 1;
+                    return origCreatePattern.call(this, dummy, repetition);
+                }
+                return origCreatePattern.call(this, image, repetition);
+            };
+
             try {
-                // clone off-screen so we don't flash the visible DOM
-                const clone = captureEl.cloneNode(true);
-                clone.style.position = "fixed";
-                clone.style.left = "-9999px";
-                clone.style.top = "0";
-                clone.style.zIndex = "-1";
-                clone.style.pointerEvents = "none";
-                document.body.appendChild(clone);
-
-                // fix CSS content:url() elements in the clone
-                fixContentUrlElements(clone);
-
-                // afina bordas no clone para o screenshot (border-image fica
-                // pesado demais no html2canvas com border-width > 4px)
-                var containers = clone.querySelectorAll(".container");
-                for (var ci = 0; ci < containers.length; ci++) {
-                    containers[ci].style.borderWidth = "4px";
-                }
-                var inputs = clone.querySelectorAll(".inputfield");
-                for (var ii = 0; ii < inputs.length; ii++) {
-                    inputs[ii].style.borderWidth = "4px";
-                }
-
-                const canvas = await html2canvas(clone, {
+                const canvas = await html2canvas(captureEl, {
                     backgroundColor: null,   // transparent – sem fundo cinza
                     scale: 2,
                     useCORS: true,
-                    allowTaint: true
-                });
+                    allowTaint: true,
+                    logging: false,
+                    onclone: (clonedDoc) => {
+                        const clonedCapture = clonedDoc.getElementById("capture");
+                        if (!clonedCapture) return;
 
-                // remove clone
-                document.body.removeChild(clone);
+                        // Remove painéis ocultos que possam ter dimensões 0x0
+                        const hiddenElements = clonedCapture.querySelectorAll("#overviewPanel, #tomeRestrictionDisplay");
+                        hiddenElements.forEach(el => {
+                            if (el.style.display === "none") el.remove();
+                        });
+
+                        // Corrige elementos com content:url() no clone
+                        fixContentUrlElements(clonedCapture);
+
+                        // Afina bordas no clone para o screenshot
+                        var containers = clonedCapture.querySelectorAll(".container");
+                        for (var ci = 0; ci < containers.length; ci++) {
+                            containers[ci].style.borderWidth = "4px";
+                        }
+                        var inputs = clonedCapture.querySelectorAll(".inputfield");
+                        for (var ii = 0; ii < inputs.length; ii++) {
+                            inputs[ii].style.borderWidth = "4px";
+                        }
+                    }
+                });
 
                 capturedDataUrl = canvas.toDataURL("image/png");
                 showPrintModal(capturedDataUrl);
             } catch (err) {
                 console.error("PrintScreen failed:", err);
                 alert("Failed to capture screenshot.");
+            } finally {
+                CanvasRenderingContext2D.prototype.createPattern = origCreatePattern;
+                hidePageLoading();
             }
-            hidePageLoading();
         }
 
         function showPrintModal(dataUrl) {

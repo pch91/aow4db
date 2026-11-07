@@ -2,7 +2,7 @@ searchParams = new URLSearchParams(window.location.search);
 searchKeyword = searchParams.get("u");
 _deferDepth = 0; // >0 when inside a deferred work chain — functions run sync instead of deferring again
 
-var ListOfSubcultureHolders = ["Architect", "Primal", "Mystic", "Oathsworn", "Feudal", "Dark", "Nomad", "Reaver"];
+var ListOfSubcultureHolders = ["Architect", "Primal", "Mystic", "Oathsworn", "Feudal", "Dark", "Nomad", "Reaver", "Mercantile"];
 var ListOfSubsocietyHolders = ["Vision of Promise", "Vision of Ruin", "Vision of Destiny"];
 
 var currentOrigin = "";
@@ -162,6 +162,7 @@ function SetRandomStart(overwriteParameter) {
         listofChoice.push("SubCulture");
         listofChoice.push("SubSociety1");
         listofChoice.push("SubSociety2");
+        listofChoice.push("Ambition");
 
         var j = "";
         for (j = 0; j < listofChoice.length; j++) {
@@ -263,6 +264,9 @@ function SetRandomStart(overwriteParameter) {
                     if (origin != "") {
                         currentSubSociety2 = randomEntry;
                     }
+                    break;
+                case "Ambition":
+                    currentAmbition = randomEntry;
                     break;
             }
 
@@ -1808,14 +1812,17 @@ function findOriginLocName(origin, type) {
                 if ("extraLookup2" in origin) {
                     const valueLookup2 = findBy(jsonAllFromPOLocalized, "id", origin.extraLookup2);
 
-                    newOrigin = valueLookup2.hyperlink || valueLookup2.name || valueLookup2.title;
+                    newOrigin = valueLookup2 ? (valueLookup2.hyperlink || valueLookup2.name || valueLookup2.title) : "";
                 } else {
-                    newOrigin = valueLookup.hyperlink || valueLookup.name;
+                    newOrigin = valueLookup ? (valueLookup.hyperlink || valueLookup.name) : "";
                 }
             } else {
                 newOrigin = origin.name;
             }
           
+            if (!newOrigin) {
+                newOrigin = origin.name || "";
+            }
             newOrigin = newOrigin.split("{")[0];
             break;
 
@@ -3432,12 +3439,12 @@ function GetAllAscensions() {
 function GetAllAmbitions() {
     var listOfAllOrigins = [];
 
-    for (i = 0; i < jsonHeroAmbitions.length; i++) {
+    for (let i = 0; i < jsonHeroAmbitions.length; i++) {
         if (jsonHeroAmbitions[i].available_to_rulers == true) {
             listOfAllOrigins.push(jsonHeroAmbitions[i]);
         }
     }
-    listOfAllOrigins.sort((a, b) => a.name - b.name);
+    listOfAllOrigins.sort((a, b) => a.name.localeCompare(b.name));
     return listOfAllOrigins;
 }
 
@@ -3616,6 +3623,10 @@ function GetRandomEntry(type) {
             while (incompatibleCheck("Class", randomOrigin) === true) {
                 randomOrigin = list[Math.floor(Math.random() * list.length)];
             }
+            break;
+        case "Ambition":
+            var list = GetAllAmbitions();
+            randomOrigin = list[Math.floor(Math.random() * list.length)];
             break;
         // case "Signature":
         //     currentSignatureSkills = [];
