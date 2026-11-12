@@ -287,6 +287,17 @@
             box-sizing: border-box;
         }
 
+        #hoverDiv,
+        #hoverDiv2,
+        dialog.tooltiptextnew,
+        .tooltiptextnew {
+            z-index: 25000 !important;
+        }
+
+        #hoverDiv2 {
+            z-index: 25001 !important;
+        }
+
         .container {
             display: inline-block;
             position: relative;
@@ -791,7 +802,7 @@
                 </div>
 
                 <div class="subDivider">
-                    <div style="width: 280px">
+                    <div style="width: 450px">
                         <div class="subSubDiv">
                             <div style="min-height: 200px">
                                 <span class="small_title"> Ruler</span>
@@ -812,34 +823,61 @@
                                     <button class="button-inset" id="originButtonClass"
                                         onclick="SetupButtons(event,'Class')"></button>
                                 </div>
+                                <div id="buttonContainerWeapon">
+                                    <button class="button-inset" id="originButtonWeapon" style="left: 45px;"
+                                        onclick="SetupButtons(event,'Weapon')"></button>
+                                </div>
                                 <div id="buttonContainer9">
                                     <button class="button-inset" id="originButtonTome"
                                         onclick="SetupButtons(event,'Tome')"></button>
                                 </div>
                                 <br /><br />
-                                <div id="buttonContainer7">
-                                    <span class="small_title"> Ascension</span>
-                                    <button style="float: right; color: red" class="button"
-                                        onclick="ClearAscensionSkill()">
-                                        <img src="/aow4db/Icons/Interface/CloseX.png" height="20px" />
-                                    </button>
-                                    <button class="button-inset" id="originButtonAscension"
-                                        onclick="SetupButtons(event,'Ascension')">
-                                        <img class="padded-image" src="/aow4db/Icons/Interface/addsymbol.png"
-                                            height="20px" />
-                                    </button>
-                                </div>
-                                <br><br>
-                                <div id="buttonContainer15">
-                                    <span class="small_title"> Ambition</span>
-                                    <button style="float: right; color: red" class="button" onclick="ClearAmbition()">
-                                        <img src="/aow4db/Icons/Interface/CloseX.png" height="20px" />
-                                    </button>
-                                    <button class="button-inset" id="originButtonAmbition"
-                                        onclick="SetupButtons(event,'Ambition')">
-                                        <img class="padded-image" src="/aow4db/Icons/Interface/addsymbol.png"
-                                            height="20px" />
-                                    </button>
+                                <div style="display: flex; gap: 20px; align-items: flex-start;">
+                                    <div style="flex: 1; min-width: 190px;">
+                                        <div id="buttonContainer7">
+                                            <span class="small_title"> Ascension</span>
+                                            <button style="float: right; color: red" class="button"
+                                                onclick="ClearAscensionSkill()">
+                                                <img src="/aow4db/Icons/Interface/CloseX.png" height="20px" />
+                                            </button>
+                                            <button class="button-inset" id="originButtonAscension"
+                                                onclick="SetupButtons(event,'Ascension')">
+                                                <img class="padded-image" src="/aow4db/Icons/Interface/addsymbol.png"
+                                                    height="20px" />
+                                            </button>
+                                        </div>
+                                        <br><br>
+                                        <div id="buttonContainer15">
+                                            <span class="small_title"> Ambition</span>
+                                            <button style="float: right; color: red" class="button"
+                                                onclick="ClearAmbition()">
+                                                <img src="/aow4db/Icons/Interface/CloseX.png" height="20px" />
+                                            </button>
+                                            <button class="button-inset" id="originButtonAmbition"
+                                                onclick="SetupButtons(event,'Ambition')">
+                                                <img class="padded-image" src="/aow4db/Icons/Interface/addsymbol.png"
+                                                    height="20px" />
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div style="flex: 1; min-width: 190px;">
+                                        <div id="buttonContainerPersonality">
+                                            <span class="small_title"> AI Personality</span>
+                                            <button style="float: right; color: red" class="button"
+                                                onclick="ClearPersonality()">
+                                                <img src="/aow4db/Icons/Interface/CloseX.png" height="20px" />
+                                            </button>
+                                            <button class="button-inset" id="originButtonPersonality"
+                                                onclick="SetupButtons(event,'Personality')">
+                                                <img class="padded-image" src="/aow4db/Icons/Interface/addsymbol.png"
+                                                    height="20px" />
+                                            </button>
+                                        </div>
+                                        <br><br>
+                                        <!-- 4th slot stays empty -->
+                                        <div style="min-height: 48px;"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -916,8 +954,7 @@
                     <label
                         style="color:#d7c297;font-family:'Decorative';font-size:12px;cursor:pointer;margin-left:10px;">
                         <input type="checkbox" id="tomeRestrictionToggle"
-                            style="vertical-align:middle;margin-right:4px;"
-                            onchange="showPageLoading('Applying restrictions…');"> Tome Restriction
+                            style="vertical-align:middle;margin-right:4px;"> Tome Restriction
                     </label>
 
                     <button style="float: right; color: red" class="button" onclick="ClearTomePath()">
@@ -1085,15 +1122,6 @@
             }
         });
 
-        // Add Tome Restriction toggle handler
-        var tomeRestrictionCheckbox = document.getElementById("tomeRestrictionToggle");
-        if (tomeRestrictionCheckbox) {
-            tomeRestrictionCheckbox.addEventListener("change", function () {
-                if (window.TomeRestriction) {
-                    window.TomeRestriction.onToggle(this.checked);
-                }
-            });
-        }
 
         function toggleEditNotes() {
             const notesDisplay = document.getElementById("notesDisplay");
@@ -1395,63 +1423,63 @@
             };
 
             try {
-                    const canvas = await html2canvas(targetEl, {
-                        backgroundColor: null,   // transparent – sem fundo cinza
-                        scale: 2,
-                        useCORS: true,
-                        allowTaint: true,
-                        logging: false,
-                        onclone: (clonedDoc) => {
-                            const clonedCapture = clonedDoc.getElementById("capture");
-                            if (!clonedCapture) return;
+                const canvas = await html2canvas(targetEl, {
+                    backgroundColor: null,   // transparent – sem fundo cinza
+                    scale: 2,
+                    useCORS: true,
+                    allowTaint: true,
+                    logging: false,
+                    onclone: (clonedDoc) => {
+                        const clonedCapture = clonedDoc.getElementById("capture");
+                        if (!clonedCapture) return;
 
-                            // Remove painéis ocultos que possam ter dimensões 0x0
+                        // Remove painéis ocultos que possam ter dimensões 0x0
+                        const hiddenElements = clonedCapture.querySelectorAll("#overviewPanel, #tomeRestrictionDisplay");
+                        hiddenElements.forEach(el => {
+                            if (el.style.display === "none") el.remove();
+                        });
+                        // Se o painel overview estiver oculto, remove elementos ocultos que possam quebrar dimensões
+                        if (!isOverviewOpen) {
                             const hiddenElements = clonedCapture.querySelectorAll("#overviewPanel, #tomeRestrictionDisplay");
                             hiddenElements.forEach(el => {
                                 if (el.style.display === "none") el.remove();
                             });
-                            // Se o painel overview estiver oculto, remove elementos ocultos que possam quebrar dimensões
-                            if (!isOverviewOpen) {
-                                const hiddenElements = clonedCapture.querySelectorAll("#overviewPanel, #tomeRestrictionDisplay");
-                                hiddenElements.forEach(el => {
-                                    if (el.style.display === "none") el.remove();
-                                });
-                            }
-
-                            // Corrige elementos com content:url() no clone
-                            fixContentUrlElements(clonedCapture);
-
-                            // Afina bordas no clone para o screenshot
-                            var containers = clonedCapture.querySelectorAll(".container");
-                            for (var ci = 0; ci < containers.length; ci++) {
-                                containers[ci].style.borderWidth = "4px";
-                            }
-                            var inputs = clonedCapture.querySelectorAll(".inputfield");
-                            for (var ii = 0; ii < inputs.length; ii++) {
-                                inputs[ii].style.borderWidth = "4px";
-                            }
                         }
-                    });
 
-                    capturedDataUrl = canvas.toDataURL("image/png");
-                    showPrintModal(capturedDataUrl);
-                } catch (err) {
-                    console.error("PrintScreen failed:", err);
-                    alert("Failed to capture screenshot.");
-                } finally {
-                    CanvasRenderingContext2D.prototype.createPattern = origCreatePattern;
-                    hidePageLoading();
-                }
+                        // Corrige elementos com content:url() no clone
+                        fixContentUrlElements(clonedCapture);
+
+                        // Afina bordas no clone para o screenshot
+                        var containers = clonedCapture.querySelectorAll(".container");
+                        for (var ci = 0; ci < containers.length; ci++) {
+                            containers[ci].style.borderWidth = "4px";
+                        }
+                        var inputs = clonedCapture.querySelectorAll(".inputfield");
+                        for (var ii = 0; ii < inputs.length; ii++) {
+                            inputs[ii].style.borderWidth = "4px";
+                        }
+                    }
+                });
+
+                capturedDataUrl = canvas.toDataURL("image/png");
+                showPrintModal(capturedDataUrl);
+            } catch (err) {
+                console.error("PrintScreen failed:", err);
+                alert("Failed to capture screenshot.");
+            } finally {
+                CanvasRenderingContext2D.prototype.createPattern = origCreatePattern;
+                hidePageLoading();
             }
+        }
 
         function showPrintModal(dataUrl) {
-                // remove old modal if any
-                const old = document.getElementById("printModal");
-                if (old) old.remove();
+            // remove old modal if any
+            const old = document.getElementById("printModal");
+            if (old) old.remove();
 
-                const modal = document.createElement("div");
-                modal.id = "printModal";
-                modal.innerHTML = `
+            const modal = document.createElement("div");
+            modal.id = "printModal";
+            modal.innerHTML = `
                 <div class="modal-content">
                     <h3>Screenshot Ready</h3>
                     <img class="preview-img" src="${dataUrl}" alt="Preview" />
@@ -1463,78 +1491,78 @@
                     </div>
                 </div>
             `;
-                document.body.appendChild(modal);
-                modal.style.display = "block";
+            document.body.appendChild(modal);
+            modal.style.display = "block";
 
-                // Close on background click
-                modal.addEventListener("click", function (e) {
-                    if (e.target === modal) closePrintModal();
-                });
+            // Close on background click
+            modal.addEventListener("click", function (e) {
+                if (e.target === modal) closePrintModal();
+            });
 
-                // Cancel
-                modal.querySelector("#btnCancelModal").addEventListener("click", closePrintModal);
+            // Cancel
+            modal.querySelector("#btnCancelModal").addEventListener("click", closePrintModal);
 
-                // Download
-                modal.querySelector("#btnDownloadImage").addEventListener("click", function () {
-                    downloadImage(capturedDataUrl);
-                    closePrintModal();
-                });
+            // Download
+            modal.querySelector("#btnDownloadImage").addEventListener("click", function () {
+                downloadImage(capturedDataUrl);
+                closePrintModal();
+            });
 
-                // Copy to clipboard
-                modal.querySelector("#btnCopyImage").addEventListener("click", async function () {
-                    await copyImageToClipboard(capturedDataUrl);
-                    closePrintModal();
-                });
+            // Copy to clipboard
+            modal.querySelector("#btnCopyImage").addEventListener("click", async function () {
+                await copyImageToClipboard(capturedDataUrl);
+                closePrintModal();
+            });
+        }
+
+        function closePrintModal() {
+            const modal = document.getElementById("printModal");
+            if (modal) modal.remove();
+        }
+
+        function downloadImage(dataUrl) {
+            const link = document.createElement("a");
+            link.download = "faction-creator-" + Date.now() + ".png";
+            link.href = dataUrl;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        async function copyImageToClipboard(dataUrl) {
+            try {
+                const res = await fetch(dataUrl);
+                const blob = await res.blob();
+                await navigator.clipboard.write([
+                    new ClipboardItem({ "image/png": blob })
+                ]);
+                // brief feedback (non-blocking alert)
+                showToast("Image copied to clipboard! (Ctrl+V to paste)");
+            } catch (err) {
+                console.error("Clipboard copy failed:", err);
+                // fallback: open in new tab where user can right-click → copy
+                const win = window.open("");
+                win.document.write(`<img src="${dataUrl}" style="max-width:100%"/><p style="color:#fff;font-family:sans-serif">Right-click the image and choose "Copy image", then paste with Ctrl+V.</p>`);
+                win.document.title = "Screenshot - Right-click to copy";
             }
+        }
 
-            function closePrintModal() {
-                const modal = document.getElementById("printModal");
-                if (modal) modal.remove();
-            }
-
-            function downloadImage(dataUrl) {
-                const link = document.createElement("a");
-                link.download = "faction-creator-" + Date.now() + ".png";
-                link.href = dataUrl;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }
-
-            async function copyImageToClipboard(dataUrl) {
-                try {
-                    const res = await fetch(dataUrl);
-                    const blob = await res.blob();
-                    await navigator.clipboard.write([
-                        new ClipboardItem({ "image/png": blob })
-                    ]);
-                    // brief feedback (non-blocking alert)
-                    showToast("Image copied to clipboard! (Ctrl+V to paste)");
-                } catch (err) {
-                    console.error("Clipboard copy failed:", err);
-                    // fallback: open in new tab where user can right-click → copy
-                    const win = window.open("");
-                    win.document.write(`<img src="${dataUrl}" style="max-width:100%"/><p style="color:#fff;font-family:sans-serif">Right-click the image and choose "Copy image", then paste with Ctrl+V.</p>`);
-                    win.document.title = "Screenshot - Right-click to copy";
-                }
-            }
-
-            function showToast(msg) {
-                const toast = document.createElement("div");
-                toast.textContent = msg;
-                toast.style.cssText = `
+        function showToast(msg) {
+            const toast = document.createElement("div");
+            toast.textContent = msg;
+            toast.style.cssText = `
                 position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
                 background: #2e7d32; color: #fff; padding: 12px 24px;
                 border-radius: 6px; font-family: "Regular", sans-serif;
                 font-size: 14px; z-index: 99999; pointer-events: none;
                 transition: opacity 0.4s; opacity: 1;
             `;
-                document.body.appendChild(toast);
-                setTimeout(() => {
-                    toast.style.opacity = "0";
-                    setTimeout(() => toast.remove(), 400);
-                }, 2500);
-            }
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = "0";
+                setTimeout(() => toast.remove(), 400);
+            }, 2500);
+        }
     </script>
 </body>
 

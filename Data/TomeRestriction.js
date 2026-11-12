@@ -41,9 +41,14 @@ window.TomeRestriction = (function () {
             baseAff      = null;
             if (el) el.style.display = "none";
             if (typeof hidePageLoading === "function") hidePageLoading();
-        } else if (!distribution) {
+        } else {
             if (el) el.style.display = "block";
-            onRandomize();
+            if (!distribution) {
+                onRandomize();
+            } else {
+                updateDisplay();
+            }
+            if (typeof hidePageLoading === "function") hidePageLoading();
         }
     }
 

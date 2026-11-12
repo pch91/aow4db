@@ -131,11 +131,12 @@ function updateHoverDivPosition(event, secondary) {
         hoverDiv = document.getElementById("hoverDiv");
     }
     if (settings.tooltipselectable) {
-        hoverDiv.setAttribute("Style", "pointer-events: all;");
+        hoverDiv.style.pointerEvents = "all";
     } else {
-        hoverDiv.setAttribute("Style", "pointer-events: none;");
+        hoverDiv.style.pointerEvents = "none";
         offset = 10;
     }
+    hoverDiv.style.zIndex = secondary != undefined ? "25001" : "25000";
 
     let normalizedPos = getNormalizedPosition(event);
     const mouseX = event.clientX;
